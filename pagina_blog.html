@@ -15,6 +15,7 @@
   --gry:#b6b3ac; --gry-bg:#f4f3f0;
   --dark:#111418;
   --s1:#22a45d; --s2:#2563eb;
+  --mm-blue:#1D6FE0;
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -30,12 +31,11 @@ a{color:inherit}
 .doc-head .kick{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:800}
 .doc-head h1{font-size:25px;line-height:1.15;letter-spacing:-.5px;margin:7px 0 6px}
 .doc-head p{margin:0;color:var(--ink2);font-size:13.5px;max-width:760px}
-.navmocks{display:flex;flex-wrap:wrap;gap:7px;margin-top:13px}
-.navmocks a{
-  text-decoration:none;font-size:11.5px;font-weight:650;
-  border:1px solid var(--line);background:var(--card);border-radius:999px;padding:5px 11px;color:var(--ink2);
-}
-.navmocks a.home{background:var(--ink);color:#fff;border-color:var(--ink)}
+.navdoc{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0 0}
+.navdoc a{font-size:11.5px;font-weight:700;text-decoration:none;color:var(--mm-blue);background:#fff;
+  border:1px solid var(--line);border-radius:20px;padding:6px 13px}
+.navdoc a:hover{border-color:var(--mm-blue)}
+.navdoc a.here{background:var(--mm-blue);border-color:var(--mm-blue);color:#fff}
 .note{
   background:var(--amb-bg);border:1px solid var(--amb-ln);border-left:4px solid var(--amb);
   border-radius:8px;padding:9px 12px;font-size:12px;color:var(--amb-d);margin:14px 0 0
@@ -431,12 +431,16 @@ a{color:inherit}
     <div class="kick">Macro Markets · funil de conteúdo · peça 4</div>
     <h1>Blog / seção de conteúdo — índice e artigo aberto nos 3 cenários</h1>
     <p>O blog é a porta de entrada do funil: é ele que alimenta o Hub do Campeonato e a Página da Rodada. Aqui estão as duas vistas — a grade de artigos e o artigo aberto — mostradas nos três estados de acesso, com o mesmo vocabulário visual das outras páginas.</p>
-    <div class="navmocks">
-      <a class="home" href="mockups_3.html">Documento-mae · mockups_3</a>
-      <a href="pagina_hub_campeonato.html">Hub do Campeonato</a>
-      <a href="pagina_rodada.html">Pagina da Rodada</a>
-    </div>
-    <div class="note">Dados ilustrativos coerentes com a rodada 24 do Brasileirao 2026 e com o jogo de referencia Cruzeiro x Flamengo, no Mineirao. Numeros de mercado seguem a Pagina da Rodada: 38 / 27 / 35.</div>
+  </div>
+  <div class="note">Dados ilustrativos coerentes com a rodada 24 do Brasileirao 2026 e com o jogo de referencia Cruzeiro x Flamengo, no Mineirao. Numeros de mercado seguem a Pagina da Rodada: 38 / 27 / 35.</div>
+  <div class="navdoc">
+    <a href="index.html">Índice</a>
+    <a href="pagina_hub_campeonato.html">Hub</a>
+    <a href="pagina_rodada.html">Rodada 24</a>
+    <a class="here" href="pagina_blog.html">Blog</a>
+    <a href="sequencia_emails.html">E-mails da rodada</a>
+    <a href="sequencia_emails_waitlist.html">Waitlist → Cadastro</a>
+    <a href="pagina_lps_waitlist.html">LPs Waitlist</a>
   </div>
 
   <div class="lgd">

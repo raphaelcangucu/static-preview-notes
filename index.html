@@ -4,51 +4,2129 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow, noarchive">
-<title>Documentos de planejamento</title>
+<title>Macro Markets Futebol — Especificação Visual de Conteúdos e Telas</title>
 <style>
   :root{
-    --mm-blue:#1D6FE0; --mm-green:#16A34A;
+    --mm-blue:#1D6FE0; --mm-blue-d:#155ec2; --mm-green:#16A34A; --mm-green-l:#22c55e;
+    --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
     --ink:#0b0b0b; --ink2:#52514e; --muted:#898781;
     --line:#e1e0d9; --surf:#ffffff; --page:#f4f4f1;
+    --dark:#0E1420; --dark2:#161E2E; --dark3:#1E293B; --dinv:#ffffff; --dink2:#94A3B8;
+    --ok:#0ca30c; --warn:#fab219;
     --sans:system-ui,-apple-system,"Segoe UI",sans-serif;
   }
   *{box-sizing:border-box}
   body{margin:0;background:var(--page);font-family:var(--sans);color:var(--ink);line-height:1.5}
-  .wrap{max-width:820px;margin:0 auto;padding:32px 20px 80px}
+  .wrap{max-width:1180px;margin:0 auto;padding:32px 20px 80px}
 
-  .doc-head{background:linear-gradient(135deg,var(--mm-blue),var(--mm-green));color:#fff;
-    border-radius:16px;padding:32px;margin-bottom:24px}
-  .doc-head h1{margin:0 0 6px;font-size:26px;letter-spacing:-.5px}
-  .doc-head p{margin:0;opacity:.92;font-size:14px}
+  .doc-head{background:linear-gradient(135deg,var(--mm-blue),var(--mm-green));color:#fff;border-radius:16px;padding:36px 32px;margin-bottom:8px}
+  .doc-head h1{margin:0 0 8px;font-size:30px;letter-spacing:-.5px}
+  .doc-head p{margin:0;opacity:.92;font-size:15px;max-width:760px}
+  .note{background:#fff8e6;border:1px solid #f2dfae;border-radius:10px;padding:12px 16px;margin:16px 0 14px;font-size:13px;color:#6b5a1e}
 
-  h2.sec{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
-    border-bottom:1px solid var(--line);padding-bottom:10px;margin:0 0 14px}
+  .navdoc{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px}
+  .navdoc a{font-size:11.5px;font-weight:700;text-decoration:none;color:var(--mm-blue);background:#fff;
+    border:1px solid var(--line);border-radius:20px;padding:6px 13px}
+  .navdoc a:hover{border-color:var(--mm-blue)}
+  .navdoc a.here{background:var(--mm-blue);border-color:var(--mm-blue);color:#fff}
 
-  .docs{display:flex;flex-direction:column;gap:10px}
-  .docs a{display:flex;flex-direction:column;gap:3px;text-decoration:none;
-    background:var(--surf);border:1px solid var(--line);border-radius:12px;padding:16px 18px;
-    box-shadow:0 1px 2px rgba(0,0,0,.04)}
-  .docs a:hover{border-color:var(--mm-blue)}
-  .docs a b{font-size:15px;font-weight:700;letter-spacing:-.2px;color:var(--ink)}
-  .docs a span{font-size:13px;color:var(--ink2)}
+  h2.sec{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+    border-bottom:1px solid var(--line);padding-bottom:10px;margin:56px 0 8px}
+  h3.scr{font-size:22px;margin:28px 0 4px;letter-spacing:-.3px}
+  .why{font-size:14px;color:var(--ink2);margin:0 0 18px;max-width:800px}
+  .why b{color:var(--ink)}
+
+  .frame{background:var(--surf);border:1px solid var(--line);border-radius:14px;overflow:hidden;
+    box-shadow:0 1px 2px rgba(0,0,0,.04),0 8px 24px rgba(0,0,0,.05);margin-bottom:12px}
+  .bar{background:#eceae5;padding:8px 14px;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--line)}
+  .dot{width:10px;height:10px;border-radius:50%;background:#cfcdc6}
+  .url{flex:1;background:#fff;border-radius:6px;padding:4px 12px;font-size:11px;color:var(--muted);margin-left:8px}
+  .pad{padding:28px}
+  .darkpad{padding:24px;background:var(--dark);color:var(--dinv)}
+
+  .logo{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:16px;letter-spacing:-.3px}
+  .logo .m{width:26px;height:26px;border-radius:7px;background:linear-gradient(135deg,var(--mm-blue),var(--mm-green))}
+  .nav{display:flex;justify-content:space-between;align-items:center;padding-bottom:20px;border-bottom:1px solid var(--line);margin-bottom:24px}
+  .nav ul{display:flex;gap:20px;list-style:none;margin:0;padding:0;font-size:13px;color:var(--ink2)}
+
+  .btn{display:inline-block;background:var(--mm-green);color:#fff;padding:13px 26px;border-radius:9px;
+    font-weight:650;font-size:15px;text-decoration:none;border:0}
+  .btn.blue{background:var(--mm-blue)}
+  .btn.sm{padding:9px 18px;font-size:13px}
+  .btn.ghost{background:transparent;color:var(--mm-blue);border:1.5px solid var(--mm-blue)}
+  .btn.full{display:block;text-align:center;width:100%}
+
+  .hero-h{font-size:34px;line-height:1.15;letter-spacing:-.8px;margin:0 0 12px;max-width:620px}
+  .hero-p{font-size:16px;color:var(--ink2);max-width:560px;margin:0 0 22px}
+  .eyebrow{display:inline-block;background:#e8f5ec;color:#146c35;font-size:11px;font-weight:700;
+    letter-spacing:.08em;text-transform:uppercase;padding:5px 11px;border-radius:20px;margin-bottom:14px}
+  .eyebrow.b{background:#e7f0fd;color:#12508f}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  @media(max-width:860px){.grid2,.grid3,.grid4{grid-template-columns:1fr}}
+
+  .card{border:1px solid var(--line);border-radius:11px;padding:16px}
+  .card h4{margin:0 0 6px;font-size:14px}
+  .card p{margin:0;font-size:12.5px;color:var(--ink2)}
+
+  .tile{border:1px solid var(--line);border-radius:11px;padding:14px 16px}
+  .tile .lab{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:6px}
+  .tile .val{font-size:26px;font-weight:700;letter-spacing:-.5px}
+  .tile .sub{font-size:12px;color:var(--ink2);margin-top:2px}
+
+  .match{border:1px solid var(--line);border-radius:11px;padding:14px 16px;margin-bottom:10px;
+    display:flex;align-items:center;gap:14px}
+  .match .tm{flex:1;font-weight:600;font-size:14.5px}
+  .match .vs{font-size:11px;color:var(--muted);padding:0 6px}
+  .match .when{font-size:12px;color:var(--ink2);text-align:right;min-width:96px}
+  .crest{width:22px;height:22px;border-radius:5px;display:inline-block;vertical-align:-5px;margin-right:7px}
+
+  /* barra comparativa com rótulos diretos */
+  .cmp{margin:10px 0}
+  .cmp .row{display:flex;align-items:center;gap:10px;margin-bottom:7px;font-size:12.5px}
+  .cmp .nm{width:112px;color:var(--ink2)}
+  .cmp .track{flex:1;height:9px;background:#eeece7;border-radius:5px;overflow:hidden;display:flex;gap:2px}
+  .cmp .fill{height:100%;border-radius:4px}
+  .cmp .num{width:44px;text-align:right;font-weight:650;font-variant-numeric:tabular-nums}
+
+  .legend{display:flex;gap:16px;font-size:11.5px;color:var(--ink2);margin:4px 0 0}
+  .legend span{display:inline-flex;align-items:center;gap:6px}
+  .swatch{width:10px;height:10px;border-radius:3px;display:inline-block}
+
+  /* app escuro */
+  .d-card{background:var(--dark2);border:1px solid var(--dark3);border-radius:12px;padding:16px}
+  .d-lab{font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--dink2)}
+  .d-val{font-size:24px;font-weight:700;letter-spacing:-.4px;color:#fff}
+  .lock{background:rgba(255,255,255,.04);border:1px dashed #33415580;border-radius:12px;padding:20px;text-align:center}
+  .badge-prem{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,#f0b429,#e08c00);
+    color:#2a1c00;font-size:10.5px;font-weight:750;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:20px}
+
+  /* whatsapp */
+  .phone{width:330px;background:#0b141a;border-radius:26px;padding:10px;border:1px solid #24343f}
+  .wa-top{background:#1f2c34;color:#e9edef;padding:10px 12px;border-radius:16px 16px 0 0;display:flex;align-items:center;gap:10px;font-size:13px;font-weight:600}
+  .wa-body{background:#0b141a;padding:14px 10px;min-height:200px}
+  .wa{max-width:88%;padding:8px 11px;border-radius:9px;font-size:13px;line-height:1.42;margin-bottom:8px;position:relative}
+  .wa.in{background:#1f2c34;color:#e9edef;border-top-left-radius:2px}
+  .wa.out{background:#005c4b;color:#e9edef;margin-left:auto;border-top-right-radius:2px}
+  .wa .t{display:block;font-size:10px;color:#8696a0;text-align:right;margin-top:3px}
+  .wa-btn{display:block;text-align:center;border-top:1px solid #ffffff1f;margin-top:7px;padding-top:7px;color:#53bdeb;font-size:12.5px}
+
+  /* email */
+  .mail{border:1px solid var(--line);border-radius:11px;overflow:hidden;background:#fff}
+  .mail-h{background:#f6f5f2;padding:11px 15px;border-bottom:1px solid var(--line);font-size:12px;color:var(--ink2)}
+  .mail-h b{color:var(--ink);font-size:13px}
+  .mail-b{padding:22px}
+  .mail-b h3{margin:0 0 10px;font-size:19px;letter-spacing:-.3px}
+  .mail-b p{margin:0 0 12px;font-size:14px;color:var(--ink2)}
+
+  /* social */
+  .ig{width:300px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
+  .ig-h{padding:9px 11px;display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;border-bottom:1px solid var(--line)}
+  .ig-img{aspect-ratio:1;background:linear-gradient(150deg,#0E1420,#1c2b45);color:#fff;padding:20px;display:flex;flex-direction:column;justify-content:space-between}
+  .ig-cap{padding:10px 11px;font-size:12.5px;color:var(--ink2)}
+  .story{width:210px;aspect-ratio:9/16;border-radius:14px;background:linear-gradient(160deg,#0E1420,#123a2c);
+    color:#fff;padding:18px;display:flex;flex-direction:column;justify-content:space-between;border:1px solid var(--line)}
+
+  .spec{background:#f7f7f4;border-left:3px solid var(--mm-blue);border-radius:0 9px 9px 0;padding:14px 18px;margin:14px 0 30px;font-size:13px;color:var(--ink2)}
+  .spec b{color:var(--ink)}
+  .spec ul{margin:8px 0 0;padding-left:18px}
+  .spec li{margin-bottom:4px}
+
+  table.t{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0}
+  table.t th{text-align:left;background:#f4f4f1;padding:9px 11px;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink2);border-bottom:1px solid var(--line)}
+  table.t td{padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  .ctatag{background:#e8f5ec;color:#146c35;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:5px;white-space:nowrap}
+  .row-flex{display:flex;gap:20px;flex-wrap:wrap;align-items:flex-start}
+
+  /* índice do documento */
+  .toc{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 8px}
+  .toc a{font-size:11.5px;color:var(--ink2);background:#fff;border:1px solid var(--line);
+    padding:5px 11px;border-radius:20px;text-decoration:none;font-weight:550}
+  .toc a:hover{border-color:var(--mm-blue);color:var(--mm-blue)}
+  .toc a.now{background:var(--mm-blue);color:#fff;border-color:var(--mm-blue)}
+
+  /* atalhos para os mocks de página completa */
+  .pagelinks{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 8px}
+  .pagelinks a{display:flex;flex-direction:column;gap:3px;min-width:260px;flex:1;
+    background:linear-gradient(135deg,var(--mm-blue),var(--mm-green));color:#fff;text-decoration:none;
+    padding:14px 18px;border-radius:11px;box-shadow:0 1px 2px rgba(0,0,0,.06),0 6px 18px rgba(0,0,0,.08)}
+  .pagelinks a:hover{filter:brightness(1.06)}
+  .pagelinks a b{font-size:15px;font-weight:700;letter-spacing:-.2px}
+  .pagelinks a span{font-size:12px;opacity:.9}
+
+  .ab-tag{display:inline-block;font-size:10px;font-weight:750;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--mm-blue);margin-bottom:6px}
+  .ab-tag.g{color:#146c35}
+  .ab-tag.o{color:#c2410c}
+
+  .phone-lp{width:340px;background:#fff;border-radius:28px;border:1px solid var(--line);
+    overflow:hidden;box-shadow:0 8px 28px rgba(0,0,0,.08)}
+  .phone-lp .notch{height:22px;background:#eceae5;display:flex;align-items:center;justify-content:center}
+  .phone-lp .notch i{width:72px;height:6px;background:#cfcbc3;border-radius:4px;display:block}
+
+  .veil-wrap{position:relative;overflow:hidden;border-radius:11px}
+  .veil-wrap .blurred{filter:blur(4.5px);user-select:none;transform:scale(1.02)}
+  .veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.15) 0%,rgba(255,255,255,.92) 62%,#fff 100%);
+    display:flex;align-items:flex-end;justify-content:center;padding:18px}
+  .veil.dark{background:linear-gradient(180deg,rgba(14,20,32,.1) 0%,rgba(14,20,32,.88) 58%,#0E1420 100%)}
+
+  .utm{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;background:#f4f4f1;
+    border:1px solid var(--line);padding:2px 7px;border-radius:5px;color:#3f3e3a}
+  .pill{display:inline-block;font-size:10.5px;font-weight:700;padding:3px 8px;border-radius:5px;white-space:nowrap}
+  .pill.cap{background:#e7f0fd;color:#12508f}
+  .pill.off{background:#fff3e8;color:#9a3412}
+  .pill.ins{background:#f3e8ff;color:#6b21a8}
+  .pill.prd{background:#e8f5ec;color:#146c35}
 </style>
 </head>
 <body>
 <div class="wrap">
 
-  <div class="doc-head">
-    <h1>Documentos de planejamento</h1>
-    <p>Mockups estáticos para revisão interna.</p>
+<div class="doc-head">
+  <h1>Macro Markets Futebol — Especificação Visual</h1>
+  <p>O "como" do plano estratégico: telas, conteúdos, e-mails, mensagens e materiais desenhados peça por peça. Cada tela abaixo indica sua função no funil e para qual gate ela empurra o usuário.</p>
+</div>
+
+<div class="note"><b>Dados ilustrativos.</b> Números, percentuais e cenários exibidos nas telas são exemplos de layout, não análises reais. A 24ª rodada (22 a 24/08) é usada como caso concreto em todas as peças.</div>
+
+<div class="navdoc">
+  <a class="here" href="index.html">Índice</a>
+  <a href="pagina_hub_campeonato.html">Hub</a>
+  <a href="pagina_rodada.html">Rodada 24</a>
+  <a href="pagina_blog.html">Blog</a>
+  <a href="sequencia_emails.html">E-mails da rodada</a>
+  <a href="sequencia_emails_waitlist.html">Waitlist → Cadastro</a>
+  <a href="pagina_lps_waitlist.html">LPs Waitlist</a>
+</div>
+
+<div class="toc">
+  <a href="#b1">1 Aquisição</a>
+  <a href="#b2">2 Captura</a>
+  <a href="#b3">3 Conteúdo</a>
+  <a href="#b6">6 E-mail</a>
+  <a href="#b7">7 WhatsApp</a>
+  <a href="#b8">8 Calendário</a>
+  <a href="#b9">9 Educação</a>
+  <a href="#b10">10 Campanhas</a>
+  <a href="#b11">11 Waitlist</a>
+  <a href="#b12">12 QFD</a>
+  <a href="#b13">13 Telas × acesso</a>
+  <a href="#b14">14 Catálogo de conteúdo</a>
+</div>
+<div class="pagelinks">
+  <a href="pagina_hub_campeonato.html"><b>Mock: Hub do Campeonato</b><span>Página completa nos 3 cenários de acesso</span></a>
+  <a href="pagina_rodada.html"><b>Mock: Página da Rodada</b><span>Rodada 24 nos 3 cenários, jogos de quarta e sábado</span></a>
+  <a href="pagina_blog.html"><b>Mock: Blog</b><span>Listagem e artigo aberto, com o corte de profundidade por cenário</span></a>
+  <a href="sequencia_emails.html"><b>Mock: Sequência de e-mails da rodada</b><span>Trilhas de e-mail da rodada 24 por público</span></a>
+  <a href="sequencia_emails_waitlist.html"><b>Mock: Waitlist → Cadastro</b><span>Quatro e-mails evergreen, cada um com uma LP temática</span></a>
+  <a href="pagina_lps_waitlist.html"><b>Mock: LPs da waitlist</b><span>Expectativa · Método · Empresa · Perfil</span></a>
+</div>
+
+<!-- ============ 1. AQUISIÇÃO ============ -->
+<h2 class="sec" id="b1">Bloco 1 — Aquisição · topo de funil</h2>
+
+<h3 class="scr">1.1 Anúncio Meta Ads — formato feed</h3>
+<p class="why"><b>Função:</b> gerar o clique para a LP de captura. O ângulo nunca é aposta — é informação esportiva. <b>Meta:</b> CPL até R$ 11.</p>
+
+<div class="row-flex">
+  <div class="ig">
+    <div class="ig-h"><span class="crest" style="background:linear-gradient(135deg,var(--mm-blue),var(--mm-green));width:24px;height:24px"></span> macromarkets.futebol <span style="margin-left:auto;color:var(--muted);font-weight:400;font-size:11px">Patrocinado</span></div>
+    <div class="ig-img">
+      <div>
+        <div style="font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#7dd3a0;font-weight:700">24ª rodada · Brasileirão</div>
+        <div style="font-size:25px;font-weight:750;line-height:1.15;margin-top:10px;letter-spacing:-.5px">Os 3 jogos mais<br>equilibrados<br>da rodada</div>
+      </div>
+      <div>
+        <div style="height:1px;background:#ffffff26;margin-bottom:12px"></div>
+        <div style="display:flex;gap:14px;font-size:11px;color:#cbd5e1">
+          <div><div style="font-size:17px;font-weight:700;color:#fff">7</div>indicadores</div>
+          <div><div style="font-size:17px;font-weight:700;color:#fff">10</div>jogos</div>
+          <div><div style="font-size:17px;font-weight:700;color:#fff">0</div>custo</div>
+        </div>
+      </div>
+    </div>
+    <div class="ig-cap"><b style="color:var(--ink)">Receba grátis a análise completa da rodada.</b> Dados, escalações e contexto de cada jogo, direto no seu e-mail.<br><span style="color:var(--mm-blue);font-weight:600">Saiba mais →</span></div>
   </div>
 
-  <h2 class="sec">Documentos</h2>
-  <div class="docs">
-    <a href="mockups_3.html"><b>Especificação visual</b><span>Documento-mãe: conteúdos e telas, com índice para os demais mocks.</span></a>
-    <a href="pagina_hub_campeonato.html"><b>Hub do Campeonato</b><span>Página completa nos três cenários de acesso.</span></a>
-    <a href="pagina_rodada.html"><b>Página da Rodada</b><span>Rodada 24 nos três cenários, jogos de quarta e sábado.</span></a>
-    <a href="pagina_blog.html"><b>Blog</b><span>Listagem e artigo aberto, com o corte de profundidade por cenário.</span></a>
-    <a href="sequencia_emails.html"><b>Sequência de e-mails</b><span>Trilhas de e-mail da rodada por público.</span></a>
+  <div class="story">
+    <div>
+      <div style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#7dd3a0;font-weight:700">Rodada 24</div>
+      <div style="font-size:23px;font-weight:750;line-height:1.2;margin-top:12px;letter-spacing:-.4px">Flamengo e Palmeiras<br>chegam invictos.<br>Quem tem vantagem?</div>
+    </div>
+    <div>
+      <div style="background:#ffffff14;border-radius:9px;padding:11px;margin-bottom:14px">
+        <div style="font-size:10px;color:#94a3b8;text-transform:uppercase;letter-spacing:.07em">Últimos 5 jogos</div>
+        <div style="display:flex;gap:5px;margin-top:7px">
+          <span style="background:#1baf7a;color:#04231a;font-size:10px;font-weight:700;width:19px;height:19px;border-radius:4px;display:grid;place-items:center">V</span>
+          <span style="background:#1baf7a;color:#04231a;font-size:10px;font-weight:700;width:19px;height:19px;border-radius:4px;display:grid;place-items:center">V</span>
+          <span style="background:#64748b;color:#fff;font-size:10px;font-weight:700;width:19px;height:19px;border-radius:4px;display:grid;place-items:center">E</span>
+          <span style="background:#1baf7a;color:#04231a;font-size:10px;font-weight:700;width:19px;height:19px;border-radius:4px;display:grid;place-items:center">V</span>
+          <span style="background:#1baf7a;color:#04231a;font-size:10px;font-weight:700;width:19px;height:19px;border-radius:4px;display:grid;place-items:center">V</span>
+        </div>
+      </div>
+      <div style="background:#fff;color:#0E1420;text-align:center;padding:11px;border-radius:9px;font-weight:700;font-size:13px">Arrasta pra cima ↑</div>
+    </div>
   </div>
+
+  <div style="flex:1;min-width:260px">
+    <div class="spec" style="margin-top:0">
+      <b>Especificação do criativo</b>
+      <ul>
+        <li><b>Nunca</b> mencionar aposta, palpite, odds ou ganho no criativo de topo.</li>
+        <li>Formatos: 1:1 (feed), 9:16 (stories e reels), 4:5 (feed alternativo).</li>
+        <li>Um número grande é o elemento dominante — funciona melhor que foto de estádio.</li>
+        <li>Rotação: 20 a 25 peças novas por semana a partir da S2.</li>
+        <li>Corte: acima do CPL-alvo por 3 dias consecutivos, sai do ar.</li>
+      </ul>
+      <b style="display:block;margin-top:12px">6 ângulos para revezar</b>
+      <ul>
+        <li>Estatística surpreendente da rodada</li>
+        <li>Clube grande em situação inesperada</li>
+        <li>"Onde assistir" — utilidade pura</li>
+        <li>Escalação e desfalques da semana</li>
+        <li>Prova social do grupo ("12 mil pessoas recebem")</li>
+        <li>Corte de vídeo com narração de dado</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<h3 class="scr">1.2 Automação social — comentário vira lead</h3>
+<p class="why"><b>Função:</b> transformar engajamento orgânico em cadastro, sem custo de mídia. <b>Fluxo:</b> post pede uma palavra no comentário → DM automática → link da LP → cadastro.</p>
+
+<div class="row-flex">
+  <div class="ig">
+    <div class="ig-h"><span class="crest" style="background:linear-gradient(135deg,var(--mm-blue),var(--mm-green));width:24px;height:24px"></span> macromarkets.futebol</div>
+    <div class="ig-img" style="background:linear-gradient(150deg,#123a2c,#0E1420)">
+      <div style="font-size:22px;font-weight:750;line-height:1.22;letter-spacing:-.4px">A tabela<br>do Brasileirão<br>mudou de cara<br>na rodada 23.</div>
+      <div style="background:#ffffff14;border-radius:9px;padding:12px;font-size:12.5px">
+        Comente <b style="color:#7dd3a0">RODADA</b> e eu te mando<br>a análise completa no direct.
+      </div>
+    </div>
+    <div class="ig-cap">Comente <b style="color:var(--ink)">RODADA</b> 👇 e receba grátis o panorama dos 10 jogos.</div>
+  </div>
+
+  <div class="phone" style="width:300px">
+    <div class="wa-top" style="background:#262626"><span class="dot" style="background:#7dd3a0"></span> Direct · Macro Markets</div>
+    <div class="wa-body" style="background:#000">
+      <div class="wa in">Oi! Vi que você comentou <b>RODADA</b> ⚽<span class="t">14:02</span></div>
+      <div class="wa in">Aqui está o panorama completo da 24ª rodada do Brasileirão — os 10 jogos, indicadores de cada confronto e onde assistir.<span class="t">14:02</span></div>
+      <div class="wa in" style="background:#1f2c34">
+        <b>Panorama da Rodada 24</b><br>
+        <span style="color:#8696a0;font-size:12px">macromarkets.com/br/rodada-24</span>
+        <span class="wa-btn">Receber grátis</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="flex:1;min-width:250px">
+    <div class="spec" style="margin-top:0">
+      <b>Regras da automação</b>
+      <ul>
+        <li>Uma palavra-chave por rodada, sempre curta e maiúscula.</li>
+        <li>A DM entrega valor antes de pedir o cadastro — o link é o terceiro balão, nunca o primeiro.</li>
+        <li>Todo lead entra com a TAG <code>origem-manychat-ig</code>.</li>
+        <li>Publicar 3 a 4 posts com gatilho por semana, sempre no dia seguinte à rodada.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ============ 2. CAPTURA ============ -->
+<h2 class="sec" id="b2">Bloco 2 — Captura · gate 1</h2>
+
+<h3 class="scr">2.1 LP de captura (conteúdo gratuito)</h3>
+<p class="why"><b>Função:</b> converter o clique do anúncio em lead. Sem menção a depósito ou plataforma — a promessa é apenas a informação gratuita. <b>Meta:</b> conversão de página acima de 35%.</p>
+
+<div class="frame">
+  <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">macromarkets.com/br/analise-gratuita</span></div>
+  <div class="pad">
+    <div class="nav">
+      <span class="logo"><span class="m"></span> macro.markets</span>
+      <ul><li>Campeonatos</li><li>Análises</li><li>Sobre</li></ul>
+    </div>
+
+    <div class="grid2" style="align-items:center">
+      <div>
+        <span class="eyebrow">Gratuito · sem cartão</span>
+        <h1 class="hero-h">A análise completa da rodada do Brasileirão, no seu e-mail.</h1>
+        <p class="hero-p">Toda semana, antes da bola rolar: indicadores de desempenho, momento das equipes, escalações prováveis, desfalques e o contexto de cada um dos 10 jogos.</p>
+
+        <div style="border:1px solid var(--line);border-radius:12px;padding:18px;max-width:400px">
+          <div style="font-size:12px;color:var(--ink2);margin-bottom:5px">Seu melhor e-mail</div>
+          <div style="border:1px solid var(--line);border-radius:8px;padding:11px 13px;color:var(--muted);font-size:14px;margin-bottom:12px">voce@email.com</div>
+          <div style="font-size:12px;color:var(--ink2);margin-bottom:5px">WhatsApp <span style="color:var(--muted)">(opcional, para receber antes)</span></div>
+          <div style="border:1px solid var(--line);border-radius:8px;padding:11px 13px;color:var(--muted);font-size:14px;margin-bottom:12px">(11) 90000-0000</div>
+          <div style="font-size:12px;color:var(--ink2);margin-bottom:7px">Quais campeonatos você acompanha?</div>
+          <div style="display:flex;gap:7px;flex-wrap:wrap;margin-bottom:16px">
+            <span style="background:var(--mm-blue);color:#fff;font-size:12px;padding:6px 12px;border-radius:20px">Brasileirão ✓</span>
+            <span style="border:1px solid var(--line);font-size:12px;padding:6px 12px;border-radius:20px;color:var(--ink2)">Premier League</span>
+            <span style="border:1px solid var(--line);font-size:12px;padding:6px 12px;border-radius:20px;color:var(--ink2)">Champions</span>
+            <span style="border:1px solid var(--line);font-size:12px;padding:6px 12px;border-radius:20px;color:var(--ink2)">La Liga</span>
+          </div>
+          <a class="btn full">Receber a análise da rodada 24</a>
+          <div style="font-size:11px;color:var(--muted);text-align:center;margin-top:9px">Você recebe a primeira análise em até 24h. Cancele quando quiser.</div>
+        </div>
+      </div>
+
+      <div style="background:var(--dark);border-radius:14px;padding:22px;color:#fff">
+        <div style="font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#7dd3a0;font-weight:700;margin-bottom:14px">Prévia do que você recebe</div>
+        <div class="d-card" style="margin-bottom:11px">
+          <div style="display:flex;justify-content:space-between;font-size:13.5px;font-weight:600;margin-bottom:12px">
+            <span>Flamengo</span><span style="color:var(--dink2);font-size:11px">SÁB · 18h30</span><span>Palmeiras</span>
+          </div>
+          <div class="cmp" style="margin:0">
+            <div class="row"><span class="nm" style="color:#94a3b8;width:96px">Posse média</span>
+              <span class="track" style="background:#0E1420"><span class="fill" style="width:58%;background:var(--s1)"></span></span>
+              <span class="num" style="color:#fff">58%</span></div>
+            <div class="row"><span class="nm" style="color:#94a3b8;width:96px">Finalizações</span>
+              <span class="track" style="background:#0E1420"><span class="fill" style="width:44%;background:var(--s2)"></span></span>
+              <span class="num" style="color:#fff">14,2</span></div>
+            <div class="row"><span class="nm" style="color:#94a3b8;width:96px">Gols sofridos</span>
+              <span class="track" style="background:#0E1420"><span class="fill" style="width:28%;background:var(--s3)"></span></span>
+              <span class="num" style="color:#fff">0,8</span></div>
+          </div>
+        </div>
+        <div class="d-card">
+          <div class="d-lab">Contexto da partida</div>
+          <div style="font-size:12.5px;color:#cbd5e1;margin-top:7px;line-height:1.5">Flamengo sem o lateral titular (suspenso). Palmeiras vem de jogo na quarta pela Libertadores — terceiro jogo em 8 dias.</div>
+        </div>
+        <div style="font-size:11px;color:var(--dink2);margin-top:14px;text-align:center">Toda semana, para os 10 jogos da rodada.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="spec">
+  <b>Por que esta LP não fala em depósito.</b> O gate 1 tem um único trabalho: baixar o custo de entrada ao mínimo. Introduzir plataforma, depósito ou bônus aqui derruba a conversão de página e sobe o CPL — o que, na conta do plano, custa mais caro do que o depósito antecipado economiza. A conversão para QFD acontece nos gates 3 e 4, depois que o lead já recebeu valor.
+  <ul>
+    <li>Campo de WhatsApp opcional e com justificativa ("para receber antes") — sobe o opt-in sem derrubar a conversão.</li>
+    <li>Seleção de campeonato alimenta as TAGs de liga desde o cadastro.</li>
+    <li>A prévia à direita mostra o produto real, não uma ilustração genérica.</li>
+  </ul>
+</div>
+
+<!-- ============ 3. CONTEÚDO ============ -->
+<h2 class="sec" id="b3">Bloco 3 — Conteúdo · hub, rodada e blog</h2>
+
+<h3 class="scr">3.1 Página de campeonato (hub)</h3>
+<p class="why"><b>Função:</b> centralizar tudo do Brasileirão em uma URL permanente. É o ativo de SEO mais importante do plano e o destino dos CTAs de marca. <b>URL:</b> /br/brasileirao</p>
+
+<div class="frame">
+  <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">macromarkets.com/br/brasileirao</span></div>
+  <div class="pad">
+    <div class="nav">
+      <span class="logo"><span class="m"></span> macro.markets</span>
+      <ul><li>Brasileirão</li><li>Premier</li><li>Champions</li><li>La Liga</li><li style="color:var(--mm-blue);font-weight:600">Entrar</li></ul>
+    </div>
+
+    <span class="eyebrow b">Campeonato Brasileiro · Série A 2026</span>
+    <h1 class="hero-h" style="font-size:29px">Brasileirão 2026: tabela, rodadas e análise de cada jogo</h1>
+    <p class="hero-p">Acompanhe as 38 rodadas com indicadores de desempenho, contexto e comparativos. Atualizado a cada rodada.</p>
+
+    <div class="grid4" style="margin:22px 0">
+      <div class="tile"><div class="lab">Rodada atual</div><div class="val">24ª</div><div class="sub">22 a 24 de agosto</div></div>
+      <div class="tile"><div class="lab">Líder</div><div class="val">Flamengo</div><div class="sub">52 pontos</div></div>
+      <div class="tile"><div class="lab">Jogos na rodada</div><div class="val">10</div><div class="sub">Sáb, dom e seg</div></div>
+      <div class="tile" style="border-color:#bfe0c9;background:#f2faf5"><div class="lab" style="color:#146c35">Análise da rodada</div><div style="margin-top:6px"><a class="btn sm">Receber grátis</a></div></div>
+    </div>
+
+    <div class="grid2">
+      <div>
+        <h3 style="font-size:16px;margin:0 0 12px">Jogos da 24ª rodada</h3>
+        <div class="match"><span class="crest" style="background:#b91c1c"></span><span class="tm">Flamengo</span><span class="vs">×</span><span class="tm" style="text-align:right">Palmeiras</span><span class="crest" style="background:#166534"></span><span class="when">Sáb · 18h30</span></div>
+        <div class="match"><span class="crest" style="background:#1e3a8a"></span><span class="tm">Cruzeiro</span><span class="vs">×</span><span class="tm" style="text-align:right">Botafogo</span><span class="crest" style="background:#111827"></span><span class="when">Sáb · 21h00</span></div>
+        <div class="match"><span class="crest" style="background:#0f172a"></span><span class="tm">Corinthians</span><span class="vs">×</span><span class="tm" style="text-align:right">Internacional</span><span class="crest" style="background:#b91c1c"></span><span class="when">Dom · 16h00</span></div>
+        <div class="match"><span class="crest" style="background:#166534"></span><span class="tm">Fluminense</span><span class="vs">×</span><span class="tm" style="text-align:right">São Paulo</span><span class="crest" style="background:#b91c1c"></span><span class="when">Dom · 18h30</span></div>
+        <div class="match" style="border-style:dashed;color:var(--muted);justify-content:center;font-size:13px">+ 6 jogos da rodada</div>
+      </div>
+
+      <div>
+        <h3 style="font-size:16px;margin:0 0 12px">Comparativo da rodada</h3>
+        <div class="card">
+          <h4 style="margin-bottom:12px">Média de gols por jogo — últimas 5 rodadas</h4>
+          <div class="cmp">
+            <div class="row"><span class="nm">Rodada 19</span><span class="track"><span class="fill" style="width:52%;background:var(--s1)"></span></span><span class="num">2,4</span></div>
+            <div class="row"><span class="nm">Rodada 20</span><span class="track"><span class="fill" style="width:63%;background:var(--s1)"></span></span><span class="num">2,9</span></div>
+            <div class="row"><span class="nm">Rodada 21</span><span class="track"><span class="fill" style="width:41%;background:var(--s1)"></span></span><span class="num">1,9</span></div>
+            <div class="row"><span class="nm">Rodada 22</span><span class="track"><span class="fill" style="width:70%;background:var(--s1)"></span></span><span class="num">3,2</span></div>
+            <div class="row"><span class="nm">Rodada 23</span><span class="track"><span class="fill" style="width:57%;background:var(--s1)"></span></span><span class="num">2,6</span></div>
+          </div>
+          <div style="font-size:11.5px;color:var(--muted);margin-top:10px">Fonte: dados oficiais da competição · atualizado em 19/08</div>
+        </div>
+
+        <div class="card" style="margin-top:14px;background:#f2faf5;border-color:#bfe0c9">
+          <h4>Quer o comparativo completo dos 10 jogos?</h4>
+          <p style="margin-bottom:12px">Receba grátis por e-mail toda terça-feira, com indicadores de cada confronto.</p>
+          <a class="btn sm">Receber análise da rodada</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h3 class="scr">3.2 Post de blog por jogo — com CTAs</h3>
+<p class="why"><b>Função:</b> capturar busca orgânica de cada confronto e converter em lead. Um post por jogo, 10 por rodada, gerados pelo agente de rodada. <b>URL:</b> /br/brasileirao/rodada-24/flamengo-palmeiras</p>
+
+<div class="frame">
+  <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">macromarkets.com/br/brasileirao/rodada-24/flamengo-x-palmeiras</span></div>
+  <div class="pad">
+    <div style="font-size:12px;color:var(--muted);margin-bottom:12px">Brasileirão › Rodada 24 › Flamengo x Palmeiras</div>
+    <h1 style="font-size:27px;letter-spacing:-.6px;margin:0 0 10px;max-width:660px">Flamengo x Palmeiras: onde assistir, escalações, histórico e estatísticas do jogo</h1>
+    <div style="font-size:12.5px;color:var(--ink2);margin-bottom:20px">Sábado, 22 de agosto · 18h30 · Maracanã, Rio de Janeiro</div>
+
+    <!-- CTA 1: inline após intro -->
+    <div class="grid4" style="margin-bottom:20px">
+      <div class="tile"><div class="lab">Onde assistir</div><div style="font-size:15px;font-weight:650;margin-top:4px">Premiere · Globo</div></div>
+      <div class="tile"><div class="lab">Estádio</div><div style="font-size:15px;font-weight:650;margin-top:4px">Maracanã</div><div class="sub">Cap. 78.838</div></div>
+      <div class="tile"><div class="lab">Últimos 5 confrontos</div><div style="font-size:15px;font-weight:650;margin-top:4px">2V · 2E · 1D</div></div>
+      <div class="tile"><div class="lab">Ingressos</div><div style="font-size:15px;font-weight:650;margin-top:4px">A partir de R$ 60</div></div>
+    </div>
+
+    <div style="background:#f2faf5;border:1px solid #bfe0c9;border-radius:11px;padding:15px 18px;display:flex;align-items:center;gap:18px;margin-bottom:24px">
+      <div style="flex:1"><b style="font-size:14px">Receba a análise completa dos 10 jogos da rodada</b><div style="font-size:12.5px;color:var(--ink2);margin-top:2px">Grátis, no seu e-mail, toda terça-feira.</div></div>
+      <a class="btn sm">Quero receber <span class="ctatag" style="background:#fff;margin-left:6px">CTA 1</span></a>
+    </div>
+
+    <h2 style="font-size:19px;margin:0 0 10px">Como as equipes chegam</h2>
+    <p style="font-size:14.5px;color:var(--ink2);margin:0 0 16px;max-width:720px">O Flamengo vem de quatro vitórias nos últimos cinco jogos e lidera o campeonato com 52 pontos. O Palmeiras, segundo colocado, teve sequência mais irregular e joga pela terceira vez em oito dias, após compromisso pela Libertadores na quarta-feira.</p>
+
+    <h2 style="font-size:19px;margin:22px 0 10px">Comparativo estatístico</h2>
+    <div class="card">
+      <div class="cmp">
+        <div class="row"><span class="nm">Posse de bola</span><span class="track"><span class="fill" style="width:58%;background:var(--s1)"></span><span class="fill" style="width:42%;background:var(--s2)"></span></span><span class="num">58 / 42</span></div>
+        <div class="row"><span class="nm">Finalizações/jogo</span><span class="track"><span class="fill" style="width:53%;background:var(--s1)"></span><span class="fill" style="width:47%;background:var(--s2)"></span></span><span class="num">14 / 12</span></div>
+        <div class="row"><span class="nm">Gols marcados</span><span class="track"><span class="fill" style="width:61%;background:var(--s1)"></span><span class="fill" style="width:39%;background:var(--s2)"></span></span><span class="num">41 / 33</span></div>
+        <div class="row"><span class="nm">Gols sofridos</span><span class="track"><span class="fill" style="width:44%;background:var(--s1)"></span><span class="fill" style="width:56%;background:var(--s2)"></span></span><span class="num">18 / 23</span></div>
+      </div>
+      <div class="legend" style="margin-top:10px">
+        <span><span class="swatch" style="background:var(--s1)"></span> Flamengo</span>
+        <span><span class="swatch" style="background:var(--s2)"></span> Palmeiras</span>
+      </div>
+    </div>
+
+    <h2 style="font-size:19px;margin:22px 0 10px">Prováveis escalações e desfalques</h2>
+    <div class="grid2">
+      <div class="card"><h4>Flamengo</h4><p>Desfalque confirmado: lateral-direito titular, suspenso pelo terceiro cartão amarelo. Volante retorna após lesão.</p></div>
+      <div class="card"><h4>Palmeiras</h4><p>Dois jogadores em transição física após a Libertadores. Zagueiro titular pendurado.</p></div>
+    </div>
+
+    <h2 style="font-size:19px;margin:22px 0 10px">Patrocinadores e informações do clube</h2>
+    <p style="font-size:14.5px;color:var(--ink2);margin:0 0 20px;max-width:720px">Informações institucionais de cada clube, patrocinadores master e fornecedores de material esportivo da temporada 2026.</p>
+
+    <!-- CTA 2: fim do artigo, mais forte -->
+    <div style="background:var(--dark);border-radius:13px;padding:24px;color:#fff;display:flex;gap:22px;align-items:center;flex-wrap:wrap">
+      <div style="flex:1;min-width:250px">
+        <span class="badge-prem">Acesso Premium</span>
+        <div style="font-size:19px;font-weight:700;margin:11px 0 7px;letter-spacing:-.3px">Pergunte qualquer coisa sobre o Brasileirão</div>
+        <div style="font-size:13.5px;color:#cbd5e1">Nosso agente responde sobre times, tendências, jogos e notícias do campeonato. Liberado para quem faz o primeiro depósito.</div>
+      </div>
+      <a class="btn">Ver como liberar <span class="ctatag" style="background:#ffffff26;color:#fff;margin-left:6px">CTA 2</span></a>
+    </div>
+  </div>
+</div>
+
+<div class="spec">
+  <b>Padrão de CTA em todo post de blog.</b> Dois CTAs, com funções distintas e nunca competindo:
+  <ul>
+    <li><b>CTA 1 — topo de funil</b>, logo após o bloco de utilidade (onde assistir, estádio). Pede apenas o e-mail. É o que converte o tráfego frio de busca.</li>
+    <li><b>CTA 2 — fundo de funil</b>, ao final do artigo. Aponta para a LP de oferta (depósito → Premium). Só faz sentido para quem leu até o fim.</li>
+    <li>Nenhum CTA no meio do comparativo estatístico — é o trecho que gera tempo de página e sinal de SEO.</li>
+  </ul>
+</div>
+
+<!-- ============ 6. E-MAIL ============ -->
+<h2 class="sec" id="b6">Bloco 6 — Ciclo de e-mail da rodada</h2>
+<p class="why" style="margin-bottom:24px">Sete peças ancoradas no calendário real. Abaixo, três das mais importantes, com a copy completa. A sequência inteira está detalhada no documento do plano.</p>
+
+<div class="grid2">
+  <div class="mail">
+    <div class="mail-h"><b>Terça · peça 1 de 7</b><br>Assunto: A rodada 23 terminou assim — e o que muda na 24ª</div>
+    <div class="mail-b">
+      <h3>O que os números mostraram na rodada 23</h3>
+      <p>A rodada fechou com 2,6 gols por jogo e três resultados fora do previsto pelos indicadores. O destaque foi o Cruzeiro, que somou o quarto jogo seguido sem sofrer gol.</p>
+      <div class="card" style="margin:14px 0">
+        <div class="cmp" style="margin:0">
+          <div class="row"><span class="nm">Gols na rodada</span><span class="track"><span class="fill" style="width:57%;background:var(--s1)"></span></span><span class="num">26</span></div>
+          <div class="row"><span class="nm">Jogos com 3+ gols</span><span class="track"><span class="fill" style="width:40%;background:var(--s1)"></span></span><span class="num">4</span></div>
+        </div>
+      </div>
+      <p>Na 24ª rodada, dois confrontos concentram a atenção: Flamengo x Palmeiras, no sábado, e Cruzeiro x Botafogo, que os indicadores apontam como o jogo mais equilibrado.</p>
+      <a class="btn sm">Ver o panorama da rodada 24</a>
+    </div>
+  </div>
+
+  <div class="mail">
+    <div class="mail-h"><b>Sexta · peça 4 de 7</b><br>Assunto: Flamengo x Palmeiras: o dado que quase ninguém está olhando</div>
+    <div class="mail-b">
+      <h3>Contexto da rodada 24</h3>
+      <p>O Palmeiras entra em campo no sábado para o terceiro jogo em oito dias. Historicamente, nessa situação a equipe sofre mais: a média de gols sofridos sobe de 0,9 para 1,7.</p>
+      <div class="card" style="margin:14px 0;background:#f7f7f4">
+        <h4>Desfalques confirmados</h4>
+        <p>Flamengo: lateral-direito titular, suspenso.<br>Palmeiras: dois jogadores em transição física.</p>
+      </div>
+      <p>No Premium, esse tipo de leitura vem com os 12 indicadores completos e você pode perguntar diretamente ao nosso agente.</p>
+      <a class="btn sm blue">Ler a análise completa</a>
+    </div>
+  </div>
+</div>
+
+<div class="mail" style="margin-top:20px;border-color:#bfe0c9">
+  <div class="mail-h" style="background:#f2faf5;border-color:#bfe0c9"><b>Terça seguinte · peça de reengajamento</b><br>Assunto: Você não acompanhou a rodada passada</div>
+  <div class="mail-b">
+    <h3>O que você deixou de acompanhar na rodada 24</h3>
+    <p>Na terça passada apontamos que o Palmeiras chegava ao terceiro jogo em oito dias e que, nessa situação, a equipe historicamente sofre mais gols. <b>O jogo terminou 3 a 1 para o Flamengo.</b></p>
+    <div class="card" style="margin:14px 0">
+      <h4 style="margin-bottom:10px">Os três cenários que apontamos e o que aconteceu</h4>
+      <table class="t" style="margin:0">
+        <tr><td style="padding-left:0">Mais de 2,5 gols</td><td style="text-align:right;color:#006300;font-weight:650;padding-right:0">✓ Confirmado</td></tr>
+        <tr><td style="padding-left:0">Ambos marcam</td><td style="text-align:right;color:#006300;font-weight:650;padding-right:0">✓ Confirmado</td></tr>
+        <tr><td style="border:0;padding-left:0">Vitória do mandante</td><td style="border:0;text-align:right;color:#006300;font-weight:650;padding-right:0">✓ Confirmado</td></tr>
+      </table>
+    </div>
+    <p>A rodada 25 começa sábado. Desta vez, você pode acompanhar com a análise completa — o acesso Premium é liberado no seu primeiro depósito.</p>
+    <a class="btn sm">Não ficar de fora da rodada 25</a>
+  </div>
+</div>
+
+<div class="spec">
+  <b>A mecânica de reengajamento, escrita corretamente.</b> Compare as duas construções:
+  <table class="t" style="margin-top:10px">
+    <tr><th>Evitar</th><th>Usar</th></tr>
+    <tr><td>"Você deixou R$ 340 na mesa"</td><td>"Você não acompanhou a rodada passada"</td></tr>
+    <tr><td>"Você teria ganho se tivesse seguido"</td><td>"Os três cenários que apontamos se confirmaram"</td></tr>
+    <tr><td>"Não perca dinheiro de novo"</td><td>"Não ficar de fora da rodada 25"</td></tr>
+  </table>
+  O gatilho de perda permanece intacto — o que muda é o objeto: informação perdida, não dinheiro perdido. A versão da direita é mais forte comercialmente porque é verificável: o leitor pode conferir que os cenários realmente se confirmaram.
+</div>
+
+<!-- ============ 7. WHATSAPP ============ -->
+<h2 class="sec" id="b7">Bloco 7 — WhatsApp e Telegram</h2>
+
+<h3 class="scr">7.1 Disparo de rodada e chatbot v1</h3>
+<p class="why"><b>Função:</b> o canal de maior taxa de abertura do plano. Mensagens curtas, uma ideia por mensagem, sempre com um caminho de ação.</p>
+
+<div class="row-flex">
+  <div class="phone">
+    <div class="wa-top"><span class="crest" style="background:linear-gradient(135deg,var(--mm-blue),var(--mm-green));width:30px;height:30px;border-radius:50%"></span> Macro Markets</div>
+    <div class="wa-body">
+      <div class="wa in"><b>Rodada 24 começa sábado ⚽</b><br><br>Os 3 jogos que concentram a atenção:<br><br>• Flamengo × Palmeiras (sáb 18h30)<br>• Cruzeiro × Botafogo (sáb 21h)<br>• Corinthians × Internacional (dom 16h)<span class="t">Ter 10:04</span></div>
+      <div class="wa in">Quer o panorama completo dos 10 jogos?<span class="wa-btn">Ver análise da rodada</span><span class="t">Ter 10:04</span></div>
+      <div class="wa out">quero<span class="t">10:11 ✓✓</span></div>
+      <div class="wa in">Prontinho 👇<br>macromarkets.com/br/rodada-24<br><br>Amanhã te mando o comparativo estatístico dos confrontos mais equilibrados.<span class="t">10:11</span></div>
+    </div>
+  </div>
+
+  <div class="phone">
+    <div class="wa-top"><span class="crest" style="background:linear-gradient(135deg,var(--mm-blue),var(--mm-green));width:30px;height:30px;border-radius:50%"></span> Macro Markets · Chatbot v1</div>
+    <div class="wa-body">
+      <div class="wa in">Oi! Sobre qual campeonato você quer informações da rodada?<span class="wa-btn">1 · Brasileirão</span><span class="wa-btn">2 · Premier League</span><span class="wa-btn">3 · Champions</span><span class="t">09:31</span></div>
+      <div class="wa out">1<span class="t">09:32 ✓✓</span></div>
+      <div class="wa in"><b>Brasileirão — 24ª rodada</b><br>22 a 24 de agosto · 10 jogos<br><br>Maior favorito: Flamengo<br>Jogo mais equilibrado: Cruzeiro × Botafogo<br>Média de gols prevista: 2,6<span class="t">09:32</span></div>
+      <div class="wa in">Quer o comparativo completo, os cenários de cada jogo e poder me perguntar o que quiser?<br><br>É o acesso Premium — liberado no seu primeiro depósito, sem custo extra.<span class="wa-btn">Liberar meu Premium</span><span class="t">09:32</span></div>
+    </div>
+  </div>
+
+  <div style="flex:1;min-width:280px">
+    <div class="spec" style="margin-top:0">
+      <b>Regras de mensagem</b>
+      <ul>
+        <li>Uma ideia por mensagem. Nunca um bloco longo.</li>
+        <li>Entregar valor nas duas primeiras mensagens; CTA só na terceira.</li>
+        <li>Máximo de 3 disparos por semana no WhatsApp, mesmo para engajados — o canal é mais intrusivo que e-mail.</li>
+        <li>Todo caminho do chatbot termina na LP de oferta.</li>
+        <li>Handoff humano apenas quando o usuário demonstra intenção de depósito.</li>
+      </ul>
+      <b style="display:block;margin-top:14px">Escopo do chatbot v1</b>
+      <ul>
+        <li>Escolher campeonato (3 opções)</li>
+        <li>Devolver o resumo da rodada</li>
+        <li>Oferecer o Premium</li>
+        <li>Nada além disso — v2 depois da meta</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ============ 8. CALENDÁRIO ============ -->
+<h2 class="sec" id="b8">Bloco 8 — Calendário editorial por rodada</h2>
+<p class="why" style="margin-bottom:16px">Tudo que é produzido em um ciclo de rodada, por dia e por canal. Este é o quadro que o agente de campanha executa toda semana.</p>
+
+<table class="t">
+  <tr>
+    <th style="width:78px">Dia</th><th>Blog / site</th><th>E-mail</th><th>WhatsApp / Telegram</th><th>Social</th>
+  </tr>
+  <tr>
+    <td><b>Terça</b><br><span style="color:var(--muted);font-size:11.5px">pós-rodada</span></td>
+    <td>Retrospectiva da rodada anterior no hub</td>
+    <td>Peça 1 — o que os números mostraram + abertura da próxima</td>
+    <td>Resumo da rodada anterior + 3 jogos de destaque</td>
+    <td>Post com gatilho de comentário (automação)</td>
+  </tr>
+  <tr>
+    <td><b>Quarta</b></td>
+    <td>Página da nova rodada publicada + 10 posts por jogo</td>
+    <td>Peça 2 — panorama dos 10 confrontos</td>
+    <td>—</td>
+    <td>Carrossel: tabela atualizada</td>
+  </tr>
+  <tr>
+    <td><b>Quinta</b></td>
+    <td>—</td>
+    <td>Peça 3 — comparativos e indicadores de desempenho</td>
+    <td>Comparativo do jogo mais equilibrado</td>
+    <td>Corte de vídeo com o dado da semana</td>
+  </tr>
+  <tr>
+    <td><b>Sexta</b></td>
+    <td>Atualização dos posts com escalações</td>
+    <td>Peça 4 — contexto, escalações e desfalques</td>
+    <td>—</td>
+    <td>Story: enquete sobre o jogo principal</td>
+  </tr>
+  <tr>
+    <td><b>Sábado</b><br><span style="color:var(--muted);font-size:11.5px">rodada começa</span></td>
+    <td>Hub em modo "ao vivo"</td>
+    <td>Peça 5 — abertura da rodada + CTA para LP de oferta</td>
+    <td>Lembrete dos jogos do dia</td>
+    <td>Stories durante os jogos</td>
+  </tr>
+  <tr>
+    <td><b>Domingo</b></td>
+    <td>—</td>
+    <td>Peça 6 — dia principal, última chamada do bônus</td>
+    <td>Jogos do dia + oferta com validade da rodada</td>
+    <td>Stories</td>
+  </tr>
+  <tr>
+    <td><b>Segunda</b></td>
+    <td>Resultados consolidados</td>
+    <td>Peça 7 — fechamento da rodada</td>
+    <td>—</td>
+    <td>Post de resultados</td>
+  </tr>
+</table>
+
+<div class="spec">
+  <b>Volume por ciclo de rodada (semanal):</b> 1 página de rodada · 10 posts de blog · 7 e-mails · 4 mensagens de WhatsApp · 5 a 7 peças sociais · 20 a 25 criativos de anúncio. Praticamente tudo gerado pelos agentes de IA, com revisão humana antes da publicação.
+  <br><br>
+  <b>Durante a Data FIFA (24/09 a 06/10):</b> mesma estrutura, outra âncora — Seleção Brasileira (jogos em 25 e 29/09), Nations League (4 a 6/10) e ligas europeias. O calendário não para; muda de assunto.
+</div>
+
+<!-- ============ 9. SEQUÊNCIA DE EDUCAÇÃO ============ -->
+<h2 class="sec" id="b9">Bloco 9 — Sequência automática de educação do lead <span style="text-transform:none;letter-spacing:0;font-weight:400">(rascunho — superada pelo Bloco 11)</span></h2>
+<div class="note" style="margin:0 0 16px">Este bloco foi reestruturado em campanhas por objetivo (Bloco 10 e 11). Mantido aqui como referência histórica do conteúdo original do documento-fonte.</div>
+<p class="why" style="margin-bottom:16px">Dispara sozinha, uma vez, para todo lead assim que ele se cadastra na LP de captura (gate 1). Baseada na sequência original do documento de referência, adaptada para se conectar ao ciclo semanal de rodada (Bloco 8) — que é, na prática, o conteúdo gratuito para o qual o lead se inscreveu e para onde ele é entregue ao final da sequência.</p>
+
+<table class="t">
+  <tr>
+    <th style="width:88px">Dia</th><th style="width:130px">Gatilho</th><th>E-mail</th><th>Objetivo</th><th>Mensagem / conteúdo principal</th>
+  </tr>
+  <tr>
+    <td><b>Dia 0</b></td>
+    <td>Imediato após cadastro</td>
+    <td>1 — Boas-vindas</td>
+    <td>Confirmar o cadastro e "aquecer" a entrega — acostumar o servidor de e-mail do lead a nos receber, sem pedir nada ainda.</td>
+    <td>"Cadastro confirmado. Nos próximos dias você vai receber os primeiros relatórios sobre o Brasileirão — sem enrolação."</td>
+  </tr>
+  <tr>
+    <td><b>Dia 1</b></td>
+    <td>+24h</td>
+    <td>2 — Primeiro relatório</td>
+    <td>Entregar valor imediatamente. Provar que a empresa cumpre o que promete, rápido.</td>
+    <td>Puxa o conteúdo já em produção pelo ciclo da rodada corrente (Bloco 8, peça de terça ou quarta) — não é um e-mail genérico, é o relatório real da rodada em andamento.</td>
+  </tr>
+  <tr>
+    <td><b>Dia 3</b></td>
+    <td>+72h</td>
+    <td>3 — Como ler nossas análises</td>
+    <td>Ensinar o lead a interpretar os indicadores da Macro Markets. Criar percepção de que a análise é baseada em dados e contexto, não em "achismo".</td>
+    <td>Explica, com um exemplo real de confronto, como ler um comparativo estatístico e o que ele significa antes de uma partida.</td>
+  </tr>
+  <tr>
+    <td><b>Dia 5</b></td>
+    <td>+5 dias</td>
+    <td>4 — Institucional</td>
+    <td>Gerar autoridade e confiança. Apresentar tudo que a Macro Markets oferece, plantando a semente do conteúdo Premium.</td>
+    <td>"Você já recebeu 2 relatórios gratuitos. Existe uma camada mais completa de análise — dados exclusivos, IA e comparativos avançados — para quem quer ir além."</td>
+  </tr>
+  <tr>
+    <td><b>Dia 15</b><br><span style="color:var(--muted);font-size:11.5px">condicional</span></td>
+    <td>Após abrir ≥ 3 relatórios</td>
+    <td>5 — Pesquisa de perfil</td>
+    <td>Entender por que o lead usa nossas informações e re-tagear a base para personalizar a comunicação daqui pra frente.</td>
+    <td>Pergunta de finalidade de uso, com 1 clique por opção (ver detalhe abaixo).</td>
+  </tr>
+</table>
+
+<div class="spec">
+  <b>Gate condicional do Dia 15:</b> só dispara para quem abriu no mínimo 3 dos relatórios anteriores — não é por tempo corrido. Quem não atingir esse mínimo fica em espera e é reavaliado diariamente até atingir.
+  <br><br>
+  <b>Opções da pesquisa e TAG resultante:</b>
+  <ul>
+    <li><b>Uso para apostas/palpites</b> → TAG de maior prioridade — é o perfil mais próximo do gate de depósito.</li>
+    <li><b>Uso informativo, como hobby</b> → segue no funil de conteúdo, comunicação sem pressão de conversão.</li>
+    <li><b>Uso jornalístico / criação de conteúdo</b> → candidato a parceria/afiliado, não a depositante direto.</li>
+    <li><b>Quero mais dicas de uso</b> → <span style="color:#a83232">a opção original do documento-fonte ("GPT me dê mais dicas") está com o texto confuso — sugiro reformular para algo como "quero aprender a usar melhor as análises" antes de ir pro Mautic.</span></li>
+  </ul>
+  Todo lead que responde recebe a TAG <b>Pesquisa Respondida</b>. Quem ainda não tem essa TAG recebe o e-mail de pesquisa novamente a cada 30 dias, mantendo o filtro sempre atualizado.
+  <br><br>
+  <b>Saída da sequência:</b> ao fim do Dia 5 (ou antes, se o lead já estiver engajado), ele entra no ciclo semanal normal do Bloco 8, segmentado em duas linhas de conteúdo — <b>Insights</b> (dados e estatística, perfil apostador) e <b>Contexto</b> (notícias e fatores externos, perfil hobby/torcedor) — conforme a TAG de perfil que ele acumular ao longo da sequência e da pesquisa.
+  <br><br>
+  <b>Fora do escopo deste bloco:</b> existe também, no documento original, uma sequência separada de <i>conversão</i> (dias 1/2/7, disparada só quando o lead já demonstra engajamento) apresentando a plataforma e a oferta — isso é distinto desta sequência de educação. Essa lógica foi incorporada de forma mais orientada a evento no Bloco 12 abaixo.
+</div>
+
+<!-- ============ 10. ARQUITETURA DE CAMPANHAS ============ -->
+<h2 class="sec" id="b10">Bloco 10 — Arquitetura de campanhas por objetivo <span style="text-transform:none;letter-spacing:0;font-weight:400">(nova estrutura, para reunião)</span></h2>
+<p class="why" style="margin-bottom:16px">Cada campanha tem <b>um objetivo só</b> — ela existe para mover o lead de um gate para o próximo, e termina quando ele converte ou entra em modo de nutrição passiva. Isso substitui a sequência única e calendarizada do Bloco 9 por campanhas menores, orientadas a evento, que casam melhor com metas do Mautic (uma campanha = uma meta = uma taxa de conversão limpa de medir).</p>
+
+<div class="row-flex" style="gap:0;align-items:stretch;margin-bottom:10px">
+  <div class="card" style="flex:1;min-width:150px;border-color:var(--s1)">
+    <h4 style="color:var(--s1)">① Waitlist</h4>
+    <p><b>Meta:</b> completar cadastro na plataforma<br>(ou marcar "não quero receber")</p>
+  </div>
+  <div style="display:flex;align-items:center;padding:0 10px;color:var(--muted);font-size:18px">→</div>
+  <div class="card" style="flex:1;min-width:150px;border-color:var(--s2)">
+    <h4 style="color:var(--s2)">② Cadastro</h4>
+    <p><b>Meta:</b> primeiro depósito (QFD)<br>via desbloqueio de conteúdo Premium</p>
+  </div>
+  <div style="display:flex;align-items:center;padding:0 10px;color:var(--muted);font-size:18px">→</div>
+  <div class="card" style="flex:1;min-width:150px;border-color:var(--s3)">
+    <h4 style="color:var(--s3)">③ QFD</h4>
+    <p><b>Meta:</b> primeira compra de ações/operação<br>na plataforma</p>
+  </div>
+  <div style="display:flex;align-items:center;padding:0 10px;color:var(--muted);font-size:18px">→</div>
+  <div class="card" style="flex:1;min-width:150px;opacity:.55">
+    <h4>④ Pós-compra</h4>
+    <p><b>Meta:</b> indicar mercados, recorrência<br><span style="color:var(--muted)">discutir depois</span></p>
+  </div>
+</div>
+
+<div class="spec">
+  <b>Foco agora:</b> só as campanhas ① e ② — waitlist→cadastro (Bloco 11) e cadastro→QFD (Bloco 12). ③ e ④ ficam para depois de validarmos essas duas.
+  <br><br>
+  <b>Por que rodar assim em vez de uma sequência única:</b> o Bloco 9 original era por <i>dia corrido</i> (D0, D1, D3...), o que quebra toda vez que a Data FIFA ou qualquer imprevisto de calendário desalinha o ciclo de rodada. Campanhas por evento (entrou na waitlist / completou cadastro / fez depósito) não têm esse problema — elas rodam por gatilho, não por data, e o conteúdo específico da rodada (Bloco 8) é puxado dinamicamente, não fixado no dia X do e-mail.
+</div>
+
+<!-- ============ 11. CAMPANHA WAITLIST ============ -->
+<h2 class="sec" id="b11">Bloco 11 — Campanha de Waitlist → Cadastro</h2>
+<p class="why" style="margin-bottom:16px">Dispara ao entrar na LP de captura (gate 1). O lead já é etiquetado pela liga/campeonato escolhido e entra <b>em paralelo</b> no ciclo semanal de rodada (Bloco 8). Os e-mails abaixo são evergreen — <b>não citam jogo nem rodada</b> — e cada um aponta para uma landing com um tema só. A rodada continua no Bloco 8.</p>
+
+<table class="t">
+  <tr>
+    <th style="width:100px">Peça</th><th style="width:130px">Gatilho</th><th>E-mail</th><th>Landing (tema / foco)</th>
+  </tr>
+  <tr>
+    <td><b>E-mail 1</b><br>Boas-vindas</td>
+    <td>Imediato</td>
+    <td>Confirma a waitlist e a liga. Sem pedido de conta.</td>
+    <td><b>O que a lista entrega</b> · expectativa e cadência. Sem conversão.</td>
+  </tr>
+  <tr>
+    <td style="color:var(--muted)"><i>(automático)</i></td>
+    <td>D+1</td>
+    <td colspan="2"><i>Overlay do Bloco 8 — não é desta campanha.</i></td>
+  </tr>
+  <tr>
+    <td><b>E-mail 2</b><br>Método</td>
+    <td>D+2</td>
+    <td>Gancho: não mandamos palpite, mandamos leitura.</td>
+    <td><b>Como lemos um jogo</b> · espinha Dados→Síntese. Motor de conversão (conta grátis).</td>
+  </tr>
+  <tr>
+    <td><b>E-mail 3</b><br>Empresa</td>
+    <td>D+4</td>
+    <td>Gancho: o que a Macro recusa fazer.</td>
+    <td><b>O que é a Macro Markets</b> · institucional. Cadastro só no final da página.</td>
+  </tr>
+  <tr>
+    <td><b>E-mail 4</b><br>Perfil</td>
+    <td>2 aberturas do Bloco 8</td>
+    <td>Convoca a pergunta. Não coleta no corpo.</td>
+    <td><b>Para que você usa</b> · TAG Insights vs Contexto. Sem CTA de conta.</td>
+  </tr>
+</table>
+
+<div class="spec">
+  <b>Em toda peça:</b> link claro de "não quero mais receber esses e-mails" (preference center, não é descadastro cego) — é literalmente a segunda meta explícita desta campanha, então precisa ser fácil de achar, não escondido no rodapé em cinza claro.
+  <br><br>
+  <b>Gatilho do e-mail 4 — decisão em aberto:</b> "recebeu 2 campanhas" pode significar <i>enviado</i> ou <i>aberto</i>. Recomendo usar <b>aberto</b> (like no Bloco 9 original) — é sinal de engajamento real, não só de entrega — mas isso é decisão sua/do time.
+  <br><br>
+  <b>Fim de campanha:</b> quem chega ao e-mail 4 sem completar cadastro sai da campanha calendarizada e passa a receber só os CTAs de cadastro embutidos no ciclo normal de rodada (Bloco 8) — sem mais disparos extras agendados, pra não virar spam.
+  <br><br>
+  <b>Páginas desta campanha:</b>
+  <a href="sequencia_emails_waitlist.html">e-mails</a> ·
+  <a href="pagina_lps_waitlist.html">quatro LPs</a>
+  (Expectativa, Método, Empresa, Perfil). Nenhuma cita a rodada da semana.
+</div>
+
+<!-- ============ 12. CAMPANHA DEPÓSITO ============ -->
+<h2 class="sec" id="b12">Bloco 12 — Proposta: Campanha de Cadastro → QFD (depósito) <span style="text-transform:none;letter-spacing:0;font-weight:400">(rascunho para validar)</span></h2>
+<p class="why" style="margin-bottom:16px">Dispara quando o lead completa o cadastro na plataforma (sai da campanha de waitlist). Objetivo único: primeiro depósito, vendido como "destrave o conteúdo Premium", não como aposta.</p>
+
+<table class="t">
+  <tr>
+    <th style="width:100px">Peça</th><th style="width:150px">Gatilho</th><th>Conteúdo</th><th>CTA principal</th>
+  </tr>
+  <tr>
+    <td><b>E-mail 1</b><br>Parabéns + prévia</td>
+    <td>Imediato ao cadastro</td>
+    <td>Confirma o cadastro. Mostra uma peça Premium real da rodada atual <b>parcialmente ofuscada</b> — "isso aqui você ainda não pode ver por completo".</td>
+    <td>LP de oferta — deposite e destrave.</td>
+  </tr>
+  <tr>
+    <td><b>E-mail 2</b><br>Básico vs Premium, lado a lado</td>
+    <td>D+1</td>
+    <td>Comparação concreta: o que o cadastro grátis já mostrou na rodada vs. o que só quem depositou está vendo. Reforça o bônus de depósito (mínimo R$50, ver Parte III).</td>
+    <td>LP de oferta.</td>
+  </tr>
+  <tr>
+    <td><b>E-mail 3</b><br>Gancho da rodada atual</td>
+    <td>D+3, ligado ao próximo jogo do calendário (Bloco 8)</td>
+    <td>Usa o confronto mais próximo como gancho concreto: "o jogo de sábado tem [dado] — é exatamente esse tipo de leitura que o Premium destrava".</td>
+    <td>LP de oferta, com validade do bônus até o fim da rodada.</td>
+  </tr>
+  <tr>
+    <td><b>E-mail 4</b><br>Último aviso</td>
+    <td>D+6, só para quem ainda não depositou</td>
+    <td>Urgência real (prazo do bônus se encerrando com a rodada), sem prometer ganho — reforça o que já foi visto de valor até aqui.</td>
+    <td>LP de oferta.</td>
+  </tr>
+</table>
+
+<div class="spec">
+  <b>Depois do e-mail 4:</b> mesma lógica do Bloco 11 — sai da campanha calendarizada, entra em nutrição passiva via os CTAs "ofuscados" de Premium já presentes no hub e nas páginas de rodada (Bloco 8/3), sem mais disparos agendados extras.
+  <br><br>
+  <b>Cuidado de linguagem:</b> essa é a campanha mais sensível do funil juridicamente — reforçar sempre "acesso a conteúdo e análises", nunca "ganhe mais" ou qualquer promessa de resultado (mesma diretriz já aplicada no reengajamento, Parte IV §15).
+  <br><br>
+  <b>Ainda não decidido — leve pra reunião:</b> WhatsApp entra nessa campanha desde já (temos API configurada essa semana) ou só na ③ QFD→primeira compra? E o e-mail 4 (último aviso) é forte demais pra rodar toda semana, sempre, ou só nas primeiras rodadas do lead?
+</div>
+
+<!-- ============ 13. TELAS x NIVEL DE ACESSO ============ -->
+<style>
+  /* --- escopo Bloco 13 --- */
+  .lad{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;align-items:stretch;margin:6px 0 0}
+  @media(max-width:860px){.lad{grid-template-columns:1fr}}
+  .step{border:1px solid var(--line);border-radius:11px;padding:15px 16px;background:#fff;position:relative}
+  .step.s2{border-color:#bfd4f5;background:#fbfcff}
+  .step.s3{border-color:#e4c98a;background:#fffdf6}
+  .step .n{font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:750;color:var(--muted);margin-bottom:7px}
+  .step.s2 .n{color:#12508f} .step.s3 .n{color:#8a6209}
+  .step h5{margin:0 0 3px;font-size:15px;letter-spacing:-.2px}
+  .step .who{font-size:11.5px;color:var(--muted);margin-bottom:2px}
+  .step .k{font-size:10px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin:11px 0 4px;font-weight:700}
+  .step ul{margin:0;padding-left:15px;font-size:12px;color:var(--ink2)}
+  .step li{margin-bottom:3px}
+  .rulebox{background:var(--dark);color:#fff;border-radius:12px;padding:20px 22px;margin:16px 0 0}
+  .rulebox .rt{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#7dd3a0;font-weight:750;margin-bottom:10px}
+  .rulebox .q{font-size:16px;font-weight:650;line-height:1.4;letter-spacing:-.2px;margin-bottom:14px}
+  .rulebox .q em{font-style:normal;color:#7dd3a0}
+  .exgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  @media(max-width:860px){.exgrid{grid-template-columns:1fr}}
+  .ex{background:#ffffff0f;border:1px solid #ffffff1f;border-radius:9px;padding:11px 13px;font-size:12px;color:#cbd5e1}
+  .ex b{display:block;font-size:10px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}
+  .ex.f b{color:#7dd3a0} .ex.p b{color:#f0b429}
+  .ex i{font-style:normal;display:block;margin-bottom:4px}
+
+  input.t13{position:absolute;opacity:0;width:0;height:0;pointer-events:none}
+  .tabs13{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 14px}
+  .tabs13 label{font-size:11.5px;color:var(--ink2);background:#fff;border:1px solid var(--line);
+    padding:6px 14px;border-radius:20px;font-weight:600;cursor:pointer;user-select:none}
+  .tabs13 label:hover{border-color:var(--mm-blue);color:var(--mm-blue)}
+  .pane13{display:none}
+  #hb-a:checked~.tabs13 label[for=hb-a],#hb-b:checked~.tabs13 label[for=hb-b],#hb-c:checked~.tabs13 label[for=hb-c],
+  #rd-a:checked~.tabs13 label[for=rd-a],#rd-b:checked~.tabs13 label[for=rd-b],#rd-c:checked~.tabs13 label[for=rd-c]
+    {background:var(--mm-blue);color:#fff;border-color:var(--mm-blue)}
+  #hb-a:checked~#p-hb-a,#hb-b:checked~#p-hb-b,#hb-c:checked~#p-hb-c,
+  #rd-a:checked~#p-rd-a,#rd-b:checked~#p-rd-b,#rd-c:checked~#p-rd-c{display:block}
+
+  .ord{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px;align-items:center}
+  .ord .lb{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700;margin-right:2px}
+  .ord i{font-style:normal;font-size:11.5px;background:#f4f4f1;border:1px solid var(--line);border-radius:6px;padding:4px 9px;color:var(--ink2)}
+  .ord i b{color:var(--ink);font-weight:750;margin-right:5px}
+  .ord i.hi{background:#f2faf5;border-color:#bfe0c9;color:#146c35}
+  .ord i.hi b{color:#146c35}
+  .ord i.lk{background:#fffaed;border-color:#e8d5a3;color:#8a6209}
+  .ord i.lk b{color:#8a6209}
+  .ctabox{display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:#f2faf5;border:1px solid #bfe0c9;
+    border-radius:10px;padding:12px 15px;margin-top:12px;font-size:12px;color:#146c35}
+  .ctabox .tg{font-size:10px;text-transform:uppercase;letter-spacing:.08em;font-weight:750}
+  .ctabox .txt{font-size:14px;font-weight:700;color:var(--ink)}
+  .micro{border-left:3px solid var(--mm-blue);background:#f7f7f4;padding:10px 14px;border-radius:0 8px 8px 0;
+    font-size:12.5px;color:var(--ink2);margin-top:10px}
+  .micro b{color:var(--ink)}
+  .micro q{font-style:italic}
+
+  .tl{display:flex;flex-wrap:wrap;margin:8px 0 0}
+  .tl .seg{flex:1;min-width:150px;padding:13px 15px;border:1px solid var(--line);border-right:0;font-size:11.5px;color:var(--ink2)}
+  .tl .seg:first-child{border-radius:10px 0 0 10px}
+  .tl .seg:last-child{border-right:1px solid var(--line);border-radius:0 10px 10px 0}
+  @media(max-width:860px){.tl .seg{border-right:1px solid var(--line);border-radius:10px!important;margin-bottom:7px}}
+  .tl .seg b{display:block;color:var(--ink);font-size:12.5px;margin-bottom:4px}
+  .tl .seg.w{background:#fffaed;border-color:#e8d5a3} .tl .seg.x{background:#f7f7f4}
+  .kv{font-size:12.5px;color:var(--ink2);margin:0;padding-left:16px}
+  .kv li{margin-bottom:5px} .kv b{color:var(--ink)}
+  code.f{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;background:#f4f4f1;
+    border:1px solid var(--line);padding:1px 6px;border-radius:5px;color:#3f3e3a}
+
+  .fro{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:6px 0 0}
+  @media(max-width:860px){.fro{grid-template-columns:1fr}}
+  .fro-c{border:1px solid var(--line);border-radius:11px;padding:15px 17px;background:#fff}
+  .fro-c.h{border-color:#bfd4f5;background:#fbfcff}
+  .fro-c.r{border-color:#bfe0c9;background:#f8fdfa}
+  .fro-c .n{font-size:10px;letter-spacing:.09em;text-transform:uppercase;font-weight:750;margin-bottom:6px}
+  .fro-c.h .n{color:#12508f} .fro-c.r .n{color:#146c35}
+  .fro-c .q{font-size:17px;font-weight:700;letter-spacing:-.3px;margin-bottom:11px}
+  .fro-c ul{margin:0;padding-left:16px;font-size:12.5px;color:var(--ink2)}
+  .fro-c li{margin-bottom:4px}
+  .fro-c .kw{font-size:11.5px;color:var(--ink2);border-top:1px solid var(--line);margin-top:11px;padding-top:9px}
+  .fro-c .kw b{color:var(--ink)}
+  .rule2{background:var(--dark);color:#fff;border-radius:11px;padding:14px 18px;margin:12px 0 0;font-size:13.5px}
+  .rule2 b{color:#7dd3a0}
+  .mv{font-size:10.5px;font-weight:750;font-variant-numeric:tabular-nums;padding:1px 5px;border-radius:4px;margin-left:5px}
+  .mv.up{background:#e8f5ec;color:#146c35} .mv.dn{background:#fdeee6;color:#9a3412}
+  .fx{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;background:#0E1420;color:#7dd3a0;
+    padding:11px 15px;border-radius:9px;margin:10px 0 0;display:block;overflow-x:auto}
+</style>
+
+<h2 class="sec" id="b13">Bloco 13 — As duas páginas × os três níveis de acesso</h2>
+<p class="why">A probabilidade do mercado é informação pública e aparece <b>nas duas páginas</b>. Isso derruba a fronteira antiga ("probabilidade só na Rodada") e obriga a uma nova, mais forte: o <b>Hub é um painel de estado</b> — permanente, consultável, sempre verdadeiro. A <b>Rodada é uma peça de movimento</b> — datada, narrativa, feita de variações.</p>
+
+<div class="fro">
+  <div class="fro-c h">
+    <div class="n">Hub · /br/brasileirao</div>
+    <div class="q">"Quanto está agora?"</div>
+    <ul>
+      <li>Tabela completa dos 20 · classificação</li>
+      <li>Probabilidade atual de cada jogo — <b>número nu, sem contexto</b></li>
+      <li>Notícias do campeonato · chat permanente</li>
+      <li>Vive 8 meses na mesma URL, acumulando autoridade</li>
+    </ul>
+    <div class="kw">Keyword: <b>brasileirão · tabela do brasileirão · classificação 2026</b> — perene, alta busca, 1 URL por temporada. Nunca usa o número da rodada no title nem no H1.</div>
+  </div>
+  <div class="fro-c r">
+    <div class="n">Rodada · /br/brasileirao/rodada-24</div>
+    <div class="q">"O que mudou e o que isso significa?"</div>
+    <ul>
+      <li>Variação do preço na semana · o que mudou desde terça</li>
+      <li>Delta da tabela <b>cruzado com a probabilidade</b></li>
+      <li>Veredito contra o mercado · cenários · dossiê</li>
+      <li>Chat por jogo · morre em 7 dias, some do sitemap ativo</li>
+    </ul>
+    <div class="kw">Keyword: <b>rodada 24 do brasileirão · jogos de hoje · probabilidades da rodada</b> — datada, 38 URLs por temporada, pico concentrado na semana.</div>
+  </div>
+</div>
+
+<div class="rule2">Teste prático que decide qualquer dúvida de alocação: <b>número sozinho é Hub, número com seta é Rodada.</b> O Hub jamais mostra uma variação — a Rodada é inteiramente feita delas.</div>
+
+<h3 class="scr">13.1 A escada de profundidade</h3>
+<p class="why">Não é "conteúdo grátis" contra "conteúdo pago". São <b>duas camadas de conteúdo e duas camadas de análise</b>. O free tem análise de verdade — só que rasa. O Premium é peça <b>adicional</b>, nunca o mesmo artigo cortado ao meio: truncar artigo destrói orgânico e frustra o leitor.</p>
+
+<div class="lad">
+  <div class="step">
+    <div class="n">Nível 0 · aberto</div>
+    <h5>Anônimo</h5>
+    <div class="who">Indexável · sem login</div>
+    <div class="k">Conteúdo</div>
+    <ul>
+      <li>Artigo por jogo: onde assistir, horário, estádio</li>
+      <li>Escalações prováveis e desfalques</li>
+      <li>Retrospecto dos últimos 5 confrontos</li>
+      <li>Tabela dos 20 e calendário das 38 rodadas</li>
+    </ul>
+    <div class="k">Análise (rasa)</div>
+    <ul>
+      <li>Comparativo de 4–6 indicadores</li>
+      <li>Forma recente e momento das equipes</li>
+      <li>Probabilidade do mercado <b>(pública, nunca gated, nas duas páginas)</b></li>
+    </ul>
+  </div>
+
+  <div class="step s2">
+    <div class="n">Nível 1 · cadastro</div>
+    <h5>Free logado</h5>
+    <div class="who">Tudo do nível 0, mais:</div>
+    <div class="k">Conteúdo</div>
+    <ul>
+      <li>Chat do campeonato e chat de cada jogo</li>
+      <li>Newsletter da rodada e alertas por time</li>
+      <li>Feed personalizado pelos times seguidos</li>
+    </ul>
+    <div class="k">Análise (rasa + contexto)</div>
+    <ul>
+      <li>Histórico do movimento do preço do mercado</li>
+      <li><b>Amostra do veredito:</b> o jogo de <b>maior divergência</b> contra o mercado — se auto-seleciona, sem curadoria</li>
+      <li>Delta da tabela: o que a rodada muda</li>
+    </ul>
+  </div>
+
+  <div class="step s3">
+    <div class="n">Nível 2 · bônus ativo</div>
+    <h5>Premium do campeonato</h5>
+    <div class="who">Tudo acima, mais:</div>
+    <div class="k">Conteúdo profundo</div>
+    <ul>
+      <li>Biblioteca de peças exclusivas <b>por campeonato</b>: dossiê de rodada, dossiê de clube, análise tática longa</li>
+      <li>Peças <b>novas</b>, não versões estendidas do free</li>
+    </ul>
+    <div class="k">Análise (prescritiva)</div>
+    <ul>
+      <li>Modelo próprio de probabilidade</li>
+      <li><b>Veredito do Dale contra o mercado</b> + delta</li>
+      <li>Cenários condicionais (se X, então Y)</li>
+      <li>Agente de IA do campeonato</li>
+    </ul>
+  </div>
+</div>
+
+<div class="rulebox">
+  <div class="rt">Regra editorial · o teste da súmula</div>
+  <div class="q">Se a frase pode ser <em>conferida</em> na súmula do jogo ou na tabela do campeonato, ela é FREE.<br>Se a frase só existe porque alguém <em>modelou, ponderou ou projetou</em>, ela é PREMIUM.</div>
+  <div class="exgrid">
+    <div class="ex f">
+      <b>Free — descreve o que é</b>
+      <i>"O Palmeiras joga pela terceira vez em oito dias."</i>
+      <i>"O Flamengo tem 58% de posse e 14,2 finalizações por jogo."</i>
+      <i>"O mercado precifica o Flamengo em 54%."</i>
+    </div>
+    <div class="ex p">
+      <b>Premium — afirma o que implica</b>
+      <i>"Descontado o calendário do Palmeiras, nosso modelo dá 61% ao Flamengo — 7 pontos acima do mercado."</i>
+      <i>"Sem o lateral titular, o cenário vira A; com ele, vira B."</i>
+    </div>
+  </div>
+  <div style="font-size:12.5px;color:#cbd5e1;margin-top:14px;border-top:1px solid #ffffff1f;padding-top:12px">
+    <b style="color:#fff">Corolário de formato — free não é curto, é raso.</b> O free <b style="color:#7dd3a0">varre na horizontal</b>: cobre os 10 jogos da rodada de forma descritiva e completa (é o que captura busca). O Premium <b style="color:#f0b429">perfura na vertical</b>: pega um jogo ou um recorte e vai fundo. Assim as duas camadas não competem por keyword nem canibalizam uma à outra.
+  </div>
+</div>
+
+<h3 class="scr" style="margin-top:36px">13.2 Hub do Campeonato — /br/brasileirao</h3>
+<p class="why">Permanente e indexável. Mostra a probabilidade atual de cada jogo — <b>número nu, sem seta, sem histórico, sem leitura</b> — e linka para a Rodada. Um CTA primário por estado, nunca dois competindo.</p>
+
+<div>
+  <input class="t13" type="radio" name="hub13" id="hb-a" checked>
+  <input class="t13" type="radio" name="hub13" id="hb-b">
+  <input class="t13" type="radio" name="hub13" id="hb-c">
+  <div class="tabs13">
+    <label for="hb-a">Não logado</label>
+    <label for="hb-b">Logado sem depósito</label>
+    <label for="hb-c">Premium ativo</label>
+  </div>
+
+  <!-- HUB · ANÔNIMO -->
+  <div class="pane13" id="p-hb-a">
+    <div class="ord">
+      <span class="lb">Ordem mobile</span>
+      <i><b>1</b>Header + status da rodada</i>
+      <i class="hi"><b>2</b>Jogos da rodada · probabilidade atual, número nu</i>
+      <i><b>3</b>Tabela completa dos 20</i>
+      <i><b>4</b>Notícias do campeonato</i>
+      <i><b>5</b>Insights do Dale · 3 peças abertas</i>
+      <i class="lk"><b>6</b>Prateleira profunda · fechada</i>
+      <i class="lk"><b>7</b>Chat do campeonato · leitura</i>
+      <i class="hi"><b>8</b>CTA cadastro</i>
+    </div>
+    <div class="frame">
+      <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">macromarkets.com/br/brasileirao</span></div>
+      <div class="pad" style="padding:20px">
+        <div class="grid2" style="gap:18px">
+          <div>
+            <h4 style="margin:0 0 9px;font-size:13px">Insights do Dale <span style="font-weight:400;color:var(--muted);font-size:11.5px">— aberto, indexável</span></h4>
+            <div class="card" style="display:flex;gap:11px;align-items:center;padding:12px">
+              <span style="width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--mm-blue),var(--mm-green));flex:none"></span>
+              <div><div style="font-size:13px;font-weight:700">Dale</div>
+              <div style="font-size:11px;color:var(--ink2)">Analista de dados de futebol · 8 anos<br><span style="color:var(--mm-blue)">@dale · perfil e redes</span></div></div>
+            </div>
+            <div class="card" style="margin-top:9px;padding:12px"><h4 style="font-size:13px">Cruzeiro somou o 4º jogo sem sofrer gol</h4><p>O que os números da rodada 23 mostraram sobre a defesa mineira.</p></div>
+            <div class="card" style="margin-top:8px;padding:12px"><h4 style="font-size:13px">A tabela mudou de cara: G4 e Z4 na rodada 23</h4><p>Quem entrou, quem saiu e por qual saldo.</p></div>
+          </div>
+          <div>
+            <h4 style="margin:0 0 9px;font-size:13px">Biblioteca profunda do Brasileirão</h4>
+            <div class="veil-wrap">
+              <div class="blurred">
+                <div class="card" style="padding:12px;margin-bottom:8px"><h4 style="font-size:13px">Dossiê da rodada 24: os 3 jogos onde o mercado está errado</h4><p>Modelo próprio, delta e cenários condicionais.</p></div>
+                <div class="card" style="padding:12px"><h4 style="font-size:13px">Dossiê Palmeiras: o custo real do calendário</h4><p>Queda de rendimento por jogo em sequência de 8 dias.</p></div>
+              </div>
+              <div class="veil"><span style="font-size:12px;color:var(--ink2);text-align:center">
+                <span class="badge-prem" style="margin-bottom:7px">Premium do Brasileirão</span><br>
+                <b style="color:var(--ink)">Análise profunda do Brasileirão.</b><br>Títulos sempre visíveis — o conteúdo abre com o Premium do campeonato.</span></div>
+            </div>
+            <div style="border:1px dashed var(--line);border-radius:10px;padding:12px;margin-top:10px;font-size:12px;color:var(--muted)">
+              💬 <b style="color:var(--ink2)">Chat do Brasileirão</b> — mensagens visíveis, campo de escrita fechado
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ctabox"><span class="tg">CTA primário único</span><span class="txt">Criar conta grátis</span><span>— o Hub converte cadastro, nunca depósito.</span></div>
+    <div class="micro"><b>Gate do chat:</b> <q>Entre na conversa. Crie sua conta grátis para participar do chat do Brasileirão.</q><br>
+    <b>Gate Premium:</b> <q>Análise profunda do Brasileirão. Disponível com o Premium do campeonato.</q></div>
+    <div class="spec" style="margin:14px 0 0"><b>Desktop:</b> duas colunas — esquerda com jogos, tabela e notícias; direita <i>sticky</i> com chat, card do Dale e a prateleira fechada. No mobile a coluna direita desce inteira para depois das notícias.</div>
+  </div>
+
+  <!-- HUB · FREE LOGADO -->
+  <div class="pane13" id="p-hb-b">
+    <div class="ord">
+      <span class="lb">Ordem mobile</span>
+      <i><b>1</b>Header + meu time</i>
+      <i><b>2</b>Jogos da rodada · índice</i>
+      <i class="lk"><b>3</b>Prateleira profunda · sobe de 6º p/ 3º</i>
+      <i><b>4</b>Tabela completa</i>
+      <i><b>5</b>Notícias</i>
+      <i><b>6</b>Dale · aberto</i>
+      <i class="hi"><b>7</b>Chat do campeonato · ATIVO</i>
+    </div>
+    <div class="frame">
+      <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">macromarkets.com/br/brasileirao</span></div>
+      <div class="pad" style="padding:20px">
+        <div class="grid2" style="gap:18px">
+          <div>
+            <div class="card" style="padding:12px;background:#f2faf5;border-color:#bfe0c9">
+              <h4 style="font-size:13px">💬 Chat do Brasileirão — liberado</h4>
+              <p>Você está logado. O campo de escrita está ativo.</p>
+              <div style="border:1px solid #bfe0c9;background:#fff;border-radius:8px;padding:9px 12px;margin-top:9px;font-size:12px;color:var(--muted)">Escreva sua mensagem…</div>
+            </div>
+            <div class="card" style="margin-top:10px;padding:12px"><h4 style="font-size:13px">Amostra do veredito · 1 jogo por rodada</h4>
+              <p style="margin-bottom:8px">Cruzeiro × Botafogo — mercado 47%, modelo do Dale <b style="color:var(--ink)">55%</b>.</p>
+              <div class="cmp" style="margin:0">
+                <div class="row"><span class="nm" style="width:70px">Mercado</span><span class="track"><span class="fill" style="width:47%;background:var(--s1)"></span></span><span class="num">47%</span></div>
+                <div class="row"><span class="nm" style="width:70px">Dale</span><span class="track"><span class="fill" style="width:55%;background:var(--s3)"></span></span><span class="num">55%</span></div>
+              </div>
+              <p style="margin-top:8px;font-size:11.5px;color:var(--muted)">Amostra gratuita. Os outros 9 jogos estão no Premium.</p>
+            </div>
+          </div>
+          <div>
+            <h4 style="margin:0 0 9px;font-size:13px">Biblioteca profunda — 12 peças nesta temporada</h4>
+            <div class="veil-wrap">
+              <div class="blurred">
+                <div class="card" style="padding:12px;margin-bottom:8px"><h4 style="font-size:13px">Dossiê da rodada 24: os 3 jogos onde o mercado está errado</h4><p>Modelo, delta e cenários.</p></div>
+                <div class="card" style="padding:12px;margin-bottom:8px"><h4 style="font-size:13px">Dossiê Palmeiras: o custo real do calendário</h4><p>Rendimento em sequência de 8 dias.</p></div>
+                <div class="card" style="padding:12px"><h4 style="font-size:13px">Como ler o G4 daqui até a rodada 38</h4><p>Cenários de classificação.</p></div>
+              </div>
+              <div class="veil"><span style="font-size:12px;color:var(--ink2);text-align:center">
+                <span class="badge-prem" style="margin-bottom:7px">Premium do Brasileirão</span><br>
+                <b style="color:var(--ink)">Você já viu 1 veredito de graça.</b><br>Os outros 9 jogos e as 12 peças profundas abrem com o Premium.</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ctabox"><span class="tg">CTA primário único</span><span class="txt">Ativar Premium do Brasileirão</span><span>— o cadastro já foi feito; agora o alvo é o depósito.</span></div>
+    <div class="micro"><b>Copy do gate — separa dinheiro de acesso:</b> <q>Deposite R$ 50. O valor vira R$ 50 de bônus, que é <b>seu dinheiro para usar nos mercados</b>. O Premium do Brasileirão vem junto, válido até o fim do campeonato.</q></div>
+  </div>
+
+  <!-- HUB · PREMIUM -->
+  <div class="pane13" id="p-hb-c">
+    <div class="ord">
+      <span class="lb">Ordem mobile</span>
+      <i><b>1</b>Header + validade só se ≤7 dias</i>
+      <i class="hi"><b>2</b>Veredito do Dale · rodada 24</i>
+      <i><b>3</b>Jogos da rodada · índice</i>
+      <i class="hi"><b>4</b>Biblioteca profunda · aberta</i>
+      <i><b>5</b>Tabela completa</i>
+      <i><b>6</b>Agente de IA</i>
+      <i><b>7</b>Notícias + chat ativo</i>
+    </div>
+    <div class="frame">
+      <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">macromarkets.com/br/brasileirao</span></div>
+      <div class="darkpad">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap">
+          <span class="badge-prem">Premium do Brasileirão</span>
+          <span style="font-size:11.5px;color:var(--dink2)">ativo até 07/12/2026</span>
+        </div>
+        <div class="grid2" style="gap:14px">
+          <div class="d-card">
+            <div class="d-lab">Onde o Dale discorda do mercado — rodada 24</div>
+            <div style="margin-top:12px">
+              <div class="cmp" style="margin:0">
+                <div class="row"><span class="nm" style="color:#94a3b8;width:104px">Cruzeiro (casa)</span><span class="track" style="background:#0E1420"><span class="fill" style="width:47%;background:var(--s1)"></span><span class="fill" style="width:8%;background:var(--s3)"></span></span><span class="num" style="color:#fff">+8</span></div>
+                <div class="row"><span class="nm" style="color:#94a3b8;width:104px">Fluminense</span><span class="track" style="background:#0E1420"><span class="fill" style="width:38%;background:var(--s1)"></span><span class="fill" style="width:6%;background:var(--s3)"></span></span><span class="num" style="color:#fff">+6</span></div>
+                <div class="row"><span class="nm" style="color:#94a3b8;width:104px">Palmeiras</span><span class="track" style="background:#0E1420"><span class="fill" style="width:46%;background:var(--s1)"></span><span class="fill" style="width:5%;background:var(--s2)"></span></span><span class="num" style="color:#fff">−5</span></div>
+              </div>
+              <div class="legend" style="margin-top:11px"><span><span class="swatch" style="background:var(--s1)"></span> <span style="color:#94a3b8">Mercado</span></span><span><span class="swatch" style="background:var(--s3)"></span> <span style="color:#94a3b8">Delta do modelo</span></span></div>
+            </div>
+          </div>
+          <div class="d-card">
+            <div class="d-lab">Biblioteca profunda — aberta</div>
+            <div style="margin-top:11px;font-size:12.5px;color:#cbd5e1;line-height:1.9">
+              → Dossiê da rodada 24<br>
+              → Dossiê Palmeiras: o custo do calendário<br>
+              → Como ler o G4 até a rodada 38<br>
+              <span style="color:var(--dink2)">+ 9 peças da temporada</span>
+            </div>
+            <div style="border-top:1px solid var(--dark3);margin-top:13px;padding-top:12px;font-size:12.5px;color:#cbd5e1">
+              🤖 <b style="color:#fff">Agente do Brasileirão</b> — pergunte sobre qualquer time, jogo ou tendência
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ctabox"><span class="tg">CTA primário único</span><span class="txt">Ver a análise da rodada 24</span><span>— quem já pagou não recebe pitch; recebe produto.</span></div>
+    <div class="micro"><b>Regra de validade:</b> acima de 30 dias mostra só a data. Entre 8 e 30, data + <q>até o fim do campeonato</q>. Em 7 dias ou menos, faixa âmbar com contagem. <b>Nunca</b> contador permanente — lembra o usuário de cancelar e cria ansiedade sem função.</div>
+  </div>
+</div>
+
+<h3 class="scr" style="margin-top:36px">13.3 Página da Rodada — /br/brasileirao/rodada-24</h3>
+<p class="why">Efêmera, destino do e-mail e do WhatsApp. Traz probabilidade e mercado; traz <b>só o delta da tabela</b> (3 a 5 linhas), nunca a tabela completa.</p>
+
+<div>
+  <input class="t13" type="radio" name="rnd13" id="rd-a" checked>
+  <input class="t13" type="radio" name="rnd13" id="rd-b">
+  <input class="t13" type="radio" name="rnd13" id="rd-c">
+  <div class="tabs13">
+    <label for="rd-a">Não logado</label>
+    <label for="rd-b">Logado sem depósito</label>
+    <label for="rd-c">Premium ativo</label>
+  </div>
+
+  <!-- RODADA · ANÔNIMO -->
+  <div class="pane13" id="p-rd-a">
+    <div class="ord">
+      <span class="lb">Ordem mobile</span>
+      <i><b>1</b>Header da rodada + janela de datas</i>
+      <i><b>2</b>Delta da tabela · 3 a 5 linhas</i>
+      <i><b>3</b>Os 10 jogos com probabilidade</i>
+      <i class="lk"><b>4</b>Veredito do Dale · fechado</i>
+      <i><b>5</b>Notícias amarradas aos jogos</i>
+      <i class="lk"><b>6</b>Chat por jogo · leitura</i>
+      <i class="hi"><b>7</b>CTA cadastro</i>
+    </div>
+    <div class="frame">
+      <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">macromarkets.com/br/brasileirao/rodada-24</span></div>
+      <div class="pad" style="padding:20px">
+        <div style="background:#f7f7f4;border-radius:10px;padding:13px 15px;margin-bottom:16px">
+          <div style="font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:750;margin-bottom:7px">O que a rodada 24 muda na tabela</div>
+          <div style="font-size:12.5px;color:var(--ink2);line-height:1.75">
+            → Flamengo mantém a liderança com qualquer resultado<br>
+            → Cruzeiro entra no G4 se vencer<br>
+            → Vitória, Juventude e Sport disputam a saída do Z4
+          </div>
+          <div style="font-size:11px;color:var(--muted);margin-top:8px">Tabela completa dos 20 times: <span style="color:var(--mm-blue)">no hub do Brasileirão →</span></div>
+        </div>
+        <div class="match" style="margin-bottom:8px">
+          <span class="crest" style="background:#b91c1c"></span><span class="tm">Flamengo</span>
+          <span style="font-size:13px;font-weight:700;font-variant-numeric:tabular-nums">54%</span>
+          <span class="vs">×</span>
+          <span style="font-size:13px;font-weight:700;font-variant-numeric:tabular-nums">28%</span>
+          <span class="tm" style="text-align:right">Palmeiras</span><span class="crest" style="background:#166534"></span>
+          <span class="when">Sáb · 18h30</span>
+        </div>
+        <div class="match" style="margin-bottom:14px">
+          <span class="crest" style="background:#1e3a8a"></span><span class="tm">Cruzeiro</span>
+          <span style="font-size:13px;font-weight:700;font-variant-numeric:tabular-nums">47%</span>
+          <span class="vs">×</span>
+          <span style="font-size:13px;font-weight:700;font-variant-numeric:tabular-nums">31%</span>
+          <span class="tm" style="text-align:right">Botafogo</span><span class="crest" style="background:#111827"></span>
+          <span class="when">Sáb · 21h00</span>
+        </div>
+        <div style="font-size:11px;color:var(--muted);margin-bottom:16px">Probabilidade do mercado — informação pública, sempre aberta.</div>
+
+        <div class="veil-wrap">
+          <div class="blurred">
+            <div class="card" style="padding:13px"><h4 style="font-size:13px">Onde o Dale discorda do mercado — 3 dos 10 jogos</h4>
+              <div class="cmp" style="margin:8px 0 0">
+                <div class="row"><span class="nm" style="width:80px">Cruzeiro</span><span class="track"><span class="fill" style="width:55%;background:var(--s3)"></span></span><span class="num">+8</span></div>
+                <div class="row"><span class="nm" style="width:80px">Fluminense</span><span class="track"><span class="fill" style="width:44%;background:var(--s3)"></span></span><span class="num">+6</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="veil"><span style="font-size:12px;color:var(--ink2);text-align:center">
+            <span class="badge-prem" style="margin-bottom:7px">Premium do Brasileirão</span><br>
+            <b style="color:var(--ink)">O mercado diz 54%. O Dale discorda em 3 dos 10 jogos.</b></span></div>
+        </div>
+      </div>
+    </div>
+    <div class="ctabox"><span class="tg">CTA primário único</span><span class="txt">Criar conta grátis</span><span>— tráfego frio de busca ainda precisa passar pelo gate 1.</span></div>
+    <div class="micro"><b>Gate do veredito:</b> <q>O mercado diz 54%. O Dale discorda em 3 dos 10 jogos desta rodada. Veja onde — com o Premium do Brasileirão.</q><br>
+    <b>Gate do chat do jogo:</b> <q>Crie sua conta grátis para comentar Flamengo × Palmeiras.</q></div>
+  </div>
+
+  <!-- RODADA · FREE LOGADO -->
+  <div class="pane13" id="p-rd-b">
+    <div class="ord">
+      <span class="lb">Ordem mobile</span>
+      <i><b>1</b>Header da rodada</i>
+      <i class="hi"><b>2</b>Amostra do veredito · 1 jogo aberto</i>
+      <i><b>3</b>Delta da tabela</i>
+      <i><b>4</b>10 jogos + histórico do preço</i>
+      <i class="lk"><b>5</b>Veredito dos outros 9 · fechado</i>
+      <i class="hi"><b>6</b>Chat por jogo · ATIVO</i>
+    </div>
+    <div class="frame">
+      <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">macromarkets.com/br/brasileirao/rodada-24</span></div>
+      <div class="pad" style="padding:20px">
+        <div class="card" style="background:#f2faf5;border-color:#bfe0c9;padding:14px;margin-bottom:14px">
+          <div style="font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;color:#146c35;font-weight:750;margin-bottom:8px">Amostra grátis — 1 dos 10 jogos</div>
+          <h4 style="margin:0 0 3px;font-size:14px">Cruzeiro × Botafogo</h4>
+          <div class="cmp" style="margin:9px 0 0">
+            <div class="row"><span class="nm" style="width:76px">Mercado</span><span class="track"><span class="fill" style="width:47%;background:var(--s1)"></span></span><span class="num">47%</span></div>
+            <div class="row"><span class="nm" style="width:76px">Modelo Dale</span><span class="track"><span class="fill" style="width:55%;background:var(--s3)"></span></span><span class="num">55%</span></div>
+          </div>
+          <p style="font-size:12.5px;color:var(--ink2);margin:10px 0 0">O modelo desconta o desgaste do Botafogo (3º jogo em 8 dias) e o retrospecto de 4 jogos sem sofrer gol do Cruzeiro em casa.</p>
+        </div>
+        <div class="veil-wrap">
+          <div class="blurred">
+            <div class="card" style="padding:13px"><h4 style="font-size:13px">Outros 9 jogos · veredito, delta e cenários</h4>
+              <div class="cmp" style="margin:8px 0 0">
+                <div class="row"><span class="nm" style="width:80px">Fluminense</span><span class="track"><span class="fill" style="width:44%;background:var(--s3)"></span></span><span class="num">+6</span></div>
+                <div class="row"><span class="nm" style="width:80px">Palmeiras</span><span class="track"><span class="fill" style="width:38%;background:var(--s2)"></span></span><span class="num">−5</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="veil"><span style="font-size:12px;color:var(--ink2);text-align:center">
+            <span class="badge-prem" style="margin-bottom:7px">Premium do Brasileirão</span><br>
+            <b style="color:var(--ink)">Você acabou de ver um. Faltam nove.</b></span></div>
+        </div>
+        <div class="card" style="margin-top:12px;padding:12px;background:#f2faf5;border-color:#bfe0c9">
+          <h4 style="font-size:13px">💬 Chat de Flamengo × Palmeiras — liberado</h4>
+          <div style="border:1px solid #bfe0c9;background:#fff;border-radius:8px;padding:9px 12px;margin-top:8px;font-size:12px;color:var(--muted)">Escreva sua mensagem…</div>
+        </div>
+      </div>
+    </div>
+    <div class="ctabox"><span class="tg">CTA primário único</span><span class="txt">Ativar Premium — depósito de R$ 50</span><span>— o pedido só vem depois da amostra concreta.</span></div>
+    <div class="micro"><b>Copy do gate:</b> <q>Seu depósito de R$ 50 vira R$ 50 de bônus — <b>dinheiro seu, para usar nos mercados</b>. O Premium do Brasileirão vem junto e vale até o fim do campeonato, em 07/12.</q><br>
+    <span style="color:var(--muted)">Data explícita já no pedido. Nunca vender como vitalício e corrigir depois.</span></div>
+  </div>
+
+  <!-- RODADA · PREMIUM -->
+  <div class="pane13" id="p-rd-c">
+    <div class="ord">
+      <span class="lb">Ordem mobile</span>
+      <i class="hi"><b>1</b>Veredito completo · 10 jogos</i>
+      <i><b>2</b>Delta da tabela</i>
+      <i class="hi"><b>3</b>Dossiê profundo da rodada</i>
+      <i><b>4</b>10 jogos + mercado</i>
+      <i class="hi"><b>5</b>Agente de IA na rodada</i>
+      <i><b>6</b>Chat por jogo · ativo</i>
+    </div>
+    <div class="frame">
+      <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">macromarkets.com/br/brasileirao/rodada-24</span></div>
+      <div class="darkpad">
+        <div class="d-card" style="margin-bottom:12px">
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+            <div class="d-lab">Veredito da rodada 24 — 10 de 10 jogos</div>
+            <span style="font-size:11px;color:var(--dink2)">Premium ativo até 07/12</span>
+          </div>
+          <div style="margin-top:13px">
+            <div class="cmp" style="margin:0">
+              <div class="row"><span class="nm" style="color:#94a3b8;width:112px">Cruzeiro × Botafogo</span><span class="track" style="background:#0E1420"><span class="fill" style="width:47%;background:var(--s1)"></span><span class="fill" style="width:8%;background:var(--s3)"></span></span><span class="num" style="color:#fff">+8</span></div>
+              <div class="row"><span class="nm" style="color:#94a3b8;width:112px">Fluminense × SP</span><span class="track" style="background:#0E1420"><span class="fill" style="width:38%;background:var(--s1)"></span><span class="fill" style="width:6%;background:var(--s3)"></span></span><span class="num" style="color:#fff">+6</span></div>
+              <div class="row"><span class="nm" style="color:#94a3b8;width:112px">Flamengo × Palmeiras</span><span class="track" style="background:#0E1420"><span class="fill" style="width:54%;background:var(--s1)"></span><span class="fill" style="width:5%;background:var(--s2)"></span></span><span class="num" style="color:#fff">−5</span></div>
+              <div class="row"><span class="nm" style="color:#94a3b8;width:112px">Corinthians × Inter</span><span class="track" style="background:#0E1420"><span class="fill" style="width:41%;background:var(--s1)"></span><span class="fill" style="width:2%;background:#475569"></span></span><span class="num" style="color:#fff">+2</span></div>
+            </div>
+            <div style="font-size:11.5px;color:var(--dink2);margin-top:12px">Cada linha abre o raciocínio do modelo e os cenários condicionais.</div>
+          </div>
+        </div>
+        <div class="grid2" style="gap:12px">
+          <div class="d-card"><div class="d-lab">Dossiê profundo da rodada 24</div>
+            <div style="font-size:12.5px;color:#cbd5e1;margin-top:9px;line-height:1.6">Os 3 jogos onde o mercado está errado — método, premissas e o que faria o modelo mudar de ideia.</div></div>
+          <div class="d-card"><div class="d-lab">🤖 Agente da rodada 24</div>
+            <div style="border:1px solid var(--dark3);border-radius:8px;padding:9px 12px;margin-top:9px;font-size:12px;color:var(--dink2)">"Por que o modelo gosta tanto do Cruzeiro?"</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="ctabox"><span class="tg">CTA primário único</span><span class="txt">Abrir o mercado de Flamengo × Palmeiras</span><span>— o objetivo desta tela vira a primeira operação.</span></div>
+    <div class="micro"><b>Faixa de validade:</b> só aparece a 7 dias ou menos do fim. Texto: <q>Seu Premium do Brasileirão vai até 07/12 — faltam 6 dias. Um novo depósito renova.</q> Discreta, no topo do conteúdo Premium. Nunca modal, nunca interstitial.</div>
+  </div>
+</div>
+
+<h3 class="scr" style="margin-top:36px">13.4 Ciclo de vida do Premium por campeonato</h3>
+<p class="why">O Premium <b>não é vitalício e não é global</b>: é uma janela de vigência com escopo de campeonato, concedida junto ao bônus de depósito. Este é o ponto que mais gera sensação de armadilha se for mal comunicado — a defesa é enquadrar como <b>temporada</b>, não como assinatura prestes a cair.</p>
+
+<div class="tl">
+  <div class="seg"><b>Depósito</b>R$ 50 vira R$ 50 de bônus. A data de término do Premium é mostrada <b>aqui</b>, na confirmação — nunca depois.</div>
+  <div class="seg"><b>Vigência</b>Nenhum contador. Só a data, e apenas onde há conteúdo Premium na tela.</div>
+  <div class="seg w"><b>T‑7 dias</b>Faixa âmbar discreta. CTA de renovação secundário. Uma vez por sessão, dispensável.</div>
+  <div class="seg x"><b>Expirado</b>Downgrade <b>explicado</b>: as peças continuam listadas, com título visível e selo cinza "você teve acesso até 07/12".</div>
+</div>
+
+<div class="grid3" style="margin-top:16px">
+  <div class="card"><h4>Premium de outro campeonato</h4><p>Usuário com Premium só da Premier chega no Hub do Brasileirão. Vê o gate normal — <b>mas com reconhecimento explícito</b>: <i>"Você tem Premium na Premier League. O Premium é por campeonato — ative o do Brasileirão."</i> Sem isso, ele sente que já pagou e está bloqueado, o pior sentimento possível.</p></div>
+  <div class="card"><h4>Bônus em rollover, Premium ativo</h4><p>São <b>duas barras separadas</b> no perfil: progresso do rollover (dinheiro) e validade do Premium (acesso). Nunca a mesma barra — confundir as duas gera ticket de suporte e desconfiança.</p></div>
+  <div class="card" style="border-color:#e4c98a;background:#fffdf6"><h4>Regra de expiração recomendada</h4><p>Premium termina no <b>fim do campeonato</b>, com piso de <b>30 dias</b> a partir da ativação. Quem deposita na rodada 37 não pode receber um dia de acesso. E cumprir o rollover rápido <b>nunca</b> deve encerrar o Premium — seria punir o bom uso.</p></div>
+</div>
+
+<h3 class="scr" style="margin-top:36px">13.5 O que o produto precisa entregar</h3>
+
+<div class="grid3">
+  <div class="card">
+    <h4>Model de Rodada — a fazer</h4>
+    <p style="margin-bottom:8px">A PR #298 já traz <code class="f">championships</code> (com <code class="f">slug</code>) e <code class="f">championship_matches</code> → <code class="f">market_prediction_id</code>. Mas <b>rodada é só um inteiro</b> (<code class="f">round</code>): não tem slug, janela, status nem página.</p>
+    <ul class="kv">
+      <li><b>Nova tabela</b> <code class="f">championship_rounds</code>: number, slug, stage_id, starts_at, ends_at, publish_at, status</li>
+      <li><b>Nova FK</b> <code class="f">championship_round_id</code> em <code class="f">championship_matches</code>, derivada de <code class="f">round</code> + <code class="f">stage_id</code> — o fan-out do Oracle não muda</li>
+      <li><b>Sem</b> chat_room por rodada (decisão fechada)</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h4>Chat — a flag já existe</h4>
+    <p style="margin-bottom:8px">Desligar a feature global <code class="f">ChatMinWagered</code> pula o gate de <i>wagered</i> e libera o chat para qualquer usuário logado. É exatamente o comportamento desejado.</p>
+    <ul class="kv">
+      <li><b>Back:</b> <code class="f">SendChatMessage.php:129</code></li>
+      <li><b>Front:</b> <code class="f">ChatFooter/index.tsx:130</code></li>
+      <li><b>Anônimo</b> continua bloqueado por <code class="f">@guard</code>, independentemente da flag</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h4>Sinal de acesso — a criar</h4>
+    <p style="margin-bottom:8px"><code class="f">vip.first_deposit_completed_at</code> não serve mais: é booleano global, sem escopo nem validade.</p>
+    <ul class="kv">
+      <li><b>Falta no back:</b> <code class="f">championship_id</code> no bônus e <code class="f">entitlement_expires_at</code> no <code class="f">user_deposit_bonuses</code></li>
+      <li><b>Contrato:</b> lista de campeonatos com <code class="f">level</code> e <code class="f">expiresAt</code></li>
+      <li><b>Front:</b> <code class="f">useAccessLevel(competition)</code></li>
+    </ul>
+  </div>
+</div>
+
+<div class="spec">
+  <b>Deliberadamente fora deste bloco.</b> Matriz de UTM, tabela de eventos de dataLayer, wireframe de cada página de jogo e a especificação de campos do model de rodada — nada disso cabe num documento de decisão visual. O que está aqui basta para aprovar a hierarquia das telas e a escada de acesso; o resto vira ticket.
+</div>
+
+
+<style>
+  .spine{display:flex;gap:0;align-items:stretch;margin:16px 0 0;flex-wrap:wrap}
+  .spine .st{flex:1;min-width:132px;border:1px solid var(--line);background:#fff;padding:13px 14px;position:relative}
+  .spine .st:first-child{border-radius:11px 0 0 11px} .spine .st:last-child{border-radius:0 11px 11px 0}
+  .spine .st+.st{border-left:none}
+  @media(max-width:820px){.spine .st{border-radius:11px!important;border-left:1px solid var(--line)!important;min-width:100%}}
+  .spine .k{font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:750;color:var(--mm-blue)}
+  .spine .q{font-size:13px;font-weight:700;margin:5px 0 4px;letter-spacing:-.2px}
+  .spine .d{font-size:11.5px;color:var(--ink2);line-height:1.5}
+  .spine .st.syn{background:#f6fbf8;border-color:#bfe0c9} .spine .st.syn .k{color:#146c35}
+
+  .fams{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
+  @media(max-width:980px){.fams{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:660px){.fams{grid-template-columns:1fr}}
+  .fam{border:1px solid var(--line);border-radius:11px;background:#fff;padding:14px 15px}
+  .fam.mk{border-color:#bfe0c9;background:#f9fdfb}
+  .fam .ft{font-size:13px;font-weight:750;letter-spacing:-.2px;display:flex;align-items:center;gap:7px}
+  .fam .ft s{text-decoration:none;font-size:9.5px;font-weight:750;letter-spacing:.08em;color:#fff;background:var(--mm-blue);
+    border-radius:4px;padding:2px 5px}
+  .fam.mk .ft s{background:#146c35}
+  .fam .fq{font-size:11.5px;color:var(--ink2);margin:6px 0 10px;line-height:1.5}
+  .chips{display:flex;flex-wrap:wrap;gap:5px}
+  .chips b{font-size:11px;font-weight:600;border:1px solid var(--line);border-radius:14px;padding:3px 9px 3px 7px;
+    background:#fafaf8;display:inline-flex;align-items:center;gap:5px;color:var(--ink2)}
+  .chips b::before{content:'';width:6px;height:6px;border-radius:50%;background:#22a45d;flex:none}
+  .chips b.d::before{background:#e0a92a} .chips b.x::before{background:#d05a3a}
+  .chips b.sig{background:var(--dark);color:#fff;border-color:var(--dark);font-weight:700}
+  .lgn{display:flex;gap:16px;flex-wrap:wrap;font-size:11.5px;color:var(--ink2);margin-top:12px}
+  .lgn i{font-style:normal;display:inline-flex;align-items:center;gap:6px}
+  .lgn i::before{content:'';width:7px;height:7px;border-radius:50%;background:#22a45d}
+  .lgn i.d::before{background:#e0a92a} .lgn i.x::before{background:#d05a3a}
+  .lgn i.s::before{background:var(--dark)}
+
+  .lad3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
+  @media(max-width:900px){.lad3{grid-template-columns:1fr}}
+  .lv{border:1px solid var(--line);border-radius:11px;overflow:hidden;background:#fff;display:flex;flex-direction:column}
+  .lv .h{padding:9px 13px;font-size:10px;letter-spacing:.08em;text-transform:uppercase;font-weight:750;
+    border-bottom:1px solid var(--line);background:#fafaf8;color:var(--ink2)}
+  .lv.p{border-color:#3a3a36} .lv.p .h{background:var(--dark);color:#e7c893;border-color:#2a2a26}
+  .lv .bd{padding:13px;flex:1}
+  .lv.p .bd{background:var(--dark);color:#cbd5e1}
+  .ind{width:100%;border-collapse:collapse;font-size:11.5px}
+  .ind td{padding:5px 0;border-bottom:1px solid var(--line)}
+  .ind td:last-child{text-align:right;font-weight:700;font-variant-numeric:tabular-nums;color:var(--ink)}
+  .lv.p .ind td{border-color:#2a2a26;color:#94a3b8} .lv.p .ind td:last-child{color:#fff}
+  .spk{display:inline-flex;gap:1.5px;align-items:flex-end;height:14px;vertical-align:middle;margin-right:7px}
+  .spk s{width:3px;background:#5b8def;border-radius:1px;text-decoration:none}
+  .lv.p .spk s{background:var(--s3)}
+  .pct{font-size:10px;color:var(--muted);font-weight:600} .lv.p .pct{color:#7dd3a0}
+  .gain{font-size:11.5px;border-top:1px dashed var(--line);margin-top:11px;padding-top:9px;color:var(--ink2)}
+  .lv.p .gain{border-color:#2a2a26;color:#94a3b8}
+
+  .mx{width:100%;border-collapse:collapse;margin-top:14px;font-size:12px}
+  .mx th{background:#fafaf8;border:1px solid var(--line);padding:8px 9px;text-align:left;font-size:10.5px;
+    letter-spacing:.05em;text-transform:uppercase;color:var(--ink2);font-weight:750}
+  .mx th:not(:first-child){text-align:center;width:11%}
+  .mx td{border:1px solid var(--line);padding:7px 9px}
+  .mx td:not(:first-child){text-align:center;font-weight:750;font-size:13px}
+  .mx .y{color:#146c35;background:#f4fbf7} .mx .h{color:#b07d16;background:#fffbf0} .mx .n{color:#c8c6c0}
+  .mx tr td:first-child{font-size:12px}
+
+  .tone{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+  @media(max-width:820px){.tone{grid-template-columns:1fr}}
+  .tn{border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:#fff}
+  .tn .t{font-size:12.5px;font-weight:750;margin-bottom:7px}
+  .tn .ex{font-size:11.5px;line-height:1.65}
+  .tn .ex .ok{color:#146c35} .tn .ex .no{color:#a33b1e}
+  .tn .ex .ok::before{content:'✓ ';font-weight:750} .tn .ex .no::before{content:'✕ ';font-weight:750}
+
+  /* ---- componentes de conteúdo desenhados ---- */
+  .mock{border:1px solid var(--line);border-radius:12px;background:#fff;overflow:hidden;display:flex;flex-direction:column}
+  .mock>.mh{padding:10px 14px;border-bottom:1px solid var(--line);background:#fafaf8;display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .mock>.mh .tt{font-size:12.5px;font-weight:750;letter-spacing:-.15px}
+  .mock>.mh .fm{font-size:9px;letter-spacing:.09em;text-transform:uppercase;font-weight:750;color:#fff;background:var(--mm-blue);border-radius:4px;padding:2px 6px;flex:none}
+  .mock>.mb{padding:14px;flex:1}
+  .mock .note{font-size:11px;color:var(--muted);border-top:1px dashed var(--line);padding:9px 14px;line-height:1.55}
+  .m2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+  @media(max-width:900px){.m2{grid-template-columns:1fr}}
+
+  .h2hh{display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:center;margin-bottom:12px}
+  .h2hh .tm{font-size:12px;font-weight:750} .h2hh .tm.r{text-align:right}
+  .h2hh .vs{font-size:10px;color:var(--muted);font-weight:700}
+  .h2r{display:grid;grid-template-columns:32px 1fr 92px 1fr 32px;gap:6px;align-items:center;margin-bottom:7px}
+  .h2r .v{font-size:11.5px;font-weight:750;font-variant-numeric:tabular-nums}
+  .h2r .v.r{text-align:right}
+  .h2r .lb{font-size:10.5px;color:var(--ink2);text-align:center;line-height:1.25}
+  .h2b{height:9px;background:#f0efec;border-radius:3px;overflow:hidden;display:flex}
+  .h2b.l{justify-content:flex-end}
+  .h2b s{display:block;height:100%;text-decoration:none;background:#8f8b84;border-radius:3px}
+  .h2r.wl .h2b.l s{background:#22a45d} .h2r.wl .v.r{color:#146c35}
+  .h2r.wr .h2b.r s{background:#22a45d} .h2r.wr .v:not(.r){color:#146c35}
+
+  .stk{border:1px solid var(--line);border-radius:9px;padding:11px 12px;margin-bottom:8px}
+  .stk:last-child{margin-bottom:0}
+  .stk .hd{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:750;margin-bottom:9px;flex-wrap:wrap}
+  .stk .pos{font-size:10px;font-weight:750;background:var(--dark);color:#fff;border-radius:4px;padding:2px 6px}
+  .stk .pts{font-size:10.5px;color:var(--muted);font-weight:600}
+  .stk .br{display:flex;gap:6px;flex-wrap:wrap}
+  .stk .br em{font-style:normal;font-size:11px;font-weight:650;border-radius:13px;padding:3px 9px;border:1px solid}
+  .stk .br em.up{color:#146c35;background:#f0f9f3;border-color:#bfe0c9}
+  .stk .br em.dn{color:#a33b1e;background:#fdf3ef;border-color:#eccdbf}
+  .stk .br em.fl{color:var(--ink2);background:#fafaf8;border-color:var(--line)}
+
+  .gc{display:flex;align-items:flex-end;gap:8px;height:104px;padding-top:6px}
+  .gc .col{flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;height:100%;justify-content:flex-end}
+  .gc .bars{display:flex;gap:3px;align-items:flex-end;height:100%;width:100%;justify-content:center}
+  .gc .bars s{width:11px;border-radius:2px 2px 0 0;text-decoration:none;display:block}
+  .gc .bars s.a{background:#5b8def} .gc .bars s.b{background:#e0a92a}
+  .gc .col .x{font-size:9.5px;color:var(--muted);font-weight:650;white-space:nowrap}
+  .gc .col.hot .bars s.b{background:#d05a3a} .gc .col.hot .x{color:#a33b1e;font-weight:750}
+
+  .abs{display:flex;gap:13px;align-items:center}
+  .abs .dn{width:76px;height:76px;border-radius:50%;flex:none;display:grid;place-items:center;background:conic-gradient(#d05a3a 0 41%,#eeece8 41% 100%)}
+  .abs .dn b{width:58px;height:58px;border-radius:50%;background:#fff;display:grid;place-items:center;font-size:15px;font-weight:800;letter-spacing:-.5px}
+  .abs .kv2{flex:1;font-size:11.5px}
+  .abs .kv2 div{display:flex;justify-content:space-between;gap:10px;padding:4px 0;border-bottom:1px solid var(--line)}
+  .abs .kv2 div:last-child{border:none}
+  .abs .kv2 span:last-child{font-weight:750;font-variant-numeric:tabular-nums}
+
+  .mkr{display:grid;grid-template-columns:70px 1fr 42px 50px;gap:9px;align-items:center;margin-bottom:8px;font-size:11.5px}
+  .mkr .nm2{font-weight:650;color:var(--ink2)}
+  .mkr .mbar{display:block;height:11px;background:#f0efec;border-radius:3px;overflow:hidden}
+  .mkr .mbar s{display:block;height:11px;background:var(--mm-blue);text-decoration:none;border-radius:3px}
+  .mkr .pv{font-weight:800;font-variant-numeric:tabular-nums;text-align:right}
+  .spark{display:flex;align-items:flex-end;gap:3px;height:30px;margin-top:4px}
+  .spark s{flex:1;background:#cfdcf5;border-radius:1px;text-decoration:none}
+  .spark s.hi{background:var(--mm-blue)}
+
+  .scn{border-left:3px solid var(--line);padding:0 0 0 11px;margin-bottom:12px}
+  .scn:last-child{margin-bottom:0}
+  .scn .lt{font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;font-weight:750;color:var(--muted)}
+  .scn .gt{font-size:12px;font-weight:700;margin:3px 0 5px;line-height:1.45}
+  .scn .gt i{font-style:normal;font-size:9px;font-weight:750;letter-spacing:.07em;text-transform:uppercase;background:#eef3fd;color:#12508f;border-radius:4px;padding:2px 5px;margin-right:6px}
+  .scn .ob{font-size:11.5px;color:var(--ink2);line-height:1.55}
+  .scn.a{border-color:#5b8def} .scn.b{border-color:#e0a92a} .scn.c{border-color:#8f8b84}
+
+  .idxw{display:flex;gap:14px;align-items:center}
+  .idxw .g{width:94px;height:94px;border-radius:50%;flex:none;display:grid;place-items:center;background:conic-gradient(#22a45d 0 82%,#eeece8 82% 100%)}
+  .idxw .g b{width:74px;height:74px;border-radius:50%;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:25px;font-weight:800;letter-spacing:-1px;line-height:1}
+  .idxw .g b s{text-decoration:none;font-size:9px;font-weight:650;color:var(--muted);letter-spacing:.04em;margin-top:2px}
+  .idxf{flex:1;font-size:11.5px}
+  .idxf div{display:flex;align-items:center;gap:7px;padding:3.5px 0;color:var(--ink2)}
+  .idxf div::before{content:'';width:6px;height:6px;border-radius:50%;background:#22a45d;flex:none}
+  .idxf div.m::before{background:#e0a92a}
+  .warnl{font-size:11px;background:#fffbf0;border:1px solid #e4c98a;border-radius:7px;padding:9px 11px;margin-top:12px;color:#6b5416;line-height:1.5}
+
+  .trk{font-size:11.5px}
+  .trk .rw{display:grid;grid-template-columns:1fr 104px;gap:10px;align-items:center;padding:7px 0;border-bottom:1px solid var(--line)}
+  .trk .rw:last-child{border:none}
+  .trk .rw .g2{color:var(--ink2);line-height:1.4}
+  .trk .rw .g2 b{color:var(--ink);font-weight:700}
+  .trk .st2{font-size:10px;font-weight:750;border-radius:13px;padding:3px 8px;text-align:center}
+  .trk .st2.ok{background:#eef8f1;color:#146c35} .trk .st2.no{background:#fdf1ec;color:#a33b1e}
+  .trk .st2.pa{background:#fdf8ea;color:#8a6a12}
+  .season{display:flex;align-items:center;gap:10px;margin-top:12px;padding-top:11px;border-top:1px solid var(--line)}
+  .season .sb{flex:1;height:11px;border-radius:3px;overflow:hidden;display:flex;background:#f0efec}
+  .season .sb s{height:100%;text-decoration:none;display:block}
+  .season .sb s.k{background:#22a45d} .season .sb s.p{background:#e0a92a} .season .sb s.f{background:#d05a3a}
+  .season .lg2{font-size:11px;color:var(--ink2);font-weight:650;white-space:nowrap}
+
+  .rep{max-width:560px;margin:14px auto 0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
+  .rep .rh{background:#0E1420;color:#fff;padding:18px 20px}
+  .rep .rh .lg3{font-size:13px;font-weight:800;letter-spacing:-.4px;margin-bottom:13px}
+  .rep .rh h5{margin:0;font-size:19px;line-height:1.2;letter-spacing:-.5px;font-weight:800}
+  .rep .rh p{margin:7px 0 0;font-size:11.5px;color:#94a3b8;line-height:1.5}
+  .rep .rn{display:flex;gap:4px;flex-wrap:wrap;margin-top:14px}
+  .rep .rn s{text-decoration:none;font-size:9px;letter-spacing:.08em;text-transform:uppercase;font-weight:750;color:#7dd3a0;border:1px solid #24402f;border-radius:4px;padding:3px 7px}
+  .rep .rs{padding:15px 18px;border-bottom:1px solid var(--line)}
+  .rep .rl{font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:750;color:var(--mm-blue);margin-bottom:10px;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+  .rep .rl s{text-decoration:none;color:var(--muted);font-weight:650;letter-spacing:0;text-transform:none;font-size:10px}
+  .rep .fx{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 0;border-bottom:1px solid var(--line);font-size:11.5px}
+  .rep .fx:last-child{border:none}
+  .rep .fx .cf{font-weight:700} .rep .fx .hr2{color:var(--muted);font-size:10.5px}
+  .rep .fx .pb{font-size:11px;font-weight:750;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .rep .cta2{background:#0E1420;padding:18px 20px;text-align:center}
+  .rep .cta2 p{margin:0 0 12px;font-size:11.5px;color:#cbd5e1;line-height:1.55}
+  .rep .cta2 b{display:inline-block;background:#22a45d;color:#04150b;font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;border-radius:7px;padding:10px 20px}
+  .toneline{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+  @media(max-width:860px){.toneline{grid-template-columns:1fr}}
+  .toneline div{border:1px solid var(--line);border-radius:8px;padding:9px 11px;font-size:11.5px;line-height:1.6}
+  .toneline div b{display:block;font-size:11px;margin-bottom:4px}
+  .toneline .y2{color:#146c35;display:block} .toneline .n2{color:#a33b1e;opacity:.8;display:block}
+</style>
+
+<h2 class="sec" id="b14">Bloco 14 — Catálogo de conteúdo: o que entregamos de valor</h2>
+<p class="why">O relatório de inteligência esportiva já tem uma gramática pronta na própria navegação: <b>DADOS → TENDÊNCIAS → CONTEXTO → CENÁRIOS</b>. Falta o quinto passo, que o relatório executa mas não nomeia: a <b>SÍNTESE</b> (Índice + Conclusão). Essa é a espinha de qualquer peça de conteúdo do produto — e a ordem em que ela é lida.</p>
+
+<div class="spine">
+  <div class="st"><div class="k">1 · Dados</div><div class="q">O que é medido</div><div class="d">Estado de força hoje. Números com janela declarada.</div></div>
+  <div class="st"><div class="k">2 · Tendências</div><div class="q">O que se repete</div><div class="d">Frequência observada sobre uma série. Fato, não previsão.</div></div>
+  <div class="st"><div class="k">3 · Contexto</div><div class="q">O que distorce</div><div class="d">Calendário, viagem, clima, desfalques, o que está em jogo.</div></div>
+  <div class="st"><div class="k">4 · Cenários</div><div class="q">O que pode acontecer</div><div class="d">Futuros condicionais com gatilho, nunca resultado prometido.</div></div>
+  <div class="st syn"><div class="k">5 · Síntese</div><div class="q">O que concluímos</div><div class="d">Índice de confiança, veredito e o retrospecto do que dissemos.</div></div>
+</div>
+
+<div class="spec" style="margin-top:14px"><b>Duas correções aplicadas nos mocks abaixo.</b> (1) Indicadores viram <b>duas colunas por confronto</b>, uma por time — na peça original "Ataque 8,4" não dizia de quem. (2) Entra <b>probabilidade do mercado e movimento</b>, o único dado que só nós temos.</div>
+
+<h3 class="scr" style="margin-top:34px">14.1 Catálogo de blocos por família</h3>
+<p class="why">Inventário do que é possível entregar. Verde = temos o dado hoje. Âmbar = derivável, exige cálculo. Vermelho = precisa de fonte externa nova. <span style="color:var(--ink)"><b>Escuro = bloco assinatura</b></span>, o que ninguém mais faz.</p>
+
+<div class="fams">
+  <div class="fam">
+    <div class="ft"><s>Dados</s> Estado de força</div>
+    <div class="fq">Quão bom é este time <i>agora</i>, e em quê.</div>
+    <div class="chips">
+      <b>Momento</b><b>Força de ataque</b><b>Solidez defensiva</b><b>Eficiência ofensiva</b><b>Posse</b>
+      <b class="d">Regularidade</b><b class="d">Casa × Fora</b><b class="d">Curva de gols por faixa</b>
+      <b class="d">Placar‑âncora</b><b class="d sig">Rendimento por contexto de placar</b>
+    </div>
+  </div>
+
+  <div class="fam">
+    <div class="ft"><s>Tend.</s> Séries e padrões</div>
+    <div class="fq">O que vem se repetindo, com a janela explícita.</div>
+    <div class="chips">
+      <b>Sequências ativas</b><b>Linha de forma</b><b>Média de gols</b><b>Primeiro a marcar</b>
+      <b class="d sig">Sequência em risco</b><b class="d">Desempenho por tipo de adversário</b>
+    </div>
+  </div>
+
+  <div class="fam">
+    <div class="ft"><s>Contexto</s> Situacional</div>
+    <div class="fq">O que distorce o rendimento esperado nesta semana.</div>
+    <div class="chips">
+      <b>Carga de calendário</b><b class="d">Viagem e fuso</b><b class="x">Altitude e clima</b>
+      <b class="x">Perfil do árbitro</b><b class="d sig">O que está em jogo</b><b class="d">Pressão de tabela</b>
+      <b class="d">Confronto direto</b><b class="d">Fator casa quantificado</b>
+    </div>
+  </div>
+
+  <div class="fam">
+    <div class="ft"><s>Dispon.</s> Quem joga</div>
+    <div class="fq">Quem falta, quem volta — e quanto isso pesa.</div>
+    <div class="chips">
+      <b class="x">Desfalques</b><b class="x">Retornos</b><b class="x">Escalação provável</b>
+      <b class="x">Pendurados</b><b class="d sig">Peso do desfalque</b>
+    </div>
+  </div>
+
+  <div class="fam mk">
+    <div class="ft"><s>Mercado</s> Só nós temos</div>
+    <div class="fq">O que a multidão está precificando — e como isso mudou.</div>
+    <div class="chips">
+      <b>Probabilidade atual</b><b class="sig">Movimento da semana</b><b class="sig">Curva do preço</b>
+      <b>Onde o dinheiro entrou</b><b class="d sig">Divergência mercado × modelo</b>
+      <b class="d">Calibração histórica</b><b class="d">Dispersão do consenso</b>
+    </div>
+  </div>
+
+  <div class="fam">
+    <div class="ft"><s>Cenários</s> Futuros condicionais</div>
+    <div class="fq">O que pode acontecer, sob que condição, e o que observar.</div>
+    <div class="chips">
+      <b class="d">Cenários A / B / C</b><b class="d sig">Gatilhos ao vivo</b><b class="d">Ponto de virada</b>
+      <b class="d">Árvore da tabela</b><b class="d">Contrafactual</b>
+    </div>
+  </div>
+
+  <div class="fam">
+    <div class="ft"><s>Síntese</s> A posição</div>
+    <div class="fq">O que concluímos e o quanto confiamos nisso.</div>
+    <div class="chips">
+      <b class="d">Índice Macro Markets</b><b class="d">Veredito do Dale</b><b class="d">Conclusão do dia</b>
+      <b class="d">Nível de convicção</b><b class="d sig">Placar de acompanhamento</b>
+    </div>
+  </div>
+
+  <div class="fam">
+    <div class="ft"><s>Narrativa</s> A história</div>
+    <div class="fq">O que dá sentido ao número para quem ama o jogo.</div>
+    <div class="chips">
+      <b>História do confronto</b><b class="d">Tabu</b><b class="x">Reencontros</b>
+      <b class="d">Peso do clássico</b><b class="x">Momento do clube</b>
+    </div>
+  </div>
+
+  <div class="fam">
+    <div class="ft"><s>Meta</s> Campeonato</div>
+    <div class="fq">A leitura macro que dura a temporada inteira.</div>
+    <div class="chips">
+      <b class="d">Corrida do título</b><b class="d">Briga do G4</b><b class="d">Luta contra o Z4</b>
+      <b class="d sig">Decisão matemática</b><b class="d">Calendário decisivo</b>
+    </div>
+  </div>
+</div>
+
+<div class="lgn">
+  <i>Dado disponível hoje (Oracle / mercado)</i>
+  <i class="d">Derivável — exige cálculo próprio</i>
+  <i class="x">Precisa de fonte externa nova</i>
+  <i class="s">Bloco assinatura</i>
+</div>
+
+<h3 class="scr" style="margin-top:34px">14.2 Blocos desenhados</h3>
+<p class="why">Os oito blocos de maior valor, renderizados. Dado de exemplo: <b>Cruzeiro × Botafogo</b>, rodada 24, Mineirão, sábado 21h00.</p>
+
+<div class="mock" style="margin-top:14px">
+  <div class="mh"><span class="tt">Indicadores de desempenho</span><span class="fm">Dados</span></div>
+  <div class="mb">
+    <div class="h2hh"><div class="tm">Cruzeiro</div><div class="vs">×</div><div class="tm r">Botafogo</div></div>
+
+    <div class="h2r wl"><div class="v">8,4</div><div class="h2b l"><s style="width:84%"></s></div><div class="lb">Momento</div><div class="h2b r"><s style="width:61%"></s></div><div class="v r">6,1</div></div>
+    <div class="h2r wl"><div class="v">8,1</div><div class="h2b l"><s style="width:81%"></s></div><div class="lb">Ataque</div><div class="h2b r"><s style="width:74%"></s></div><div class="v r">7,4</div></div>
+    <div class="h2r wl"><div class="v">8,6</div><div class="h2b l"><s style="width:86%"></s></div><div class="lb">Defesa</div><div class="h2b r"><s style="width:58%"></s></div><div class="v r">5,8</div></div>
+    <div class="h2r wr"><div class="v">52%</div><div class="h2b l"><s style="width:52%"></s></div><div class="lb">Posse</div><div class="h2b r"><s style="width:58%"></s></div><div class="v r">58%</div></div>
+    <div class="h2r wl"><div class="v">17,2%</div><div class="h2b l"><s style="width:69%"></s></div><div class="lb">Eficiência<br>ofensiva</div><div class="h2b r"><s style="width:51%"></s></div><div class="v r">12,8%</div></div>
+    <div class="h2r wl"><div class="v">8,3</div><div class="h2b l"><s style="width:83%"></s></div><div class="lb">Regularidade</div><div class="h2b r"><s style="width:54%"></s></div><div class="v r">5,4</div></div>
+  </div>
+  <div class="note">Escala 0–10 · janela de 5 jogos · posse e eficiência em % · verde marca vantagem no indicador. <b>Correção da peça original:</b> uma coluna por time, não uma por confronto.</div>
+</div>
+
+<div class="m2">
+  <div class="mock">
+    <div class="mh"><span class="tt">O que está em jogo</span><span class="fm">Contexto</span></div>
+    <div class="mb">
+      <div class="stk">
+        <div class="hd">Cruzeiro <span class="pos">3º</span> <span class="pts">45 pts</span></div>
+        <div class="br"><em class="up">Vencendo → 2º</em><em class="fl">Empatando → 3º</em><em class="dn">Perdendo → 5º</em></div>
+      </div>
+      <div class="stk">
+        <div class="hd">Botafogo <span class="pos">9º</span> <span class="pts">33 pts</span></div>
+        <div class="br"><em class="up">Vencendo → 7º</em><em class="fl">Empatando → 9º</em><em class="dn">Perdendo → 11º</em></div>
+      </div>
+    </div>
+    <div class="note">Cruzeiro joga por encostar no líder: vencendo, fica a 2 pontos. Botafogo joga o G6: são 5 pontos de distância com 15 rodadas restantes.</div>
+  </div>
+
+  <div class="mock">
+    <div class="mh"><span class="tt">Peso do desfalque</span><span class="fm">Quem joga</span></div>
+    <div class="mb">
+      <div style="font-size:12px;font-weight:750;margin-bottom:3px">Igor Jesus <span style="font-weight:600;color:#a33b1e">· fora</span></div>
+      <div style="font-size:11px;color:var(--muted);margin-bottom:11px">Lesão na coxa · confirmado há 2h</div>
+      <div class="abs">
+        <div class="dn"><b>41%</b></div>
+        <div class="kv2">
+          <div><span>Participação nos gols</span><span>13 de 32</span></div>
+          <div><span>Minutos na temporada</span><span>78%</span></div>
+          <div><span>Pontos/jogo com ele</span><span>1,6</span></div>
+          <div><span>Pontos/jogo sem ele</span><span>0,9</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="note">Amostra sem ele: 7 jogos. Leia como direção, não como número fechado.</div>
+  </div>
+</div>
+
+<div class="m2">
+  <div class="mock">
+    <div class="mh"><span class="tt">Curva de gols por faixa de tempo</span><span class="fm">Tendências</span></div>
+    <div class="mb">
+      <div style="display:flex;gap:14px;font-size:10.5px;color:var(--ink2);margin-bottom:4px">
+        <span><s style="display:inline-block;width:9px;height:9px;background:#5b8def;border-radius:2px;margin-right:5px"></s>Cruzeiro marca</span>
+        <span><s style="display:inline-block;width:9px;height:9px;background:#e0a92a;border-radius:2px;margin-right:5px"></s>Botafogo sofre</span>
+      </div>
+      <div class="gc">
+        <div class="col"><div class="bars"><s class="a" style="height:28px"></s><s class="b" style="height:19px"></s></div><div class="x">0–15</div></div>
+        <div class="col"><div class="bars"><s class="a" style="height:38px"></s><s class="b" style="height:28px"></s></div><div class="x">16–30</div></div>
+        <div class="col"><div class="bars"><s class="a" style="height:48px"></s><s class="b" style="height:38px"></s></div><div class="x">31–45</div></div>
+        <div class="col"><div class="bars"><s class="a" style="height:57px"></s><s class="b" style="height:48px"></s></div><div class="x">46–60</div></div>
+        <div class="col hot"><div class="bars"><s class="a" style="height:76px"></s><s class="b" style="height:86px"></s></div><div class="x">61–75</div></div>
+        <div class="col hot"><div class="bars"><s class="a" style="height:66px"></s><s class="b" style="height:76px"></s></div><div class="x">76–90</div></div>
+      </div>
+    </div>
+    <div class="note">Temporada até a rodada 23. As duas curvas coincidem: Cruzeiro marcou 45% dos seus 33 gols após os 60min; Botafogo sofreu 55% dos 31 no mesmo intervalo.</div>
+  </div>
+
+  <div class="mock">
+    <div class="mh"><span class="tt">Probabilidade e movimento</span><span class="fm">Mercado</span></div>
+    <div class="mb">
+      <div class="mkr"><span class="nm2">Cruzeiro</span><span class="mbar"><s style="width:47%"></s></span><span class="pv">47%</span><span class="mv up">↑ 6pp</span></div>
+      <div class="mkr"><span class="nm2">Empate</span><span class="mbar"><s style="width:22%"></s></span><span class="pv">22%</span><span class="mv dn">↓ 2pp</span></div>
+      <div class="mkr"><span class="nm2">Botafogo</span><span class="mbar"><s style="width:31%"></s></span><span class="pv">31%</span><span class="mv dn">↓ 4pp</span></div>
+      <div style="margin-top:12px;padding-top:11px;border-top:1px solid var(--line)">
+        <div style="font-size:10px;letter-spacing:.07em;text-transform:uppercase;font-weight:750;color:var(--muted)">Cruzeiro · desde a abertura</div>
+        <div class="spark"><s style="height:48%"></s><s style="height:50%"></s><s style="height:48%"></s><s style="height:54%"></s><s style="height:70%"></s><s style="height:80%"></s><s class="hi" style="height:100%"></s></div>
+        <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--muted);margin-top:3px"><span>ter 41%</span><span>hoje 47%</span></div>
+      </div>
+    </div>
+    <div class="note">Probabilidade implícita do mercado Macro Markets. O salto de 6pp se concentra nas 12h após a confirmação do desfalque.</div>
+  </div>
+</div>
+
+<div class="m2">
+  <div class="mock">
+    <div class="mh"><span class="tt">Cenários com gatilho</span><span class="fm">Cenários</span></div>
+    <div class="mb">
+      <div class="scn a"><div class="lt">Cenário A</div>
+        <div class="gt"><i>Gatilho</i>Cruzeiro abre o placar até os 30min</div>
+        <div class="ob">Botafogo saiu atrás no primeiro tempo em 6 jogos e virou 1. Nesses jogos marcou 0,8 gol em média — o jogo tende a fechar.</div></div>
+      <div class="scn b"><div class="lt">Cenário B</div>
+        <div class="gt"><i>Gatilho</i>0×0 no intervalo</div>
+        <div class="ob">A faixa 61–75min concentra o maior volume dos dois lados: 8 gols marcados pelo Cruzeiro e 9 sofridos pelo Botafogo.</div></div>
+      <div class="scn c"><div class="lt">Cenário C · menor frequência</div>
+        <div class="gt"><i>Gatilho</i>Botafogo marca primeiro</div>
+        <div class="ob">Cruzeiro reverteu 3 de 9 jogos em que saiu atrás em casa nesta temporada.</div></div>
+    </div>
+    <div class="note">Cenário é leitura condicional: só vale se o gatilho acontecer. Não é resultado previsto.</div>
+  </div>
+
+  <div class="mock">
+    <div class="mh"><span class="tt">Índice Macro Markets</span><span class="fm">Síntese</span></div>
+    <div class="mb">
+      <div class="idxw">
+        <div class="g"><b>82<s>de 100</s></b></div>
+        <div class="idxf">
+          <div style="font-weight:750;color:var(--ink);padding-bottom:7px">Confiança nos dados</div>
+          <div>Cobertura completa nos últimos 10 jogos dos dois times</div>
+          <div>Escalação provável confirmada há 40min</div>
+          <div class="m">Recorte "sem Igor Jesus" tem só 7 jogos</div>
+        </div>
+      </div>
+      <div class="warnl"><b>O que este número não é.</b> Ele mede quanta informação confiável sustenta a análise. Não é probabilidade de acerto nem chance de um resultado acontecer.</div>
+    </div>
+  </div>
+</div>
+
+<div class="mock" style="margin-top:14px">
+  <div class="mh"><span class="tt">Placar de acompanhamento · rodada 23</span><span class="fm">Síntese</span></div>
+  <div class="mb">
+    <div class="trk">
+      <div class="rw"><div class="g2">Bahia × Grêmio — <b>se 0×0 no intervalo, o jogo se abre após os 60min</b></div><div class="st2 ok">Confirmado</div></div>
+      <div class="rw"><div class="g2">Flamengo × Vasco — <b>Flamengo abre o placar até os 30min</b></div><div class="st2 ok">Confirmado</div></div>
+      <div class="rw"><div class="g2">Internacional × Corinthians — <b>Internacional marca primeiro</b></div><div class="st2 no">Não se confirmou</div></div>
+      <div class="rw"><div class="g2">São Paulo × Fortaleza — <b>placar fechado, até 2 gols</b></div><div class="st2 pa">Parcial · 3 gols</div></div>
+      <div class="rw"><div class="g2">Palmeiras × Mirassol — <b>Palmeiras acima de 60% de posse</b></div><div class="st2 ok">Confirmado</div></div>
+    </div>
+    <div class="season">
+      <div class="sb"><s class="k" style="width:68%"></s><s class="p" style="width:14%"></s><s class="f" style="width:18%"></s></div>
+      <div class="lg2">214 cenários na temporada · 68% confirmados</div>
+    </div>
+  </div>
+  <div class="note">Publicamos também os que não se confirmaram. É o bloco mais caro de manter e o mais barato de comprar confiança — nenhum concorrente de conteúdo esportivo faz isso.</div>
+</div>
+
+<h3 class="scr" style="margin-top:34px">14.3 Escada de profundidade renderizada</h3>
+<p class="why">O mesmo bloco em três resoluções. O free não é versão mutilada: é o mesmo bloco com menos precisão.</p>
+
+<div class="lad3">
+  <div class="lv">
+    <div class="h">Anônimo · qualitativo</div>
+    <div class="bd">
+      <div style="display:flex;justify-content:space-between;font-size:10.5px;font-weight:750;margin-bottom:6px"><span>Cruzeiro</span><span>Botafogo</span></div>
+      <table class="ind">
+        <tr><td style="font-weight:700">Alto</td><td style="text-align:center;color:var(--muted)">Momento</td><td>Médio</td></tr>
+        <tr><td style="font-weight:700">Alto</td><td style="text-align:center;color:var(--muted)">Ataque</td><td>Alto</td></tr>
+        <tr><td style="font-weight:700">Alto</td><td style="text-align:center;color:var(--muted)">Defesa</td><td>Médio</td></tr>
+        <tr><td style="font-weight:700">Alta</td><td style="text-align:center;color:var(--muted)">Regularidade</td><td>Baixa</td></tr>
+      </table>
+      <div class="gain">Faixa em três níveis. Dá para saber quem chega melhor, não o quanto.</div>
+    </div>
+  </div>
+  <div class="lv">
+    <div class="h">Logado free · quantitativo</div>
+    <div class="bd">
+      <div style="display:flex;justify-content:space-between;font-size:10.5px;font-weight:750;margin-bottom:6px"><span>Cruzeiro</span><span>Botafogo</span></div>
+      <table class="ind">
+        <tr><td style="font-weight:700">8,4 <span class="mv up">↑</span></td><td style="text-align:center;color:var(--muted)">Momento</td><td>6,1 <span class="mv dn">↓</span></td></tr>
+        <tr><td style="font-weight:700">8,1</td><td style="text-align:center;color:var(--muted)">Ataque</td><td>7,4</td></tr>
+        <tr><td style="font-weight:700">8,6</td><td style="text-align:center;color:var(--muted)">Defesa</td><td>5,8</td></tr>
+        <tr><td style="font-weight:700">17,2%</td><td style="text-align:center;color:var(--muted)">Eficiência</td><td>12,8%</td></tr>
+        <tr><td style="font-weight:700">8,3</td><td style="text-align:center;color:var(--muted)">Regularidade</td><td>5,4</td></tr>
+      </table>
+      <div class="gain">Número exato, mais um indicador e a direção da semana.</div>
+    </div>
+  </div>
+  <div class="lv p">
+    <div class="h">Premium · série e percentil</div>
+    <div class="bd">
+      <div style="display:flex;justify-content:space-between;gap:10px;margin-bottom:9px">
+        <div style="flex:1"><div style="font-size:10.5px;font-weight:750;color:#fff;margin-bottom:3px">Cruzeiro</div>
+          <span class="spk"><s style="height:5px"></s><s style="height:7px"></s><s style="height:6px"></s><s style="height:9px"></s><s style="height:11px"></s><s style="height:10px"></s><s style="height:13px"></s><s style="height:14px"></s></span></div>
+        <div style="flex:1;text-align:right"><div style="font-size:10.5px;font-weight:750;color:#fff;margin-bottom:3px">Botafogo</div>
+          <span class="spk"><s style="height:12px"></s><s style="height:11px"></s><s style="height:9px"></s><s style="height:10px"></s><s style="height:7px"></s><s style="height:8px"></s><s style="height:6px"></s><s style="height:5px"></s></span></div>
+      </div>
+      <table class="ind">
+        <tr><td style="font-weight:700;color:#fff">8,1 <span class="pct">p87</span></td><td style="text-align:center">Ataque</td><td>7,4 <span class="pct">p61</span></td></tr>
+        <tr><td style="font-weight:700;color:#fff">8,6 <span class="pct">p91</span></td><td style="text-align:center">Defesa</td><td>5,8 <span class="pct">p28</span></td></tr>
+        <tr><td style="font-weight:700;color:#fff">17,2% <span class="pct">p78</span></td><td style="text-align:center">Eficiência</td><td>12,8% <span class="pct">p44</span></td></tr>
+      </table>
+      <div class="gain">Série de 10 jogos e percentil contra os 20 da liga. <b style="color:#fff">Cruzeiro subiu 2,3 pontos de defesa em 5 rodadas; Botafogo caiu 1,9 na mesma janela.</b></div>
+    </div>
+  </div>
+</div>
+
+<div class="lad3" style="margin-top:12px">
+  <div class="lv">
+    <div class="h">Anônimo · mercado</div>
+    <div class="bd">
+      <div class="mkr" style="grid-template-columns:66px 1fr 42px"><span class="nm2">Cruzeiro</span><span class="mbar"><s style="width:47%"></s></span><span class="pv">47%</span></div>
+      <div class="mkr" style="grid-template-columns:66px 1fr 42px"><span class="nm2">Empate</span><span class="mbar"><s style="width:22%"></s></span><span class="pv">22%</span></div>
+      <div class="mkr" style="grid-template-columns:66px 1fr 42px;margin-bottom:0"><span class="nm2">Botafogo</span><span class="mbar"><s style="width:31%"></s></span><span class="pv">31%</span></div>
+      <div class="gain">O número nu, sempre aberto. Nunca é gated em nenhuma página.</div>
+    </div>
+  </div>
+  <div class="lv">
+    <div class="h">Logado free · mercado</div>
+    <div class="bd">
+      <div class="mkr" style="grid-template-columns:66px 1fr 42px 50px"><span class="nm2">Cruzeiro</span><span class="mbar"><s style="width:47%"></s></span><span class="pv">47%</span><span class="mv up">↑ 6pp</span></div>
+      <div class="mkr" style="grid-template-columns:66px 1fr 42px 50px"><span class="nm2">Empate</span><span class="mbar"><s style="width:22%"></s></span><span class="pv">22%</span><span class="mv dn">↓ 2pp</span></div>
+      <div class="mkr" style="grid-template-columns:66px 1fr 42px 50px;margin-bottom:0"><span class="nm2">Botafogo</span><span class="mbar"><s style="width:31%"></s></span><span class="pv">31%</span><span class="mv dn">↓ 4pp</span></div>
+      <div class="gain">Entra a direção e o tamanho do movimento da semana.</div>
+    </div>
+  </div>
+  <div class="lv p">
+    <div class="h">Premium · mercado</div>
+    <div class="bd">
+      <div class="mkr" style="grid-template-columns:66px 1fr 42px 50px"><span class="nm2" style="color:#94a3b8">Cruzeiro</span><span class="mbar" style="background:#2a2a26"><s style="width:47%;background:#7dd3a0"></s></span><span class="pv" style="color:#fff">47%</span><span class="mv up">↑ 6pp</span></div>
+      <div class="spark" style="margin:9px 0 3px"><s style="height:48%;background:#33463c"></s><s style="height:50%;background:#33463c"></s><s style="height:48%;background:#33463c"></s><s style="height:54%;background:#33463c"></s><s style="height:70%;background:#4d7a63"></s><s style="height:80%;background:#4d7a63"></s><s class="hi" style="height:100%;background:#7dd3a0"></s></div>
+      <div style="display:flex;justify-content:space-between;font-size:10px;color:#94a3b8"><span>abertura 41%</span><span>hoje 47%</span></div>
+      <div class="gain">Curva completa desde a abertura e a divergência: <b style="color:#fff">nosso modelo lê 55% — 8pp acima do mercado.</b></div>
+    </div>
+  </div>
+</div>
+
+<h3 class="scr" style="margin-top:34px">14.4 O relatório da rodada, montado</h3>
+<p class="why">Os blocos na ordem da espinha, em largura de e‑mail. Visto por um <b>logado free</b>: veredito e leitura profunda ficam sob véu.</p>
+
+<div class="rep">
+  <div class="rh">
+    <div class="lg3">MACRO MARKETS</div>
+    <h5>Relatório da rodada 24</h5>
+    <p>Brasileirão Série A · sábado, 09 de agosto · por Dale</p>
+    <div class="rn"><s>Dados</s><s>Tendências</s><s>Contexto</s><s>Cenários</s><s>Síntese</s></div>
+  </div>
+
+  <div class="rs">
+    <div class="rl">Jogos da rodada <s>probabilidade do mandante</s></div>
+    <div class="fx"><div><span class="cf">Cruzeiro × Botafogo</span><br><span class="hr2">sáb 21h00 · Mineirão</span></div><div class="pb">47% <span class="mv up">↑ 6pp</span></div></div>
+    <div class="fx"><div><span class="cf">Flamengo × Palmeiras</span><br><span class="hr2">sáb 18h30 · Maracanã</span></div><div class="pb">54% <span class="mv dn">↓ 3pp</span></div></div>
+    <div class="fx"><div><span class="cf">Bahia × Internacional</span><br><span class="hr2">dom 16h00 · Fonte Nova</span></div><div class="pb">51% <span class="mv fl">=</span></div></div>
+  </div>
+
+  <div class="rs">
+    <div class="rl">Dados <s>jogo em destaque</s></div>
+    <div class="h2hh"><div class="tm">Cruzeiro</div><div class="vs">×</div><div class="tm r">Botafogo</div></div>
+    <div class="h2r wl"><div class="v">8,4</div><div class="h2b l"><s style="width:84%"></s></div><div class="lb">Momento</div><div class="h2b r"><s style="width:61%"></s></div><div class="v r">6,1</div></div>
+    <div class="h2r wl"><div class="v">8,6</div><div class="h2b l"><s style="width:86%"></s></div><div class="lb">Defesa</div><div class="h2b r"><s style="width:58%"></s></div><div class="v r">5,8</div></div>
+    <div class="h2r wr"><div class="v">52%</div><div class="h2b l"><s style="width:52%"></s></div><div class="lb">Posse</div><div class="h2b r"><s style="width:58%"></s></div><div class="v r">58%</div></div>
+  </div>
+
+  <div class="rs">
+    <div class="rl">Tendências <s>gols por faixa de tempo</s></div>
+    <div class="gc" style="height:80px">
+      <div class="col"><div class="bars"><s class="a" style="height:22px"></s><s class="b" style="height:15px"></s></div><div class="x">0–15</div></div>
+      <div class="col"><div class="bars"><s class="a" style="height:30px"></s><s class="b" style="height:22px"></s></div><div class="x">16–30</div></div>
+      <div class="col"><div class="bars"><s class="a" style="height:38px"></s><s class="b" style="height:30px"></s></div><div class="x">31–45</div></div>
+      <div class="col"><div class="bars"><s class="a" style="height:45px"></s><s class="b" style="height:38px"></s></div><div class="x">46–60</div></div>
+      <div class="col hot"><div class="bars"><s class="a" style="height:60px"></s><s class="b" style="height:68px"></s></div><div class="x">61–75</div></div>
+      <div class="col hot"><div class="bars"><s class="a" style="height:52px"></s><s class="b" style="height:60px"></s></div><div class="x">76–90</div></div>
+    </div>
+    <div style="font-size:11px;color:var(--muted);margin-top:8px;line-height:1.55">Cruzeiro marca e Botafogo sofre na mesma faixa: 61–75min.</div>
+  </div>
+
+  <div class="rs">
+    <div class="rl">Contexto</div>
+    <div class="stk">
+      <div class="hd">Igor Jesus <span style="font-weight:600;color:#a33b1e;font-size:11px">· fora</span></div>
+      <div style="font-size:11.5px;color:var(--ink2);line-height:1.55">Participou de 41% dos gols do Botafogo. Sem ele, o time somou 0,9 ponto por jogo em 7 partidas, contra 1,6 com ele.</div>
+    </div>
+    <div class="stk">
+      <div class="hd">O que está em jogo</div>
+      <div class="br"><em class="up">Cruzeiro vencendo → 2º</em><em class="dn">Botafogo perdendo → 11º</em></div>
+    </div>
+  </div>
+
+  <div class="rs">
+    <div class="rl">Cenários</div>
+    <div class="scn a"><div class="gt"><i>Gatilho</i>Cruzeiro abre até os 30min</div><div class="ob">Botafogo saiu atrás no 1º tempo em 6 jogos e virou 1.</div></div>
+    <div class="scn b"><div class="gt"><i>Gatilho</i>0×0 no intervalo</div><div class="ob">61–75min concentra o maior volume dos dois lados.</div></div>
+  </div>
+
+  <div class="rs">
+    <div class="rl">Síntese</div>
+    <div class="idxw" style="margin-bottom:12px">
+      <div class="g" style="width:74px;height:74px"><b style="width:58px;height:58px;font-size:20px">82<s style="font-size:8px">de 100</s></b></div>
+      <div class="idxf"><div style="font-weight:750;color:var(--ink);padding-bottom:5px">Confiança nos dados</div><div>Cobertura completa · escalação confirmada</div><div class="m">Recorte sem Igor Jesus: só 7 jogos</div></div>
+    </div>
+    <div class="veil-wrap">
+      <div class="blurred">
+        <div style="font-size:12px;font-weight:750;margin-bottom:5px">Veredito do jogo</div>
+        <div style="font-size:11.5px;color:var(--ink2);line-height:1.6">Nosso modelo lê 55% para o Cruzeiro contra 47% do mercado. A divergência de 8pp vem do peso da ausência de Igor Jesus, que o mercado ainda não precificou por completo. Convicção declarada: média‑alta.</div>
+      </div>
+      <div class="veil"><span style="font-size:11.5px;color:var(--ink2);text-align:center"><b>Veredito e divergência</b><br>disponível no Premium do Brasileirão</span></div>
+    </div>
+  </div>
+
+  <div class="rs">
+    <div class="rl">Retrospecto <s>rodada 23</s></div>
+    <div class="season" style="margin:0;padding:0;border:none">
+      <div class="sb"><s class="k" style="width:70%"></s><s class="p" style="width:10%"></s><s class="f" style="width:20%"></s></div>
+      <div class="lg2">7 de 10 confirmados</div>
+    </div>
+    <div style="font-size:11px;color:var(--muted);margin-top:8px;line-height:1.55"><b style="color:#a33b1e">Erramos 2:</b> Internacional marca primeiro (não aconteceu) e São Paulo × Fortaleza em placar fechado (3 gols).</div>
+  </div>
+
+  <div class="cta2">
+    <p>Todos os vereditos, a curva completa do mercado e a divergência contra o nosso modelo.</p>
+    <b>Ver o Premium do Brasileirão</b>
+  </div>
+</div>
+
+<div class="spec" style="margin-top:14px"><b>O que mudou em relação à peça de referência.</b> Indicadores por time, não por jogo. Entra probabilidade e movimento em todas as seções. O Índice ganhou rótulo explícito de <i>confiança nos dados</i>. E entra o retrospecto — inclusive dos cenários que erraram.</div>
+
+<h3 class="scr" style="margin-top:34px">14.5 Bloco × superfície</h3>
+<p class="why">O mesmo bloco muda de densidade conforme onde aparece. <b>●</b> núcleo da superfície · <b>◐</b> versão comprimida · <b>·</b> não entra.</p>
+
+<table class="mx">
+  <tr><th>Família</th><th>E‑mail diário</th><th>Hub</th><th>Rodada</th><th>Artigo do jogo</th><th>Detalhe do mercado</th><th>WhatsApp</th></tr>
+  <tr><td>Estado de força</td><td class="y">●</td><td class="h">◐</td><td class="h">◐</td><td class="y">●</td><td class="h">◐</td><td class="n">·</td></tr>
+  <tr><td>Séries e padrões</td><td class="y">●</td><td class="n">·</td><td class="h">◐</td><td class="y">●</td><td class="n">·</td><td class="h">◐</td></tr>
+  <tr><td>Contexto situacional</td><td class="y">●</td><td class="n">·</td><td class="y">●</td><td class="y">●</td><td class="h">◐</td><td class="h">◐</td></tr>
+  <tr><td>Disponibilidade</td><td class="h">◐</td><td class="n">·</td><td class="y">●</td><td class="y">●</td><td class="h">◐</td><td class="y">●</td></tr>
+  <tr><td>Mercado</td><td class="h">◐</td><td class="h">◐</td><td class="y">●</td><td class="h">◐</td><td class="y">●</td><td class="y">●</td></tr>
+  <tr><td>Cenários</td><td class="y">●</td><td class="n">·</td><td class="y">●</td><td class="y">●</td><td class="h">◐</td><td class="h">◐</td></tr>
+  <tr><td>Síntese</td><td class="y">●</td><td class="h">◐</td><td class="y">●</td><td class="y">●</td><td class="h">◐</td><td class="y">●</td></tr>
+  <tr><td>Narrativa</td><td class="h">◐</td><td class="h">◐</td><td class="n">·</td><td class="y">●</td><td class="n">·</td><td class="n">·</td></tr>
+  <tr><td>Meta‑campeonato</td><td class="n">·</td><td class="y">●</td><td class="h">◐</td><td class="n">·</td><td class="n">·</td><td class="n">·</td></tr>
+</table>
+
+<div class="spec" style="margin-top:12px"><b>Leitura.</b> O <b>artigo do jogo</b> é a única superfície que aceita todas as famílias — é o formato mais completo e o melhor ativo de SEO de cauda longa. O <b>WhatsApp</b> só carrega o que muda uma decisão em 15 segundos: desfalque, movimento de preço e veredito. O <b>Hub</b> é o único lugar do meta‑campeonato.</div>
+
+<h3 class="scr" style="margin-top:34px">14.6 Tom: escreve assim, não assim</h3>
+
+<div class="toneline">
+  <div><b>Janela sempre explícita</b><span class="y2">8,4 de ataque nos últimos 5 jogos</span><span class="n2">8,4 de ataque</span></div>
+  <div><b>Frequência, não previsão</b><span class="y2">marcou em 9 dos últimos 10</span><span class="n2">deve marcar de novo</span></div>
+  <div><b>Cenário tem gatilho</b><span class="y2">se 0×0 no intervalo, o jogo tende a se abrir</span><span class="n2">haverá gols no 2º tempo</span></div>
+  <div><b>Faixa quando n é pequeno</b><span class="y2">entre 45% e 55%</span><span class="n2">51,3% com n = 6</span></div>
+  <div><b>Índice mede o dado</b><span class="y2">82/100 de confiança nos dados</span><span class="n2">82% de chance de acontecer</span></div>
+  <div><b>Divergência é tese</b><span class="y2">o modelo lê 8pp acima do mercado</span><span class="n2">aposte no Cruzeiro</span></div>
+</div>
+<p class="why" style="margin-top:12px">Nunca valor, nunca stake, nunca imperativo. Verbos permitidos: <i>sugerem, indicam, tendem, historicamente</i>.</p>
+
+<h2 class="sec" id="mocks">Mocks de página completa</h2>
+<div class="pagelinks">
+  <a href="pagina_hub_campeonato.html"><b>Mock: Hub do Campeonato</b><span>Página completa nos 3 cenários de acesso</span></a>
+  <a href="pagina_rodada.html"><b>Mock: Página da Rodada</b><span>Rodada 24 nos 3 cenários, jogos de quarta e sábado</span></a>
+  <a href="pagina_blog.html"><b>Mock: Blog</b><span>Listagem e artigo aberto, com o corte de profundidade por cenário</span></a>
+  <a href="sequencia_emails.html"><b>Mock: Sequência de e-mails da rodada</b><span>Trilhas de e-mail da rodada 24 por público</span></a>
+  <a href="sequencia_emails_waitlist.html"><b>Mock: Waitlist → Cadastro</b><span>Quatro e-mails evergreen, cada um com uma LP temática</span></a>
+  <a href="pagina_lps_waitlist.html"><b>Mock: LPs da waitlist</b><span>Expectativa · Método · Empresa · Perfil</span></a>
+</div>
 
 </div>
 </body>

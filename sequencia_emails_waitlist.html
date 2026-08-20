@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Macro Markets — Campanha Waitlist → Cadastro · Bloco 11</title>
+<style>
+  :root{
+    --mm-blue:#1D6FE0; --mm-green:#16A34A;
+    --ink:#0b0b0b; --ink2:#52514e; --muted:#898781;
+    --line:#e1e0d9; --surf:#ffffff; --page:#f4f4f1;
+    --sans:system-ui,-apple-system,"Segoe UI",sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--page);font-family:var(--sans);color:var(--ink);line-height:1.5}
+  .wrap{max-width:1180px;margin:0 auto;padding:26px 18px 70px}
+
+  .doc-head{background:linear-gradient(135deg,var(--mm-blue),var(--mm-green));color:#fff;border-radius:16px;padding:28px 26px;margin-bottom:12px}
+  .doc-head h1{margin:0 0 7px;font-size:25px;letter-spacing:-.5px;line-height:1.2}
+  .doc-head p{margin:0;opacity:.93;font-size:14px;max-width:800px}
+  .note{background:#fff8e6;border:1px solid #f2dfae;border-radius:10px;padding:11px 15px;margin:0 0 14px;font-size:12.5px;color:#6b5a1e;line-height:1.55}
+  .note b{color:#4a3d10}
+
+  .navdoc{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px;position:sticky;top:0;z-index:20;background:var(--page);padding:8px 0}
+  .navdoc a{font-size:11.5px;font-weight:700;text-decoration:none;color:var(--mm-blue);background:#fff;
+    border:1px solid var(--line);border-radius:20px;padding:6px 13px}
+  .navdoc a:hover{border-color:var(--mm-blue)}
+  .navdoc a.here{background:var(--mm-blue);border-color:var(--mm-blue);color:#fff}
+
+  .audit{background:#fff;border:1px solid var(--line);border-radius:13px;padding:18px 18px 16px;margin:0 0 14px}
+  .audit h2{margin:0 0 8px;font-size:16px;letter-spacing:-.3px}
+  .audit .meta{font-size:11.5px;color:var(--ink2);margin:0 0 12px;line-height:1.55}
+  .audit .grid{display:grid;gap:10px}
+  @media(min-width:860px){.audit .grid{grid-template-columns:1fr 1fr}}
+  .audit .card{border:1px solid var(--line);border-radius:10px;padding:11px 12px}
+  .audit .card b.k{display:block;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+  .audit ul{margin:0;padding-left:18px;font-size:12px;color:var(--ink2);line-height:1.55}
+  .audit li{margin:0 0 5px}
+
+  .th{background:#fff;border:1px solid var(--line);border-radius:13px;padding:16px 17px;margin-bottom:13px}
+  .th .eb{font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--muted)}
+  .th h2{margin:6px 0 6px;font-size:19px;letter-spacing:-.4px;line-height:1.25}
+  .th p{margin:0;font-size:12.5px;color:var(--ink2);line-height:1.55;max-width:760px}
+  .th p b{color:var(--ink)}
+  .thkv{display:flex;flex-wrap:wrap;gap:6px;margin-top:11px}
+  .thkv span{font-size:10.5px;font-weight:700;border:1px solid var(--line);border-radius:20px;padding:4px 10px;color:var(--ink2)}
+  .thkv span b{color:var(--ink)}
+
+  .map{display:grid;gap:8px;margin:0 0 16px}
+  @media(min-width:760px){.map{grid-template-columns:repeat(4,1fr)}}
+  .map a{display:block;text-decoration:none;background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 13px;color:inherit}
+  .map a:hover{border-color:var(--mm-blue)}
+  .map .n{font-size:9.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .map b{display:block;font-size:14px;letter-spacing:-.3px;margin:4px 0 4px}
+  .map span{font-size:11.5px;color:var(--ink2);line-height:1.45}
+
+  .ruler{background:#fff;border:1px solid var(--line);border-radius:13px;padding:14px;margin-bottom:16px}
+  .ruler .rt{font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:var(--muted);margin-bottom:10px}
+  .ruler .rt s{text-decoration:none;color:var(--ink2);font-weight:600;letter-spacing:0;text-transform:none;font-size:11px}
+  .days{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+  .day{border:1px solid var(--line);border-radius:9px;padding:7px 5px 6px;background:#faf9f7;min-height:88px;display:flex;flex-direction:column}
+  .day .dw{font-size:9px;letter-spacing:.08em;text-transform:uppercase;font-weight:800;color:var(--muted);text-align:center}
+  .day .dn{font-size:13.5px;font-weight:800;letter-spacing:-.4px;text-align:center;margin-bottom:5px}
+  .day .pins{display:flex;flex-direction:column;gap:3px;margin-top:auto}
+  .pin{font-size:8.5px;font-weight:800;border-radius:4px;padding:2px 4px;text-align:center;line-height:1.3;
+    background:#e8f5ec;color:#146c35;border:1px solid #c7e6d3}
+  .pin.ov{background:#eef3fd;color:#12508f;border-color:#c3d8f7}
+  .pin.re{background:#f3eefa;color:#5b3d90;border-color:#ddd1f0}
+  .rlgd{display:flex;flex-wrap:wrap;gap:12px;margin-top:11px;padding-top:9px;border-top:1px dashed var(--line);font-size:10.5px;color:var(--ink2)}
+  .rlgd span{display:inline-flex;align-items:center;gap:5px}
+  .rlgd i{width:9px;height:9px;border-radius:2px;display:inline-block;font-style:normal}
+
+  .phase{display:flex;align-items:center;gap:10px;margin:22px 0 12px}
+  .phase b{font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:var(--ink2);white-space:nowrap}
+  .phase s{flex:1;height:1px;background:var(--line);text-decoration:none;display:block}
+
+  .mail{margin-bottom:16px}
+  .mmeta{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-bottom:7px}
+  .mmeta .dtag{font-size:9.5px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;
+    background:var(--ink);color:#fff;border-radius:5px;padding:3px 8px}
+  .mmeta .dtag.re{background:#5b3d90}
+  .mmeta .hr{font-size:10.5px;font-weight:700;color:var(--ink2)}
+  .mmeta .evt{font-size:9.5px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:#12508f;
+    background:#eef3fd;border:1px solid #c3d8f7;border-radius:5px;padding:2px 7px;margin-left:auto}
+
+  .client{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;
+    box-shadow:0 1px 2px rgba(0,0,0,.04),0 8px 22px rgba(0,0,0,.05);max-width:560px}
+  .cbar{background:#eceae5;padding:7px 13px;display:flex;align-items:center;gap:7px;border-bottom:1px solid var(--line);
+    font-size:10px;color:var(--muted);font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+  .cbar .dot{width:8px;height:8px;border-radius:50%;background:#cfcdc6;flex:none}
+  .chead{display:flex;align-items:center;gap:9px;padding:11px 14px 9px}
+  .av{width:30px;height:30px;border-radius:9px;flex:none;background:linear-gradient(135deg,var(--mm-blue),var(--mm-green))}
+  .cfrom{flex:1;min-width:0;line-height:1.35}
+  .cfrom b{font-size:11.5px;display:block}
+  .cfrom span{font-size:10px;color:var(--muted);display:block}
+  .csubj{padding:0 14px;font-size:14.5px;font-weight:800;letter-spacing:-.35px;line-height:1.28}
+  .cpre{padding:5px 14px 0;font-size:11px;color:var(--muted);line-height:1.45}
+  .cpre b{font-size:8.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink2);
+    background:#f0efec;border-radius:4px;padding:2px 5px;margin-right:6px;font-weight:800}
+  .cbody{padding:13px 14px 16px;margin-top:11px;border-top:1px solid var(--line)}
+  .cbody h3{margin:0 0 8px;font-size:15px;letter-spacing:-.35px;line-height:1.3}
+  .cbody p{margin:0 0 9px;font-size:12.5px;color:var(--ink2);line-height:1.6}
+  .cbody p b{color:var(--ink)}
+  .cfoot{border-top:1px dashed var(--line);margin-top:13px;padding-top:9px;font-size:9.5px;color:var(--muted);line-height:1.5}
+  .sign{font-size:12.5px;color:var(--ink2);margin:12px 0 0;line-height:1.5}
+
+  .cta{display:block;text-align:center;background:var(--mm-green);color:#fff;padding:13px 16px;border-radius:10px;
+    font-weight:800;font-size:14px;text-decoration:none;letter-spacing:-.2px;margin-top:13px}
+  .cta.blue{background:var(--mm-blue)}
+  .cta.ghost{background:transparent;color:var(--mm-blue);border:1.5px solid var(--mm-blue)}
+  .subcta{font-size:10.5px;color:var(--muted);text-align:center;margin-top:7px;line-height:1.5}
+
+  .opt{margin-top:14px;padding:10px 12px;border:1.5px solid #d7d3c8;border-radius:10px;background:#faf9f6;text-align:center}
+  .opt a{font-size:12px;font-weight:800;color:var(--ink);text-decoration:underline}
+  .opt s{display:block;text-decoration:none;font-size:10.5px;color:var(--ink2);margin-top:3px}
+
+  .mobj{max-width:560px;background:#fff;border:1px solid var(--line);border-top:none;border-radius:0 0 12px 12px;
+    padding:9px 13px;font-size:11px;color:var(--ink2);line-height:1.55;margin-top:-2px}
+  .mobj b{color:var(--ink)}
+  .mobj s{text-decoration:none;color:var(--muted);display:block;margin-top:3px;font-size:10.5px}
+
+  .tnote{max-width:560px;font-size:11.5px;color:var(--ink2);background:#fff;border:1px solid var(--line);
+    border-radius:10px;padding:11px 13px;margin-bottom:16px;line-height:1.55}
+  .tnote b{color:var(--ink)}
+
+  .metrics{background:#fff;border:1px solid var(--line);border-radius:13px;padding:16px 17px;margin:22px 0 0}
+  .metrics h2{margin:0 0 8px;font-size:16px;letter-spacing:-.3px}
+  .metrics table{width:100%;border-collapse:collapse;font-size:12px}
+  .metrics th,.metrics td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+  .metrics th{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+  .footer{font-size:11px;color:var(--muted);text-align:center;margin-top:30px;line-height:1.7;
+    border-top:1px solid var(--line);padding-top:18px}
+  .footer a{color:var(--mm-blue);font-weight:700;text-decoration:none}
+
+  @media(min-width:760px){
+    .days{grid-template-columns:repeat(7,1fr)}
+    .client,.mobj,.tnote{max-width:600px}
+  }
+  @media(max-width:520px){
+    .wrap{padding:16px 10px 50px}
+    .doc-head h1{font-size:20px}
+    .mmeta .evt{margin-left:0}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="doc-head">
+  <h1>Campanha Waitlist → Cadastro — Bloco 11</h1>
+  <p>Evergreen. O e-mail é o gancho; a <b>landing é o job</b>. Nenhuma peça desta campanha cita jogo, placar ou rodada — isso é Bloco 8, em paralelo. Merge: <b>{{first_name|aí}}</b> · <b>{{league}}</b>.</p>
+</div>
+
+<div class="navdoc">
+  <a href="index.html">Índice</a>
+  <a href="pagina_hub_campeonato.html">Hub</a>
+  <a href="pagina_rodada.html">Rodada 24</a>
+  <a href="pagina_blog.html">Blog</a>
+  <a href="sequencia_emails.html">E-mails da rodada</a>
+  <a class="here" href="sequencia_emails_waitlist.html">Waitlist → Cadastro</a>
+  <a href="pagina_lps_waitlist.html">LPs Waitlist</a>
+</div>
+
+<div class="note"><b>Por que saiu a rodada daqui.</b> Colocar Palmeiras × Vasco no E2 fazia a campanha de gate 1 competir com o ciclo semanal e quebrar na Data FIFA. A skill pede relevância, não recorte duplicado. Valor da rodada continua chegando — só não via estas quatro peças.</div>
+
+<div class="audit">
+  <h2>O que mudou nesta versão</h2>
+  <p class="meta">Institucional o bastante para a campanha sobreviver a qualquer semana. Específica o bastante para não virar brochure — cada LP tem um tema e um único foco. Cadastro acontece <b>na landing</b>, não no e-mail (exceto o E1, que ainda não pede conta).</p>
+  <div class="grid">
+    <div class="card">
+      <b class="k">O que saiu</b>
+      <ul>
+        <li>Jogo, horário, probabilidade da rodada corrente.</li>
+        <li>CTA para a página da rodada (é superfície do Bloco 8).</li>
+        <li>Mock do overlay como e-mail desta campanha.</li>
+        <li>Selo âmbar / Premium / depósito.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <b class="k">O que entrou</b>
+      <ul>
+        <li>Quatro LPs evergreen, uma por e-mail, um tema cada.</li>
+        <li>Motor de conversão no E2 → LP Método (não no institucional).</li>
+        <li>E3 continua empresa — não compete com o E2.</li>
+        <li>E4 pesquisa numa LP; e-mail só convoca.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="th">
+  <div class="eb">Campanha ① · gate 1 · evergreen</div>
+  <h2>Waitlist → cadastro, via landing temática</h2>
+  <p>O lead já tem tag de liga. O ciclo de rodada (Bloco 8) segue em paralelo, intocado. Esta campanha só responde uma pergunta por disparo. <b>Sai</b> ao criar conta, ao salvar preferência de saída, ou ao passar do E4 sem converter.</p>
+  <div class="thkv">
+    <span>Trigger <b>waitlist_joined</b></span>
+    <span><b>4</b> e-mails</span>
+    <span><b>4</b> landings</span>
+    <span>Conversão no <b>E2 → LP Método</b></span>
+    <span>2ª meta <b>opt-out consciente</b></span>
+  </div>
+</div>
+
+<div class="map">
+  <a href="pagina_lps_waitlist.html#lp1">
+    <div class="n">E1 · D0</div>
+    <b>O que a lista entrega</b>
+    <span>Expectativa. Sem pedido de conta.</span>
+  </a>
+  <a href="pagina_lps_waitlist.html#lp2">
+    <div class="n">E2 · D+2</div>
+    <b>Como lemos um jogo</b>
+    <span>Método. Motor de conversão.</span>
+  </a>
+  <a href="pagina_lps_waitlist.html#lp3">
+    <div class="n">E3 · D+4</div>
+    <b>O que é a Macro Markets</b>
+    <span>Empresa. O que recusamos fazer.</span>
+  </a>
+  <a href="pagina_lps_waitlist.html#lp4">
+    <div class="n">E4 · evento</div>
+    <b>Para que você usa</b>
+    <span>Pesquisa. TAG Insights / Contexto.</span>
+  </a>
+</div>
+
+<div class="ruler">
+  <div class="rt">Paralelo com o Bloco 8 <s>· as peças azuis não são desta campanha e não se mockam aqui</s></div>
+  <div class="days">
+    <div class="day"><div class="dw">D0</div><div class="dn">E1</div><div class="pins"><span class="pin">Lista</span></div></div>
+    <div class="day"><div class="dw">D+1</div><div class="dn">—</div><div class="pins"><span class="pin ov">Bloco 8</span></div></div>
+    <div class="day"><div class="dw">D+2</div><div class="dn">E2</div><div class="pins"><span class="pin">Método</span><span class="pin ov">Bloco 8</span></div></div>
+    <div class="day"><div class="dw">D+3</div><div class="dn">—</div><div class="pins"><span class="pin ov">Bloco 8</span></div></div>
+    <div class="day"><div class="dw">D+4</div><div class="dn">E3</div><div class="pins"><span class="pin">Empresa</span></div></div>
+    <div class="day"><div class="dw">Evento</div><div class="dn">E4</div><div class="pins"><span class="pin re">Pesquisa</span></div></div>
+    <div class="day"><div class="dw">Depois</div><div class="dn">sai</div><div class="pins"><span class="pin ov">só Bloco 8</span></div></div>
+  </div>
+  <div class="rlgd">
+    <span><i style="background:#e8f5ec;border:1px solid #c7e6d3"></i> Esta campanha → LP</span>
+    <span><i style="background:#eef3fd;border:1px solid #c3d8f7"></i> Ciclo de rodada (outra página)</span>
+    <span><i style="background:#f3eefa;border:1px solid #ddd1f0"></i> 2 aberturas do Bloco 8</span>
+  </div>
+</div>
+
+<div class="tnote"><b>E4 pode chegar antes do E3.</b> Continua por abertura, não por dia. Quem já leu dois relatórios de rodada merece a pergunta de perfil; não precisa esperar o institucional.</div>
+
+<div class="phase"><b>Os quatro e-mails</b><s></s></div>
+
+<!-- E1 -->
+<div class="mail">
+  <div class="mmeta"><span class="dtag">D0 · imediato</span><span class="evt">waitlist_welcome</span></div>
+  <div class="client">
+    <div class="cbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span> Caixa de entrada</div>
+    <div class="chead">
+      <span class="av"></span>
+      <div class="cfrom"><b>Dale · Macro Markets</b><span>dale@macro.markets → você</span></div>
+    </div>
+    <div class="csubj">Você está na lista do {{league}}</div>
+    <div class="cpre"><b>Prévia</b>Amanhã o ciclo da rodada começa sozinho. Este e-mail só confirma.</div>
+    <div class="cbody">
+      <h3>{{first_name|Aí}}, cadastro na waitlist confirmado</h3>
+      <p>A liga que você escolheu foi o <b>{{league}}</b>. É só desta que a lista fala — até você pedir outra.</p>
+      <p>A partir de amanhã entra o ciclo semanal da rodada, no mesmo remetente. Não é esta campanha. É o conteúdo que você pediu na página de captura.</p>
+      <p>Nada para criar agora. Nenhuma conta. Nenhuma oferta. Só o mapa do que a lista entrega, se quiser ver com calma.</p>
+      <p class="sign">Se não foi você, o link abaixo tira da lista em um clique.<br>— Dale</p>
+
+      <a class="cta ghost" href="pagina_lps_waitlist.html#lp1">Ver o que a lista entrega</a>
+      <div class="subcta">Página de expectativa. Sem pedido de cadastro.</div>
+
+      <div class="opt">
+        <a href="#">Não quero mais receber esses e-mails</a>
+        <s>Centro de preferências — segunda meta desta campanha.</s>
+      </div>
+      <div class="cfoot">Você está na waitlist porque deixou o e-mail na página de captura. Conteúdo informativo — não é recomendação de aposta.</div>
+    </div>
+  </div>
+  <div class="mobj"><b>Job:</b> confirmar liga + aquecer remetente. <s>CTA = LP Expectativa. Zero conversão. A rodada não é nomeada — só “o ciclo semanal”.</s></div>
+</div>
+
+<!-- E2 -->
+<div class="mail">
+  <div class="mmeta"><span class="dtag">D+2</span><span class="evt">waitlist_method</span></div>
+  <div class="client">
+    <div class="cbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span> Caixa de entrada</div>
+    <div class="chead">
+      <span class="av"></span>
+      <div class="cfrom"><b>Dale · Macro Markets</b><span>dale@macro.markets → você</span></div>
+    </div>
+    <div class="csubj">A gente não manda palpite. Manda leitura.</div>
+    <div class="cpre"><b>Método</b>Dados, tendência, contexto, cenário, síntese. Sempre nessa ordem.</div>
+    <div class="cbody">
+      <h3>O que você já recebe é o recorte público. A conta abre o mesmo jogo, inteiro.</h3>
+      <p>{{first_name|Aí}}, a lista grátis entrega o que está em jogo e o que o mercado está precificando. Cabe no e-mail. Dá para acompanhar a liga só com isso.</p>
+      <p>A conta grátis não muda o assunto. Muda a profundidade: o modelo, o porquê de um movimento, o recorte completo. Sem cartão. Sem depósito.</p>
+      <p>A página do método mostra a ordem em que a gente lê um confronto — com um caso já encerrado, não com o jogo de sábado.</p>
+      <p class="sign">Os e-mails da rodada continuam iguais, com ou sem conta.<br>— Dale</p>
+
+      <a class="cta" href="pagina_lps_waitlist.html#lp2">Ver como lemos um jogo</a>
+      <div class="subcta">Esta é a única peça da campanha cujo destino pede conta.</div>
+
+      <div class="opt">
+        <a href="#">Não quero mais receber esses e-mails</a>
+        <s>Sair da waitlist, ficar só no ciclo da rodada, ou reduzir frequência.</s>
+      </div>
+      <div class="cfoot">Conteúdo informativo. Sem odd, sem stake, sem “aposte em”.</div>
+    </div>
+  </div>
+  <div class="mobj"><b>Job:</b> levar ao método e converter na LP. <s>Skill: um CTA, ação + resultado. A prova vive na landing. O e-mail não compete com o Bloco 8.</s></div>
+</div>
+
+<!-- E3 -->
+<div class="mail">
+  <div class="mmeta"><span class="dtag">D+4</span><span class="evt">waitlist_company</span></div>
+  <div class="client">
+    <div class="cbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span> Caixa de entrada</div>
+    <div class="chead">
+      <span class="av"></span>
+      <div class="cfrom"><b>Dale · Macro Markets</b><span>dale@macro.markets → você</span></div>
+    </div>
+    <div class="csubj">O que a Macro Markets recusa fazer</div>
+    <div class="cpre"><b>Empresa</b>Sem odd. Sem stake. Sem “aposte em”. O resto cabe em uma página.</div>
+    <div class="cbody">
+      <h3>Três dias de lista. Um parágrafo sobre quem manda isso.</h3>
+      <p>A Macro Markets lê futebol do mesmo jeito que lê qualquer mercado: preço, o que mudou, e por quê. A âncora aqui é a rodada — não o ativo financeiro.</p>
+      <p>Premium não é palpite pago. É a mesma leitura, com a conta aberta. A página institucional conta a empresa, o método e o que fica de fora. O cadastro, se fizer sentido, está no final dela — não neste e-mail.</p>
+      <p class="sign">O ciclo da rodada segue, independente desta conversa.<br>— Dale</p>
+
+      <a class="cta blue" href="pagina_lps_waitlist.html#lp3">Conhecer a Macro Markets</a>
+      <div class="subcta">Job desta peça: confiança. Conversão, se houver, é da LP — não do botão acima pedindo conta.</div>
+
+      <div class="opt">
+        <a href="#">Não quero mais receber esses e-mails</a>
+        <s>Tão fácil de achar quanto o CTA azul.</s>
+      </div>
+      <div class="cfoot">A LP é sobre a empresa. Não sobre depósito.</div>
+    </div>
+  </div>
+  <div class="mobj"><b>Job:</b> autoridade. <s>CTA = LP institucional. Não pede conta no e-mail para não competir com o E2. Quem não converteu no método ganha a história; a LP decide o próximo passo.</s></div>
+</div>
+
+<!-- E4 -->
+<div class="mail">
+  <div class="mmeta"><span class="dtag re">Evento · 2 aberturas do Bloco 8</span><span class="evt">waitlist_profile_survey</span></div>
+  <div class="client">
+    <div class="cbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span> Caixa de entrada</div>
+    <div class="chead">
+      <span class="av"></span>
+      <div class="cfrom"><b>Dale · Macro Markets</b><span>dale@macro.markets → você</span></div>
+    </div>
+    <div class="csubj">{{first_name|Aí}}, uma pergunta — para a próxima leitura chegar no tom certo</div>
+    <div class="cpre"><b>Perfil</b>Você abriu dois relatórios da rodada. Falta a finalidade.</div>
+    <div class="cbody">
+      <h3>Para que você usa o que a gente manda?</h3>
+      <p>Não é cadastro. Não é oferta. É para o ciclo da rodada virar Insights (mais número) ou Contexto (mais circunstância).</p>
+      <p>Vinte segundos. Um clique. Quem não responde vê esta pergunta de novo em 30 dias — e só esta.</p>
+      <p class="sign">A tag não muda o que é grátis. Muda a ênfase.<br>— Dale</p>
+
+      <a class="cta blue" href="pagina_lps_waitlist.html#lp4">Responder em 20 segundos</a>
+      <div class="subcta">Quatro opções. Uma tag. Sem página de venda no meio.</div>
+
+      <div class="opt">
+        <a href="#">Não quero mais receber esses e-mails</a>
+        <s>Inclusive esta pesquisa.</s>
+      </div>
+      <div class="cfoot">Gatilho: 2 e-mails do ciclo de rodada <b>abertos</b>. Não enviados.</div>
+    </div>
+  </div>
+  <div class="mobj"><b>Job:</b> TAG de perfil. <s>E-mail convoca; a LP coleta. Sem CTA de conta. Insights vs Contexto é o corte que o Bloco 8 usa daqui pra frente.</s></div>
+</div>
+
+<div class="tnote"><b>Fim de campanha.</b> Depois do E4, quem não cadastrou sai da fila. Continua no Bloco 8. Sem “última chance”. Quem cadastra cai na campanha ② (Bloco 12).</div>
+
+<div class="metrics">
+  <h2>Plano de métricas</h2>
+  <table>
+    <thead>
+      <tr><th>Peça</th><th>Destino</th><th>Métrica primária</th><th>Não medir aqui</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><b>E1</b></td><td>LP Expectativa</td><td>Abertura + clique na LP (curiosidade)</td><td>Cadastro</td></tr>
+      <tr><td><b>E2</b></td><td>LP Método</td><td>Cadastro concluído a partir desta LP</td><td>Depósito / Premium</td></tr>
+      <tr><td><b>E3</b></td><td>LP Empresa</td><td>Clique na LP · cadastro como secundário da página</td><td>Cadastro no e-mail</td></tr>
+      <tr><td><b>E4</b></td><td>LP Perfil</td><td>Resposta (qualquer tag)</td><td>Qual tag “vende”</td></tr>
+      <tr><td><b>Campanha</b></td><td>—</td><td>Cadastro em 7 dias <i>ou</i> preferência salva</td><td>Unsubscribe cego</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="footer">
+  Mock estático · campanha evergreen · skill emails<br>
+  <a href="index.html">Índice</a> ·
+  <a href="pagina_hub_campeonato.html">Hub</a> ·
+  <a href="pagina_rodada.html">Rodada 24</a> ·
+  <a href="pagina_blog.html">Blog</a> ·
+  <a href="sequencia_emails.html">E-mails da rodada</a> ·
+  <a href="sequencia_emails_waitlist.html">Waitlist → Cadastro</a> ·
+  <a href="pagina_lps_waitlist.html">LPs Waitlist</a>
+</div>
+
+</div>
+</body>
+</html>
