@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Macro Markets · Blog / seção de conteúdo — 3 cenários</title>
+<style>
+:root{
+  --ink:#14171a; --ink2:#3d444b; --muted:#767d85; --line:#e2e0da;
+  --paper:#faf9f6; --card:#ffffff;
+  --grn:#22a45d; --grn-d:#146c35; --grn-bg:#f1f9f4; --grn-ln:#bfe0c9;
+  --blu:#2563eb; --blu-d:#1c47a8; --blu-bg:#eef3fd; --blu-ln:#c2d4f6;
+  --amb:#e0a92a; --amb-d:#8a6209; --amb-bg:#fdf7e8; --amb-ln:#ecd9a4;
+  --gry:#b6b3ac; --gry-bg:#f4f3f0;
+  --dark:#111418;
+  --s1:#22a45d; --s2:#2563eb;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:22px 14px 70px}
+
+/* ---------- cabeçalho do documento ---------- */
+.doc-head{border-bottom:2px solid var(--ink);padding-bottom:14px;margin-bottom:16px}
+.doc-head .kick{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:800}
+.doc-head h1{font-size:25px;line-height:1.15;letter-spacing:-.5px;margin:7px 0 6px}
+.doc-head p{margin:0;color:var(--ink2);font-size:13.5px;max-width:760px}
+.navmocks{display:flex;flex-wrap:wrap;gap:7px;margin-top:13px}
+.navmocks a{
+  text-decoration:none;font-size:11.5px;font-weight:650;
+  border:1px solid var(--line);background:var(--card);border-radius:999px;padding:5px 11px;color:var(--ink2);
+}
+.navmocks a.home{background:var(--ink);color:#fff;border-color:var(--ink)}
+.note{
+  background:var(--amb-bg);border:1px solid var(--amb-ln);border-left:4px solid var(--amb);
+  border-radius:8px;padding:9px 12px;font-size:12px;color:var(--amb-d);margin:14px 0 0
+}
+
+/* ---------- legenda de estados ---------- */
+.lgd{
+  position:sticky;top:0;z-index:40;background:var(--paper);
+  border-bottom:1px solid var(--line);padding:9px 0 10px;margin:18px 0 0;
+  display:flex;flex-wrap:wrap;gap:8px;align-items:center
+}
+.lgd b{font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-right:2px}
+.lgd i{
+  font-style:normal;font-size:11px;font-weight:650;border-radius:6px;padding:3px 9px;
+  display:inline-flex;align-items:center;gap:6px;background:var(--card);border:1px solid var(--line)
+}
+.lgd i s{width:14px;height:0;display:block;text-decoration:none}
+.lgd i.a{color:var(--grn-d);border-color:var(--grn-ln);background:var(--grn-bg)}
+.lgd i.a s{border-top:3px solid var(--grn)}
+.lgd i.p{color:var(--blu-d);border-color:var(--blu-ln);background:var(--blu-bg)}
+.lgd i.p s{border-top:3px dashed var(--blu)}
+.lgd i.b{color:var(--amb-d);border-color:var(--amb-ln);background:var(--amb-bg)}
+.lgd i.b s{border-top:3px dotted var(--amb)}
+.lgd i.o{color:var(--muted)}
+.lgd i.o s{border-top:3px solid var(--gry)}
+.lgdnote{font-size:11.5px;color:var(--muted);margin:8px 0 0;max-width:760px}
+
+/* ---------- abas de cenário (CSS puro) ---------- */
+.tt{position:absolute;opacity:0;pointer-events:none;width:0;height:0}
+.tabs{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0 14px}
+.tabs label{
+  cursor:pointer;border:1px solid var(--line);background:var(--card);border-radius:9px;
+  padding:9px 13px;font-size:12.5px;font-weight:650;color:var(--ink2);
+  display:flex;flex-direction:column;gap:1px;min-width:150px;flex:1 1 180px
+}
+.tabs label u{text-decoration:none;font-size:9.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);font-weight:800}
+.pane{display:none}
+#t1:checked ~ .tabs label[for=t1],
+#t2:checked ~ .tabs label[for=t2],
+#t3:checked ~ .tabs label[for=t3]{background:var(--ink);color:#fff;border-color:var(--ink)}
+#t1:checked ~ .tabs label[for=t1] u,
+#t2:checked ~ .tabs label[for=t2] u,
+#t3:checked ~ .tabs label[for=t3] u{color:#a9b2bd}
+#t1:checked ~ #p1, #t2:checked ~ #p2, #t3:checked ~ #p3{display:block}
+
+/* ---------- moldura do device ---------- */
+.viewhead{
+  display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;
+  margin:26px 0 10px;padding-bottom:7px;border-bottom:2px solid var(--ink)
+}
+.viewhead h2{font-size:17px;margin:0;letter-spacing:-.3px}
+.viewhead span{font-size:12px;color:var(--muted)}
+.frame{border:1px solid var(--line);border-radius:13px;overflow:hidden;background:var(--card);box-shadow:0 2px 14px rgba(0,0,0,.05)}
+.bar{background:#efedE8;border-bottom:1px solid var(--line);padding:7px 11px;display:flex;align-items:center;gap:6px}
+.dot{width:8px;height:8px;border-radius:50%;background:#cfccc5;display:block}
+.url{
+  margin-left:7px;background:var(--card);border:1px solid var(--line);border-radius:6px;
+  padding:3px 9px;font-size:10.5px;color:var(--muted);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap
+}
+.canvas{padding:14px 12px 20px;background:var(--paper)}
+.scr{max-width:430px;margin:0 auto}
+
+/* ---------- topo do app ---------- */
+.appbar{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:11px}
+.logo{display:flex;align-items:center;gap:6px;font-size:13.5px;font-weight:750;letter-spacing:-.2px}
+.logo em{width:16px;height:16px;border-radius:4px;background:var(--ink);display:block}
+.who{font-size:10.5px;font-weight:700;border-radius:999px;padding:4px 9px;border:1px solid var(--line);background:var(--card);color:var(--ink2)}
+.who.free{background:var(--blu-bg);border-color:var(--blu-ln);color:var(--blu-d)}
+.who.prem{background:var(--grn-bg);border-color:var(--grn-ln);color:var(--grn-d)}
+.bcr{font-size:10.5px;color:var(--muted);margin-bottom:9px}
+.ph1{font-size:21px;line-height:1.14;letter-spacing:-.5px;margin:0 0 5px}
+.pdek{font-size:12.5px;color:var(--ink2);margin:0 0 13px}
+
+/* ---------- filtros ---------- */
+.filbox{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:11px;margin-bottom:13px}
+.fillab{font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:800;margin:0 0 6px}
+.fillab+.fillab{margin-top:10px}
+.chips{display:flex;flex-wrap:wrap;gap:5px}
+.chip{font-size:11px;font-weight:640;border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:4px 10px;color:var(--ink2)}
+.chip.now{background:var(--ink);color:#fff;border-color:var(--ink)}
+.chip.mine{background:var(--blu-bg);border-color:var(--blu);color:var(--blu-d)}
+.chip.lk{background:var(--amb-bg);border-color:var(--amb-ln);color:var(--amb-d);border-style:dotted}
+.chip.of{color:var(--gry);background:var(--gry-bg);border-style:dashed}
+
+/* ---------- seção com estado ---------- */
+.sec{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:12px;margin-bottom:11px;position:relative;border-left-width:4px}
+.sec.on{border-left-color:var(--grn);border-left-style:solid}
+.sec.pt{border-left-color:var(--blu);border-left-style:dashed}
+.sec.lk{border-left-color:var(--amb);border-left-style:dotted;background:var(--amb-bg);border-top-color:var(--amb-ln);border-right-color:var(--amb-ln);border-bottom-color:var(--amb-ln)}
+.sec.of{border-left-color:var(--gry);border-left-style:solid;background:var(--gry-bg);opacity:.85}
+.tag{position:absolute;top:9px;right:9px;font-size:8.5px;font-weight:850;letter-spacing:.1em;text-transform:uppercase;border-radius:5px;padding:2px 6px}
+.tag.on{background:var(--grn-bg);color:var(--grn-d);border:1px solid var(--grn-ln)}
+.tag.pt{background:var(--blu-bg);color:var(--blu-d);border:1px dashed var(--blu-ln)}
+.tag.lk{background:#fff;color:var(--amb-d);border:1px dotted var(--amb)}
+.tag.of{background:#fff;color:var(--muted);border:1px solid var(--line)}
+.sh{font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:800;margin:0 62px 8px 0}
+.sec.of .sh{color:var(--gry)}
+.nt{font-size:11px;color:var(--muted);margin:9px 0 0;padding-top:8px;border-top:1px dashed var(--line)}
+.sec.lk .nt{color:var(--amb-d);border-top-color:var(--amb-ln)}
+.ord{font-size:9.5px;font-weight:850;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:16px 0 7px}
+.ord em{font-style:normal;background:var(--ink);color:#fff;border-radius:4px;padding:1px 6px;margin-right:6px}
+
+/* ---------- máscara e véu ---------- */
+.msk{
+  display:inline-block;background:repeating-linear-gradient(135deg,#efe3c4 0 5px,#f8efd8 5px 10px);
+  border:1px dotted var(--amb);border-radius:5px;color:transparent;user-select:none;
+  min-width:44px;text-align:center;font-weight:800
+}
+.mskb{display:block;height:32px;border-radius:7px;margin-top:6px}
+.veil{position:relative;border-radius:8px;overflow:hidden}
+.veil .in{filter:blur(3.6px);opacity:.5;pointer-events:none}
+.veil .ov{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;
+  background:rgba(253,247,232,.72);font-size:11px;font-weight:750;color:var(--amb-d);padding:8px
+}
+.gate{
+  margin-top:9px;border:1px dotted var(--amb);background:#fff;border-radius:8px;padding:9px 10px;
+  font-size:11.5px;color:var(--amb-d);font-weight:640
+}
+.gate b{display:block;font-size:12px;margin-bottom:2px;color:var(--ink)}
+.badge-prem{
+  display:inline-block;font-size:8.5px;font-weight:850;letter-spacing:.11em;text-transform:uppercase;
+  background:var(--dark);color:#fff;border-radius:5px;padding:2px 7px
+}
+.badge-free{
+  display:inline-block;font-size:8.5px;font-weight:850;letter-spacing:.11em;text-transform:uppercase;
+  background:var(--grn-bg);color:var(--grn-d);border:1px solid var(--grn-ln);border-radius:5px;padding:2px 7px
+}
+.res{display:flex;align-items:center;gap:6px;font-size:10px;color:var(--muted);margin-top:8px}
+.res s{flex:1;height:5px;border-radius:3px;background:#eceae5;display:block;text-decoration:none;overflow:hidden}
+.res s u{display:block;height:100%;text-decoration:none}
+.res s u.a{background:var(--grn)}
+.res s u.p{background:var(--blu)}
+.up1{font-size:10.5px;color:var(--blu-d);background:var(--blu-bg);border:1px dashed var(--blu-ln);border-radius:6px;padding:5px 8px;margin-top:8px;font-weight:640}
+
+/* ---------- destaque editorial ---------- */
+.feat{border-radius:12px;padding:14px;margin-bottom:12px;position:relative;border:1px solid var(--line);border-left-width:4px;background:var(--card)}
+.feat.on{border-left-color:var(--grn);border-left-style:solid}
+.feat.pt{border-left-color:var(--blu);border-left-style:dashed}
+.feat .fl{font-size:9px;letter-spacing:.13em;text-transform:uppercase;font-weight:850;color:var(--muted);margin-bottom:7px}
+.feat h3{font-size:17px;line-height:1.22;letter-spacing:-.35px;margin:6px 0 6px}
+.feat p{font-size:12.5px;color:var(--ink2);margin:0 0 9px}
+.feat.dk{background:var(--dark);color:#fff;border-color:var(--dark);border-left-color:var(--grn)}
+.feat.dk p{color:#c8d0d9}
+.feat.dk .fl{color:#8d98a5}
+
+/* ---------- card de artigo ---------- */
+.kind{display:inline-block;font-size:8.5px;font-weight:850;letter-spacing:.1em;text-transform:uppercase;border-radius:5px;padding:2px 7px;border:1px solid}
+.k-nt{background:var(--grn-bg);color:var(--grn-d);border-color:var(--grn-ln)}
+.k-pv{background:var(--blu-bg);color:var(--blu-d);border-color:var(--blu-ln)}
+.k-an{background:#f4eefb;color:#5b21b6;border-color:#ddcdf3}
+.k-ds{background:#1f2937;color:#fff;border-color:#1f2937}
+.k-ai{background:#fff0ea;color:#9a3412;border-color:#f6cdb9}
+.k-rt{background:#f1f0ec;color:var(--ink2);border-color:var(--line)}
+.art{border-top:1px dashed var(--line);padding:10px 0 2px}
+.art:first-of-type{border-top:0;padding-top:2px}
+.art h4{font-size:13.5px;line-height:1.28;margin:6px 0 4px;letter-spacing:-.2px}
+.art p{font-size:11.5px;color:var(--ink2);margin:0 0 5px}
+.amet{font-size:10px;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 9px}
+.more{font-size:11.5px;font-weight:700;color:var(--blu-d);border:1px dashed var(--blu-ln);background:var(--blu-bg);border-radius:7px;padding:7px 9px;margin-top:9px;text-align:center}
+.more.solid{background:var(--card);border-style:solid;border-color:var(--line);color:var(--ink2)}
+
+/* ---------- entradas hub / rodada ---------- */
+.ent{display:flex;gap:9px;align-items:flex-start;border:1px solid var(--line);background:var(--card);border-radius:9px;padding:10px;margin-top:7px;text-decoration:none}
+.ent em{font-style:normal;font-size:15px;line-height:1;margin-top:2px;color:var(--muted)}
+.ent b{display:block;font-size:12.5px;margin-bottom:2px}
+.ent span{display:block;font-size:11px;color:var(--ink2)}
+
+/* ---------- artigo ---------- */
+.abyl{display:flex;flex-wrap:wrap;gap:4px 10px;font-size:10.5px;color:var(--muted);margin:0 0 9px;align-items:center}
+.abyl b{color:var(--ink);font-weight:700}
+.prog{height:9px;border-radius:5px;overflow:hidden;display:flex;background:#eceae5}
+.prog s{display:block;height:100%;text-decoration:none}
+.prog s.o{background:var(--grn)}
+.prog s.p{background:repeating-linear-gradient(135deg,var(--blu) 0 4px,#c2d4f6 4px 8px)}
+.prog s.g{background:repeating-linear-gradient(135deg,var(--amb) 0 4px,#f6e3b4 4px 8px)}
+.proglab{font-size:10.5px;color:var(--muted);margin:5px 0 12px}
+.toc{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 11px;margin-bottom:12px}
+.toc div{display:flex;align-items:center;gap:7px;font-size:11.5px;padding:3px 0;color:var(--ink2)}
+.toc div s{width:8px;height:8px;border-radius:50%;display:block;text-decoration:none;flex:none}
+.toc div s.a{background:var(--grn)}
+.toc div s.p{background:var(--blu)}
+.toc div s.b{background:var(--amb)}
+.toc div s.o{background:var(--gry)}
+.toc div u{margin-left:auto;text-decoration:none;font-size:9px;font-weight:850;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.abody p{font-size:13.5px;line-height:1.62;color:var(--ink2);margin:0 0 11px}
+.abody p.lead{font-size:14.5px;color:var(--ink)}
+.cutline{display:flex;align-items:center;gap:9px;margin:15px 0;font-size:9px;font-weight:850;letter-spacing:.1em;text-transform:uppercase;color:var(--amb-d)}
+.cutline::before,.cutline::after{content:"";flex:1;height:0;border-top:2px dashed var(--amb)}
+.cutline.ok{color:var(--grn-d)}
+.cutline.ok::before,.cutline.ok::after{border-top:2px solid var(--grn-ln)}
+
+/* ---------- barras comparativas ---------- */
+.kv{margin-bottom:8px}
+.kv .k{display:flex;justify-content:space-between;align-items:baseline;font-size:11.5px;margin-bottom:3px}
+.kv .k b{font-weight:640;color:var(--ink2)}
+.kv .k i{font-style:normal;font-weight:800;font-size:12px}
+.kv .t{height:7px;border-radius:4px;background:#eceae5;display:flex;overflow:hidden}
+.kv .t s{display:block;height:100%;text-decoration:none}
+.kv .t s.a{background:var(--s1)}
+.kv .t s.b{background:var(--s2)}
+.kv .t.hz{background:repeating-linear-gradient(135deg,#efe3c4 0 5px,#f8efd8 5px 10px)}
+.qual{font-style:normal;font-weight:800;font-size:11px;background:var(--blu-bg);border:1px dashed var(--blu-ln);color:var(--blu-d);border-radius:5px;padding:1px 7px}
+.lgn{display:flex;gap:12px;font-size:10.5px;color:var(--muted);margin-top:7px}
+.lgn span{display:flex;align-items:center;gap:5px}
+.lgn s{width:9px;height:9px;border-radius:2px;display:block;text-decoration:none}
+
+/* ---------- mercado ---------- */
+.mk{display:flex;justify-content:space-between;align-items:center;gap:8px;border-top:1px dashed var(--line);padding:7px 0;font-size:12px}
+.mk:first-of-type{border-top:0}
+.mk b{font-weight:640;color:var(--ink2)}
+.mk i{font-style:normal;font-weight:800}
+.mk u{text-decoration:none;font-size:10px;font-weight:750;color:var(--grn-d)}
+.mk u.dn{color:#b91c1c}
+
+/* ---------- chat ---------- */
+.msg{border-top:1px dashed var(--line);padding:7px 0;font-size:11.5px}
+.msg:first-of-type{border-top:0}
+.msg b{font-size:10.5px;color:var(--muted);display:block;margin-bottom:1px}
+.inp{border:1px solid var(--line);background:var(--paper);border-radius:8px;padding:8px 10px;font-size:11.5px;color:var(--muted);margin-top:9px}
+.inp.lk{border-style:dotted;border-color:var(--amb);background:#fff;color:var(--amb-d)}
+.inp.on{border-color:var(--grn-ln);background:#fff;color:var(--ink2)}
+
+/* ---------- CTA ---------- */
+.ctaz{border-radius:11px;padding:13px;margin:14px 0 0;text-align:center}
+.ctaz.reg{background:var(--grn-bg);border:1px solid var(--grn-ln)}
+.ctaz.dep{background:var(--dark);color:#fff}
+.ctaz.use{background:var(--card);border:1px solid var(--grn-ln)}
+.ctaz h4{font-size:14px;margin:0 0 4px;letter-spacing:-.2px}
+.ctaz p{font-size:11.5px;margin:0 0 10px;color:var(--ink2)}
+.ctaz.dep p{color:#c8d0d9}
+.btn{display:inline-block;background:var(--ink);color:#fff;border-radius:8px;padding:9px 16px;font-size:12.5px;font-weight:700;text-decoration:none}
+.btn.g{background:var(--grn)}
+.btn.w{background:#fff;color:var(--ink)}
+.sub{font-size:10.5px;color:var(--muted);margin-top:7px}
+.ctaz.dep .sub{color:#8d98a5}
+.inline-cta{border:1px solid var(--line);border-left:4px solid var(--ink);background:var(--card);border-radius:9px;padding:11px;margin:14px 0;font-size:12px}
+.inline-cta b{display:block;font-size:12.5px;margin-bottom:3px}
+.inline-cta a{display:inline-block;margin-top:8px}
+
+/* ---------- rodapé de análise ---------- */
+.foot{border:1px solid var(--line);border-left:4px solid var(--ink);background:var(--card);border-radius:10px;padding:12px;margin-top:16px}
+.foot h4{font-size:12.5px;margin:0 0 7px}
+.foot ul{margin:0;padding-left:17px}
+.foot li{font-size:11.5px;color:var(--ink2);margin-bottom:4px}
+
+/* ================================================================ */
+/* CANVAS ESCURO · cenario Premium                                   */
+/* Mesma identidade de estados: verde solido, azul tracejado,        */
+/* ambar pontilhado, cinza fantasma — so a luminosidade sobe.        */
+/* ================================================================ */
+.canvas.pr{
+  background:#0f1316; color:#e6eaee;
+  --s1:#3ddc84; --s2:#6da4ff;
+}
+.canvas.pr .logo{color:#fff}
+.canvas.pr .logo em{background:#fff}
+.canvas.pr .who{background:#1c2329;border-color:#38414a;color:#b8c1ca}
+.canvas.pr .who.prem{background:rgba(61,220,132,.12);border-color:rgba(61,220,132,.42);color:#5fe39a}
+.canvas.pr .bcr{color:#8994a0}
+.canvas.pr .ph1{color:#fff}
+.canvas.pr .pdek{color:#b8c1ca}
+.canvas.pr .ord{color:#8994a0}
+.canvas.pr .ord em{background:#fff;color:#0f1316}
+
+/* seções e tarjas de estado */
+.canvas.pr .sec{background:#171c21;border-color:#2b333b;color:#dfe4e9}
+.canvas.pr .sec.on{border-left-color:#3ddc84}
+.canvas.pr .sec.pt{border-left-color:#6da4ff}
+.canvas.pr .sec.lk{background:#241d0e;border-color:#4a3a17;border-left-color:#f0b429}
+.canvas.pr .sec.of{background:#14181c;border-color:#252b31;border-left-color:#5b636b;opacity:.7}
+.canvas.pr .tag.on{background:rgba(61,220,132,.13);color:#5fe39a;border-color:rgba(61,220,132,.45)}
+.canvas.pr .tag.pt{background:rgba(109,164,255,.13);color:#8fbaff;border-color:rgba(109,164,255,.5)}
+.canvas.pr .tag.lk{background:#1a1408;color:#f0b429;border-color:#f0b429}
+.canvas.pr .tag.of{background:#1a1e22;color:#8994a0;border-color:#333b43}
+.canvas.pr .sh{color:#8994a0}
+.canvas.pr .sec.of .sh{color:#6b737c}
+.canvas.pr .nt{color:#8994a0;border-top-color:#2b333b}
+.canvas.pr .sec.lk .nt{color:#e0b45c;border-top-color:#4a3a17}
+
+/* destaque editorial */
+.canvas.pr .feat{background:#171c21;border-color:#2b333b}
+.canvas.pr .feat.dk{background:#1c2329;border-color:#38414a;border-left-color:#3ddc84}
+.canvas.pr .feat h3{color:#fff}
+.canvas.pr .feat p{color:#b8c1ca}
+.canvas.pr .feat .fl{color:#8994a0}
+.canvas.pr .badge-prem{background:#fff;color:#0f1316}
+.canvas.pr .badge-free{background:rgba(61,220,132,.13);color:#5fe39a;border-color:rgba(61,220,132,.45)}
+
+/* cards da listagem */
+.canvas.pr .art{border-top-color:#2b333b}
+.canvas.pr .art h4{color:#f2f4f6}
+.canvas.pr .art p{color:#b8c1ca}
+.canvas.pr .amet{color:#8994a0}
+.canvas.pr .k-nt{background:rgba(61,220,132,.13);color:#5fe39a;border-color:rgba(61,220,132,.4)}
+.canvas.pr .k-pv{background:rgba(109,164,255,.13);color:#8fbaff;border-color:rgba(109,164,255,.42)}
+.canvas.pr .k-an{background:rgba(167,139,250,.16);color:#c4b1fb;border-color:rgba(167,139,250,.45)}
+.canvas.pr .k-ds{background:#fff;color:#0f1316;border-color:#fff}
+.canvas.pr .k-ai{background:rgba(251,146,60,.15);color:#fbaf6b;border-color:rgba(251,146,60,.42)}
+.canvas.pr .k-rt{background:#232a30;color:#b8c1ca;border-color:#39424a}
+.canvas.pr .more{background:rgba(109,164,255,.1);border-color:rgba(109,164,255,.4);color:#8fbaff}
+.canvas.pr .more.solid{background:#1c2329;border-color:#38414a;color:#b8c1ca}
+
+/* filtros */
+.canvas.pr .filbox{background:#171c21;border-color:#2b333b}
+.canvas.pr .fillab{color:#8994a0}
+.canvas.pr .chip{background:#1c2329;border-color:#38414a;color:#b8c1ca}
+.canvas.pr .chip.now{background:#fff;border-color:#fff;color:#0f1316}
+.canvas.pr .chip.mine{background:rgba(109,164,255,.15);border-color:#6da4ff;color:#8fbaff}
+.canvas.pr .chip.lk{background:#241d0e;border-color:#f0b429;color:#f0b429}
+.canvas.pr .chip.of{background:#1a1e22;border-color:#333b43;color:#6b737c}
+
+/* entradas hub / rodada */
+.canvas.pr .ent{background:#1c2329;border-color:#38414a}
+.canvas.pr .ent em{color:#8994a0}
+.canvas.pr .ent b{color:#f2f4f6}
+.canvas.pr .ent span{color:#b8c1ca}
+
+/* barra de progresso e sumario */
+.canvas.pr .prog{background:#2b333b}
+.canvas.pr .prog s.o{background:#3ddc84}
+.canvas.pr .prog s.p{background:repeating-linear-gradient(135deg,#6da4ff 0 4px,#31456b 4px 8px)}
+.canvas.pr .prog s.g{background:repeating-linear-gradient(135deg,#f0b429 0 4px,#5c470f 4px 8px)}
+.canvas.pr .proglab{color:#8994a0}
+.canvas.pr .toc{background:#171c21;border-color:#2b333b}
+.canvas.pr .toc div{color:#c8d0d8}
+.canvas.pr .toc div s.a{background:#3ddc84}
+.canvas.pr .toc div s.p{background:#6da4ff}
+.canvas.pr .toc div s.b{background:#f0b429}
+.canvas.pr .toc div s.o{background:#6b737c}
+.canvas.pr .toc div u{color:#8994a0}
+
+/* corpo do artigo e barras comparativas */
+.canvas.pr .abody p{color:#c2cad2}
+.canvas.pr .abody p.lead{color:#eef1f4}
+.canvas.pr .kv .k b{color:#b8c1ca}
+.canvas.pr .kv .k i{color:#f2f4f6}
+.canvas.pr .kv .t{background:#2b333b}
+.canvas.pr .kv .t.hz{background:repeating-linear-gradient(135deg,#4a3a17 0 5px,#2a2210 5px 10px)}
+.canvas.pr .qual{background:rgba(109,164,255,.15);border-color:rgba(109,164,255,.55);color:#8fbaff}
+.canvas.pr .lgn{color:#8994a0}
+.canvas.pr .mk{border-top-color:#2b333b}
+.canvas.pr .mk b{color:#b8c1ca}
+.canvas.pr .mk i{color:#f2f4f6}
+.canvas.pr .mk u{color:#5fe39a}
+.canvas.pr .mk u.dn{color:#ff8f8f}
+
+/* chat */
+.canvas.pr .msg{border-top-color:#2b333b;color:#c8d0d8}
+.canvas.pr .msg b{color:#8994a0}
+.canvas.pr .inp{background:#1c2329;border-color:#38414a;color:#8994a0}
+.canvas.pr .inp.on{border-color:rgba(61,220,132,.45);color:#b8c1ca}
+.canvas.pr .inp.lk{background:#241d0e;border-color:#f0b429;color:#f0b429}
+
+/* mascara, veu e portao (ambar segue reservado ao que e pago) */
+.canvas.pr .msk{background:repeating-linear-gradient(135deg,#4a3a17 0 5px,#2a2210 5px 10px);border-color:#f0b429}
+.canvas.pr .veil .ov{background:rgba(21,16,5,.76);color:#f0b429}
+.canvas.pr .gate{background:#1a1408;border-color:#f0b429;color:#e0b45c}
+.canvas.pr .gate b{color:#f7d488}
+.canvas.pr .up1{background:rgba(109,164,255,.11);border-color:rgba(109,164,255,.42);color:#8fbaff}
+.canvas.pr .res{color:#8994a0}
+.canvas.pr .res s{background:#2b333b}
+.canvas.pr .res s u.a{background:#3ddc84}
+.canvas.pr .res s u.p{background:#6da4ff}
+
+/* linha de corte e CTA */
+.canvas.pr .cutline{color:#f0b429}
+.canvas.pr .cutline::before,.canvas.pr .cutline::after{border-top-color:#f0b429}
+.canvas.pr .cutline.ok{color:#5fe39a}
+.canvas.pr .cutline.ok::before,.canvas.pr .cutline.ok::after{border-top-color:rgba(61,220,132,.42)}
+.canvas.pr .inline-cta{background:#171c21;border-color:#2b333b;border-left-color:#fff;color:#b8c1ca}
+.canvas.pr .inline-cta b{color:#f2f4f6}
+.canvas.pr .ctaz.use{background:#171c21;border-color:rgba(61,220,132,.42)}
+.canvas.pr .ctaz.dep{background:#1c2329}
+.canvas.pr .ctaz h4{color:#fff}
+.canvas.pr .ctaz p{color:#b8c1ca}
+.canvas.pr .ctaz .sub{color:#8994a0}
+.canvas.pr .btn{background:#fff;color:#0f1316}
+.canvas.pr .btn.g{background:#3ddc84;color:#0f1316}
+
+@media(min-width:900px){
+  .canvas{padding:20px}
+  .scr{max-width:520px}
+  .ph1{font-size:23px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="doc-head">
+    <div class="kick">Macro Markets · funil de conteúdo · peça 4</div>
+    <h1>Blog / seção de conteúdo — índice e artigo aberto nos 3 cenários</h1>
+    <p>O blog é a porta de entrada do funil: é ele que alimenta o Hub do Campeonato e a Página da Rodada. Aqui estão as duas vistas — a grade de artigos e o artigo aberto — mostradas nos três estados de acesso, com o mesmo vocabulário visual das outras páginas.</p>
+    <div class="navmocks">
+      <a class="home" href="mockups_3.html">Documento-mae · mockups_3</a>
+      <a href="pagina_hub_campeonato.html">Hub do Campeonato</a>
+      <a href="pagina_rodada.html">Pagina da Rodada</a>
+    </div>
+    <div class="note">Dados ilustrativos coerentes com a rodada 24 do Brasileirao 2026 e com o jogo de referencia Cruzeiro x Flamengo, no Mineirao. Numeros de mercado seguem a Pagina da Rodada: 38 / 27 / 35.</div>
+  </div>
+
+  <div class="lgd">
+    <b>Estados</b>
+    <i class="a"><s></s>Ativo</i>
+    <i class="p"><s></s>Parcial</i>
+    <i class="b"><s></s>Bloqueado</i>
+    <i class="o"><s></s>Ausente</i>
+  </div>
+  <p class="lgdnote">Parcial mostra faixa ou rotulo legitimo no lugar do numero exato. Bloqueado mantem rotulo e time legiveis e cobre so o valor. O leitor sempre sabe o que existe e o que ganharia.</p>
+
+  <input class="tt" type="radio" name="cen" id="t1" checked>
+  <input class="tt" type="radio" name="cen" id="t2">
+  <input class="tt" type="radio" name="cen" id="t3">
+
+  <div class="tabs">
+    <label for="t1"><u>Cenario 1</u>Deslogado · objetivo cadastro</label>
+    <label for="t2"><u>Cenario 2</u>Logado sem deposito · objetivo primeiro deposito</label>
+    <label for="t3"><u>Cenario 3</u>Logado premium · objetivo uso</label>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- CENARIO 1 — DESLOGADO                                         -->
+  <!-- ============================================================ -->
+  <div class="pane" id="p1">
+
+    <div class="viewhead"><h2>Vista A · Indice do blog</h2><span>Deslogado — a grade e organizada para busca organica</span></div>
+
+    <div class="frame">
+      <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">macromarkets.com/br/brasileirao/blog</span></div>
+      <div class="canvas"><div class="scr">
+
+        <div class="appbar">
+          <div class="logo"><em></em> macro.markets</div>
+          <div class="who">Visitante</div>
+        </div>
+
+        <div class="bcr">Brasileirao › Conteudo</div>
+        <h1 class="ph1">Analise do Brasileirao: rodada 24</h1>
+        <p class="pdek">Previas dos 10 jogos, noticias de escalacao e leitura dos indicadores. Atualizado ao longo da semana.</p>
+
+        <div class="ord"><em>1</em> Destaque editorial · previa aberta, puxa trafego frio</div>
+        <div class="feat pt">
+          <div class="fl">Em destaque · previa da rodada</div>
+          <span class="kind k-pv">Previa de jogo</span>
+          <h3>Cruzeiro x Flamengo: onde assistir, escalacoes provaveis e o retrospecto do Mineirao</h3>
+          <p>Sabado, 22 de agosto, 20h30, Mineirao. O Flamengo perde o atacante titular por suspensao e joga pela terceira vez em oito dias. O Cruzeiro chega com quatro dos ultimos cinco jogos em casa sem sofrer gol.</p>
+          <div class="amet"><span>Redacao Macro</span><span>ha 3 h</span><span>6 min de leitura</span></div>
+          <div class="res"><span>Profundidade</span><s><u class="p" style="width:55%"></u></s><span>Parcial</span></div>
+          <div class="up1">Com conta gratis: numeros exatos dos indicadores e o historico do movimento do preco.</div>
+        </div>
+
+        <div class="ord"><em>2</em> Filtros · sem "meu time", porque nao ha time seguido</div>
+        <div class="filbox">
+          <p class="fillab">Campeonato</p>
+          <div class="chips"><span class="chip now">Brasileirao</span><span class="chip">Premier League</span><span class="chip">Champions</span><span class="chip">La Liga</span></div>
+          <p class="fillab">Time</p>
+          <div class="chips"><span class="chip">Cruzeiro</span><span class="chip">Flamengo</span><span class="chip">Palmeiras</span><span class="chip">Bahia</span><span class="chip">+16</span></div>
+          <p class="fillab">Tipo de conteudo</p>
+          <div class="chips">
+            <span class="chip now">Noticia</span><span class="chip">Previa</span><span class="chip">Analise</span>
+            <span class="chip lk">Dossie · premium</span><span class="chip of">Agente de IA</span>
+          </div>
+        </div>
+
+        <div class="ord"><em>3</em> Noticia factual · aberta em todos os cenarios</div>
+        <div class="sec on">
+          <span class="tag on">Ativo</span>
+          <div class="sh">Noticias do campeonato</div>
+          <div class="art">
+            <span class="kind k-nt">Noticia</span>
+            <h4>Flamengo confirma suspensao do atacante titular para o jogo no Mineirao</h4>
+            <p>Terceiro amarelo aplicado na rodada 23. Ele participou de 12 dos 34 gols do time na temporada.</p>
+            <div class="amet"><span>Redacao Macro</span><span>ha 3 h</span><span>2 min</span></div>
+          </div>
+          <div class="art">
+            <span class="kind k-nt">Noticia</span>
+            <h4>Bahia relaciona zagueiro recuperado para o classico no Barradao</h4>
+            <p>Volta apos cinco jogos fora. O clube nao confirma se ele comeca jogando.</p>
+            <div class="amet"><span>Redacao Macro</span><span>ha 5 h</span><span>2 min</span></div>
+          </div>
+          <div class="art">
+            <span class="kind k-nt">Noticia</span>
+            <h4>Chapecoense muda o comando tecnico antes de receber o Sao Paulo</h4>
+            <p>Segunda troca no ano. O novo treinador dirige o time pela primeira vez na Arena Conda.</p>
+            <div class="amet"><span>Redacao Macro</span><span>ontem</span><span>3 min</span></div>
+          </div>
+          <div class="nt">Noticia factual e sempre aberta. E o que a busca encontra e o que nao custa nada dar.</div>
+        </div>
+
+        <div class="ord"><em>4</em> Previas dos 10 jogos · corpo aberto, numero em faixa</div>
+        <div class="sec pt">
+          <span class="tag pt">Parcial</span>
+          <div class="sh">Previas da rodada 24</div>
+          <div class="art">
+            <span class="kind k-pv">Previa de jogo</span>
+            <h4>Vitoria x Bahia: o classico de placar curto que a rodada guarda para domingo</h4>
+            <p>Ataque do Vitoria: <i class="qual">Medio</i> · Defesa do Bahia: <i class="qual">Alta</i></p>
+            <div class="amet"><span>Redacao Macro</span><span>ha 8 h</span><span>5 min</span></div>
+          </div>
+          <div class="art">
+            <span class="kind k-pv">Previa de jogo</span>
+            <h4>Chapecoense x Sao Paulo: o que a mudanca de comando muda na Arena Conda</h4>
+            <p>Ataque da Chapecoense: <i class="qual">Baixo</i> · Defesa do Sao Paulo: <i class="qual">Media</i></p>
+            <div class="amet"><span>Redacao Macro</span><span>ontem</span><span>5 min</span></div>
+          </div>
+          <div class="more">+ 7 previas da rodada 24</div>
+          <div class="nt">Rotulo e time legiveis, numero exato em faixa. O leitor ve que o indicador existe.</div>
+        </div>
+
+        <div class="ord"><em>5</em> Analise quantitativa · texto aberto, veredito coberto</div>
+        <div class="sec lk">
+          <span class="tag lk">Bloqueado</span>
+          <div class="sh">Analise com veredito</div>
+          <div class="art">
+            <span class="kind k-an">Analise</span>
+            <h4>Cruzeiro x Flamengo: o que moveu o mercado 6 pontos percentuais em 12 horas</h4>
+            <p>Mercado hoje: <b>38%</b> para o Cruzeiro. Nosso modelo: <span class="msk">00%</span> · divergencia <span class="msk">+0 pp</span></p>
+            <div class="amet"><span>Dale · analise</span><span>ha 2 h</span><span>9 min</span></div>
+          </div>
+          <div class="art">
+            <span class="kind k-an">Analise</span>
+            <h4>Chapecoense x Sao Paulo: por que o modelo le a casa diferente do mercado</h4>
+            <p>Mercado hoje: <b>21%</b> para a casa. Nosso modelo: <span class="msk">00%</span> · divergencia <span class="msk">-0 pp</span></p>
+            <div class="amet"><span>Dale · analise</span><span>ontem</span><span>8 min</span></div>
+          </div>
+          <div class="gate">
+            <b>O texto da analise e aberto. So o veredito e o delta ficam cobertos.</b>
+            A probabilidade do mercado nunca e escondida — ela e publica em todas as paginas.
+          </div>
+        </div>
+
+        <div class="ord"><em>6</em> Retrospecto · aberto, e o bloco de confianca</div>
+        <div class="sec on">
+          <span class="tag on">Ativo</span>
+          <div class="sh">Placar de acompanhamento</div>
+          <div class="art">
+            <span class="kind k-rt">Retrospecto</span>
+            <h4>Rodada 23: 7 dos 10 cenarios se confirmaram — e os 2 em que erramos feio</h4>
+            <p>Publicamos o que dissemos antes da bola rolar e conferimos depois. Inclui os erros.</p>
+            <div class="amet"><span>Dale · analise</span><span>terca</span><span>6 min</span></div>
+          </div>
+          <div class="nt">Sempre aberto nos tres cenarios. Custa pouco e e o que sustenta a credibilidade do veredito pago.</div>
+        </div>
+
+        <div class="ord"><em>7</em> Dossies premium · existem e aparecem, cobertos</div>
+        <div class="sec lk">
+          <span class="tag lk">Bloqueado</span>
+          <div class="sh">Biblioteca premium do Brasileirao</div>
+          <div class="veil">
+            <div class="in">
+              <div class="art"><span class="kind k-ds">Dossie</span><h4>Dossie da rodada 24: os 3 jogos em que o mercado esta errado</h4><p>Modelo proprio, delta contra o mercado e cenarios condicionais para os 10 jogos.</p></div>
+              <div class="art"><span class="kind k-ds">Dossie</span><h4>Dossie Cruzeiro: o que sustenta a sequencia sem sofrer gol</h4><p>Leitura de 12 rodadas com recorte de mando e de adversario.</p></div>
+            </div>
+            <div class="ov">3 pecas exclusivas desta semana</div>
+          </div>
+          <div class="gate">
+            <b>Peca adicional, nao artigo cortado</b>
+            O dossie e conteudo novo. Nenhum artigo aberto vira dossie truncado.
+          </div>
+        </div>
+
+        <div class="ord"><em>8</em> Agente de IA · ausente, nem entra na grade</div>
+        <div class="sec of">
+          <span class="tag of">Ausente</span>
+          <div class="sh">Agente do campeonato</div>
+          <div class="art">
+            <span class="kind k-ai">Agente de IA</span>
+            <h4>Pergunte qualquer coisa sobre o Brasileirao</h4>
+            <p>Disponivel para leitores com Premium do campeonato ativo.</p>
+          </div>
+          <div class="nt">Para visitante, o agente aparece como linha na lista de tipos — sem interface, sem promessa de amostra.</div>
+        </div>
+
+        <div class="ord"><em>9</em> Entradas para as paginas permanentes</div>
+        <div class="sec on">
+          <span class="tag on">Ativo</span>
+          <div class="sh">Continuar em</div>
+          <a class="ent" href="pagina_hub_campeonato.html"><em>›</em><span><b>Hub do Brasileirao</b><span>Tabela, calendario das 38 rodadas e o estado do campeonato.</span></span></a>
+          <a class="ent" href="pagina_rodada.html"><em>›</em><span><b>Rodada 24 completa</b><span>Os 10 jogos com indicadores, mercado e movimento do preco.</span></span></a>
+          <div class="nt">O blog e o topo. Hub e Rodada sao os destinos permanentes que o blog alimenta.</div>
+        </div>
+
+        <div class="ctaz reg">
+          <h4>Criar conta gratis</h4>
+          <p>Libera numero exato nas previas, historico do movimento do preco, chat da rodada e uma amostra de veredito por rodada.</p>
+          <a class="btn g" href="#p1">Criar conta gratis</a>
+          <div class="sub">Sem cartao. Leva menos de um minuto.</div>
+        </div>
+
+      </div></div>
+    </div>
+
+    <div class="viewhead"><h2>Vista B · Artigo aberto</h2><span>Deslogado — o corte cai antes dos cenarios condicionais</span></div>
+
+    <div class="frame">
+      <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">macromarkets.com/br/brasileirao/rodada-24/cruzeiro-x-flamengo-mercado</span></div>
+      <div class="canvas"><div class="scr">
+
+        <div class="appbar">
+          <div class="logo"><em></em> macro.markets</div>
+          <div class="who">Visitante</div>
+        </div>
+
+        <div class="bcr">Brasileirao › Rodada 24 › Analise</div>
+        <span class="kind k-an">Analise</span>
+        <h1 class="ph1" style="margin-top:7px">Cruzeiro x Flamengo: o que moveu o mercado 6 pontos percentuais em 12 horas</h1>
+        <p class="pdek">A suspensao do atacante titular mudou o preco do sabado no Mineirao. O que o numero ja incorporou — e o que ainda nao.</p>
+        <div class="abyl"><b>Dale · analise</b><span>19 de agosto, 14h20</span><span>9 min de leitura</span><span>Janela: 12 h</span></div>
+
+        <div class="prog"><s class="o" style="width:55%"></s><s class="g" style="width:45%"></s></div>
+        <p class="proglab">55% do artigo aberto neste cenario. O restante e prescritivo: modelo, cenarios com gatilho e veredito.</p>
+
+        <div class="toc">
+          <div><s class="a"></s>1. O que aconteceu no preco<u>Aberto</u></div>
+          <div><s class="a"></s>2. Por que o desfalque pesa<u>Aberto</u></div>
+          <div><s class="p"></s>3. Comparativo de indicadores<u>Faixa</u></div>
+          <div><s class="b"></s>4. Cenarios condicionais<u>Bloqueado</u></div>
+          <div><s class="b"></s>5. Veredito contra o mercado<u>Bloqueado</u></div>
+          <div><s class="o"></s>6. Perguntar ao agente<u>Ausente</u></div>
+        </div>
+
+        <div class="sec on">
+          <span class="tag on">Ativo</span>
+          <div class="sh">1. O que aconteceu no preco</div>
+          <div class="abody">
+            <p class="lead">Na terca-feira, quando os mercados da rodada 24 abriram, o Cruzeiro valia 32% no Mineirao. Nesta quinta, as 14h20, vale 38%. Seis pontos percentuais em uma janela de doze horas — o maior movimento da rodada. Praticamente todo ele se concentra no intervalo entre a divulgacao da lista de relacionados do Flamengo, na quarta pela manha, e o fim daquela tarde.</p>
+            <p>Movimento nao e previsao. Ele registra o que quem esta apostando aprendeu no periodo, e nada mais. Mas seis pontos em doze horas e um numero grande o bastante para valer a pergunta: o mercado esta corrigindo um erro anterior ou esta exagerando na reacao a uma noticia unica?</p>
+          </div>
+          <div class="mk"><b>Cruzeiro vence</b><i>38%</i><u>+6 pp em 12 h</u></div>
+          <div class="mk"><b>Empate</b><i>27%</i><u>+1 pp</u></div>
+          <div class="mk"><b>Flamengo vence</b><i>35%</i><u class="dn">-7 pp</u></div>
+          <div class="nt">Probabilidade do mercado e o dado publico da casa. Nunca fica atras de login em pagina nenhuma.</div>
+        </div>
+
+        <div class="sec on">
+          <span class="tag on">Ativo</span>
+          <div class="sh">2. Por que o desfalque pesa</div>
+          <div class="abody">
+            <p>A causa declarada e uma so: o atacante titular do Flamengo cumpre suspensao automatica pelo terceiro amarelo. Ele participou de 12 dos 34 gols do time na temporada e esteve em campo em 74% dos minutos disponiveis. Nao e um coadjuvante.</p>
+            <p>Mas o desfalque nao chega sozinho. O jogo no Mineirao e o terceiro do Flamengo em oito dias e vem tres dias depois do compromisso pela Libertadores, com viagem no meio. Do outro lado, o Cruzeiro chega com a defesa mais solida do proprio ano: quatro dos ultimos cinco jogos em casa sem sofrer gol, sequencia iniciada na 20a rodada. E um recorte curto — cinco jogos — e vale le-lo como direcao, nao como garantia.</p>
+          </div>
+        </div>
+
+        <div class="sec pt">
+          <span class="tag pt">Parcial</span>
+          <div class="sh">3. Comparativo de indicadores</div>
+          <div class="kv"><div class="k"><b>Ataque em casa · Cruzeiro</b><i class="qual">Alto</i></div><div class="t"><s class="a" style="width:68%"></s></div></div>
+          <div class="kv"><div class="k"><b>Defesa em casa · Cruzeiro</b><i class="qual">Muito alta</i></div><div class="t"><s class="a" style="width:81%"></s></div></div>
+          <div class="kv"><div class="k"><b>Ataque fora · Flamengo</b><i class="qual">Alto</i></div><div class="t"><s class="b" style="width:71%"></s></div></div>
+          <div class="kv"><div class="k"><b>Defesa fora · Flamengo</b><i class="qual">Media</i></div><div class="t"><s class="b" style="width:52%"></s></div></div>
+          <div class="lgn"><span><s style="background:var(--s1)"></s>Cruzeiro</span><span><s style="background:var(--s2)"></s>Flamengo</span></div>
+          <div class="res"><span>Resolucao</span><s><u class="p" style="width:50%"></u></s><span>Faixa</span></div>
+          <div class="up1">Com conta gratis: 1,84 e 0,71 no lugar de "Alto" e "Muito alta", mais a serie das ultimas 12 rodadas.</div>
+        </div>
+
+        <div class="inline-cta">
+          <b>Ler os numeros exatos deste comparativo</b>
+          Conta gratis libera os valores, o historico do movimento do preco e o chat do jogo.
+          <a class="btn g" href="#p1">Criar conta gratis</a>
+        </div>
+
+        <div class="cutline">Corte de profundidade · deslogado</div>
+
+        <div class="sec lk">
+          <span class="tag lk">Bloqueado</span>
+          <div class="sh">4. Cenarios condicionais</div>
+          <div class="kv"><div class="k"><b>Se o Cruzeiro abrir o placar antes dos 30 min</b><i><span class="msk">00%</span></i></div><div class="t hz"></div></div>
+          <div class="kv"><div class="k"><b>Se o Flamengo empatar ate o intervalo</b><i><span class="msk">00%</span></i></div><div class="t hz"></div></div>
+          <div class="kv"><div class="k"><b>Se o substituto do atacante comecar jogando</b><i><span class="msk">00%</span></i></div><div class="t hz"></div></div>
+          <div class="gate">
+            <b>Rotulo e gatilho legiveis, valor coberto</b>
+            Voce ve exatamente quais cenarios existem. O numero condicional e o que fica.
+          </div>
+        </div>
+
+        <div class="sec lk">
+          <span class="tag lk">Bloqueado</span>
+          <div class="sh">5. Veredito contra o mercado</div>
+          <div class="mk"><b>Mercado · Cruzeiro vence</b><i>38%</i><u>publico</u></div>
+          <div class="mk"><b>Modelo Macro · Cruzeiro vence</b><i><span class="msk">00%</span></i><u>&nbsp;</u></div>
+          <div class="mk"><b>Divergencia</b><i><span class="msk">+0 pp</span></i><u>&nbsp;</u></div>
+          <span class="msk mskb"></span>
+          <div class="gate">
+            <b>A tese em uma frase fica coberta</b>
+            Nesta rodada, este e o jogo de maior divergencia entre modelo e mercado. Quem cria conta gratis recebe um veredito completo por rodada — e o sorteio nao e curadoria: e sempre o de maior divergencia.
+          </div>
+        </div>
+
+        <div class="sec of">
+          <span class="tag of">Ausente</span>
+          <div class="sh">6. Perguntar ao agente sobre este artigo</div>
+          <div class="nt">Nao aparece como caixa de interacao para visitante. Fica so registrado que existe.</div>
+        </div>
+
+        <div class="sec pt">
+          <span class="tag pt">Parcial</span>
+          <div class="sh">Mercados relacionados a este artigo</div>
+          <div class="mk"><b>Cruzeiro vence no Mineirao</b><i>38%</i><u>+6 pp</u></div>
+          <div class="mk"><b>Mais de 2,5 gols</b><i>51%</i><u class="dn">-3 pp</u></div>
+          <div class="mk"><b>Ambos marcam</b><i>56%</i><u>+2 pp</u></div>
+          <div class="mk"><b>Historico do movimento (12 rodadas)</b><i><span class="msk">grafico</span></i><u>&nbsp;</u></div>
+          <div class="up1">Preco atual e publico. A serie historica do movimento abre com conta gratis.</div>
+        </div>
+
+        <div class="sec on">
+          <span class="tag on">Ativo</span>
+          <div class="sh">Artigos relacionados</div>
+          <div class="art"><span class="kind k-pv">Previa</span><h4>Cruzeiro x Flamengo: onde assistir, escalacoes e retrospecto</h4><div class="amet"><span>6 min</span></div></div>
+          <div class="art"><span class="kind k-nt">Noticia</span><h4>Flamengo confirma suspensao do atacante titular</h4><div class="amet"><span>2 min</span></div></div>
+          <div class="art"><span class="kind k-rt">Retrospecto</span><h4>Rodada 23: 7 dos 10 cenarios confirmados</h4><div class="amet"><span>6 min</span></div></div>
+        </div>
+
+        <div class="sec of">
+          <span class="tag of">Ausente</span>
+          <div class="sh">Comentarios do jogo</div>
+          <div class="nt">Chat existe, mas nao e exibido para visitante — nem em modo leitura. Aparece so como beneficio no CTA.</div>
+        </div>
+
+        <div class="ctaz reg">
+          <h4>Criar conta gratis</h4>
+          <p>Numeros exatos, historico do preco, chat do jogo e um veredito completo por rodada — o de maior divergencia.</p>
+          <a class="btn g" href="#p1">Criar conta gratis</a>
+          <div class="sub">Depois disso, o Premium do Brasileirao abre com o primeiro deposito de R$ 50.</div>
+        </div>
+
+      </div></div>
+    </div>
+
+    <div class="foot">
+      <h4>Cenario 1 — o que este mock decide</h4>
+      <ul>
+        <li>Destaque e previa, nao analise: quem chega da busca quer horario, escalacao e retrospecto.</li>
+        <li>O artigo abre 55%. O corte cai depois do comparativo em faixa e antes dos cenarios condicionais.</li>
+        <li>Dossie aparece coberto na grade; agente nem ganha interface.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- CENARIO 2 — LOGADO SEM DEPOSITO                               -->
+  <!-- ============================================================ -->
+  <div class="pane" id="p2">
+
+    <div class="viewhead"><h2>Vista A · Indice do blog</h2><span>Logado sem deposito — a grade passa a girar em torno do time seguido</span></div>
+
+    <div class="frame">
+      <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">macromarkets.com/br/brasileirao/blog</span></div>
+      <div class="canvas"><div class="scr">
+
+        <div class="appbar">
+          <div class="logo"><em></em> macro.markets</div>
+          <div class="who free">Rafael · conta gratis</div>
+        </div>
+
+        <div class="bcr">Brasileirao › Conteudo › Seguindo Cruzeiro</div>
+        <h1 class="ph1">Seu feed do Brasileirao</h1>
+        <p class="pdek">Ordenado pelos times que voce segue. Rodada 24 em andamento.</p>
+
+        <div class="ord"><em>1</em> Destaque muda · a amostra de veredito sobe ao topo</div>
+        <div class="feat on">
+          <div class="fl">Sua amostra da rodada · maior divergencia</div>
+          <span class="kind k-an">Analise</span>
+          <span class="badge-free">Aberto para voce</span>
+          <h3>Cruzeiro x Flamengo: o que moveu o mercado 6 pontos percentuais em 12 horas</h3>
+          <p>Mercado 38% · modelo Macro 46% · divergencia de 8 pontos a favor do Cruzeiro. Este e o jogo de maior divergencia da rodada 24, e por isso o veredito dele esta liberado na sua conta.</p>
+          <div class="amet"><span>Dale · analise</span><span>ha 2 h</span><span>9 min</span></div>
+          <div class="res"><span>Profundidade</span><s><u class="a" style="width:85%"></u></s><span>Quase completa</span></div>
+        </div>
+
+        <div class="ord"><em>2</em> Filtros ganham "meu time" fixado e reordenam a grade</div>
+        <div class="filbox">
+          <p class="fillab">Seguindo</p>
+          <div class="chips"><span class="chip mine">Cruzeiro</span><span class="chip mine">Flamengo</span><span class="chip">+ seguir time</span></div>
+          <p class="fillab">Campeonato</p>
+          <div class="chips"><span class="chip now">Brasileirao</span><span class="chip">Premier League</span><span class="chip">Champions</span><span class="chip">La Liga</span></div>
+          <p class="fillab">Tipo de conteudo</p>
+          <div class="chips">
+            <span class="chip">Noticia</span><span class="chip">Previa</span><span class="chip now">Analise</span>
+            <span class="chip lk">Dossie · premium</span><span class="chip lk">Agente de IA</span>
+          </div>
+        </div>
+
+        <div class="ord"><em>3</em> Analises · 1 aberta, 9 com veredito coberto</div>
+        <div class="sec lk">
+          <span class="tag lk">Bloqueado</span>
+          <div class="sh">Analises da rodada 24 · 1 de 10 aberta</div>
+          <div class="art">
+            <span class="kind k-an">Analise</span>
+            <h4>Chapecoense x Sao Paulo: por que o modelo le a casa diferente do mercado</h4>
+            <p>Mercado hoje: <b>21%</b> para a casa. Modelo Macro: <span class="msk">00%</span> · divergencia <span class="msk">-0 pp</span></p>
+            <div class="amet"><span>Dale · analise</span><span>ontem</span><span>8 min</span></div>
+          </div>
+          <div class="art">
+            <span class="kind k-an">Analise</span>
+            <h4>Vitoria x Bahia: o classico onde o calendario pesa mais que a tabela</h4>
+            <p>Mercado hoje: <b>44%</b> para a casa. Modelo Macro: <span class="msk">00%</span> · divergencia <span class="msk">+0 pp</span></p>
+            <div class="amet"><span>Dale · analise</span><span>ha 8 h</span><span>7 min</span></div>
+          </div>
+          <div class="more">+ 7 analises com veredito coberto</div>
+          <div class="gate">
+            <b>Voce ja tem 1 veredito por rodada</b>
+            O Premium do Brasileirao abre os 10 — e o delta de cada um contra o mercado.
+          </div>
+        </div>
+
+        <div class="ord"><em>4</em> Dossies sobem para a quarta posicao · cobertos, com titulo legivel</div>
+        <div class="sec lk">
+          <span class="tag lk">Bloqueado</span>
+          <div class="sh">Biblioteca premium do Brasileirao · 3 pecas novas esta semana</div>
+          <div class="art">
+            <span class="kind k-ds">Dossie</span>
+            <h4>Dossie da rodada 24: os 3 jogos em que o mercado esta errado</h4>
+            <p>Publicado hoje · <span class="msk">14 paginas</span></p>
+          </div>
+          <div class="art">
+            <span class="kind k-ds">Dossie</span>
+            <h4>Dossie Cruzeiro: o que sustenta a sequencia sem sofrer gol</h4>
+            <p>Do seu time seguido · <span class="msk">11 paginas</span></p>
+          </div>
+          <div class="art">
+            <span class="kind k-ds">Dossie</span>
+            <h4>Carga de calendario: o custo observado de jogar 3 dias apos a Libertadores</h4>
+            <p>Serie de 4 temporadas · <span class="msk">9 paginas</span></p>
+          </div>
+          <div class="gate">
+            <b>Titulo legivel, conteudo coberto</b>
+            Peca nova, escrita para quem tem Premium. Nao e a analise aberta esticada.
+          </div>
+        </div>
+
+        <div class="ord"><em>5</em> Agente de IA · deixa de ser ausente e vira bloqueado</div>
+        <div class="sec lk">
+          <span class="tag lk">Bloqueado</span>
+          <div class="sh">Agente do Brasileirao</div>
+          <span class="kind k-ai">Agente de IA</span>
+          <div class="veil" style="margin-top:8px">
+            <div class="in">
+              <div class="msg"><b>Voce</b>Como o Cruzeiro se comporta contra times que jogaram Libertadores no meio de semana?</div>
+              <div class="msg"><b>Agente</b>Em 9 jogos nessa condicao desde 2024, o Cruzeiro somou 1,78 ponto por jogo em casa contra 1,31 na media geral.</div>
+            </div>
+            <div class="ov">Abre com o primeiro deposito</div>
+          </div>
+          <div class="gate">
+            <b>Voce ve o formato, nao a resposta</b>
+            Uma pergunta real e uma resposta real, borradas. Fica claro o que a ferramenta faz.
+          </div>
+        </div>
+
+        <div class="ord"><em>6</em> Previas · agora com numero exato</div>
+        <div class="sec on">
+          <span class="tag on">Ativo</span>
+          <div class="sh">Previas da rodada 24</div>
+          <div class="art">
+            <span class="kind k-pv">Previa de jogo</span>
+            <h4>Cruzeiro x Flamengo: onde assistir, escalacoes provaveis e o retrospecto do Mineirao</h4>
+            <p>Ataque em casa 1,84 · defesa em casa 0,71 gol sofrido por jogo</p>
+            <div class="amet"><span>Redacao Macro</span><span>ha 3 h</span><span>6 min</span></div>
+          </div>
+          <div class="art">
+            <span class="kind k-pv">Previa de jogo</span>
+            <h4>Vitoria x Bahia: o classico de placar curto que a rodada guarda para domingo</h4>
+            <p>Ataque do Vitoria 1,22 · defesa do Bahia 0,94</p>
+            <div class="amet"><span>Redacao Macro</span><span>ha 8 h</span><span>5 min</span></div>
+          </div>
+          <div class="more">+ 8 previas da rodada 24</div>
+        </div>
+
+        <div class="ord"><em>7</em> Retrospecto e noticias descem — util, mas ja lido</div>
+        <div class="sec on">
+          <span class="tag on">Ativo</span>
+          <div class="sh">Retrospecto e noticias</div>
+          <div class="art"><span class="kind k-rt">Retrospecto</span><h4>Rodada 23: 7 dos 10 cenarios se confirmaram — e os 2 em que erramos feio</h4><div class="amet"><span>terca</span><span>6 min</span></div></div>
+          <div class="art"><span class="kind k-nt">Noticia</span><h4>Flamengo confirma suspensao do atacante titular para o jogo no Mineirao</h4><div class="amet"><span>ha 3 h</span><span>2 min</span></div></div>
+          <div class="art"><span class="kind k-nt">Noticia</span><h4>Bahia relaciona zagueiro recuperado para o classico no Barradao</h4><div class="amet"><span>ha 5 h</span><span>2 min</span></div></div>
+        </div>
+
+        <div class="ord"><em>8</em> Entradas para as paginas permanentes</div>
+        <div class="sec on">
+          <span class="tag on">Ativo</span>
+          <div class="sh">Continuar em</div>
+          <a class="ent" href="pagina_rodada.html"><em>›</em><span><b>Rodada 24 completa</b><span>Sua amostra de veredito tambem aparece la, no mesmo jogo.</span></span></a>
+          <a class="ent" href="pagina_hub_campeonato.html"><em>›</em><span><b>Hub do Brasileirao</b><span>Tabela, calendario e o estado do campeonato.</span></span></a>
+        </div>
+
+        <div class="ctaz dep">
+          <span class="badge-prem">Premium do Brasileirao</span>
+          <h4 style="margin-top:9px">Ativar Premium do Brasileirao</h4>
+          <p>Primeiro deposito de R$ 50 (USD 10) abre os 10 vereditos da rodada, a biblioteca de dossies e o agente do campeonato. O saldo continua seu.</p>
+          <a class="btn w" href="#p2">Ativar Premium do Brasileirao</a>
+          <div class="sub">Voce ja tem: 1 veredito por rodada, numeros exatos, chat e feed por time.</div>
+        </div>
+
+      </div></div>
+    </div>
+
+    <div class="viewhead"><h2>Vista B · Artigo aberto</h2><span>Logado sem deposito — este artigo abre o veredito; o corte desce para metodo e agente</span></div>
+
+    <div class="frame">
+      <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">macromarkets.com/br/brasileirao/rodada-24/cruzeiro-x-flamengo-mercado</span></div>
+      <div class="canvas"><div class="scr">
+
+        <div class="appbar">
+          <div class="logo"><em></em> macro.markets</div>
+          <div class="who free">Rafael · conta gratis</div>
+        </div>
+
+        <div class="bcr">Brasileirao › Rodada 24 › Analise</div>
+        <span class="kind k-an">Analise</span>
+        <span class="badge-free">Sua amostra da rodada</span>
+        <h1 class="ph1" style="margin-top:7px">Cruzeiro x Flamengo: o que moveu o mercado 6 pontos percentuais em 12 horas</h1>
+        <p class="pdek">A suspensao do atacante titular mudou o preco do sabado no Mineirao. O que o numero ja incorporou — e o que ainda nao.</p>
+        <div class="abyl"><b>Dale · analise</b><span>19 de agosto, 14h20</span><span>9 min de leitura</span><span>Janela: 12 h</span></div>
+
+        <div class="prog"><s class="o" style="width:85%"></s><s class="g" style="width:15%"></s></div>
+        <p class="proglab">85% aberto. Este e o jogo de maior divergencia da rodada, entao o veredito abre. Fica coberto so o metodo e o agente.</p>
+
+        <div class="toc">
+          <div><s class="a"></s>1. O que aconteceu no preco<u>Aberto</u></div>
+          <div><s class="a"></s>2. Por que o desfalque pesa<u>Aberto</u></div>
+          <div><s class="a"></s>3. Comparativo de indicadores<u>Numero exato</u></div>
+          <div><s class="a"></s>4. Cenarios condicionais<u>Aberto</u></div>
+          <div><s class="a"></s>5. Veredito contra o mercado<u>Amostra</u></div>
+          <div><s class="b"></s>6. Metodo e premissas<u>Bloqueado</u></div>
+          <div><s class="b"></s>7. Perguntar ao agente<u>Bloqueado</u></div>
+        </div>
+
+        <div class="sec on">
+          <span class="tag on">Ativo</span>
+          <div class="sh">1. O que aconteceu no preco</div>
+          <div class="abody">
+            <p class="lead">Na terca-feira, quando os mercados da rodada 24 abriram, o Cruzeiro valia 32% no Mineirao. Nesta quinta, as 14h20, vale 38%. Seis pontos percentuais em uma janela de doze horas — o maior movimento da rodada. Praticamente todo ele se concentra no intervalo entre a divulgacao da lista de relacionados do Flamengo, na quarta pela manha, e o fim daquela tarde.</p>
+            <p>Movimento nao e previsao. Ele registra o que quem esta apostando aprendeu no periodo, e nada mais. Mas seis pontos em doze horas e um numero grande o bastante para valer a pergunta: o mercado esta corrigindo um erro anterior ou esta exagerando na reacao a uma noticia unica?</p>
+          </div>
+          <div class="mk"><b>Cruzeiro vence</b><i>38%</i><u>+6 pp em 12 h</u></div>
+          <div class="mk"><b>Empate</b><i>27%</i><u>+1 pp</u></div>
+          <div class="mk"><b>Flamengo vence</b><i>35%</i><u class="dn">-7 pp</u></div>
+          <div class="mk"><b>Serie do preco · 12 rodadas</b><i>32 › 34 › 38</i><u>abriu com sua conta</u></div>
+        </div>
+
+        <div class="sec on">
+          <span class="tag on">Ativo</span>
+          <div class="sh">2. Por que o desfalque pesa</div>
+          <div class="abody">
+            <p>A causa declarada e uma so: o atacante titular do Flamengo cumpre suspensao automatica pelo terceiro amarelo. Ele participou de 12 dos 34 gols do time na temporada e esteve em campo em 74% dos minutos disponiveis. Nao e um coadjuvante.</p>
+            <p>Mas o desfalque nao chega sozinho. O jogo no Mineirao e o terceiro do Flamengo em oito dias e vem tres dias depois do compromisso pela Libertadores, com viagem no meio. Do outro lado, o Cruzeiro chega com a defesa mais solida do proprio ano: quatro dos ultimos cinco jogos em casa sem sofrer gol, sequencia iniciada na 20a rodada. E um recorte curto — cinco jogos — e vale le-lo como direcao, nao como garantia.</p>
+          </div>
+        </div>
+
+        <div class="sec on">
+          <span class="tag on">Ativo</span>
+          <div class="sh">3. Comparativo de indicadores</div>
+          <div class="kv"><div class="k"><b>Ataque em casa · Cruzeiro</b><i>1,84</i></div><div class="t"><s class="a" style="width:68%"></s></div></div>
+          <div class="kv"><div class="k"><b>Gols sofridos em casa · Cruzeiro</b><i>0,71</i></div><div class="t"><s class="a" style="width:81%"></s></div></div>
+          <div class="kv"><div class="k"><b>Ataque fora · Flamengo</b><i>1,66</i></div><div class="t"><s class="b" style="width:71%"></s></div></div>
+          <div class="kv"><div class="k"><b>Gols sofridos fora · Flamengo</b><i>1,28</i></div><div class="t"><s class="b" style="width:52%"></s></div></div>
+          <div class="lgn"><span><s style="background:var(--s1)"></s>Cruzeiro</span><span><s style="background:var(--s2)"></s>Flamengo</span></div>
+          <div class="nt">Janela: 12 rodadas, recorte de mando. Amostra pequena para o recorte de casa do Cruzeiro (n = 6).</div>
+        </div>
+
+        <div class="sec on">
+          <span class="tag on">Ativo</span>
+          <div class="sh">4. Cenarios condicionais</div>
+          <div class="kv"><div class="k"><b>Se o Cruzeiro abrir antes dos 30 min</b><i>71%</i></div><div class="t"><s class="a" style="width:71%"></s></div></div>
+          <div class="kv"><div class="k"><b>Se o Flamengo empatar ate o intervalo</b><i>34%</i></div><div class="t"><s class="a" style="width:34%"></s></div></div>
+          <div class="kv"><div class="k"><b>Se o substituto do atacante comecar jogando</b><i>41%</i></div><div class="t"><s class="a" style="width:41%"></s></div></div>
+          <div class="nt">Cenario so vale com gatilho declarado. Sem gatilho, e palpite.</div>
+        </div>
+
+        <div class="sec on">
+          <span class="tag on">Ativo</span>
+          <div class="sh">5. Veredito contra o mercado · amostra da rodada</div>
+          <div class="mk"><b>Mercado · Cruzeiro vence</b><i>38%</i><u>publico</u></div>
+          <div class="mk"><b>Modelo Macro · Cruzeiro vence</b><i>46%</i><u>+8 pp</u></div>
+          <div class="abody" style="margin-top:9px">
+            <p>Nossa leitura: o mercado precificou a suspensao, mas nao precificou o calendario. Times que jogam Libertadores tres dias antes de um jogo fora de casa perdem, em media, 0,31 ponto por partida em relacao a propria media de visitante. O desconto ja esta no preco; o cansaco ainda nao.</p>
+          </div>
+          <div class="nt">Voce recebe 1 veredito completo por rodada, e sempre o de maior divergencia. Nao ha curadoria: o criterio e automatico.</div>
+        </div>
+
+        <div class="inline-cta">
+          <b>Os outros 9 vereditos da rodada 24 estao fechados</b>
+          O Premium do Brasileirao abre todos, com o delta de cada jogo contra o mercado.
+          <a class="btn" href="#p2">Ativar Premium do Brasileirao</a>
+        </div>
+
+        <div class="cutline">Corte de profundidade · logado sem deposito</div>
+
+        <div class="sec lk">
+          <span class="tag lk">Bloqueado</span>
+          <div class="sh">6. Metodo e premissas do modelo</div>
+          <div class="kv"><div class="k"><b>Peso do desfalque no modelo</b><i><span class="msk">0,00</span></i></div><div class="t hz"></div></div>
+          <div class="kv"><div class="k"><b>Peso da carga de calendario</b><i><span class="msk">0,00</span></i></div><div class="t hz"></div></div>
+          <div class="kv"><div class="k"><b>Ajuste de mando no Mineirao</b><i><span class="msk">0,00</span></i></div><div class="t hz"></div></div>
+          <div class="gate">
+            <b>Voce ve o veredito, nao a receita</b>
+            Os pesos do modelo e a decomposicao dos 8 pontos de divergencia abrem com o Premium.
+          </div>
+        </div>
+
+        <div class="sec lk">
+          <span class="tag lk">Bloqueado</span>
+          <div class="sh">7. Perguntar ao agente sobre este artigo</div>
+          <div class="veil">
+            <div class="in">
+              <div class="msg"><b>Voce</b>O Cruzeiro ja venceu times vindos da Libertadores nesta temporada?</div>
+              <div class="msg"><b>Agente</b>Sim, em 3 de 4 jogos nessa condicao, com 2 deles sem sofrer gol.</div>
+            </div>
+            <div class="ov">Abre com o primeiro deposito</div>
+          </div>
+          <div class="inp lk">Pergunte sobre este jogo — disponivel no Premium</div>
+        </div>
+
+        <div class="sec on">
+          <span class="tag on">Ativo</span>
+          <div class="sh">Mercados relacionados a este artigo</div>
+          <div class="mk"><b>Cruzeiro vence no Mineirao</b><i>38%</i><u>+6 pp</u></div>
+          <div class="mk"><b>Mais de 2,5 gols</b><i>51%</i><u class="dn">-3 pp</u></div>
+          <div class="mk"><b>Ambos marcam</b><i>56%</i><u>+2 pp</u></div>
+          <div class="mk"><b>Flamengo campeao 2026</b><i>38%</i><u class="dn">-2 pp</u></div>
+        </div>
+
+        <div class="sec on">
+          <span class="tag on">Ativo</span>
+          <div class="sh">Comentarios do jogo · 84 mensagens</div>
+          <div class="msg"><b>joao_mg · ha 12 min</b>O 46% do modelo faz sentido. O Fla vem de viagem e joga em altitude relativa.</div>
+          <div class="msg"><b>ana.cruz · ha 27 min</b>Quatro jogos sem sofrer gol em casa e sequencia curta, mas o Mineirao pesa.</div>
+          <div class="msg"><b>marcos_rj · ha 41 min</b>O substituto do atacante fez 2 gols nos ultimos 3 jogos que entrou.</div>
+          <div class="inp on">Escrever mensagem…</div>
+        </div>
+
+        <div class="sec on">
+          <span class="tag on">Ativo</span>
+          <div class="sh">Artigos relacionados</div>
+          <div class="art"><span class="kind k-pv">Previa</span><h4>Cruzeiro x Flamengo: onde assistir, escalacoes e retrospecto</h4><div class="amet"><span>6 min</span></div></div>
+          <div class="art"><span class="kind k-ds">Dossie</span><h4>Dossie Cruzeiro: o que sustenta a sequencia sem sofrer gol <span class="kind k-ds">Premium</span></h4><div class="amet"><span>coberto</span></div></div>
+          <div class="art"><span class="kind k-rt">Retrospecto</span><h4>Rodada 23: 7 dos 10 cenarios confirmados</h4><div class="amet"><span>6 min</span></div></div>
+        </div>
+
+        <div class="ctaz dep">
+          <span class="badge-prem">Premium do Brasileirao</span>
+          <h4 style="margin-top:9px">Abrir os outros 9 vereditos da rodada 24</h4>
+          <p>Primeiro deposito de R$ 50 (USD 10) libera modelo, metodo, dossies e o agente do campeonato. O saldo continua seu para usar nos mercados.</p>
+          <a class="btn w" href="#p2">Ativar Premium do Brasileirao</a>
+          <div class="sub">Voce leu 85% deste artigo com a conta gratis.</div>
+        </div>
+
+      </div></div>
+    </div>
+
+    <div class="foot">
+      <h4>Cenario 2 — o que este mock decide</h4>
+      <ul>
+        <li>A amostra de veredito e o destaque editorial: o produto pago aparece funcionando, uma vez por rodada.</li>
+        <li>O corte desce de 55% para 85%: fica de fora so metodo, agente e os outros 9 vereditos.</li>
+        <li>Dossie sobe para a quarta posicao com titulo legivel; agente sai de ausente e vira bloqueado com formato visivel.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- CENARIO 3 — LOGADO PREMIUM                                    -->
+  <!-- ============================================================ -->
+  <div class="pane" id="p3">
+
+    <div class="viewhead"><h2>Vista A · Indice do blog</h2><span>Premium — a grade vira biblioteca de trabalho, sem venda</span></div>
+
+    <div class="frame">
+      <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">macromarkets.com/br/brasileirao/blog</span></div>
+      <div class="canvas pr"><div class="scr">
+
+        <div class="appbar">
+          <div class="logo"><em></em> macro.markets</div>
+          <div class="who prem">Rafael · Premium Brasileirao</div>
+        </div>
+
+        <div class="bcr">Brasileirao › Conteudo › Premium ativo</div>
+        <h1 class="ph1">Biblioteca da rodada 24</h1>
+        <p class="pdek">3 pecas novas esta semana. Voce leu 1 de 3.</p>
+
+        <div class="ord"><em>1</em> Destaque muda de novo · dossie da rodada no topo</div>
+        <div class="feat dk">
+          <div class="fl">Publicado hoje · peca exclusiva</div>
+          <span class="badge-prem">Dossie</span>
+          <h3>Dossie da rodada 24: os 3 jogos em que o mercado esta errado</h3>
+          <p>Cruzeiro x Flamengo (+8 pp), Chapecoense x Sao Paulo (-6 pp) e Vitoria x Bahia (+5 pp). Modelo, metodo e cenarios condicionais para os 10 jogos, com a decomposicao de cada divergencia.</p>
+          <div class="amet" style="color:#8d98a5"><span>Dale · analise</span><span>hoje, 09h10</span><span>14 min</span></div>
+          <a class="btn g" style="margin-top:9px" href="#p3">Continuar de onde parei</a>
+        </div>
+
+        <div class="ord"><em>2</em> Biblioteca premium · aberta, com estado de leitura</div>
+        <div class="sec on">
+          <span class="tag on">Ativo</span>
+          <div class="sh">Dossies · 3 novos, 11 no arquivo</div>
+          <div class="art">
+            <span class="kind k-ds">Dossie</span>
+            <h4>Dossie Cruzeiro: o que sustenta a sequencia sem sofrer gol</h4>
+            <p>12 rodadas com recorte de mando e de adversario. Conclui que 2 dos 4 jogos sem sofrer gol vieram contra os dois piores ataques do returno.</p>
+            <div class="amet"><span>hoje</span><span>11 min</span><span>Nao lido</span></div>
+          </div>
+          <div class="art">
+            <span class="kind k-ds">Dossie</span>
+            <h4>Carga de calendario: o custo observado de jogar 3 dias apos a Libertadores</h4>
+            <p>Serie de 4 temporadas, 218 jogos. Perda media de 0,31 ponto por partida como visitante.</p>
+            <div class="amet"><span>ontem</span><span>9 min</span><span>Lido</span></div>
+          </div>
+          <div class="more solid">Ver o arquivo completo · 11 dossies</div>
+        </div>
+
+        <div class="ord"><em>3</em> Analises · 10 de 10 abertas, ordenadas por divergencia</div>
+        <div class="sec on">
+          <span class="tag on">Ativo</span>
+          <div class="sh">Analises da rodada 24 · ordenadas por divergencia</div>
+          <div class="art">
+            <span class="kind k-an">Analise</span>
+            <h4>Cruzeiro x Flamengo: o que moveu o mercado 6 pontos percentuais em 12 horas</h4>
+            <p>Mercado 38% · modelo 46% · <b>+8 pp</b></p>
+            <div class="amet"><span>ha 2 h</span><span>9 min</span><span>Lido</span></div>
+          </div>
+          <div class="art">
+            <span class="kind k-an">Analise</span>
+            <h4>Chapecoense x Sao Paulo: por que o modelo le a casa diferente do mercado</h4>
+            <p>Mercado 21% · modelo 15% · <b>-6 pp</b></p>
+            <div class="amet"><span>ontem</span><span>8 min</span><span>Nao lido</span></div>
+          </div>
+          <div class="art">
+            <span class="kind k-an">Analise</span>
+            <h4>Vitoria x Bahia: o classico onde o calendario pesa mais que a tabela</h4>
+            <p>Mercado 44% · modelo 49% · <b>+5 pp</b></p>
+            <div class="amet"><span>ha 8 h</span><span>7 min</span><span>Nao lido</span></div>
+          </div>
+          <div class="more solid">+ 7 analises da rodada</div>
+        </div>
+
+        <div class="ord"><em>4</em> Agente ativo · interface real, no proprio blog</div>
+        <div class="sec on">
+          <span class="tag on">Ativo</span>
+          <div class="sh">Agente do Brasileirao</div>
+          <span class="kind k-ai">Agente de IA</span>
+          <div class="msg" style="margin-top:8px"><b>Voce · ha 1 h</b>Quais jogos da rodada 24 tem divergencia maior que 5 pontos?</div>
+          <div class="msg"><b>Agente</b>Tres: Cruzeiro x Flamengo (+8), Chapecoense x Sao Paulo (-6) e Vitoria x Bahia (+5). Os tres estao no dossie de hoje.</div>
+          <div class="inp on">Pergunte sobre times, rodadas, dossies ou mercados…</div>
+        </div>
+
+        <div class="ord"><em>5</em> Previas e noticias · descem, viram utilidade</div>
+        <div class="sec on">
+          <span class="tag on">Ativo</span>
+          <div class="sh">Previas, retrospecto e noticias</div>
+          <div class="art"><span class="kind k-pv">Previa</span><h4>Cruzeiro x Flamengo: onde assistir, escalacoes e retrospecto do Mineirao</h4><div class="amet"><span>ha 3 h</span><span>6 min</span></div></div>
+          <div class="art"><span class="kind k-rt">Retrospecto</span><h4>Rodada 23: 7 dos 10 cenarios se confirmaram — e os 2 em que erramos feio</h4><div class="amet"><span>terca</span><span>6 min</span></div></div>
+          <div class="art"><span class="kind k-nt">Noticia</span><h4>Flamengo confirma suspensao do atacante titular para o jogo no Mineirao</h4><div class="amet"><span>ha 3 h</span><span>2 min</span></div></div>
+        </div>
+
+        <div class="ord"><em>6</em> Filtros ganham eixos que so fazem sentido com modelo</div>
+        <div class="filbox">
+          <p class="fillab">Seguindo</p>
+          <div class="chips"><span class="chip mine">Cruzeiro</span><span class="chip mine">Flamengo</span><span class="chip">+ seguir time</span></div>
+          <p class="fillab">Tipo de conteudo</p>
+          <div class="chips"><span class="chip">Noticia</span><span class="chip">Previa</span><span class="chip">Analise</span><span class="chip now">Dossie</span><span class="chip">Agente de IA</span></div>
+          <p class="fillab">Ordenar por</p>
+          <div class="chips"><span class="chip now">Divergencia</span><span class="chip">Movimento do preco</span><span class="chip">Mais recente</span><span class="chip">Nao lidos</span></div>
+        </div>
+
+        <div class="ord"><em>7</em> Entradas para as paginas permanentes</div>
+        <div class="sec on">
+          <span class="tag on">Ativo</span>
+          <div class="sh">Continuar em</div>
+          <a class="ent" href="pagina_rodada.html"><em>›</em><span><b>Rodada 24 completa</b><span>Os 10 jogos com veredito, delta e cenarios condicionais abertos.</span></span></a>
+          <a class="ent" href="pagina_hub_campeonato.html"><em>›</em><span><b>Hub do Brasileirao</b><span>Estado do campeonato e projecao de titulo com o modelo.</span></span></a>
+        </div>
+
+        <div class="ctaz use">
+          <h4>Voce leu 1 das 3 pecas desta semana</h4>
+          <p>O dossie da rodada 24 fecha sabado as 20h30, quando a bola rola no Mineirao.</p>
+          <a class="btn g" href="#p3">Continuar o dossie da rodada</a>
+          <div class="sub">CTA de uso. Nao ha nada para vender aqui.</div>
+        </div>
+
+      </div></div>
+    </div>
+
+    <div class="viewhead"><h2>Vista B · Artigo aberto</h2><span>Premium — sem corte; o CTA vira proxima acao</span></div>
+
+    <div class="frame">
+      <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">macromarkets.com/br/brasileirao/rodada-24/cruzeiro-x-flamengo-mercado</span></div>
+      <div class="canvas pr"><div class="scr">
+
+        <div class="appbar">
+          <div class="logo"><em></em> macro.markets</div>
+          <div class="who prem">Rafael · Premium Brasileirao</div>
+        </div>
+
+        <div class="bcr">Brasileirao › Rodada 24 › Analise</div>
+        <span class="kind k-an">Analise</span>
+        <span class="badge-prem">Completa</span>
+        <h1 class="ph1" style="margin-top:7px">Cruzeiro x Flamengo: o que moveu o mercado 6 pontos percentuais em 12 horas</h1>
+        <p class="pdek">A suspensao do atacante titular mudou o preco do sabado no Mineirao. O que o numero ja incorporou — e o que ainda nao.</p>
+        <div class="abyl"><b>Dale · analise</b><span>19 de agosto, 14h20</span><span>9 min de leitura</span><span>Janela: 12 h</span></div>
+
+        <div class="prog"><s class="o" style="width:100%"></s></div>
+        <p class="proglab">Artigo completo. Nao ha corte neste cenario.</p>
+
+        <div class="toc">
+          <div><s class="a"></s>1. O que aconteceu no preco<u>Aberto</u></div>
+          <div><s class="a"></s>2. Por que o desfalque pesa<u>Aberto</u></div>
+          <div><s class="a"></s>3. Comparativo de indicadores<u>Aberto</u></div>
+          <div><s class="a"></s>4. Cenarios condicionais<u>Aberto</u></div>
+          <div><s class="a"></s>5. Veredito contra o mercado<u>Aberto</u></div>
+          <div><s class="a"></s>6. Metodo e premissas<u>Aberto</u></div>
+          <div><s class="a"></s>7. Perguntar ao agente<u>Aberto</u></div>
+        </div>
+
+        <div class="sec on">
+          <span class="tag on">Ativo</span>
+          <div class="sh">1. O que aconteceu no preco</div>
+          <div class="abody">
+            <p class="lead">Na terca-feira, quando os mercados da rodada 24 abriram, o Cruzeiro valia 32% no Mineirao. Nesta quinta, as 14h20, vale 38%. Seis pontos percentuais em uma janela de doze horas — o maior movimento da rodada. Praticamente todo ele se concentra no intervalo entre a divulgacao da lista de relacionados do Flamengo, na quarta pela manha, e o fim daquela tarde.</p>
+            <p>Movimento nao e previsao. Ele registra o que quem esta apostando aprendeu no periodo, e nada mais. Mas seis pontos em doze horas e um numero grande o bastante para valer a pergunta: o mercado esta corrigindo um erro anterior ou esta exagerando na reacao a uma noticia unica?</p>
+          </div>
+          <div class="mk"><b>Cruzeiro vence</b><i>38%</i><u>+6 pp em 12 h</u></div>
+          <div class="mk"><b>Empate</b><i>27%</i><u>+1 pp</u></div>
+          <div class="mk"><b>Flamengo vence</b><i>35%</i><u class="dn">-7 pp</u></div>
+          <div class="mk"><b>Serie do preco · 12 rodadas</b><i>32 › 34 › 38</i><u>completa</u></div>
+        </div>
+
+        <div class="sec on">
+          <span class="tag on">Ativo</span>
+          <div class="sh">2. Por que o desfalque pesa</div>
+          <div class="abody">
+            <p>A causa declarada e uma so: o atacante titular do Flamengo cumpre suspensao automatica pelo terceiro amarelo. Ele participou de 12 dos 34 gols do time na temporada e esteve em campo em 74% dos minutos disponiveis. Nao e um coadjuvante.</p>
+            <p>Mas o desfalque nao chega sozinho. O jogo no Mineirao e o terceiro do Flamengo em oito dias e vem tres dias depois do compromisso pela Libertadores, com viagem no meio. Do outro lado, o Cruzeiro chega com a defesa mais solida do proprio ano: quatro dos ultimos cinco jogos em casa sem sofrer gol, sequencia iniciada na 20a rodada. E um recorte curto — cinco jogos — e vale le-lo como direcao, nao como garantia.</p>
+          </div>
+        </div>
+
+        <div class="sec on">
+          <span class="tag on">Ativo</span>
+          <div class="sh">3. Comparativo de indicadores</div>
+          <div class="kv"><div class="k"><b>Ataque em casa · Cruzeiro</b><i>1,84</i></div><div class="t"><s class="a" style="width:68%"></s></div></div>
+          <div class="kv"><div class="k"><b>Gols sofridos em casa · Cruzeiro</b><i>0,71</i></div><div class="t"><s class="a" style="width:81%"></s></div></div>
+          <div class="kv"><div class="k"><b>Ataque fora · Flamengo</b><i>1,66</i></div><div class="t"><s class="b" style="width:71%"></s></div></div>
+          <div class="kv"><div class="k"><b>Gols sofridos fora · Flamengo</b><i>1,28</i></div><div class="t"><s class="b" style="width:52%"></s></div></div>
+          <div class="lgn"><span><s style="background:var(--s1)"></s>Cruzeiro</span><span><s style="background:var(--s2)"></s>Flamengo</span></div>
+          <div class="nt">Janela: 12 rodadas, recorte de mando. n = 6 no recorte de casa do Cruzeiro.</div>
+        </div>
+
+        <div class="sec on">
+          <span class="tag on">Ativo</span>
+          <div class="sh">4. Cenarios condicionais</div>
+          <div class="kv"><div class="k"><b>Se o Cruzeiro abrir antes dos 30 min</b><i>71%</i></div><div class="t"><s class="a" style="width:71%"></s></div></div>
+          <div class="kv"><div class="k"><b>Se o Flamengo empatar ate o intervalo</b><i>34%</i></div><div class="t"><s class="a" style="width:34%"></s></div></div>
+          <div class="kv"><div class="k"><b>Se o substituto do atacante comecar jogando</b><i>41%</i></div><div class="t"><s class="a" style="width:41%"></s></div></div>
+        </div>
+
+        <div class="sec on">
+          <span class="tag on">Ativo</span>
+          <div class="sh">5. Veredito contra o mercado</div>
+          <div class="mk"><b>Mercado · Cruzeiro vence</b><i>38%</i><u>publico</u></div>
+          <div class="mk"><b>Modelo Macro · Cruzeiro vence</b><i>46%</i><u>+8 pp</u></div>
+          <div class="abody" style="margin-top:9px">
+            <p>Nossa leitura: o mercado precificou a suspensao, mas nao precificou o calendario. Times que jogam Libertadores tres dias antes de um jogo fora de casa perdem, em media, 0,31 ponto por partida em relacao a propria media de visitante. O desconto ja esta no preco; o cansaco ainda nao.</p>
+          </div>
+        </div>
+
+        <div class="sec on">
+          <span class="tag on">Ativo</span>
+          <div class="sh">6. Metodo e premissas do modelo</div>
+          <div class="kv"><div class="k"><b>Peso do desfalque</b><i>-3,1 pp</i></div><div class="t"><s class="b" style="width:31%"></s></div></div>
+          <div class="kv"><div class="k"><b>Peso da carga de calendario</b><i>-4,4 pp</i></div><div class="t"><s class="b" style="width:44%"></s></div></div>
+          <div class="kv"><div class="k"><b>Ajuste de mando no Mineirao</b><i>+2,6 pp</i></div><div class="t"><s class="a" style="width:26%"></s></div></div>
+          <div class="nt">Os 8 pontos de divergencia decompostos. O maior deles nao e o desfalque — e o calendario.</div>
+        </div>
+
+        <div class="sec on">
+          <span class="tag on">Ativo</span>
+          <div class="sh">7. Perguntar ao agente sobre este artigo</div>
+          <div class="msg"><b>Voce · ha 20 min</b>O Cruzeiro ja venceu times vindos da Libertadores nesta temporada?</div>
+          <div class="msg"><b>Agente</b>Sim, em 3 de 4 jogos nessa condicao, 2 deles sem sofrer gol. O quarto foi derrota por 2 a 1 fora de casa, contexto diferente do de sabado.</div>
+          <div class="inp on">Pergunte sobre este jogo…</div>
+        </div>
+
+        <div class="sec on">
+          <span class="tag on">Ativo</span>
+          <div class="sh">Mercados relacionados a este artigo</div>
+          <div class="mk"><b>Cruzeiro vence no Mineirao</b><i>38%</i><u>modelo 46%</u></div>
+          <div class="mk"><b>Mais de 2,5 gols</b><i>51%</i><u class="dn">modelo 47%</u></div>
+          <div class="mk"><b>Ambos marcam</b><i>56%</i><u>modelo 58%</u></div>
+          <div class="mk"><b>Flamengo campeao 2026</b><i>38%</i><u class="dn">modelo 35%</u></div>
+        </div>
+
+        <div class="sec on">
+          <span class="tag on">Ativo</span>
+          <div class="sh">Comentarios do jogo · 84 mensagens</div>
+          <div class="msg"><b>joao_mg · ha 12 min</b>O 46% do modelo faz sentido. O Fla vem de viagem e joga em altitude relativa.</div>
+          <div class="msg"><b>ana.cruz · ha 27 min</b>Quatro jogos sem sofrer gol em casa e sequencia curta, mas o Mineirao pesa.</div>
+          <div class="msg"><b>marcos_rj · ha 41 min</b>O substituto do atacante fez 2 gols nos ultimos 3 jogos que entrou.</div>
+          <div class="inp on">Escrever mensagem…</div>
+        </div>
+
+        <div class="sec on">
+          <span class="tag on">Ativo</span>
+          <div class="sh">Continuar lendo</div>
+          <div class="art"><span class="kind k-ds">Dossie</span><h4>Carga de calendario: o custo observado de jogar 3 dias apos a Libertadores</h4><p>A serie completa que sustenta os -4,4 pp usados aqui.</p><div class="amet"><span>9 min</span><span>Lido</span></div></div>
+          <div class="art"><span class="kind k-ds">Dossie</span><h4>Dossie da rodada 24: os 3 jogos em que o mercado esta errado</h4><p>Este jogo e o primeiro dos tres.</p><div class="amet"><span>14 min</span><span>Em leitura</span></div></div>
+        </div>
+
+        <div class="cutline ok">Sem corte neste cenario</div>
+
+        <div class="ctaz use">
+          <h4>Proxima peca do dossie</h4>
+          <p>Chapecoense x Sao Paulo, a segunda maior divergencia da rodada 24, com -6 pontos contra o mercado.</p>
+          <a class="btn g" href="#p3">Ler a proxima analise</a>
+          <div class="sub">CTA de uso, nao de venda. O objetivo aqui e retencao.</div>
+        </div>
+
+      </div></div>
+    </div>
+
+    <div class="foot">
+      <h4>Cenario 3 — o que este mock decide</h4>
+      <ul>
+        <li>O blog vira biblioteca de trabalho: dossies no topo, analises ordenadas por divergencia, estado de leitura em cada peca.</li>
+        <li>Filtro ganha eixos que so existem com modelo: ordenar por divergencia, por movimento do preco e por nao lidos.</li>
+        <li>Nenhum CTA de venda. O CTA final aponta para a proxima peca.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="foot" style="margin-top:26px">
+    <h4>Regras que este mock aplica em todos os cenarios</h4>
+    <ul>
+      <li>Probabilidade do mercado e sempre publica, inclusive para visitante. E o dado da casa, nao o produto pago.</li>
+      <li>Nenhum artigo aberto e truncado ao meio. O que fica gated e sempre a camada prescritiva — modelo, delta, cenario condicional, metodo.</li>
+      <li>Dossie e peca nova, nunca versao estendida de um artigo free.</li>
+      <li>Rotulo, time e janela permanecem legiveis em qualquer estado. So o valor e coberto.</li>
+      <li>Noticia factual e retrospecto ficam abertos nos tres cenarios: um traz busca, o outro sustenta a credibilidade do que e pago.</li>
+    </ul>
+  </div>
+
+</div>
+</body>
+</html>

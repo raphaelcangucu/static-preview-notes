@@ -1,0 +1,1582 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Macro Markets — Sequência de e-mails da rodada 24 · três trilhas</title>
+<style>
+  :root{
+    --mm-blue:#1D6FE0; --mm-blue-d:#155ec2; --mm-green:#16A34A;
+    --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+    --ink:#0b0b0b; --ink2:#52514e; --muted:#898781;
+    --line:#e1e0d9; --surf:#ffffff; --page:#f4f4f1;
+    --dark:#0E1420; --dark2:#161E2E; --dark3:#1E293B; --dink2:#94A3B8;
+    --sans:system-ui,-apple-system,"Segoe UI",sans-serif;
+    --gold:#e08c00; --gold-l:#f0b429; --cream:#fdf8ec;
+    --st-on:#22a45d; --st-pa:#1D6FE0; --st-lk:#e0a92a; --st-off:#b6b3ab;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--page);font-family:var(--sans);color:var(--ink);line-height:1.5}
+  .wrap{max-width:1180px;margin:0 auto;padding:26px 18px 70px}
+
+  .doc-head{background:linear-gradient(135deg,var(--mm-blue),var(--mm-green));color:#fff;border-radius:16px;padding:28px 26px;margin-bottom:12px}
+  .doc-head h1{margin:0 0 7px;font-size:25px;letter-spacing:-.5px;line-height:1.2}
+  .doc-head p{margin:0;opacity:.93;font-size:14px;max-width:760px}
+  .note{background:#fff8e6;border:1px solid #f2dfae;border-radius:10px;padding:11px 15px;margin:0 0 14px;font-size:12.5px;color:#6b5a1e}
+  .note b{color:#4a3d10}
+
+  .navdoc{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px}
+  .navdoc a{font-size:11.5px;font-weight:700;text-decoration:none;color:var(--mm-blue);background:#fff;
+    border:1px solid var(--line);border-radius:20px;padding:6px 13px}
+  .navdoc a:hover{border-color:var(--mm-blue)}
+
+  /* ---------- legenda dos estados ---------- */
+  .lgd{position:sticky;top:0;z-index:30;background:#fff;border:1px solid var(--line);border-radius:12px;
+    padding:11px 14px;margin-bottom:14px;box-shadow:0 4px 14px rgba(0,0,0,.06)}
+  .lgd .lt{font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:var(--muted);margin-bottom:8px}
+  .lgd .row{display:flex;flex-wrap:wrap;gap:7px}
+  .lgd .it{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);border-radius:8px;padding:5px 9px;font-size:11px;color:var(--ink2)}
+  .lgd .it b{font-size:11px;color:var(--ink)}
+  .lgd .it i{width:4px;height:22px;border-radius:2px;flex:none;font-style:normal}
+  .lgd .it.on i{background:var(--st-on)}
+  .lgd .it.pa i{background:repeating-linear-gradient(180deg,var(--st-pa) 0 5px,transparent 5px 9px)}
+  .lgd .it.lk i{background:repeating-linear-gradient(180deg,var(--st-lk) 0 2.5px,transparent 2.5px 6px)}
+  .lgd .it.of i{background:repeating-linear-gradient(180deg,#c8c6c0 0 4px,transparent 4px 7px)}
+  .lgd .hint{font-size:11px;color:var(--ink2);margin-top:8px;border-top:1px dashed var(--line);padding-top:8px;line-height:1.5}
+  .lgd .hint b{color:var(--ink)}
+
+  /* ---------- abas em CSS puro ---------- */
+  input.tt{position:absolute;opacity:0;width:0;height:0;pointer-events:none}
+  .tabs{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 14px}
+  .tabs label{font-size:12px;color:var(--ink2);background:#fff;border:1px solid var(--line);border-radius:20px;
+    padding:8px 16px;cursor:pointer;font-weight:600;user-select:none}
+  .tabs label:hover{border-color:var(--mm-blue);color:var(--mm-blue)}
+  .pane{display:none}
+  #tr-a:checked~.tabs label[for=tr-a],
+  #tr-b:checked~.tabs label[for=tr-b],
+  #tr-c:checked~.tabs label[for=tr-c]{background:var(--mm-blue);border-color:var(--mm-blue);color:#fff}
+  #tr-a:checked~#p-a,#tr-b:checked~#p-b,#tr-c:checked~#p-c{display:block}
+
+  /* ---------- cabeçalho da trilha ---------- */
+  .th{background:#fff;border:1px solid var(--line);border-radius:13px;padding:16px 17px;margin-bottom:13px}
+  .th.dk{background:var(--dark2);border-color:var(--dark3)}
+  .th .eb{font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--muted)}
+  .th h2{margin:6px 0 6px;font-size:19px;letter-spacing:-.4px;line-height:1.25}
+  .th p{margin:0;font-size:12.5px;color:var(--ink2);line-height:1.55;max-width:720px}
+  .th p b{color:var(--ink)}
+  .th.dk h2{color:#fff} .th.dk p{color:#cbd5e1} .th.dk p b{color:#fff} .th.dk .eb{color:var(--dink2)}
+  .thkv{display:flex;flex-wrap:wrap;gap:6px;margin-top:11px}
+  .thkv span{font-size:10.5px;font-weight:700;border:1px solid var(--line);border-radius:20px;padding:4px 10px;color:var(--ink2)}
+  .thkv span b{color:var(--ink)}
+  .th.dk .thkv span{border-color:var(--dark3);color:var(--dink2)} .th.dk .thkv span b{color:#fff}
+
+  /* ---------- régua de dias ---------- */
+  .ruler{background:#fff;border:1px solid var(--line);border-radius:13px;padding:14px 14px 12px;margin-bottom:16px}
+  .ruler.dk{background:var(--dark2);border-color:var(--dark3)}
+  .ruler .rt{font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:var(--muted);margin-bottom:10px}
+  .ruler .rt s{text-decoration:none;color:var(--ink2);font-weight:600;letter-spacing:0;text-transform:none;font-size:11px}
+  .ruler.dk .rt s{color:var(--dink2)}
+  .days{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+  .day{border:1px solid var(--line);border-radius:9px;padding:7px 5px 6px;background:#faf9f7;min-height:84px;display:flex;flex-direction:column}
+  .ruler.dk .day{background:var(--dark);border-color:var(--dark3)}
+  .day .dw{font-size:9px;letter-spacing:.08em;text-transform:uppercase;font-weight:800;color:var(--muted);text-align:center}
+  .day .dn{font-size:13.5px;font-weight:800;letter-spacing:-.4px;text-align:center;line-height:1.2;margin-bottom:5px}
+  .ruler.dk .day .dn{color:#fff}
+  .day.mday{background:#eef3fd;border-color:#c3d8f7}
+  .day.mday .dw{color:#12508f}
+  .ruler.dk .day.mday{background:#12203a;border-color:#2d4a7a} .ruler.dk .day.mday .dw{color:#7dd3a0}
+  .day .jg{font-size:8.5px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:#12508f;
+    background:#dbe8fb;border-radius:4px;padding:2px 4px;text-align:center;margin-bottom:5px;line-height:1.25}
+  .ruler.dk .day .jg{background:#1a2f52;color:#9dc8f5}
+  .day .pins{display:flex;flex-direction:column;gap:3px;margin-top:auto}
+  .pin{font-size:8.5px;font-weight:800;border-radius:4px;padding:2px 4px;text-align:center;line-height:1.3;
+    background:#e8f5ec;color:#146c35;border:1px solid #c7e6d3}
+  .pin.re{background:#f3eefa;color:#5b3d90;border-color:#ddd1f0}
+  .ruler.dk .pin{background:#0f2e1c;color:#7dd3a0;border-color:#1f5b3f}
+  .ruler.dk .pin.re{background:#241a3a;color:#c4a9f0;border-color:#3d2d5c}
+  .rlgd{display:flex;flex-wrap:wrap;gap:12px;margin-top:11px;padding-top:9px;border-top:1px dashed var(--line);font-size:10.5px;color:var(--ink2)}
+  .ruler.dk .rlgd{border-top-color:var(--dark3);color:var(--dink2)}
+  .rlgd span{display:inline-flex;align-items:center;gap:5px}
+  .rlgd i{width:9px;height:9px;border-radius:2px;display:inline-block;font-style:normal}
+
+  /* ---------- separador de fase ---------- */
+  .phase{display:flex;align-items:center;gap:10px;margin:22px 0 12px}
+  .phase b{font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:var(--ink2);white-space:nowrap}
+  .phase s{flex:1;height:1px;background:var(--line);text-decoration:none;display:block}
+  .pane.dkpane .phase b{color:var(--dink2)} .pane.dkpane .phase s{background:var(--dark3)}
+
+  /* ---------- card do e-mail ---------- */
+  .mail{margin-bottom:16px}
+  .mmeta{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-bottom:7px}
+  .mmeta .dtag{font-size:9.5px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;
+    background:var(--ink);color:#fff;border-radius:5px;padding:3px 8px}
+  .mmeta .dtag.re{background:#5b3d90}
+  .mmeta .hr{font-size:10.5px;font-weight:700;color:var(--ink2)}
+  .mmeta .evt{font-size:9.5px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:#12508f;
+    background:#eef3fd;border:1px solid #c3d8f7;border-radius:5px;padding:2px 7px;margin-left:auto}
+  .pane.dkpane .mmeta .hr{color:var(--dink2)}
+  .pane.dkpane .mmeta .evt{background:#12203a;border-color:#2d4a7a;color:#9dc8f5}
+  .pane.dkpane .mmeta .dtag{background:#fff;color:var(--dark)}
+  .pane.dkpane .mmeta .dtag.re{background:#c4a9f0;color:#241a3a}
+
+  .client{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;
+    box-shadow:0 1px 2px rgba(0,0,0,.04),0 8px 22px rgba(0,0,0,.05);max-width:560px}
+  .client.dk{background:var(--dark2);border-color:var(--dark3);box-shadow:0 8px 22px rgba(0,0,0,.35)}
+  .cbar{background:#eceae5;padding:7px 13px;display:flex;align-items:center;gap:7px;border-bottom:1px solid var(--line);
+    font-size:10px;color:var(--muted);font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+  .cbar .dot{width:8px;height:8px;border-radius:50%;background:#cfcdc6;flex:none}
+  .client.dk .cbar{background:var(--dark3);border-bottom-color:#2b3a52;color:var(--dink2)}
+  .client.dk .cbar .dot{background:#475569}
+  .chead{display:flex;align-items:center;gap:9px;padding:11px 14px 9px}
+  .av{width:30px;height:30px;border-radius:9px;flex:none;background:linear-gradient(135deg,var(--mm-blue),var(--mm-green))}
+  .cfrom{flex:1;min-width:0;line-height:1.35}
+  .cfrom b{font-size:11.5px;display:block}
+  .cfrom span{font-size:10px;color:var(--muted);display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .client.dk .cfrom b{color:#fff} .client.dk .cfrom span{color:var(--dink2)}
+  .csubj{padding:0 14px;font-size:14.5px;font-weight:800;letter-spacing:-.35px;line-height:1.28}
+  .client.dk .csubj{color:#fff}
+  .cpre{padding:5px 14px 0;font-size:11px;color:var(--muted);line-height:1.45}
+  .cpre b{font-size:8.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink2);
+    background:#f0efec;border-radius:4px;padding:2px 5px;margin-right:6px;font-weight:800}
+  .client.dk .cpre{color:var(--dink2)} .client.dk .cpre b{background:var(--dark3);color:#cbd5e1}
+  .cbody{padding:13px 14px 16px;margin-top:11px;border-top:1px solid var(--line)}
+  .client.dk .cbody{border-top-color:var(--dark3)}
+  .cbody h3{margin:0 0 8px;font-size:15px;letter-spacing:-.35px;line-height:1.3}
+  .client.dk .cbody h3{color:#fff}
+  .cbody p{margin:0 0 9px;font-size:12.5px;color:var(--ink2);line-height:1.6}
+  .cbody p b{color:var(--ink)}
+  .cbody p:last-of-type{margin-bottom:0}
+  .client.dk .cbody p{color:#cbd5e1} .client.dk .cbody p b{color:#fff}
+  .cfoot{border-top:1px dashed var(--line);margin-top:13px;padding-top:9px;font-size:9.5px;color:var(--muted);line-height:1.5}
+  .client.dk .cfoot{border-top-color:var(--dark3);color:#5f6b7f}
+
+  /* ---------- blocos de dado dentro do e-mail: 4 estados ---------- */
+  .blk{border-radius:10px;padding:11px 12px;margin:11px 0}
+  .blk .bt{font-size:9px;letter-spacing:.09em;text-transform:uppercase;font-weight:800;margin-bottom:8px;
+    display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+  .blk .bt .st{font-size:8.5px;padding:2px 6px;border-radius:4px;letter-spacing:.07em}
+
+  .blk.on{border:1px solid #cfe6d8;border-left:3px solid var(--st-on);background:#f6faf7}
+  .blk.on .bt{color:#146c35} .blk.on .bt .st{background:#e8f5ec;color:#146c35}
+  .blk.pa{border:1.5px dashed var(--st-pa);background:#f5f9ff}
+  .blk.pa .bt{color:#12508f} .blk.pa .bt .st{background:#e2ecfb;color:#12508f}
+  .blk.lk{border:2px dotted var(--st-lk);background:var(--cream)}
+  .blk.lk .bt{color:#8a6209} .blk.lk .bt .st{background:#f7e9c6;color:#8a6209}
+  .blk.of{border:1.5px dashed #cdcbc4;background:#f7f7f5}
+  .blk.of .bt{color:#8b8983} .blk.of .bt .st{background:#eceae6;color:#8b8983}
+
+  .client.dk .blk.on{border-color:#1f5b3f;background:#0f2018;border-left-color:#22a45d}
+  .client.dk .blk.on .bt{color:#7dd3a0} .client.dk .blk.on .bt .st{background:#0f2e1c;color:#7dd3a0}
+  .client.dk .blk.pa{border-color:#2d4a7a;background:#101c2f}
+  .client.dk .blk.pa .bt{color:#9dc8f5} .client.dk .blk.pa .bt .st{background:#12203a;color:#9dc8f5}
+  .client.dk .blk.of{border-color:#334155;background:#141b28}
+  .client.dk .blk.of .bt{color:#64748b} .client.dk .blk.of .bt .st{background:#1e293b;color:#94a3b8}
+
+  /* linhas de dado */
+  .kv{font-size:11.5px}
+  .kv div{display:flex;justify-content:space-between;align-items:center;gap:9px;padding:5px 0;border-bottom:1px solid rgba(0,0,0,.06)}
+  .kv div:last-child{border:none;padding-bottom:0}
+  .kv div span:first-child{color:var(--ink2)}
+  .kv div span:last-child{font-weight:800;font-variant-numeric:tabular-nums;flex:none}
+  .client.dk .kv div{border-bottom-color:rgba(255,255,255,.08)}
+  .client.dk .kv div span:first-child{color:var(--dink2)} .client.dk .kv div span:last-child{color:#fff}
+  .bars{margin:2px 0}
+  .bars .row{display:flex;align-items:center;gap:8px;font-size:11.5px;margin-bottom:6px}
+  .bars .row:last-child{margin-bottom:0}
+  .bars .nm{width:84px;flex:none;color:var(--ink2)}
+  .bars .track{flex:1;height:9px;background:#eceae5;border-radius:3px;overflow:hidden}
+  .bars .fill{display:block;height:100%;border-radius:3px}
+  .bars .num{width:46px;text-align:right;font-weight:800;font-variant-numeric:tabular-nums;flex:none}
+  .client.dk .bars .nm{color:var(--dink2)} .client.dk .bars .track{background:#0b1220} .client.dk .bars .num{color:#fff}
+  .lbl{font-size:11.5px;color:var(--ink2);line-height:1.55;margin:0 0 7px}
+  .lbl b{color:var(--ink)}
+  .client.dk .lbl{color:#cbd5e1} .client.dk .lbl b{color:#fff}
+  .rng{display:inline-block;font-size:10px;font-weight:800;color:#12508f;background:#e2ecfb;border-radius:4px;padding:2px 7px}
+  .client.dk .rng{background:#12203a;color:#9dc8f5}
+  .win{font-size:9.5px;color:var(--muted);font-weight:700}
+  .client.dk .win{color:#64748b}
+
+  /* véu */
+  .msk{filter:blur(5px);user-select:none;font-weight:800;color:var(--ink)}
+  .client.dk .msk{color:#fff}
+  .mskb{display:inline-block;width:100%;height:9px;border-radius:3px;background:linear-gradient(90deg,#d9d7d1,#eceae4);filter:blur(2.5px)}
+  .client.dk .mskb{background:linear-gradient(90deg,#334155,#475569)}
+  .mskl{display:inline-block;width:100%;height:11px;border-radius:3px;background:linear-gradient(90deg,#ded9cc,#f0ebdd);filter:blur(3px);margin-top:4px}
+  .mskl.s{width:62%}
+
+  /* selos */
+  .badge-prem{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,var(--gold-l),var(--gold));
+    color:#2a1c00;font-size:9px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;padding:4px 9px;border-radius:20px}
+  .badge-free{display:inline-flex;align-items:center;gap:6px;background:var(--mm-blue);
+    color:#fff;font-size:9px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;padding:4px 9px;border-radius:20px}
+
+  /* gate dentro do corpo */
+  .gate{margin-top:11px;padding-top:10px;border-top:1px dotted #e4c98a}
+  .gate .g1{font-size:12.5px;font-weight:750;line-height:1.42;margin:7px 0 0;color:var(--ink)}
+  .gate .g2{font-size:11px;color:var(--ink2);margin:4px 0 0;line-height:1.5}
+  .client.dk .gate .g1{color:#fff} .client.dk .gate .g2{color:#cbd5e1}
+  .gate.free{border-top:1px dashed #b9d2f5}
+
+  /* CTA */
+  .cta{display:block;text-align:center;background:var(--mm-green);color:#fff;padding:13px 16px;border-radius:10px;
+    font-weight:800;font-size:14px;text-decoration:none;letter-spacing:-.2px;margin-top:13px}
+  .cta.blue{background:var(--mm-blue)}
+  .cta.gold{background:linear-gradient(135deg,var(--gold-l),var(--gold));color:#2a1c00}
+  .cta.ghost{background:transparent;color:var(--mm-blue);border:1.5px solid var(--mm-blue)}
+  .client.dk .cta.ghost{color:#7dd3a0;border-color:#1f5b3f}
+  .subcta{font-size:10.5px;color:var(--muted);text-align:center;margin-top:7px;line-height:1.5}
+  .client.dk .subcta{color:var(--dink2)}
+  .sec2{display:block;text-align:center;font-size:11px;color:var(--ink2);margin-top:9px;text-decoration:underline}
+  .client.dk .sec2{color:var(--dink2)}
+
+  /* objetivo declarado abaixo do card */
+  .mobj{max-width:560px;background:#fff;border:1px solid var(--line);border-top:none;border-radius:0 0 12px 12px;
+    padding:9px 13px;font-size:11px;color:var(--ink2);line-height:1.55;margin-top:-2px}
+  .mobj b{color:var(--ink)}
+  .mobj s{text-decoration:none;color:var(--muted);display:block;margin-top:3px;font-size:10.5px}
+  .pane.dkpane .mobj{background:var(--dark2);border-color:var(--dark3);color:#cbd5e1}
+  .pane.dkpane .mobj b{color:#fff} .pane.dkpane .mobj s{color:var(--dink2)}
+
+  /* nota de trilha */
+  .tnote{max-width:560px;font-size:11.5px;color:var(--ink2);background:#fff;border:1px solid var(--line);
+    border-radius:10px;padding:11px 13px;margin-bottom:16px;line-height:1.55}
+  .tnote b{color:var(--ink)}
+  .pane.dkpane .tnote{background:var(--dark2);border-color:var(--dark3);color:#cbd5e1}
+  .pane.dkpane .tnote b{color:#fff}
+
+  .footer{font-size:11px;color:var(--muted);text-align:center;margin-top:30px;line-height:1.7;
+    border-top:1px solid var(--line);padding-top:18px}
+  .footer a{color:var(--mm-blue);font-weight:700;text-decoration:none}
+
+  @media(min-width:760px){
+    .days{grid-template-columns:repeat(8,1fr)}
+    .client,.mobj,.tnote{max-width:600px}
+  }
+  @media(max-width:520px){
+    .wrap{padding:16px 10px 50px}
+    .doc-head{padding:20px 17px}
+    .doc-head h1{font-size:20px}
+    .mmeta .evt{margin-left:0}
+    .bars .nm{width:70px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="doc-head">
+  <h1>Sequência de e-mails da rodada — 24ª rodada do Brasileirão Série A 2026</h1>
+  <p>A rodada 24 é <b>partida em dois blocos</b>: quatro jogos na quarta 19/08, seis no sábado 22/08. Não é um evento, são duas ondas — dois picos de urgência, dois momentos de prévia e dois de fechamento. As três trilhas abaixo respeitam esse ritmo. Jogo de referência: Cruzeiro × Flamengo, sábado 21h00, Mineirão.</p>
+</div>
+
+<div class="note"><b>Dados ilustrativos.</b> Probabilidades, movimentos e resultados são exemplos de layout, não análises reais. Probabilidade é do mercado Macro Markets — informação e leitura, nunca recomendação de aposta.</div>
+
+<div class="navdoc">
+  <a href="mockups_3.html">← Documento-mãe (blocos 1–14)</a>
+  <a href="pagina_hub_campeonato.html">Hub do Campeonato</a>
+  <a href="pagina_rodada.html">Página da Rodada 24</a>
+  <a href="pagina_blog.html">Blog</a>
+</div>
+
+<!-- ============ LEGENDA ============ -->
+<div class="lgd">
+  <div class="lt">Vocabulário de estado dentro do corpo do e-mail</div>
+  <div class="row">
+    <span class="it on"><i></i><span><b>Ativo</b><br>dado completo, aberto no e-mail</span></span>
+    <span class="it pa"><i></i><span><b>Parcial</b><br>faixa ou rótulo, sem o número exato</span></span>
+    <span class="it lk"><i></i><span><b>Bloqueado</b><br>rótulo legível, só o valor velado · Premium</span></span>
+    <span class="it of"><i></i><span><b>Ausente</b><br>o bloco não entra nesta trilha</span></span>
+  </div>
+  <div class="hint"><b>Âmbar é exclusivo do que é pago.</b> Azul significa menos detalhe, nunca “pague para ver”. Por isso o convite para criar conta grátis usa <b>selo azul</b> — é desbloqueio sem custo. O selo âmbar só aparece quando o desbloqueio exige o depósito de R$&nbsp;50 / USD&nbsp;10 que ativa o Premium do Brasileirão.</div>
+</div>
+
+<input class="tt" type="radio" name="tr" id="tr-a" checked>
+<input class="tt" type="radio" name="tr" id="tr-b">
+<input class="tt" type="radio" name="tr" id="tr-c">
+<div class="tabs">
+  <label for="tr-a">1 · Lead sem conta</label>
+  <label for="tr-b">2 · Cadastrado sem depósito</label>
+  <label for="tr-c">3 · Premium</label>
+</div>
+
+<!-- =========================================================
+     TRILHA 1 — LEAD SEM CONTA
+     ========================================================= -->
+<div class="pane" id="p-a">
+
+<div class="th">
+  <div class="eb">Trilha 1</div>
+  <h2>Lead sem conta — capturou e-mail, nunca se cadastrou</h2>
+  <p>Chegou por newsletter ou isca de conteúdo do blog. Não tem login, não tem histórico, não tem preferência de time declarada. O e-mail é a única superfície que temos com ele. <b>Objetivo único: criar conta grátis.</b> Nada aqui pede depósito — o Premium aparece no máximo como horizonte, nunca como pedido.</p>
+  <div class="thkv">
+    <span><b>4</b> e-mails no ciclo</span>
+    <span><b>2</b> de reativação</span>
+    <span>Cadência <b>baixa</b> — pula um dos dois fechamentos</span>
+    <span>CTA <b>Criar conta grátis</b></span>
+  </div>
+</div>
+
+<div class="ruler">
+  <div class="rt">Régua da rodada 24 <s>· domingo 16/08 a domingo 23/08 · a rodada acontece em duas ondas</s></div>
+  <div class="days">
+    <div class="day"><div class="dw">Dom</div><div class="dn">16</div></div>
+    <div class="day"><div class="dw">Seg</div><div class="dn">17</div></div>
+    <div class="day"><div class="dw">Ter</div><div class="dn">18</div><div class="pins"><span class="pin">1 · Prévia</span></div></div>
+    <div class="day mday"><div class="dw">Qua</div><div class="dn">19</div><div class="jg">4 jogos</div><div class="pins"><span class="pin">2 · Matchday</span></div></div>
+    <div class="day"><div class="dw">Qui</div><div class="dn">20</div><div class="pins"><span class="pin re">R1 · Não clicou</span></div></div>
+    <div class="day"><div class="dw">Sex</div><div class="dn">21</div><div class="pins"><span class="pin">3 · Prévia sáb</span></div></div>
+    <div class="day mday"><div class="dw">Sáb</div><div class="dn">22</div><div class="jg">6 jogos</div></div>
+    <div class="day"><div class="dw">Dom</div><div class="dn">23</div><div class="pins"><span class="pin">4 · Fechamento</span></div></div>
+  </div>
+  <div class="rlgd">
+    <span><i style="background:#dbe8fb;border:1px solid #c3d8f7"></i> Dia de jogo</span>
+    <span><i style="background:#e8f5ec;border:1px solid #c7e6d3"></i> E-mail do ciclo</span>
+    <span><i style="background:#f3eefa;border:1px solid #ddd1f0"></i> E-mail de reativação</span>
+  </div>
+</div>
+
+<div class="tnote"><b>Por que só 4 no ciclo.</b> Lead sem conta não tolera 6 e-mails por rodada. Cortamos o fechamento da quarta — o valor dele depende de tabela, e tabela é argumento de retenção, não de aquisição. O que fica são os dois momentos em que a promessa é mais fácil de entender: <b>o que vai acontecer</b> e <b>o que aconteceu</b>.</div>
+
+<div class="phase"><b>Ciclo da rodada</b><s></s></div>
+
+<!-- E-MAIL 1 -->
+<div class="mail">
+  <div class="mmeta"><span class="dtag">Ter 18/08</span><span class="hr">07h30</span><span class="evt">email_lead_previa_click</span></div>
+  <div class="client">
+    <div class="cbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span> Caixa de entrada</div>
+    <div class="chead">
+      <span class="av"></span>
+      <div class="cfrom"><b>Dale · Macro Markets</b><span>dale@macro.markets → você</span></div>
+    </div>
+    <div class="csubj">A rodada 24 vem partida em dois: quarta e sábado</div>
+    <div class="cpre"><b>Prévia</b>Quatro jogos na quarta decidem a folga do líder. O clássico do Mineirão só no sábado.</div>
+    <div class="cbody">
+      <h3>A rodada 24 tem dois donos, e eles jogam em dias diferentes</h3>
+      <p>Quarta 19/08, quatro jogos. Sábado 22/08, seis. Quem lê a rodada como um bloco só perde a parte mais interessante: <b>o Palmeiras pode abrir seis pontos na quarta e passar o resto da semana só olhando</b> — enquanto o Flamengo, que tem um jogo a menos, decide tudo no sábado, no Mineirão, três dias depois da Libertadores.</p>
+      <p>Essa assimetria de calendário é o que faz a rodada 24 valer mais do que a média. Abaixo, o mapa das duas ondas.</p>
+
+      <div class="blk on">
+        <div class="bt">Onda 1 · quarta 19/08 <span class="st">Ativo</span></div>
+        <div class="kv">
+          <div><span>Palmeiras × Vasco · 19h30</span><span>71% casa</span></div>
+          <div><span>Fluminense × Remo · 19h30</span><span>63% casa</span></div>
+          <div><span>Internacional × Atlético-MG · 21h30</span><span>44% casa</span></div>
+          <div><span>Chapecoense × São Paulo · 21h30</span><span>21% casa</span></div>
+        </div>
+      </div>
+
+      <div class="blk on">
+        <div class="bt">Onda 2 · sábado 22/08 <span class="st">Ativo</span></div>
+        <div class="kv">
+          <div><span>Botafogo × Athletico-PR · 16h00</span><span>47% casa</span></div>
+          <div><span>Fortaleza × Bragantino · 16h00</span><span>41% casa</span></div>
+          <div><span>Vitória × Bahia · 18h30</span><span>33% casa</span></div>
+          <div><span>Grêmio × Corinthians · 18h30</span><span>45% casa</span></div>
+          <div><span>Cruzeiro × Flamengo · 21h00</span><span>38% casa</span></div>
+          <div><span>Coritiba × Juventude · 21h00</span><span>52% casa</span></div>
+        </div>
+      </div>
+
+      <p>Probabilidade do mercado Macro Markets, medida <span class="win">nas últimas 24h</span>. É o que a multidão está precificando agora — muda até o apito.</p>
+
+      <div class="blk pa">
+        <div class="bt">Como o mercado se moveu na semana <span class="st">Parcial</span></div>
+        <p class="lbl">Três jogos tiveram movimento relevante desde domingo. O maior deles foi <b>Cruzeiro × Flamengo</b>, e a direção foi para o time da casa.</p>
+        <div class="kv">
+          <div><span>Cruzeiro × Flamengo</span><span><span class="rng">Movimento forte</span></span></div>
+          <div><span>Vitória × Bahia</span><span><span class="rng">Movimento médio</span></span></div>
+          <div><span>Botafogo × Athletico-PR</span><span><span class="rng">Movimento médio</span></span></div>
+        </div>
+        <div class="gate free">
+          <span class="badge-free">Conta grátis</span>
+          <p class="g1">A conta grátis troca “movimento forte” pelo número: quantos pontos percentuais mudaram, em quantas horas e a partir de qual notícia.</p>
+          <p class="g2">Sem cartão, sem depósito. É só para deixar de ver faixa e passar a ver dado.</p>
+        </div>
+      </div>
+
+      <a class="cta" href="pagina_rodada.html">Criar conta grátis</a>
+      <div class="subcta">30 segundos. Libera os números da rodada inteira.</div>
+      <a class="sec2" href="pagina_rodada.html">Ver a página da rodada 24 →</a>
+
+      <div class="cfoot">Você recebe este e-mail porque assinou a newsletter do Brasileirão. Probabilidade do mercado Macro Markets, janela declarada em cada número. Conteúdo informativo — não é recomendação de aposta. Cancelar inscrição · Preferências</div>
+    </div>
+  </div>
+  <div class="mobj"><b>Objetivo:</b> provar que existe dado próprio antes de pedir qualquer coisa. O gate cai só no terceiro bloco, depois de dois blocos inteiramente abertos. <s>Gate: azul, conta grátis. Nenhum selo âmbar neste e-mail.</s></div>
+</div>
+
+<!-- E-MAIL 2 -->
+<div class="mail">
+  <div class="mmeta"><span class="dtag">Qua 19/08</span><span class="hr">11h00</span><span class="evt">email_lead_matchday_qua_click</span></div>
+  <div class="client">
+    <div class="cbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span> Caixa de entrada</div>
+    <div class="chead">
+      <span class="av"></span>
+      <div class="cfrom"><b>Dale · Macro Markets</b><span>dale@macro.markets → você</span></div>
+    </div>
+    <div class="csubj">Hoje: quatro jogos, e um deles decide o Z4</div>
+    <div class="cpre"><b>Matchday quarta</b>Chapecoense × São Paulo às 21h30 pode selar o rebaixamento com 14 rodadas de antecedência.</div>
+    <div class="cbody">
+      <h3>Primeira onda da rodada 24 começa em oito horas</h3>
+      <p>Quatro jogos hoje. O que está em jogo, em uma linha cada: <b>Palmeiras abre seis</b> se vencer o Vasco. <b>Fluminense encosta no G4</b>. <b>Chapecoense entra em situação matemática crítica</b> se perder em casa.</p>
+      <p>O clássico do Mineirão fica para sábado — mas o mercado dele já está se mexendo desde ontem por causa do que acontece hoje na Libertadores.</p>
+
+      <div class="blk on">
+        <div class="bt">Os quatro de hoje · probabilidade agora <span class="st">Ativo</span></div>
+        <div class="bars">
+          <div class="row"><span class="nm">Palmeiras</span><span class="track"><span class="fill" style="width:71%;background:var(--s1)"></span></span><span class="num">71%</span></div>
+          <div class="row"><span class="nm">Fluminense</span><span class="track"><span class="fill" style="width:63%;background:var(--s1)"></span></span><span class="num">63%</span></div>
+          <div class="row"><span class="nm">Internacional</span><span class="track"><span class="fill" style="width:44%;background:var(--s1)"></span></span><span class="num">44%</span></div>
+          <div class="row"><span class="nm">Chapecoense</span><span class="track"><span class="fill" style="width:21%;background:var(--s2)"></span></span><span class="num">21%</span></div>
+        </div>
+        <p class="lbl" style="margin-top:9px;margin-bottom:0">Probabilidade de vitória do mandante, <span class="win">atualizada há 20 minutos</span>.</p>
+      </div>
+
+      <div class="blk pa">
+        <div class="bt">O que muda na tabela hoje à noite <span class="st">Parcial</span></div>
+        <p class="lbl">Palmeiras (48 pts) vai a 51 vencendo e abre <b>seis pontos</b> — com o Flamengo ainda por jogar. Fluminense (38) passa o Cruzeiro. Chapecoense (11) fica a uma distância que o modelo classifica como <span class="rng">praticamente irreversível</span>.</p>
+        <div class="gate free">
+          <span class="badge-free">Conta grátis</span>
+          <p class="g1">“Praticamente irreversível” tem um número atrás: a probabilidade de permanência da Chapecoense hoje, e o que ela vira se o São Paulo vencer.</p>
+          <p class="g2">A conta grátis abre a árvore da tabela dos 20 times, atualizada a cada jogo.</p>
+        </div>
+      </div>
+
+      <div class="blk of">
+        <div class="bt">Veredito do Dale contra o mercado <span class="st">Ausente</span></div>
+        <p class="lbl" style="margin-bottom:0">Não entra nesta trilha. O veredito aparece a partir da conta criada — um jogo aberto por rodada, com o raciocínio inteiro.</p>
+      </div>
+
+      <a class="cta" href="pagina_rodada.html">Criar conta grátis</a>
+      <div class="subcta">Acompanhe os quatro jogos de hoje com o número, não com a faixa.</div>
+
+      <div class="cfoot">Você recebe este e-mail porque assinou a newsletter do Brasileirão. Conteúdo informativo. Cancelar inscrição · Preferências</div>
+    </div>
+  </div>
+  <div class="mobj"><b>Objetivo:</b> usar a urgência do dia de jogo como razão para criar conta agora, não depois. <s>O bloco Ausente é intencional: mostra que existe algo além do gate, sem fingir que está bloqueado por dinheiro.</s></div>
+</div>
+
+<!-- E-MAIL 3 -->
+<div class="mail">
+  <div class="mmeta"><span class="dtag">Sex 21/08</span><span class="hr">07h30</span><span class="evt">email_lead_previa_sab_click</span></div>
+  <div class="client">
+    <div class="cbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span> Caixa de entrada</div>
+    <div class="chead">
+      <span class="av"></span>
+      <div class="cfrom"><b>Dale · Macro Markets</b><span>dale@macro.markets → você</span></div>
+    </div>
+    <div class="csubj">Cruzeiro × Flamengo: o mercado subiu 6 pontos em 12 horas</div>
+    <div class="cpre"><b>Prévia sábado</b>A lista de relacionados do Flamengo saiu ontem à noite. Foi o que moveu o preço.</div>
+    <div class="cbody">
+      <h3>O jogo de sábado já mudou antes de começar</h3>
+      <p>Domingo, o mercado dava <b>32%</b> para o Cruzeiro no Mineirão. Hoje de manhã, <b>38%</b>. Seis pontos percentuais em doze horas, e dá para apontar exatamente o que causou: a lista de relacionados do Flamengo saiu ontem às 21h, depois da Libertadores, sem três titulares.</p>
+      <p>É o terceiro jogo do Flamengo em oito dias. O Cruzeiro não sofreu gol em quatro dos <span class="win">últimos cinco jogos em casa</span>.</p>
+
+      <div class="blk on">
+        <div class="bt">Cruzeiro × Flamengo · sáb 21h00 · Mineirão <span class="st">Ativo</span></div>
+        <div class="bars">
+          <div class="row"><span class="nm">Cruzeiro</span><span class="track"><span class="fill" style="width:38%;background:var(--s1)"></span></span><span class="num">38%</span></div>
+          <div class="row"><span class="nm">Empate</span><span class="track"><span class="fill" style="width:27%;background:#b9b6ae"></span></span><span class="num">27%</span></div>
+          <div class="row"><span class="nm">Flamengo</span><span class="track"><span class="fill" style="width:35%;background:var(--s2)"></span></span><span class="num">35%</span></div>
+        </div>
+        <p class="lbl" style="margin-top:9px;margin-bottom:0">Movimento desde domingo: <b>Cruzeiro +6 pp</b>, Flamengo −5 pp. Essa é a curva de preço do mercado Macro Markets — o dado que só existe aqui.</p>
+      </div>
+
+      <div class="blk lk">
+        <div class="bt">Veredito do Dale · o modelo discorda do mercado <span class="st">Bloqueado</span></div>
+        <p class="lbl">O mercado precificou o desgaste do Flamengo. <b>O modelo acha que precificou pouco.</b> A divergência neste jogo é a maior da rodada 24, e a direção é a favor do mandante.</p>
+        <div class="bars">
+          <div class="row"><span class="nm">Mercado</span><span class="track"><span class="fill" style="width:38%;background:var(--s1)"></span></span><span class="num">38%</span></div>
+          <div class="row"><span class="nm">Modelo Dale</span><span class="track"><span class="mskb"></span></span><span class="num msk">46%</span></div>
+          <div class="row"><span class="nm">Divergência</span><span class="track"><span class="mskb"></span></span><span class="num msk">+8 pp</span></div>
+        </div>
+        <div class="gate">
+          <span class="badge-prem">Premium do Brasileirão</span>
+          <p class="g1">O número do modelo e o método por trás dele são Premium. Mas você não precisa começar por aí.</p>
+          <p class="g2">Com a conta grátis, você recebe <b>um dos jogos de maior divergência da rodada aberto</b>, com o raciocínio inteiro — e neste sábado o jogo escolhido é este.</p>
+        </div>
+      </div>
+
+      <a class="cta" href="pagina_rodada.html">Criar conta grátis e ver o veredito</a>
+      <div class="subcta">Sem cartão. O Premium só existe depois, se você quiser os dez jogos.</div>
+
+      <div class="cfoot">Divergência é tese sobre o dado, não recomendação. Cancelar inscrição · Preferências</div>
+    </div>
+  </div>
+  <div class="mobj"><b>Objetivo:</b> este é o e-mail de maior conversão da trilha. Mostra o selo âmbar pela primeira vez — e imediatamente oferece uma saída grátis. <s>O âmbar aqui não vende: cria a categoria mental “existe um nível acima”. O CTA continua sendo conta grátis.</s></div>
+</div>
+
+<!-- E-MAIL 4 -->
+<div class="mail">
+  <div class="mmeta"><span class="dtag">Dom 23/08</span><span class="hr">09h00</span><span class="evt">email_lead_fechamento_click</span></div>
+  <div class="client">
+    <div class="cbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span> Caixa de entrada</div>
+    <div class="chead">
+      <span class="av"></span>
+      <div class="cfrom"><b>Dale · Macro Markets</b><span>dale@macro.markets → você</span></div>
+    </div>
+    <div class="csubj">Rodada 24 fechada: o Mineirão decidiu a liderança</div>
+    <div class="cpre"><b>Fechamento</b>O que mudou na tabela, o que o modelo acertou e o que vem na rodada 25.</div>
+    <div class="cbody">
+      <h3>A rodada 24 terminou como o desgaste sugeria</h3>
+      <p>Cruzeiro 2 × 1 Flamengo no Mineirão. O Palmeiras, que já tinha vencido na quarta, dorme com <b>seis pontos de folga</b> — e agora sem o jogo a menos do rival para compensar.</p>
+      <p>Na quarta, Chapecoense 1 × 3 São Paulo. O clube fica a onze pontos da saída do Z4 com quatorze rodadas pela frente.</p>
+
+      <div class="blk on">
+        <div class="bt">Topo da tabela depois da rodada 24 <span class="st">Ativo</span></div>
+        <div class="kv">
+          <div><span>1 · Palmeiras</span><span>51 pts · 24j</span></div>
+          <div><span>2 · Flamengo</span><span>45 pts · 23j</span></div>
+          <div><span>3 · Athletico-PR</span><span>41 pts · 24j</span></div>
+          <div><span>4 · Fluminense</span><span>39 pts · 24j</span></div>
+          <div><span>5 · Cruzeiro</span><span>39 pts · 24j</span></div>
+        </div>
+      </div>
+
+      <div class="blk pa">
+        <div class="bt">Como o modelo se saiu na rodada <span class="st">Parcial</span></div>
+        <p class="lbl">Em <b>três dos dez jogos</b> o modelo discordava do mercado por mais de cinco pontos percentuais. Nesta rodada, a leitura de Cruzeiro × Flamengo — o jogo que abrimos para quem tem conta — <b>foi na direção certa</b>. As outras duas, uma acertou e uma errou.</p>
+        <div class="gate free">
+          <span class="badge-free">Conta grátis</span>
+          <p class="g1">O placar de acompanhamento do modelo é público para quem tem conta: rodada a rodada, o que acertou e o que errou, sem edição.</p>
+          <p class="g2">É o jeito honesto de olhar. Um modelo que só mostra os acertos não é modelo, é marketing.</p>
+        </div>
+      </div>
+
+      <div class="blk on">
+        <div class="bt">Rodada 25 · também partida <span class="st">Ativo</span></div>
+        <p class="lbl" style="margin-bottom:0">Quarta 26/08, três jogos. Sábado 29/08, sete. <b>Flamengo × Palmeiras no Maracanã, sábado 21h00</b> — o jogo que pode decidir o título com treze rodadas restantes. A prévia sai terça de manhã.</p>
+      </div>
+
+      <a class="cta" href="pagina_rodada.html">Criar conta grátis</a>
+      <div class="subcta">Entre antes da rodada 25 para receber o veredito aberto do Flamengo × Palmeiras.</div>
+
+      <div class="cfoot">Cancelar inscrição · Preferências</div>
+    </div>
+  </div>
+  <div class="mobj"><b>Objetivo:</b> fechar o loop com prova verificável e abrir o próximo com um gancho maior. <s>O placar de acompanhamento, incluindo o erro, é o ativo de credibilidade da trilha inteira.</s></div>
+</div>
+
+<div class="phase"><b>Reativação</b><s></s></div>
+
+<!-- R1 -->
+<div class="mail">
+  <div class="mmeta"><span class="dtag re">Qui 20/08</span><span class="hr">17h00</span><span class="evt">email_lead_reeng_naoclicou</span></div>
+  <div class="client">
+    <div class="cbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span> Caixa de entrada</div>
+    <div class="chead">
+      <span class="av"></span>
+      <div class="cfrom"><b>Dale · Macro Markets</b><span>dale@macro.markets → você</span></div>
+    </div>
+    <div class="csubj">Um número da rodada 24, sem clique nenhum</div>
+    <div class="cpre"><b>Resumo curto</b>Você abriu os dois últimos e não clicou. Então este vem inteiro no corpo.</div>
+    <div class="cbody">
+      <h3>Sem link, sem página. Só o dado.</h3>
+      <p>Você abriu os últimos dois e-mails e não clicou em nada. Justo — talvez você só queira ler, não navegar. Então este e-mail entrega o principal sem sair da caixa de entrada.</p>
+
+      <div class="blk on">
+        <div class="bt">O dado da semana <span class="st">Ativo</span></div>
+        <p class="lbl">Times que jogam <b>três partidas em oito dias</b> e viajam entre elas perderam, nesta temporada, <b>0,7 ponto por jogo</b> em relação à própria média. É esse o desconto que o mercado aplicou ao Flamengo no Mineirão — e o motivo do Cruzeiro ter subido de 32% para 38% em doze horas.</p>
+        <p class="lbl" style="margin-bottom:0"><span class="win">Amostra: 61 jogos da Série A 2026 até a rodada 23.</span></p>
+      </div>
+
+      <p>É isso. Se em algum momento você quiser ver esse tipo de recorte aplicado aos dez jogos da rodada, em vez de um só, a conta grátis faz isso. Se não quiser, tudo bem — os e-mails continuam chegando do mesmo jeito.</p>
+
+      <a class="cta ghost" href="pagina_rodada.html">Se quiser, criar conta grátis</a>
+      <div class="subcta">Ou responda este e-mail dizendo o que você gostaria de receber.</div>
+
+      <div class="cfoot">Cancelar inscrição · Preferências</div>
+    </div>
+  </div>
+  <div class="mobj"><b>Objetivo:</b> recuperar quem abre e não clica invertendo a lógica — valor entregue no corpo, CTA rebaixado a link secundário. <s>Gatilho: 2 aberturas consecutivas com 0 cliques em 72h.</s></div>
+</div>
+
+<!-- R2 -->
+<div class="mail">
+  <div class="mmeta"><span class="dtag re">Seg 24/08</span><span class="hr">10h00</span><span class="evt">email_lead_reativa_d7</span></div>
+  <div class="client">
+    <div class="cbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span> Caixa de entrada</div>
+    <div class="chead">
+      <span class="av"></span>
+      <div class="cfrom"><b>Dale · Macro Markets</b><span>dale@macro.markets → você</span></div>
+    </div>
+    <div class="csubj">O que você teria visto na rodada 24 com uma conta</div>
+    <div class="cpre"><b>Uma rodada inteira depois</b>Sete dias, quatro e-mails, nenhuma conta. Deixa eu mostrar o que ficou de fora.</div>
+    <div class="cbody">
+      <h3>Uma rodada inteira de diferença</h3>
+      <p>Você acompanhou a rodada 24 pelos e-mails. Quem criou conta acompanhou a mesma rodada com estes três blocos a mais — e todos eles são grátis.</p>
+
+      <div class="blk on">
+        <div class="bt">O que a conta grátis abriu nesta rodada <span class="st">Ativo</span></div>
+        <div class="kv">
+          <div><span>Veredito de Cruzeiro × Flamengo, completo</span><span>aberto</span></div>
+          <div><span>Movimento do mercado em pp, por jogo</span><span>aberto</span></div>
+          <div><span>Árvore da tabela dos 20 times</span><span>aberto</span></div>
+          <div><span>Chat de cada um dos 10 jogos</span><span>aberto</span></div>
+        </div>
+      </div>
+
+      <div class="blk pa">
+        <div class="bt">Rodada 25 · o jogo que decide o título <span class="st">Parcial</span></div>
+        <p class="lbl" style="margin-bottom:0"><b>Flamengo × Palmeiras</b>, sábado 29/08, Maracanã. Diferença de seis pontos, treze rodadas restantes. O modelo já classifica a divergência neste jogo como <span class="rng">alta</span> — e o jogo aberto da rodada 25 vai ser esse.</p>
+      </div>
+
+      <a class="cta" href="pagina_rodada.html">Criar conta grátis antes de sábado</a>
+      <div class="subcta">Se não for o momento, você pode <a href="#" style="color:inherit">reduzir para um e-mail por rodada</a>.</div>
+
+      <div class="cfoot">Cancelar inscrição · Preferências</div>
+    </div>
+  </div>
+  <div class="mobj"><b>Objetivo:</b> última tentativa do ciclo, ancorada em perda concreta e no gancho da próxima rodada. <s>Gatilho: 7 dias na lista sem cadastro. Oferece downgrade de frequência antes de arriscar o descadastro.</s></div>
+</div>
+
+</div><!-- /p-a -->
+
+<!-- =========================================================
+     TRILHA 2 — CADASTRADO SEM DEPÓSITO
+     ========================================================= -->
+<div class="pane" id="p-b">
+
+<div class="th">
+  <div class="eb">Trilha 2</div>
+  <h2>Cadastrado sem depósito — tem conta, nunca ativou o Premium</h2>
+  <p>Já provou que quer o produto: criou conta, tem time favorito declarado, navega. O que falta é o <b>primeiro depósito de R$&nbsp;50 / USD&nbsp;10</b>, que ativa o Premium do Brasileirão. Aqui o conteúdo é generoso e o gate é explícito — âmbar, sempre no mesmo lugar do corpo: depois do descritivo, antes do CTA.</p>
+  <div class="thkv">
+    <span><b>6</b> e-mails no ciclo</span>
+    <span><b>3</b> de reativação</span>
+    <span>Cadência <b>alta</b> — cobre as duas ondas inteiras</span>
+    <span>CTA <b>Ativar Premium do Brasileirão</b></span>
+  </div>
+</div>
+
+<div class="ruler">
+  <div class="rt">Régua da rodada 24 <s>· ciclo completo, os dois picos de urgência cobertos</s></div>
+  <div class="days">
+    <div class="day"><div class="dw">Dom</div><div class="dn">16</div></div>
+    <div class="day"><div class="dw">Seg</div><div class="dn">17</div></div>
+    <div class="day"><div class="dw">Ter</div><div class="dn">18</div><div class="pins"><span class="pin">1 · Prévia</span></div></div>
+    <div class="day mday"><div class="dw">Qua</div><div class="dn">19</div><div class="jg">4 jogos</div><div class="pins"><span class="pin">2 · Matchday</span></div></div>
+    <div class="day"><div class="dw">Qui</div><div class="dn">20</div><div class="pins"><span class="pin">3 · Fecha qua</span></div></div>
+    <div class="day"><div class="dw">Sex</div><div class="dn">21</div><div class="pins"><span class="pin">4 · Prévia sáb</span><span class="pin re">R1 · Gate</span></div></div>
+    <div class="day mday"><div class="dw">Sáb</div><div class="dn">22</div><div class="jg">6 jogos</div><div class="pins"><span class="pin">5 · Matchday</span></div></div>
+    <div class="day"><div class="dw">Dom</div><div class="dn">23</div><div class="pins"><span class="pin">6 · Fechamento</span><span class="pin re">R2 · Prova</span></div></div>
+  </div>
+  <div class="rlgd">
+    <span><i style="background:#dbe8fb;border:1px solid #c3d8f7"></i> Dia de jogo</span>
+    <span><i style="background:#e8f5ec;border:1px solid #c7e6d3"></i> E-mail do ciclo</span>
+    <span><i style="background:#f3eefa;border:1px solid #ddd1f0"></i> E-mail de reativação</span>
+    <span>R3 · depósito abandonado dispara ter 25/08, fora da régua</span>
+  </div>
+</div>
+
+<div class="tnote"><b>Onde o gate cai, sempre.</b> A parte descritiva vai aberta: o rótulo, a direção, o raciocínio resumido. O <b>número exato e o veredito</b> aparecem velados com selo âmbar, imediatamente antes do CTA. Nunca no topo — quem abre o e-mail precisa receber valor real antes de encontrar a parede.</div>
+
+<div class="phase"><b>Ciclo da rodada</b><s></s></div>
+
+<!-- E-MAIL 1 -->
+<div class="mail">
+  <div class="mmeta"><span class="dtag">Ter 18/08</span><span class="hr">07h00</span><span class="evt">email_free_previa_click</span></div>
+  <div class="client">
+    <div class="cbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span> Caixa de entrada</div>
+    <div class="chead">
+      <span class="av"></span>
+      <div class="cfrom"><b>Dale · Macro Markets</b><span>dale@macro.markets → você</span></div>
+    </div>
+    <div class="csubj">Rafael, a rodada 24 tem três divergências — e uma é no Mineirão</div>
+    <div class="cpre"><b>Prévia da rodada</b>Quatro jogos na quarta, seis no sábado. O modelo discorda do mercado em três deles.</div>
+    <div class="cbody">
+      <h3>Em três dos dez jogos, o modelo lê a rodada diferente do mercado</h3>
+      <p>Rodada partida: quarta 19/08 com quatro jogos, sábado 22/08 com seis. Nas duas ondas, o modelo encontrou divergências acima de cinco pontos percentuais — e a maior delas está no <b>Cruzeiro × Flamengo</b>, no sábado.</p>
+      <p>Como você tem conta, esse jogo vai aberto para você abaixo, com o raciocínio inteiro. Os outros dois estão no Premium.</p>
+
+      <div class="blk on">
+        <div class="bt">Jogo aberto da rodada · Cruzeiro × Flamengo <span class="st">Ativo</span></div>
+        <div class="bars">
+          <div class="row"><span class="nm">Mercado</span><span class="track"><span class="fill" style="width:38%;background:var(--s1)"></span></span><span class="num">38%</span></div>
+          <div class="row"><span class="nm">Modelo Dale</span><span class="track"><span class="fill" style="width:46%;background:var(--s3)"></span></span><span class="num">46%</span></div>
+          <div class="row"><span class="nm">Divergência</span><span class="track"><span class="fill" style="width:8%;background:var(--s3)"></span></span><span class="num">+8 pp</span></div>
+        </div>
+        <p class="lbl" style="margin-top:10px"><b>O raciocínio.</b> O modelo desconta o desgaste do Flamengo — terceiro jogo em oito dias, três dias depois da Libertadores — e pesa o retrospecto defensivo do Cruzeiro no Mineirão: sem sofrer gol em quatro dos <span class="win">últimos cinco em casa</span>. O mercado precificou parte disso; o modelo acha que precificou pouco.</p>
+        <p class="lbl" style="margin-bottom:0"><b>O que derruba a leitura:</b> Flamengo escalando força máxima leva a divergência para +2 pp.</p>
+      </div>
+
+      <div class="blk lk">
+        <div class="bt">As outras duas divergências da rodada <span class="st">Bloqueado</span></div>
+        <p class="lbl">Uma delas está na quarta e envolve um time do Z4 sendo <b>subestimado</b> pelo mercado. A outra é no sábado, num jogo de meio de tabela em que o modelo vê o visitante muito acima do preço.</p>
+        <div class="kv">
+          <div><span class="msk">Chapecoense × São Paulo</span><span class="msk">+6 pp</span></div>
+          <div><span class="msk">Botafogo × Athletico-PR</span><span class="msk">+5 pp</span></div>
+        </div>
+        <div class="gate">
+          <span class="badge-prem">Premium do Brasileirão</span>
+          <p class="g1">Os três jogos de divergência, com método, premissas e ponto de virada — nas duas ondas da rodada.</p>
+          <p class="g2">R$&nbsp;50 (ou USD&nbsp;10) ativam o Premium. O valor entra como saldo na sua conta, não é taxa.</p>
+        </div>
+        <a class="cta gold" href="pagina_rodada.html">Ativar Premium do Brasileirão</a>
+        <div class="subcta">Ativação instantânea. Vale a temporada inteira do Brasileirão.</div>
+      </div>
+
+      <a class="sec2" href="pagina_rodada.html">Ver a página da rodada 24 →</a>
+
+      <div class="cfoot">Divergência é tese sobre o dado, não recomendação de aposta. Probabilidade do mercado Macro Markets. Preferências de e-mail · Cancelar inscrição</div>
+    </div>
+  </div>
+  <div class="mobj"><b>Objetivo:</b> entregar um veredito inteiro de graça e usar a qualidade dele como argumento para os outros dois. <s>Gate âmbar depois de um bloco Ativo completo. O nome dos jogos fica velado junto com o número — aqui a identidade do jogo <i>é</i> o produto.</s></div>
+</div>
+
+<!-- E-MAIL 2 -->
+<div class="mail">
+  <div class="mmeta"><span class="dtag">Qua 19/08</span><span class="hr">16h00</span><span class="evt">email_free_matchday_qua_click</span></div>
+  <div class="client">
+    <div class="cbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span> Caixa de entrada</div>
+    <div class="chead">
+      <span class="av"></span>
+      <div class="cfrom"><b>Dale · Macro Markets</b><span>dale@macro.markets → você</span></div>
+    </div>
+    <div class="csubj">Começa em 3h30: a divergência da quarta é no Z4</div>
+    <div class="cpre"><b>Matchday quarta</b>O mercado mexeu duas vezes hoje em Chapecoense × São Paulo. Os gatilhos ao vivo estão no Premium.</div>
+    <div class="cbody">
+      <h3>Primeira onda: quatro jogos, e o preço mexeu em dois deles hoje</h3>
+      <p>Palmeiras × Vasco às 19h30 é o jogo com maior peso na tabela. Mas o jogo com maior movimento de preço hoje foi outro: <b>Chapecoense × São Paulo</b>, 21h30, e a direção surpreendeu.</p>
+
+      <div class="blk on">
+        <div class="bt">Movimento de hoje · onda da quarta <span class="st">Ativo</span></div>
+        <div class="kv">
+          <div><span>Chapecoense × São Paulo</span><span>+4 pp casa</span></div>
+          <div><span>Internacional × Atlético-MG</span><span>−3 pp casa</span></div>
+          <div><span>Palmeiras × Vasco</span><span>estável</span></div>
+          <div><span>Fluminense × Remo</span><span>+1 pp casa</span></div>
+        </div>
+        <p class="lbl" style="margin-top:9px;margin-bottom:0">Variação desde ontem às 16h. A Chapecoense subiu depois da confirmação de que o São Paulo poupa três titulares pensando na Sul-Americana.</p>
+      </div>
+
+      <div class="blk pa">
+        <div class="bt">O que está em jogo na tabela hoje <span class="st">Parcial</span></div>
+        <p class="lbl" style="margin-bottom:0">Palmeiras (48) chega a 51 e abre <b>seis</b>, com o Flamengo ainda por jogar no sábado. Fluminense (38) passa o Cruzeiro. Chapecoense (11) entra numa situação que o modelo classifica como <span class="rng">crítica</span> se perder em casa.</p>
+      </div>
+
+      <div class="blk lk">
+        <div class="bt">Gatilhos ao vivo · o que observar durante os jogos <span class="st">Bloqueado</span></div>
+        <p class="lbl">Para cada jogo da noite o modelo define <b>um evento observável</b> que, se acontecer, muda a leitura em tempo real — e diz de quanto muda. Na quarta são quatro gatilhos, um por jogo.</p>
+        <div class="kv">
+          <div><span>Chapecoense × São Paulo</span><span class="msk">1º gol até 30' → +11 pp</span></div>
+          <div><span>Palmeiras × Vasco</span><span class="msk">0×0 aos 60' → −14 pp</span></div>
+        </div>
+        <div class="gate">
+          <span class="badge-prem">Premium do Brasileirão</span>
+          <p class="g1">Gatilhos ao vivo dos quatro jogos de hoje, e dos seis de sábado.</p>
+          <p class="g2">R$&nbsp;50 entram como saldo e ativam o Premium a tempo do primeiro apito, às 19h30.</p>
+        </div>
+        <a class="cta gold" href="pagina_rodada.html">Ativar Premium antes das 19h30</a>
+        <div class="subcta">Ativação instantânea.</div>
+      </div>
+
+      <div class="cfoot">Gatilho é condição observável, não previsão de resultado. Preferências de e-mail · Cancelar inscrição</div>
+    </div>
+  </div>
+  <div class="mobj"><b>Objetivo:</b> converter na janela de urgência da primeira onda, com prazo concreto (o apito das 19h30). <s>O gatilho velado mostra a <i>forma</i> do dado — "1º gol até 30' → +X pp" — sem entregar o valor.</s></div>
+</div>
+
+<!-- E-MAIL 3 -->
+<div class="mail">
+  <div class="mmeta"><span class="dtag">Qui 20/08</span><span class="hr">08h00</span><span class="evt">email_free_fechamento_qua_click</span></div>
+  <div class="client">
+    <div class="cbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span> Caixa de entrada</div>
+    <div class="chead">
+      <span class="av"></span>
+      <div class="cfrom"><b>Dale · Macro Markets</b><span>dale@macro.markets → você</span></div>
+    </div>
+    <div class="csubj">A quarta acabou: Palmeiras abriu 6 e a Chape ficou sem rota</div>
+    <div class="cpre"><b>Fechamento da 1ª onda</b>Metade da rodada 24 está resolvida. O que mudou, e o que isso faz com o sábado.</div>
+    <div class="cbody">
+      <h3>Metade da rodada resolvida, e o sábado ficou mais pesado</h3>
+      <p>Palmeiras 2 × 0 Vasco. Fluminense 1 × 1 Remo. Internacional 0 × 2 Atlético-MG. Chapecoense 1 × 3 São Paulo.</p>
+      <p>A consequência principal não está nos quatro placares, está no que eles fazem com sábado: <b>o Flamengo agora precisa vencer no Mineirão para não ver a folga do Palmeiras virar seis pontos consolidados.</b></p>
+
+      <div class="blk on">
+        <div class="bt">Tabela depois da primeira onda <span class="st">Ativo</span></div>
+        <div class="kv">
+          <div><span>1 · Palmeiras</span><span>51 pts · 24j</span></div>
+          <div><span>2 · Flamengo</span><span>45 pts · 22j</span></div>
+          <div><span>3 · Athletico-PR</span><span>41 pts · 23j</span></div>
+          <div><span>4 · Fluminense</span><span>39 pts · 24j</span></div>
+          <div><span>20 · Chapecoense</span><span>11 pts · 24j</span></div>
+        </div>
+        <p class="lbl" style="margin-top:9px;margin-bottom:0">A divergência que abrimos na quarta — Chapecoense subestimada pelo mercado — <b>não se confirmou</b>. O modelo dava 27% e o mercado 21%; o jogo terminou 1×3. Está registrado no placar de acompanhamento.</p>
+      </div>
+
+      <div class="blk pa">
+        <div class="bt">Recalibragem para sábado <span class="st">Parcial</span></div>
+        <p class="lbl" style="margin-bottom:0">O resultado da quarta mudou o peso do que está em jogo no Mineirão. O modelo <b>reprocessou a divergência de Cruzeiro × Flamengo</b> considerando a nova pressão sobre o visitante. A direção continua a mesma; a intensidade mudou.</p>
+      </div>
+
+      <div class="blk lk">
+        <div class="bt">A divergência recalibrada · Cruzeiro × Flamengo <span class="st">Bloqueado</span></div>
+        <p class="lbl">Quando o adversário direto abre folga, o time que precisa vencer muda de comportamento — e o modelo trata isso como variável, não como narrativa.</p>
+        <div class="bars">
+          <div class="row"><span class="nm">Terça</span><span class="track"><span class="fill" style="width:46%;background:var(--s3)"></span></span><span class="num">46%</span></div>
+          <div class="row"><span class="nm">Hoje</span><span class="track"><span class="mskb"></span></span><span class="num msk">43%</span></div>
+        </div>
+        <div class="gate">
+          <span class="badge-prem">Premium do Brasileirão</span>
+          <p class="g1">O número recalibrado e o motivo exato do ajuste.</p>
+          <p class="g2">O Premium também mostra o histórico de todas as recalibragens da temporada — inclusive as que pioraram a leitura.</p>
+        </div>
+        <a class="cta gold" href="pagina_rodada.html">Ativar Premium do Brasileirão</a>
+      </div>
+
+      <div class="cfoot">Preferências de e-mail · Cancelar inscrição</div>
+    </div>
+  </div>
+  <div class="mobj"><b>Objetivo:</b> usar o erro assumido do modelo como credibilidade e emendar direto na segunda onda. <s>Admitir a divergência que não se confirmou custa nada e compra muito.</s></div>
+</div>
+
+<!-- E-MAIL 4 -->
+<div class="mail">
+  <div class="mmeta"><span class="dtag">Sex 21/08</span><span class="hr">07h00</span><span class="evt">email_free_previa_sab_click</span></div>
+  <div class="client">
+    <div class="cbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span> Caixa de entrada</div>
+    <div class="chead">
+      <span class="av"></span>
+      <div class="cfrom"><b>Dale · Macro Markets</b><span>dale@macro.markets → você</span></div>
+    </div>
+    <div class="csubj">Segunda onda: seis jogos, e o Mineirão vale a liderança</div>
+    <div class="cpre"><b>Prévia sábado</b>A lista do Flamengo saiu ontem à noite e o mercado subiu 6 pp no Cruzeiro em 12 horas.</div>
+    <div class="cbody">
+      <h3>Seis jogos amanhã, e um deles decide quem dorme na liderança</h3>
+      <p>A lista de relacionados do Flamengo saiu ontem às 21h, sem três titulares. O mercado reagiu em minutos: o Cruzeiro saiu de <b>32% para 38%</b> em doze horas.</p>
+      <p>Seu time favorito, o <b>Cruzeiro</b>, joga o jogo de maior divergência da rodada — e este continua sendo o jogo aberto da sua conta.</p>
+
+      <div class="blk on">
+        <div class="bt">Cruzeiro × Flamengo · sáb 21h00 · Mineirão <span class="st">Ativo</span></div>
+        <div class="bars">
+          <div class="row"><span class="nm">Cruzeiro</span><span class="track"><span class="fill" style="width:38%;background:var(--s1)"></span></span><span class="num">38%</span></div>
+          <div class="row"><span class="nm">Empate</span><span class="track"><span class="fill" style="width:27%;background:#b9b6ae"></span></span><span class="num">27%</span></div>
+          <div class="row"><span class="nm">Flamengo</span><span class="track"><span class="fill" style="width:35%;background:var(--s2)"></span></span><span class="num">35%</span></div>
+        </div>
+        <p class="lbl" style="margin-top:10px;margin-bottom:0">Modelo em <b>43%</b> após a recalibragem de ontem. Divergência de <b>+5 pp</b>, ainda a maior da rodada. O desgaste do Flamengo continua sendo o eixo da leitura; o que caiu foi o desconto, porque a pressão da tabela empurra o visitante para cima.</p>
+      </div>
+
+      <div class="blk pa">
+        <div class="bt">Os outros cinco de sábado <span class="st">Parcial</span></div>
+        <div class="kv">
+          <div><span>Botafogo × Athletico-PR · 16h00</span><span><span class="rng">Divergência alta</span></span></div>
+          <div><span>Grêmio × Corinthians · 18h30</span><span><span class="rng">Divergência média</span></span></div>
+          <div><span>Vitória × Bahia · 18h30</span><span><span class="rng">Sem divergência</span></span></div>
+          <div><span>Fortaleza × Bragantino · 16h00</span><span><span class="rng">Sem divergência</span></span></div>
+          <div><span>Coritiba × Juventude · 21h00</span><span><span class="rng">Sem divergência</span></span></div>
+        </div>
+      </div>
+
+      <div class="blk lk">
+        <div class="bt">Peso do desfalque · os três ausentes do Flamengo <span class="st">Bloqueado</span></div>
+        <p class="lbl">Os três nomes estão públicos e você os viu na imprensa. O que não está público é <b>quanto cada um vale</b> em pontos por jogo, e qual dos três pesa mais para este adversário específico.</p>
+        <div class="kv">
+          <div><span>Impacto na produção ofensiva</span><span class="msk">−22%</span></div>
+          <div><span>Pontos por jogo com os três</span><span class="msk">2,1</span></div>
+          <div><span>Pontos por jogo sem os três</span><span class="msk">1,4</span></div>
+        </div>
+        <div class="gate">
+          <span class="badge-prem">Premium do Brasileirão</span>
+          <p class="g1">O peso quantificado de cada desfalque, nos dez jogos da rodada.</p>
+          <p class="g2">R$&nbsp;50 entram como saldo na conta e ativam o Premium até o fim do Brasileirão.</p>
+        </div>
+        <a class="cta gold" href="pagina_rodada.html">Ativar Premium antes do Mineirão</a>
+        <div class="subcta">Ativação instantânea. Vale para as 14 rodadas restantes.</div>
+      </div>
+
+      <div class="cfoot">Preferências de e-mail · Cancelar inscrição</div>
+    </div>
+  </div>
+  <div class="mobj"><b>Objetivo:</b> maior janela de conversão da trilha — personalização por time favorito somada ao pico de urgência da segunda onda. <s>O bloco Parcial cumpre papel duplo: entrega valor real e revela que existem mais divergências.</s></div>
+</div>
+
+<!-- E-MAIL 5 -->
+<div class="mail">
+  <div class="mmeta"><span class="dtag">Sáb 22/08</span><span class="hr">14h00</span><span class="evt">email_free_matchday_sab_click</span></div>
+  <div class="client">
+    <div class="cbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span> Caixa de entrada</div>
+    <div class="chead">
+      <span class="av"></span>
+      <div class="cfrom"><b>Dale · Macro Markets</b><span>dale@macro.markets → você</span></div>
+    </div>
+    <div class="csubj">Hoje, 21h: o Mineirão. Últimas 7 horas de leitura</div>
+    <div class="cpre"><b>Matchday sábado</b>Escalação confirmada às 20h. O gatilho ao vivo do jogo é um evento dos primeiros 25 minutos.</div>
+    <div class="cbody">
+      <h3>Seis jogos hoje, e o seu começa às 21h</h3>
+      <p>Primeiro apito às 16h, com Botafogo × Athletico-PR e Fortaleza × Bragantino. <b>Cruzeiro × Flamengo fecha o dia às 21h</b>, e a escalação confirmada sai uma hora antes.</p>
+
+      <div class="blk on">
+        <div class="bt">Estado do mercado agora <span class="st">Ativo</span></div>
+        <div class="bars">
+          <div class="row"><span class="nm">Cruzeiro</span><span class="track"><span class="fill" style="width:39%;background:var(--s1)"></span></span><span class="num">39%</span></div>
+          <div class="row"><span class="nm">Empate</span><span class="track"><span class="fill" style="width:27%;background:#b9b6ae"></span></span><span class="num">27%</span></div>
+          <div class="row"><span class="nm">Flamengo</span><span class="track"><span class="fill" style="width:34%;background:var(--s2)"></span></span><span class="num">34%</span></div>
+        </div>
+        <p class="lbl" style="margin-top:9px;margin-bottom:0">Mais 1 pp no Cruzeiro desde ontem. <span class="win">Atualizado há 12 minutos.</span> O chat do jogo já tem 340 mensagens.</p>
+      </div>
+
+      <div class="blk lk">
+        <div class="bt">Gatilho ao vivo do jogo <span class="st">Bloqueado</span></div>
+        <p class="lbl">O modelo define <b>um evento observável dentro dos primeiros 25 minutos</b> que reescreve a leitura do jogo. Se ele acontecer, a probabilidade do Cruzeiro muda de uma vez — e o valor do salto está calculado.</p>
+        <p class="lbl">Existe também o gatilho inverso, o que derruba a tese. Os dois estão no Premium, junto com os gatilhos dos outros cinco jogos de hoje.</p>
+        <div class="kv">
+          <div><span>Gatilho de confirmação</span><span class="msk">+13 pp</span></div>
+          <div><span>Gatilho de reversão</span><span class="msk">−16 pp</span></div>
+        </div>
+        <div class="gate">
+          <span class="badge-prem">Premium do Brasileirão</span>
+          <p class="g1">Os doze gatilhos dos seis jogos de hoje, ativos durante as partidas.</p>
+          <p class="g2">R$&nbsp;50 viram saldo e liberam tudo em segundos. Dá tempo antes das 16h.</p>
+        </div>
+        <a class="cta gold" href="pagina_rodada.html">Ativar Premium agora</a>
+        <div class="subcta">Ativação instantânea.</div>
+      </div>
+
+      <a class="sec2" href="pagina_rodada.html">Entrar no chat de Cruzeiro × Flamengo →</a>
+
+      <div class="cfoot">Gatilho é condição observável, não previsão. Preferências de e-mail · Cancelar inscrição</div>
+    </div>
+  </div>
+  <div class="mobj"><b>Objetivo:</b> pico de urgência da segunda onda. Curto, uma promessa só, prazo explícito. <s>Fecha com CTA de uso grátis (chat) para quem não converte — retenção antes de venda.</s></div>
+</div>
+
+<!-- E-MAIL 6 -->
+<div class="mail">
+  <div class="mmeta"><span class="dtag">Dom 23/08</span><span class="hr">08h30</span><span class="evt">email_free_fechamento_click</span></div>
+  <div class="client">
+    <div class="cbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span> Caixa de entrada</div>
+    <div class="chead">
+      <span class="av"></span>
+      <div class="cfrom"><b>Dale · Macro Markets</b><span>dale@macro.markets → você</span></div>
+    </div>
+    <div class="csubj">Cruzeiro 2×1: a divergência de +5 pp foi na direção certa</div>
+    <div class="cpre"><b>Fechamento da rodada</b>Placar da rodada 24 no modelo: 2 de 3. E a rodada 25 tem Flamengo × Palmeiras.</div>
+    <div class="cbody">
+      <h3>Rodada 24 fechada — e o placar do modelo, sem edição</h3>
+      <p>Cruzeiro 2 × 1 Flamengo no Mineirão. A divergência que você recebeu aberta na terça, e recalibrada na quinta, <b>foi na direção certa</b>.</p>
+      <p>Não foi uma rodada perfeita. Das três divergências, duas acertaram e uma errou — a da Chapecoense, na quarta, foi na direção oposta. Está tudo registrado abaixo.</p>
+
+      <div class="blk on">
+        <div class="bt">Placar de acompanhamento · rodada 24 <span class="st">Ativo</span></div>
+        <div class="kv">
+          <div><span>Cruzeiro × Flamengo · +5 pp casa</span><span>acertou</span></div>
+          <div><span>Botafogo × Athletico-PR · +5 pp casa</span><span>acertou</span></div>
+          <div><span>Chapecoense × São Paulo · +6 pp casa</span><span>errou</span></div>
+        </div>
+        <p class="lbl" style="margin-top:9px;margin-bottom:0">Acumulado da temporada: <b>61% de direção correta em 47 divergências</b> desde a rodada 1. <span class="win">Todas registradas antes do jogo, nenhuma editada depois.</span></p>
+      </div>
+
+      <div class="blk on">
+        <div class="bt">Tabela final da rodada 24 <span class="st">Ativo</span></div>
+        <div class="kv">
+          <div><span>1 · Palmeiras</span><span>51 pts</span></div>
+          <div><span>2 · Flamengo</span><span>45 pts</span></div>
+          <div><span>3 · Athletico-PR</span><span>41 pts</span></div>
+          <div><span>4 · Fluminense</span><span>39 pts</span></div>
+          <div><span>5 · Cruzeiro</span><span>39 pts</span></div>
+        </div>
+      </div>
+
+      <div class="blk lk">
+        <div class="bt">Rodada 25 · o jogo que pode decidir o título <span class="st">Bloqueado</span></div>
+        <p class="lbl"><b>Flamengo × Palmeiras</b>, sábado 29/08, Maracanã. Seis pontos de diferença, treze rodadas restantes. O modelo já rodou a primeira leitura, e a divergência é a maior das últimas oito rodadas.</p>
+        <div class="bars">
+          <div class="row"><span class="nm">Mercado</span><span class="track"><span class="fill" style="width:44%;background:var(--s1)"></span></span><span class="num">44%</span></div>
+          <div class="row"><span class="nm">Modelo Dale</span><span class="track"><span class="mskb"></span></span><span class="num msk">55%</span></div>
+        </div>
+        <div class="gate">
+          <span class="badge-prem">Premium do Brasileirão</span>
+          <p class="g1">Ativando agora, você entra na rodada 25 com os dez jogos abertos — incluindo o Maracanã.</p>
+          <p class="g2">R$&nbsp;50 entram como saldo. Valem as treze rodadas que faltam.</p>
+        </div>
+        <a class="cta gold" href="pagina_rodada.html">Ativar Premium para a rodada 25</a>
+      </div>
+
+      <div class="cfoot">Direção correta significa que o modelo apontou o lado que o resultado confirmou. Não é taxa de acerto de placar. Preferências de e-mail · Cancelar inscrição</div>
+    </div>
+  </div>
+  <div class="mobj"><b>Objetivo:</b> transformar o acerto verificado em razão para ativar, com o gancho da próxima rodada como urgência. <s>Publicar o erro junto é o que faz o 61% ser lido como número, não como propaganda.</s></div>
+</div>
+
+<div class="phase"><b>Reativação</b><s></s></div>
+
+<!-- R1 -->
+<div class="mail">
+  <div class="mmeta"><span class="dtag re">Sex 21/08</span><span class="hr">20h00</span><span class="evt">email_free_gate_recuperacao</span></div>
+  <div class="client">
+    <div class="cbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span> Caixa de entrada</div>
+    <div class="chead">
+      <span class="av"></span>
+      <div class="cfrom"><b>Dale · Macro Markets</b><span>dale@macro.markets → você</span></div>
+    </div>
+    <div class="csubj">Você abriu o peso do desfalque hoje. Fica um número de graça.</div>
+    <div class="cpre"><b>Só um número</b>Você clicou e não seguiu. Sem insistência — vai um dos três abertos.</div>
+    <div class="cbody">
+      <h3>Você chegou até a parede e voltou</h3>
+      <p>Hoje de manhã você abriu o bloco de peso do desfalque e não seguiu adiante. Sem problema. Em vez de repetir o pedido, vai um dos três números abertos, para você julgar se o resto vale.</p>
+
+      <div class="blk on">
+        <div class="bt">Um dos três · aberto <span class="st">Ativo</span></div>
+        <div class="kv">
+          <div><span>Pontos por jogo com os três titulares</span><span>2,1</span></div>
+          <div><span>Pontos por jogo sem os três</span><span>1,4</span></div>
+          <div><span>Amostra sem eles nesta temporada</span><span>6 jogos</span></div>
+        </div>
+        <p class="lbl" style="margin-top:9px;margin-bottom:0">Seis jogos é amostra curta. Leia como direção, não como número fechado — é assim que o Premium apresenta também.</p>
+      </div>
+
+      <p>Falta o terceiro: <b>qual dos três desfalques pesa mais especificamente contra o Cruzeiro</b>, que é o recorte que muda a leitura do jogo de amanhã. Esse continua no Premium, junto com o mesmo cálculo para os outros nove jogos.</p>
+
+      <div class="blk lk">
+        <div class="bt">O recorte que falta <span class="st">Bloqueado</span></div>
+        <p class="lbl" style="margin-bottom:0">Impacto por adversário: <span class="msk">o desfalque de maior peso contra defesas que jogam em bloco baixo</span></p>
+        <div class="gate">
+          <span class="badge-prem">Premium do Brasileirão</span>
+          <p class="g1">R$&nbsp;50 viram saldo na sua conta e ativam tudo. Dá tempo antes das 21h de amanhã.</p>
+        </div>
+        <a class="cta gold" href="pagina_rodada.html">Ativar Premium do Brasileirão</a>
+        <div class="subcta">Se não for agora, o e-mail de amanhã chega igual, sem cobrança.</div>
+      </div>
+
+      <div class="cfoot">Preferências de e-mail · Cancelar inscrição</div>
+    </div>
+  </div>
+  <div class="mobj"><b>Objetivo:</b> recuperar quem tocou o gate e desistiu, pagando com dado real em vez de repetir a oferta. <s>Gatilho: clique em bloco Bloqueado sem depósito em 12h. Dispara uma vez por rodada, no máximo.</s></div>
+</div>
+
+<!-- R2 -->
+<div class="mail">
+  <div class="mmeta"><span class="dtag re">Dom 23/08</span><span class="hr">19h00</span><span class="evt">email_free_prova_veredito</span></div>
+  <div class="client">
+    <div class="cbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span> Caixa de entrada</div>
+    <div class="chead">
+      <span class="av"></span>
+      <div class="cfrom"><b>Dale · Macro Markets</b><span>dale@macro.markets → você</span></div>
+    </div>
+    <div class="csubj">O que o Premium mostrou aos 23 minutos do Mineirão</div>
+    <div class="cpre"><b>Bastidor</b>O gatilho ao vivo disparou antes do intervalo. Quem tinha acesso viu o número mudar em tempo real.</div>
+    <div class="cbody">
+      <h3>O gatilho disparou aos 23 minutos</h3>
+      <p>Ontem, no e-mail das 14h, eu disse que o modelo tinha definido um evento observável nos primeiros 25 minutos que reescreveria a leitura do jogo. Agora que o jogo acabou, dá para contar sem estragar nada.</p>
+
+      <div class="blk on">
+        <div class="bt">O gatilho, revelado <span class="st">Ativo</span></div>
+        <p class="lbl"><b>Condição:</b> Cruzeiro finalizar três vezes dentro da área antes dos 25 minutos.</p>
+        <p class="lbl"><b>Aconteceu aos 23'.</b> A probabilidade do Cruzeiro no mercado saltou de 39% para 52% em quatro minutos. O modelo tinha calculado <b>+13 pp</b>. O mercado entregou +13.</p>
+        <p class="lbl" style="margin-bottom:0"><span class="win">Não é previsão de resultado. É a leitura de que aquele evento, naquele jogo, valia esse tanto.</span></p>
+      </div>
+
+      <p>Quem estava com o Premium aberto viu isso acontecer com o número na tela. Quem não estava viu o mesmo jogo — só que sem a régua.</p>
+
+      <div class="blk pa">
+        <div class="bt">Rodada 25 · doze gatilhos já definidos <span class="st">Parcial</span></div>
+        <p class="lbl" style="margin-bottom:0">Três jogos na quarta 26/08, sete no sábado 29/08. O modelo já publicou os gatilhos de <b>Flamengo × Palmeiras</b> — e classifica a divergência desse jogo como <span class="rng">a maior desde a rodada 16</span>.</p>
+      </div>
+
+      <a class="cta gold" href="pagina_rodada.html">Ativar Premium antes da rodada 25</a>
+      <div class="subcta">R$&nbsp;50 entram como saldo. Valem as 13 rodadas restantes.</div>
+
+      <div class="cfoot">Preferências de e-mail · Cancelar inscrição</div>
+    </div>
+  </div>
+  <div class="mobj"><b>Objetivo:</b> vender pela demonstração retroativa — mostra exatamente o que o não-assinante perdeu, com número verificável. <s>Gatilho: cadastrado sem depósito que abriu o matchday de sábado. É o e-mail de maior taxa de conversão da trilha.</s></div>
+</div>
+
+<!-- R3 -->
+<div class="mail">
+  <div class="mmeta"><span class="dtag re">Ter 25/08</span><span class="hr">09h00</span><span class="evt">email_free_deposito_abandonado</span></div>
+  <div class="client">
+    <div class="cbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span> Caixa de entrada</div>
+    <div class="chead">
+      <span class="av"></span>
+      <div class="cfrom"><b>Macro Markets · Suporte</b><span>ajuda@macro.markets → você</span></div>
+    </div>
+    <div class="csubj">Seu depósito ficou pela metade — travou em algo?</div>
+    <div class="cpre"><b>Suporte</b>Você iniciou a ativação domingo e não concluiu. Se foi problema técnico, a gente resolve.</div>
+    <div class="cbody">
+      <h3>A ativação ficou aberta</h3>
+      <p>Domingo, 19h42, você iniciou o depósito de R$&nbsp;50 e a operação não foi concluída. Isso acontece por três motivos, em geral — e nenhum deles é culpa sua.</p>
+
+      <div class="blk on">
+        <div class="bt">O que costuma travar <span class="st">Ativo</span></div>
+        <div class="kv">
+          <div><span>Pix expirado antes do pagamento</span><span>gerar novo</span></div>
+          <div><span>Cartão recusado pelo emissor</span><span>trocar método</span></div>
+          <div><span>Aba fechada antes da confirmação</span><span>retomar</span></div>
+        </div>
+      </div>
+
+      <p>Se foi qualquer um dos três, o link abaixo retoma exatamente de onde parou — o valor e o método já estão preenchidos.</p>
+      <p>E se você desistiu por outro motivo, <b>responda este e-mail dizendo qual</b>. Isso vale mais para nós do que a ativação.</p>
+
+      <div class="blk pa">
+        <div class="bt">Lembrando o que o valor é <span class="st">Parcial</span></div>
+        <p class="lbl" style="margin-bottom:0">Os R$&nbsp;50 <b>não são uma taxa</b>. Entram como saldo na sua conta e continuam seus. O que eles fazem é ativar o Premium do Brasileirão até o fim da temporada.</p>
+      </div>
+
+      <a class="cta blue" href="pagina_rodada.html">Retomar a ativação</a>
+      <div class="subcta">Ou fale com o suporte — respondemos em até 2 horas em dia de jogo.</div>
+
+      <div class="cfoot">Este é um e-mail transacional de suporte. Preferências de e-mail</div>
+    </div>
+  </div>
+  <div class="mobj"><b>Objetivo:</b> recuperar falha operacional, não vender de novo. Remetente muda para suporte, tom muda, CTA fica azul. <s>Gatilho: depósito iniciado e não concluído em 24h. Nenhum selo âmbar — aqui a intenção de compra já existia.</s></div>
+</div>
+
+</div><!-- /p-b -->
+
+<!-- =========================================================
+     TRILHA 3 — PREMIUM
+     ========================================================= -->
+<div class="pane dkpane" id="p-c">
+
+<div class="th dk">
+  <div class="eb">Trilha 3</div>
+  <h2>Premium — depositou, tem acesso total</h2>
+  <p>Já pagou. Não existe mais nada para vender nesta rodada, e insistir em venda aqui só ensina o assinante a ignorar o remetente. <b>Objetivo: uso recorrente.</b> Todo CTA aponta para uma ação dentro do produto — abrir o dossiê, entrar no chat, ver o gatilho ao vivo. Nenhum bloco Bloqueado, nenhum selo âmbar de venda: o âmbar aqui vira selo de posse.</p>
+  <div class="thkv">
+    <span><b>6</b> e-mails no ciclo</span>
+    <span><b>2</b> de reativação de uso</span>
+    <span>Cadência <b>alta</b> — o assinante espera o e-mail</span>
+    <span>CTA <b>de uso</b>, nunca de venda</span>
+  </div>
+</div>
+
+<div class="ruler dk">
+  <div class="rt">Régua da rodada 24 <s>· mesmo ritmo, conteúdo completo, disparo mais cedo</s></div>
+  <div class="days">
+    <div class="day"><div class="dw">Dom</div><div class="dn">16</div></div>
+    <div class="day"><div class="dw">Seg</div><div class="dn">17</div></div>
+    <div class="day"><div class="dw">Ter</div><div class="dn">18</div><div class="pins"><span class="pin">1 · Dossiê</span></div></div>
+    <div class="day mday"><div class="dw">Qua</div><div class="dn">19</div><div class="jg">4 jogos</div><div class="pins"><span class="pin">2 · Matchday</span></div></div>
+    <div class="day"><div class="dw">Qui</div><div class="dn">20</div><div class="pins"><span class="pin">3 · Recalibra</span></div></div>
+    <div class="day"><div class="dw">Sex</div><div class="dn">21</div><div class="pins"><span class="pin">4 · Dossiê sáb</span></div></div>
+    <div class="day mday"><div class="dw">Sáb</div><div class="dn">22</div><div class="jg">6 jogos</div><div class="pins"><span class="pin">5 · Matchday</span></div></div>
+    <div class="day"><div class="dw">Dom</div><div class="dn">23</div><div class="pins"><span class="pin">6 · Placar</span></div></div>
+  </div>
+  <div class="rlgd">
+    <span><i style="background:#1a2f52;border:1px solid #2d4a7a"></i> Dia de jogo</span>
+    <span><i style="background:#0f2e1c;border:1px solid #1f5b3f"></i> E-mail do ciclo</span>
+    <span><i style="background:#241a3a;border:1px solid #3d2d5c"></i> Reativação de uso</span>
+    <span>R1 (seg 24/08) e R2 (qua 26/08) disparam fora da régua</span>
+  </div>
+</div>
+
+<div class="tnote"><b>Aqui não existe gate.</b> Todo bloco é Ativo. O selo âmbar aparece uma vez por e-mail, no cabeçalho, como <b>confirmação de posse</b> — “Premium ativo até 07/12/2026” — e nunca como parede. O único bloco Ausente é o de venda: ele simplesmente não é renderizado nesta trilha.</div>
+
+<div class="phase"><b>Ciclo da rodada</b><s></s></div>
+
+<!-- E-MAIL 1 -->
+<div class="mail">
+  <div class="mmeta"><span class="dtag">Ter 18/08</span><span class="hr">06h30</span><span class="evt">email_prem_dossie_click</span></div>
+  <div class="client dk">
+    <div class="cbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span> Caixa de entrada</div>
+    <div class="chead">
+      <span class="av"></span>
+      <div class="cfrom"><b>Dale · Macro Markets</b><span>dale@macro.markets → você · Premium</span></div>
+    </div>
+    <div class="csubj">Dossiê da rodada 24: as três divergências, com método</div>
+    <div class="cpre"><b>Dossiê</b>Quatro jogos na quarta, seis no sábado. Divergência acima de 5 pp em três deles.</div>
+    <div class="cbody">
+      <p style="margin-bottom:11px"><span class="badge-prem">Premium ativo até 07/12/2026</span></p>
+      <h3>As três divergências da rodada 24, abertas</h3>
+      <p>Rodada partida em duas ondas. Uma divergência na quarta, duas no sábado. As três com o método, as premissas e o ponto de virada — como sempre, publicadas antes do primeiro apito.</p>
+
+      <div class="blk on">
+        <div class="bt">Divergência 1 · Cruzeiro × Flamengo · sáb 21h00 <span class="st">Ativo</span></div>
+        <div class="bars">
+          <div class="row"><span class="nm">Mercado</span><span class="track"><span class="fill" style="width:38%;background:var(--s1)"></span></span><span class="num">38%</span></div>
+          <div class="row"><span class="nm">Modelo</span><span class="track"><span class="fill" style="width:46%;background:var(--s3)"></span></span><span class="num">46%</span></div>
+          <div class="row"><span class="nm">Divergência</span><span class="track"><span class="fill" style="width:8%;background:var(--s3)"></span></span><span class="num">+8 pp</span></div>
+        </div>
+        <p class="lbl" style="margin-top:10px"><b>Método.</b> Três variáveis dominam: carga de calendário do visitante (terceiro jogo em oito dias, com viagem), retrospecto defensivo do mandante no Mineirão (4 de 5 sem sofrer gol) e distribuição de gols por faixa — os dois times concentram produção após os 60 minutos, o que favorece quem tem pernas.</p>
+        <p class="lbl" style="margin-bottom:0"><b>Ponto de virada.</b> Flamengo escalando força máxima leva a divergência para +2 pp e a tese perde sustentação.</p>
+      </div>
+
+      <div class="blk on">
+        <div class="bt">Divergência 2 · Chapecoense × São Paulo · qua 21h30 <span class="st">Ativo</span></div>
+        <p class="lbl"><b>Mercado 21%, modelo 27%, +6 pp.</b> O São Paulo poupa três titulares pensando na Sul-Americana e o modelo trata isso como queda de qualidade real, não como narrativa. A Chapecoense em casa, jogando pela sobrevivência matemática, tem <b>1,4 ponto por jogo</b> na temporada — contra 0,6 fora.</p>
+        <p class="lbl" style="margin-bottom:0"><b>Ponto de virada.</b> São Paulo marcando antes dos 20 minutos anula o efeito casa e a divergência some.</p>
+      </div>
+
+      <div class="blk on">
+        <div class="bt">Divergência 3 · Botafogo × Athletico-PR · sáb 16h00 <span class="st">Ativo</span></div>
+        <p class="lbl" style="margin-bottom:0"><b>Mercado 47%, modelo 52%, +5 pp.</b> O Athletico chega de dois jogos fora de casa em cinco dias e o modelo pesa a eficiência ofensiva do Botafogo no Nilton Santos — 17,2% contra 12,8% do visitante na temporada.</p>
+      </div>
+
+      <div class="blk on">
+        <div class="bt">Os outros sete jogos <span class="st">Ativo</span></div>
+        <p class="lbl" style="margin-bottom:0">Sem divergência relevante. Modelo e mercado dentro de 3 pp em todos. O dossiê completo tem os sete com probabilidade, indicadores por time e curva de gols.</p>
+      </div>
+
+      <a class="cta" href="pagina_rodada.html">Abrir o dossiê completo da rodada 24</a>
+      <div class="subcta">10 jogos · indicadores · gatilhos · agente de IA</div>
+      <a class="sec2" href="pagina_hub_campeonato.html">Ver a árvore da tabela no hub →</a>
+
+      <div class="cfoot">Divergência é tese sobre o dado, não recomendação de aposta. Todas registradas antes do jogo. Preferências de e-mail</div>
+    </div>
+  </div>
+  <div class="mobj"><b>Objetivo:</b> ser o e-mail que o assinante espera na terça. Entrega tudo, sem reter nada. <s>CTA leva para o produto, não para checkout. É o e-mail que sustenta a renovação.</s></div>
+</div>
+
+<!-- E-MAIL 2 -->
+<div class="mail">
+  <div class="mmeta"><span class="dtag">Qua 19/08</span><span class="hr">17h30</span><span class="evt">email_prem_matchday_qua_click</span></div>
+  <div class="client dk">
+    <div class="cbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span> Caixa de entrada</div>
+    <div class="chead">
+      <span class="av"></span>
+      <div class="cfrom"><b>Dale · Macro Markets</b><span>dale@macro.markets → você · Premium</span></div>
+    </div>
+    <div class="csubj">Gatilhos da quarta ativos: 4 jogos, 8 condições</div>
+    <div class="cpre"><b>Matchday quarta</b>Primeiro apito às 19h30. O gatilho da Chape é um evento dos primeiros 20 minutos.</div>
+    <div class="cbody">
+      <p style="margin-bottom:11px"><span class="badge-prem">Premium ativo</span></p>
+      <h3>Primeira onda em duas horas — os oito gatilhos estão no ar</h3>
+      <p>Dois gatilhos por jogo: um de confirmação, um de reversão. Todos calculados antes do apito e visíveis ao vivo na página da rodada enquanto os jogos acontecem.</p>
+
+      <div class="blk on">
+        <div class="bt">Chapecoense × São Paulo · 21h30 · a divergência da noite <span class="st">Ativo</span></div>
+        <div class="kv">
+          <div><span>Confirmação · Chape finaliza 2× na área até 20'</span><span>+11 pp</span></div>
+          <div><span>Reversão · São Paulo marca até 20'</span><span>−15 pp</span></div>
+        </div>
+        <p class="lbl" style="margin-top:9px;margin-bottom:0">Mercado 21%, modelo 27%. O gatilho de reversão é forte porque o efeito casa da Chape depende de o jogo começar equilibrado.</p>
+      </div>
+
+      <div class="blk on">
+        <div class="bt">Os outros três jogos <span class="st">Ativo</span></div>
+        <div class="kv">
+          <div><span>Palmeiras × Vasco · 0×0 aos 60'</span><span>−14 pp</span></div>
+          <div><span>Fluminense × Remo · Flu marca 1º</span><span>+9 pp</span></div>
+          <div><span>Internacional × Atlético-MG · Galo marca 1º</span><span>+12 pp</span></div>
+        </div>
+      </div>
+
+      <div class="blk on">
+        <div class="bt">Movimento de preço hoje <span class="st">Ativo</span></div>
+        <p class="lbl" style="margin-bottom:0">Chapecoense <b>+4 pp</b> desde a confirmação da escalação do São Paulo. Internacional <b>−3 pp</b>. Os outros dois estáveis. <span class="win">Atualizado há 8 minutos.</span></p>
+      </div>
+
+      <a class="cta" href="pagina_rodada.html">Acompanhar os gatilhos ao vivo</a>
+      <div class="subcta">A página atualiza sozinha durante os jogos.</div>
+      <a class="sec2" href="pagina_rodada.html">Entrar no chat de Palmeiras × Vasco →</a>
+
+      <div class="cfoot">Gatilho é condição observável, não previsão de resultado. Preferências de e-mail</div>
+    </div>
+  </div>
+  <div class="mobj"><b>Objetivo:</b> puxar sessão durante a primeira onda. Métrica de sucesso é sessão ao vivo, não clique. <s>O segundo CTA para o chat existe porque uso social é o que segura assinatura em rodada morna.</s></div>
+</div>
+
+<!-- E-MAIL 3 -->
+<div class="mail">
+  <div class="mmeta"><span class="dtag">Qui 20/08</span><span class="hr">07h30</span><span class="evt">email_prem_recalibra_click</span></div>
+  <div class="client dk">
+    <div class="cbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span> Caixa de entrada</div>
+    <div class="chead">
+      <span class="av"></span>
+      <div class="cfrom"><b>Dale · Macro Markets</b><span>dale@macro.markets → você · Premium</span></div>
+    </div>
+    <div class="csubj">Errei a Chape. E o Mineirão foi recalibrado por causa disso.</div>
+    <div class="cpre"><b>Fechamento da 1ª onda</b>1×3 na Arena Condá. O que o erro ensinou e como o modelo ajustou o sábado.</div>
+    <div class="cbody">
+      <p style="margin-bottom:11px"><span class="badge-prem">Premium ativo</span></p>
+      <h3>A divergência da quarta não se confirmou</h3>
+      <p>Chapecoense 1 × 3 São Paulo. O modelo dava 27% contra 21% do mercado, e o gatilho de reversão disparou aos 14 minutos — São Paulo marcou cedo e o efeito casa evaporou, exatamente como o gatilho previa.</p>
+      <p><b>O que isso ensina:</b> o modelo está superestimando o efeito casa de times do Z4 em jogo de sobrevivência. É o terceiro caso na temporada. Vai entrar como ajuste de peso na próxima revisão.</p>
+
+      <div class="blk on">
+        <div class="bt">Placar parcial da rodada 24 <span class="st">Ativo</span></div>
+        <div class="kv">
+          <div><span>Chapecoense × São Paulo · +6 pp</span><span>errou</span></div>
+          <div><span>Cruzeiro × Flamengo · +8 pp</span><span>sábado</span></div>
+          <div><span>Botafogo × Athletico-PR · +5 pp</span><span>sábado</span></div>
+        </div>
+        <p class="lbl" style="margin-top:9px;margin-bottom:0">Temporada: <b>60% de direção correta em 45 divergências</b>. Nenhuma editada depois do apito.</p>
+      </div>
+
+      <div class="blk on">
+        <div class="bt">Recalibragem do Mineirão <span class="st">Ativo</span></div>
+        <div class="bars">
+          <div class="row"><span class="nm">Terça</span><span class="track"><span class="fill" style="width:46%;background:var(--s3)"></span></span><span class="num">46%</span></div>
+          <div class="row"><span class="nm">Hoje</span><span class="track"><span class="fill" style="width:43%;background:var(--s3)"></span></span><span class="num">43%</span></div>
+        </div>
+        <p class="lbl" style="margin-top:10px;margin-bottom:0"><b>Por que caiu 3 pp.</b> Palmeiras venceu e abriu seis. Isso muda o comportamento esperado do Flamengo: time que precisa vencer assume mais risco ofensivo, e o modelo trata risco assumido como aumento de variância — o que sobe a chance do visitante mesmo com desgaste. A divergência vai de +8 para +5 pp; a direção segue igual.</p>
+      </div>
+
+      <div class="blk on">
+        <div class="bt">Tabela depois da primeira onda <span class="st">Ativo</span></div>
+        <div class="kv">
+          <div><span>1 · Palmeiras</span><span>51 pts · 24j</span></div>
+          <div><span>2 · Flamengo</span><span>45 pts · 22j</span></div>
+          <div><span>3 · Athletico-PR</span><span>41 pts · 23j</span></div>
+          <div><span>20 · Chapecoense</span><span>11 pts · 24j</span></div>
+        </div>
+      </div>
+
+      <a class="cta" href="pagina_hub_campeonato.html">Ver o impacto na corrida do título</a>
+      <div class="subcta">Árvore da tabela atualizada com os quatro resultados.</div>
+      <a class="sec2" href="pagina_rodada.html">Perguntar ao agente sobre a recalibragem →</a>
+
+      <div class="cfoot">Preferências de e-mail</div>
+    </div>
+  </div>
+  <div class="mobj"><b>Objetivo:</b> retenção por transparência. Assinante que vê o erro explicado renova; assinante que só vê acerto desconfia. <s>Ponte explícita entre as duas ondas — o resultado da quarta muda o número do sábado.</s></div>
+</div>
+
+<!-- E-MAIL 4 -->
+<div class="mail">
+  <div class="mmeta"><span class="dtag">Sex 21/08</span><span class="hr">06h30</span><span class="evt">email_prem_dossie_sab_click</span></div>
+  <div class="client dk">
+    <div class="cbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span> Caixa de entrada</div>
+    <div class="chead">
+      <span class="av"></span>
+      <div class="cfrom"><b>Dale · Macro Markets</b><span>dale@macro.markets → você · Premium</span></div>
+    </div>
+    <div class="csubj">Dossiê do sábado: lista do Flamengo saiu, mercado subiu 6 pp</div>
+    <div class="cpre"><b>Dossiê 2ª onda</b>Seis jogos. Peso quantificado dos três desfalques e a curva de preço das últimas 12h.</div>
+    <div class="cbody">
+      <p style="margin-bottom:11px"><span class="badge-prem">Premium ativo</span></p>
+      <h3>A lista de relacionados moveu o preço em doze horas</h3>
+      <p>Saiu ontem às 21h, sem três titulares do Flamengo. O Cruzeiro foi de <b>32% para 38%</b> até as 6h de hoje. É o maior movimento de preço da rodada, e o segundo maior desde a rodada 19.</p>
+
+      <div class="blk on">
+        <div class="bt">Peso quantificado dos três desfalques <span class="st">Ativo</span></div>
+        <div class="kv">
+          <div><span>Impacto na produção ofensiva</span><span>−22%</span></div>
+          <div><span>Pontos por jogo com os três</span><span>2,1</span></div>
+          <div><span>Pontos por jogo sem os três</span><span>1,4</span></div>
+          <div><span>Amostra sem eles</span><span>6 jogos</span></div>
+        </div>
+        <p class="lbl" style="margin-top:9px;margin-bottom:0"><b>Qual pesa mais aqui.</b> O meia central. O Cruzeiro joga em bloco baixo no Mineirão e concede espaço só no meio — que é justamente onde o desfalque tira o Flamengo. Contra defesas que pressionam alto o peso dele cairia pela metade.</p>
+      </div>
+
+      <div class="blk on">
+        <div class="bt">Curva de preço · Cruzeiro no Mineirão <span class="st">Ativo</span></div>
+        <div class="kv">
+          <div><span>Domingo 16/08</span><span>32%</span></div>
+          <div><span>Quarta 19/08, 12h</span><span>33%</span></div>
+          <div><span>Quinta 20/08, 21h · lista sai</span><span>34%</span></div>
+          <div><span>Sexta 21/08, 06h</span><span>38%</span></div>
+        </div>
+        <p class="lbl" style="margin-top:9px;margin-bottom:0">Modelo em 43% após a recalibragem de ontem. Divergência atual: <b>+5 pp</b>.</p>
+      </div>
+
+      <div class="blk on">
+        <div class="bt">Os outros cinco de sábado <span class="st">Ativo</span></div>
+        <div class="kv">
+          <div><span>Botafogo × Athletico-PR · 16h00</span><span>+5 pp casa</span></div>
+          <div><span>Grêmio × Corinthians · 18h30</span><span>+3 pp casa</span></div>
+          <div><span>Vitória × Bahia · 18h30</span><span>sem divergência</span></div>
+          <div><span>Fortaleza × Bragantino · 16h00</span><span>sem divergência</span></div>
+          <div><span>Coritiba × Juventude · 21h00</span><span>sem divergência</span></div>
+        </div>
+      </div>
+
+      <a class="cta" href="pagina_rodada.html">Abrir o dossiê dos seis jogos</a>
+      <div class="subcta">Indicadores por time · curva de gols · o que está em jogo</div>
+
+      <div class="cfoot">Preferências de e-mail</div>
+    </div>
+  </div>
+  <div class="mobj"><b>Objetivo:</b> entregar na sexta o mesmo nível de profundidade da terça. A segunda onda não é apêndice da rodada — tem dossiê próprio. <s>É o bloco que o e-mail da trilha 2 vela; aqui vai inteiro.</s></div>
+</div>
+
+<!-- E-MAIL 5 -->
+<div class="mail">
+  <div class="mmeta"><span class="dtag">Sáb 22/08</span><span class="hr">15h00</span><span class="evt">email_prem_matchday_sab_click</span></div>
+  <div class="client dk">
+    <div class="cbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span> Caixa de entrada</div>
+    <div class="chead">
+      <span class="av"></span>
+      <div class="cfrom"><b>Dale · Macro Markets</b><span>dale@macro.markets → você · Premium</span></div>
+    </div>
+    <div class="csubj">12 gatilhos no ar. Primeiro apito em 1h.</div>
+    <div class="cpre"><b>Matchday sábado</b>Seis jogos, das 16h às 23h. O gatilho do Mineirão é dos primeiros 25 minutos.</div>
+    <div class="cbody">
+      <p style="margin-bottom:11px"><span class="badge-prem">Premium ativo</span></p>
+      <h3>Segunda onda: sete horas de jogo, doze gatilhos ativos</h3>
+      <p>Começa às 16h e termina perto das 23h. Os gatilhos ficam ativos na página da rodada durante todas as partidas.</p>
+
+      <div class="blk on">
+        <div class="bt">Cruzeiro × Flamengo · 21h00 · Mineirão <span class="st">Ativo</span></div>
+        <div class="kv">
+          <div><span>Confirmação · Cruzeiro finaliza 3× na área até 25'</span><span>+13 pp</span></div>
+          <div><span>Reversão · Flamengo marca até 25'</span><span>−16 pp</span></div>
+        </div>
+        <p class="lbl" style="margin-top:9px;margin-bottom:0">Mercado agora em 39% no Cruzeiro, +1 pp desde ontem. Modelo em 43%. <span class="win">Escalação confirmada às 20h.</span></p>
+      </div>
+
+      <div class="blk on">
+        <div class="bt">Os outros cinco jogos · gatilho de confirmação <span class="st">Ativo</span></div>
+        <div class="kv">
+          <div><span>Botafogo × Athletico-PR · 16h00</span><span>+10 pp</span></div>
+          <div><span>Fortaleza × Bragantino · 16h00</span><span>+8 pp</span></div>
+          <div><span>Grêmio × Corinthians · 18h30</span><span>+9 pp</span></div>
+          <div><span>Vitória × Bahia · 18h30</span><span>+12 pp</span></div>
+          <div><span>Coritiba × Juventude · 21h00</span><span>+7 pp</span></div>
+        </div>
+      </div>
+
+      <a class="cta" href="pagina_rodada.html">Abrir os gatilhos ao vivo</a>
+      <div class="subcta">Atualiza sozinho. Deixe aberto durante os jogos.</div>
+      <a class="sec2" href="pagina_rodada.html">Chat de Cruzeiro × Flamengo · 340 mensagens →</a>
+
+      <div class="cfoot">Gatilho é condição observável, não previsão. Preferências de e-mail</div>
+    </div>
+  </div>
+  <div class="mobj"><b>Objetivo:</b> sessão longa no pico da rodada. Curto de propósito — o valor está na página, não no e-mail. <s>Este é o e-mail com maior correlação com renovação: quem usa gatilho ao vivo não cancela.</s></div>
+</div>
+
+<!-- E-MAIL 6 -->
+<div class="mail">
+  <div class="mmeta"><span class="dtag">Dom 23/08</span><span class="hr">08h00</span><span class="evt">email_prem_placar_click</span></div>
+  <div class="client dk">
+    <div class="cbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span> Caixa de entrada</div>
+    <div class="chead">
+      <span class="av"></span>
+      <div class="cfrom"><b>Dale · Macro Markets</b><span>dale@macro.markets → você · Premium</span></div>
+    </div>
+    <div class="csubj">Rodada 24: 2 de 3. E a 25 tem Flamengo × Palmeiras.</div>
+    <div class="cpre"><b>Fechamento</b>O gatilho do Mineirão disparou aos 23'. Placar da temporada em 61%.</div>
+    <div class="cbody">
+      <p style="margin-bottom:11px"><span class="badge-prem">Premium ativo</span></p>
+      <h3>Duas de três, e o gatilho do Mineirão entregou o valor calculado</h3>
+      <p>Cruzeiro 2 × 1 Flamengo. O gatilho de confirmação disparou aos <b>23 minutos</b> — três finalizações dentro da área. O modelo tinha calculado +13 pp; o mercado saltou de 39% para 52% em quatro minutos.</p>
+
+      <div class="blk on">
+        <div class="bt">Placar de acompanhamento · rodada 24 <span class="st">Ativo</span></div>
+        <div class="kv">
+          <div><span>Cruzeiro × Flamengo · +5 pp casa</span><span>acertou</span></div>
+          <div><span>Botafogo × Athletico-PR · +5 pp casa</span><span>acertou</span></div>
+          <div><span>Chapecoense × São Paulo · +6 pp casa</span><span>errou</span></div>
+        </div>
+        <p class="lbl" style="margin-top:9px;margin-bottom:0">Temporada: <b>61% de direção correta em 47 divergências</b>. Calibração dos gatilhos: <b>8 de 12</b> disparados nesta rodada entregaram movimento dentro de 3 pp do calculado.</p>
+      </div>
+
+      <div class="blk on">
+        <div class="bt">Tabela final da rodada 24 <span class="st">Ativo</span></div>
+        <div class="kv">
+          <div><span>1 · Palmeiras</span><span>51 pts</span></div>
+          <div><span>2 · Flamengo</span><span>45 pts</span></div>
+          <div><span>3 · Athletico-PR</span><span>41 pts</span></div>
+          <div><span>4 · Fluminense</span><span>39 pts</span></div>
+          <div><span>5 · Cruzeiro</span><span>39 pts</span></div>
+        </div>
+      </div>
+
+      <div class="blk on">
+        <div class="bt">Rodada 25 · também partida <span class="st">Ativo</span></div>
+        <p class="lbl" style="margin-bottom:0">Quarta 26/08, três jogos. Sábado 29/08, sete. <b>Flamengo × Palmeiras no Maracanã, sábado 21h00</b> — mercado em 44% no mandante, modelo em 55%. Divergência de <b>+11 pp</b>, a maior desde a rodada 16. O dossiê sai terça 06h30.</p>
+      </div>
+
+      <a class="cta" href="pagina_hub_campeonato.html">Ver a corrida do título atualizada</a>
+      <div class="subcta">Probabilidade de título dos 20 times, recalculada.</div>
+      <a class="sec2" href="pagina_blog.html">Ler a análise longa da rodada 24 →</a>
+
+      <div class="cfoot">Direção correta significa que o modelo apontou o lado confirmado pelo resultado. Não é taxa de acerto de placar. Preferências de e-mail</div>
+    </div>
+  </div>
+  <div class="mobj"><b>Objetivo:</b> fechar prestando contas e abrir a próxima rodada com o maior gancho da temporada. <s>Calibração dos gatilhos é métrica de honestidade — mede se o número prometido foi o número entregue.</s></div>
+</div>
+
+<div class="phase"><b>Reativação de uso</b><s></s></div>
+
+<!-- R1 -->
+<div class="mail">
+  <div class="mmeta"><span class="dtag re">Seg 24/08</span><span class="hr">10h00</span><span class="evt">email_prem_ativacao_72h</span></div>
+  <div class="client dk">
+    <div class="cbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span> Caixa de entrada</div>
+    <div class="chead">
+      <span class="av"></span>
+      <div class="cfrom"><b>Dale · Macro Markets</b><span>dale@macro.markets → você · Premium</span></div>
+    </div>
+    <div class="csubj">Seu Premium está ativo há 3 dias e ainda não foi aberto</div>
+    <div class="cpre"><b>Ativação</b>Três coisas para fazer antes da rodada 25. Levam cinco minutos juntas.</div>
+    <div class="cbody">
+      <p style="margin-bottom:11px"><span class="badge-prem">Premium ativo até 07/12/2026</span></p>
+      <h3>Você ativou na sexta e ainda não entrou</h3>
+      <p>Sem cobrança — só um mapa. O Premium tem três coisas que só fazem sentido se forem configuradas uma vez, e depois trabalham sozinhas a temporada inteira.</p>
+
+      <div class="blk on">
+        <div class="bt">1 · Escolher o time que puxa a personalização <span class="st">Ativo</span></div>
+        <p class="lbl" style="margin-bottom:0">Define qual jogo abre no topo do dossiê e quais alertas você recebe. <span class="win">30 segundos.</span></p>
+      </div>
+
+      <div class="blk on">
+        <div class="bt">2 · Ligar o alerta de gatilho <span class="st">Ativo</span></div>
+        <p class="lbl" style="margin-bottom:0">Notificação no momento em que um gatilho dispara durante o jogo. É a função mais usada do produto e vem desligada por padrão. <span class="win">1 minuto.</span></p>
+      </div>
+
+      <div class="blk on">
+        <div class="bt">3 · Fazer uma pergunta ao agente <span class="st">Ativo</span></div>
+        <p class="lbl" style="margin-bottom:0">Ele responde sobre qualquer número do dossiê. Um bom teste: <i>“por que o modelo baixou o Cruzeiro de 46% para 43% na quinta?”</i> <span class="win">2 minutos.</span></p>
+      </div>
+
+      <p>A rodada 25 tem <b>Flamengo × Palmeiras no Maracanã</b>, com a maior divergência desde a rodada 16. Vale entrar configurado.</p>
+
+      <a class="cta" href="pagina_rodada.html">Configurar em 5 minutos</a>
+      <div class="subcta">Ou responda este e-mail se algo não estiver funcionando.</div>
+
+      <div class="cfoot">Preferências de e-mail</div>
+    </div>
+  </div>
+  <div class="mobj"><b>Objetivo:</b> onboarding tardio de quem pagou e não usou. Risco real de churn silencioso. <s>Gatilho: depósito confirmado há 72h com zero sessão no Premium. Três tarefas, tempo declarado em cada uma.</s></div>
+</div>
+
+<!-- R2 -->
+<div class="mail">
+  <div class="mmeta"><span class="dtag re">Qua 26/08</span><span class="hr">09h00</span><span class="evt">email_prem_habito_resgate</span></div>
+  <div class="client dk">
+    <div class="cbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span> Caixa de entrada</div>
+    <div class="chead">
+      <span class="av"></span>
+      <div class="cfrom"><b>Dale · Macro Markets</b><span>dale@macro.markets → você · Premium</span></div>
+    </div>
+    <div class="csubj">Você perdeu duas rodadas. O que aconteceu nelas, em 90 segundos.</div>
+    <div class="cpre"><b>Resumo do que passou</b>Rodadas 23 e 24 condensadas. Hoje tem três jogos e um deles mexe no G4.</div>
+    <div class="cbody">
+      <p style="margin-bottom:11px"><span class="badge-prem">Premium ativo</span></p>
+      <h3>Duas rodadas sem você. O resumo curto.</h3>
+      <p>Sem sermão. Você tem acesso, não usou, e o custo disso é só perder contexto. Aqui está o contexto de volta.</p>
+
+      <div class="blk on">
+        <div class="bt">O que mudou nas rodadas 23 e 24 <span class="st">Ativo</span></div>
+        <div class="kv">
+          <div><span>Palmeiras abriu</span><span>6 pts de folga</span></div>
+          <div><span>Flamengo perdeu no Mineirão</span><span>2º, 45 pts</span></div>
+          <div><span>Chapecoense</span><span>11 pts a 11 da saída</span></div>
+          <div><span>Modelo · direção correta</span><span>4 de 6</span></div>
+        </div>
+      </div>
+
+      <div class="blk on">
+        <div class="bt">Hoje · primeira onda da rodada 25 <span class="st">Ativo</span></div>
+        <p class="lbl" style="margin-bottom:0">Três jogos, 19h30 e 21h30. <b>Fluminense × Athletico-PR</b> às 21h30 decide quem fica com o terceiro lugar. Divergência de <b>+4 pp</b> a favor do mandante, e os gatilhos já estão no ar.</p>
+      </div>
+
+      <div class="blk on">
+        <div class="bt">Sábado · o jogo da temporada <span class="st">Ativo</span></div>
+        <p class="lbl" style="margin-bottom:0"><b>Flamengo × Palmeiras</b>, 29/08, Maracanã, 21h00. Divergência de +11 pp, a maior desde a rodada 16. Se você voltar para uma rodada só neste semestre, que seja esta.</p>
+      </div>
+
+      <a class="cta" href="pagina_rodada.html">Ver a rodada 25</a>
+      <div class="subcta">Prefere menos e-mail? <a href="#" style="color:inherit">Receber só nas rodadas do seu time</a>.</div>
+
+      <div class="cfoot">Preferências de e-mail</div>
+    </div>
+  </div>
+  <div class="mobj"><b>Objetivo:</b> resgatar hábito com resumo condensado em vez de cobrança. <s>Gatilho: zero sessão em duas rodadas consecutivas. Oferece redução de frequência antes de perder o assinante — melhor um e-mail por rodada do que descadastro.</s></div>
+</div>
+
+</div><!-- /p-c -->
+
+<div class="footer">
+  Mock estático · CSS puro, sem JavaScript · três trilhas alternáveis em radio/label<br>
+  <a href="mockups_3.html">Documento-mãe</a> · <a href="pagina_hub_campeonato.html">Hub do Campeonato</a> · <a href="pagina_rodada.html">Página da Rodada</a> · <a href="pagina_blog.html">Blog</a>
+</div>
+
+</div>
+</body>
+</html>

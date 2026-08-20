@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Macro Markets — Página da Rodada 24 · três cenários de acesso</title>
+<style>
+  :root{
+    --mm-blue:#1D6FE0; --mm-blue-d:#155ec2; --mm-green:#16A34A; --mm-green-l:#22c55e;
+    --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+    --ink:#0b0b0b; --ink2:#52514e; --muted:#898781;
+    --line:#e1e0d9; --surf:#ffffff; --page:#f4f4f1;
+    --dark:#0E1420; --dark2:#161E2E; --dark3:#1E293B; --dinv:#ffffff; --dink2:#94A3B8;
+    --ok:#0ca30c; --warn:#fab219;
+    --sans:system-ui,-apple-system,"Segoe UI",sans-serif;
+    --gold:#e08c00;
+    --st-on:#22a45d; --st-pa:#1D6FE0; --st-lk:#e0a92a; --st-off:#b6b3ab;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--page);font-family:var(--sans);color:var(--ink);line-height:1.5}
+  .wrap{max-width:1180px;margin:0 auto;padding:26px 18px 70px}
+
+  .doc-head{background:linear-gradient(135deg,var(--mm-blue),var(--mm-green));color:#fff;border-radius:16px;padding:28px 26px;margin-bottom:12px}
+  .doc-head h1{margin:0 0 7px;font-size:25px;letter-spacing:-.5px}
+  .doc-head p{margin:0;opacity:.93;font-size:14px;max-width:720px}
+  .note{background:#fff8e6;border:1px solid #f2dfae;border-radius:10px;padding:11px 15px;margin:0 0 14px;font-size:12.5px;color:#6b5a1e}
+
+  /* ---------- legenda fixa dos quatro estados ---------- */
+  .lgd{position:sticky;top:0;z-index:30;background:#fff;border:1px solid var(--line);border-radius:12px;
+    padding:11px 14px;margin-bottom:14px;box-shadow:0 4px 14px rgba(0,0,0,.06)}
+  .lgd .lt{font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:var(--muted);margin-bottom:8px}
+  .lgd .row{display:flex;flex-wrap:wrap;gap:7px}
+  .lgd .it{display:inline-flex;align-items:flex-start;gap:7px;border:1px solid var(--line);border-radius:8px;padding:6px 10px;
+    font-size:11px;color:var(--ink2);line-height:1.35;max-width:266px}
+  .lgd .it b{font-size:11.5px;color:var(--ink)}
+  .lgd .it i{width:4px;height:26px;border-radius:2px;flex:none;font-style:normal;margin-top:1px}
+  .lgd .it.on{background:#f3faf5;border-color:#bfe0c9}
+  .lgd .it.on i{background:var(--st-on)}
+  .lgd .it.pt{background:#f6f9fe;border-color:#c3d8f6}
+  .lgd .it.pt i{background:repeating-linear-gradient(180deg,var(--st-pa) 0 6px,transparent 6px 10px)}
+  .lgd .it.lk{background:#fffcf2;border-color:#e8d5a3}
+  .lgd .it.lk i{background:repeating-linear-gradient(180deg,var(--st-lk) 0 4px,transparent 4px 8px)}
+  .lgd .it.of{background:#f8f7f5;border-color:#dedcd5}
+  .lgd .it.of i{background:repeating-linear-gradient(180deg,var(--st-off) 0 4px,transparent 4px 8px)}
+  .lgd .hint{font-size:11px;color:var(--ink2);margin-top:8px;border-top:1px dashed var(--line);padding-top:8px}
+  .lgd .hint b{color:var(--ink)}
+
+  /* ---------- abas em CSS puro ---------- */
+  input.tt{position:absolute;opacity:0;width:0;height:0;pointer-events:none}
+  .tabs{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 14px}
+  .tabs label{font-size:12px;color:var(--ink2);background:#fff;border:1px solid var(--line);border-radius:20px;
+    padding:7px 15px;cursor:pointer;font-weight:600;user-select:none}
+  .tabs label:hover{border-color:var(--mm-blue);color:var(--mm-blue)}
+  .pane{display:none}
+  #sc-a:checked~.tabs label[for=sc-a],
+  #sc-b:checked~.tabs label[for=sc-b],
+  #sc-c:checked~.tabs label[for=sc-c]{background:var(--mm-blue);border-color:var(--mm-blue);color:#fff}
+  #sc-a:checked~#p-a,#sc-b:checked~#p-b,#sc-c:checked~#p-c{display:block}
+
+  /* ---------- moldura + coluna mobile ---------- */
+  .frame{background:var(--surf);border:1px solid var(--line);border-radius:14px;overflow:hidden;
+    box-shadow:0 1px 2px rgba(0,0,0,.04),0 8px 24px rgba(0,0,0,.05)}
+  .bar{background:#eceae5;padding:8px 14px;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--line)}
+  .dot{width:10px;height:10px;border-radius:50%;background:#cfcdc6}
+  .url{flex:1;background:#fff;border-radius:6px;padding:4px 12px;font-size:11px;color:var(--muted);margin-left:8px}
+  .canvas{background:#f4f4f1;padding:16px 12px 26px}
+  .canvas.dk{background:var(--dark)}
+  .scr{max-width:452px;margin:0 auto}
+
+  .ord{display:flex;flex-wrap:wrap;gap:5px;margin:0 0 12px;align-items:center}
+  .ord .lb{font-size:9.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:800;margin-right:2px}
+  .ord i{font-style:normal;font-size:11px;background:#fff;border:1px solid var(--line);border-radius:6px;padding:3px 8px;color:var(--ink2)}
+  .ord i b{color:var(--ink);font-weight:800;margin-right:5px}
+  .ord i.mv2{background:#eef3fd;border-color:#c3d8f7;color:#12508f}
+  .ord i.mv2 b{color:#12508f}
+
+  /* ---------- topo da página mobile ---------- */
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:0 2px 12px;border-bottom:1px solid var(--line);margin-bottom:12px}
+  .logo{display:inline-flex;align-items:center;gap:7px;font-weight:800;font-size:13.5px;letter-spacing:-.3px}
+  .logo .m{width:22px;height:22px;border-radius:6px;background:linear-gradient(135deg,var(--mm-blue),var(--mm-green))}
+  .nav .ac{font-size:11.5px;color:var(--mm-blue);font-weight:700}
+  .dk .nav{border-color:var(--dark3)} .dk .logo{color:#fff} .dk .nav .ac{color:#7dd3a0}
+  .bcrumb{font-size:10.5px;color:var(--muted);margin-bottom:9px}
+  .dk .bcrumb{color:var(--dink2)}
+
+  /* ---------- bloco de seção com estado ---------- */
+  .sec{background:#fff;border:1px solid var(--line);border-left:3px solid var(--line);border-radius:11px;overflow:hidden;margin-bottom:11px}
+  .sec>.sh{display:flex;align-items:center;gap:8px;padding:9px 12px;background:#fafaf8;border-bottom:1px solid var(--line)}
+  .sec>.sh .t{font-size:12.5px;font-weight:750;letter-spacing:-.15px;flex:1;line-height:1.3}
+  .sec>.sb{padding:12px}
+  .sec .nt{font-size:10.5px;color:var(--muted);border-top:1px dashed var(--line);padding:8px 12px;line-height:1.45}
+  .sec.on{border-left:3px solid var(--st-on)}
+  .sec.pt{border-left:3px dashed var(--st-pa);background:#fbfcff}
+  .sec.pt>.sh{background:#f4f8ff}
+  .sec.lk{border-left:3px dotted var(--st-lk);background:#fffdf6}
+  .sec.lk>.sh{background:#fff8e8;border-bottom-color:#f0e2c0}
+  .sec.of{border-left:3px dotted var(--st-off);background:#fbfbfa}
+  .sec.of>.sh{background:#f6f6f4}
+  .sec.of>.sb{padding:11px 12px}
+  .sec.of .offtxt{font-size:11.5px;color:var(--muted);line-height:1.5}
+
+  .tag{font-size:8.5px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;padding:3px 7px;border-radius:5px;
+    display:inline-flex;align-items:center;gap:4px;flex:none;white-space:nowrap}
+  .tag.on{background:#e2f4e9;color:#146c35}
+  .tag.pt{background:#e2ecfc;color:#12508f}
+  .tag.lk{background:#fbecc0;color:#7a5606;box-shadow:0 0 0 1px #e8d5a3}
+  .tag.of{background:#efeeea;color:#7d7b75}
+
+  /* resolução reduzida: marcador do "parcial" */
+  .res{display:inline-block;font-size:9.5px;font-weight:700;color:#12508f;background:#e9f1fd;border-radius:4px;padding:2px 6px;margin-bottom:8px}
+  .up1{display:inline-block;font-size:10.5px;color:var(--ink2);border-top:1px dashed var(--line);margin-top:10px;padding-top:8px;width:100%}
+  .up1 b{color:var(--ink)}
+
+  /* véu / valor coberto — só o número, rótulo legível */
+  .msk{filter:blur(5px);user-select:none;font-weight:800;color:var(--ink)}
+  .mskb{display:inline-block;width:100%;height:9px;border-radius:3px;background:linear-gradient(90deg,#d9d7d1,#eceae4);filter:blur(2.5px)}
+  .gate{margin-top:12px;border-top:1px dashed #e4c98a;padding-top:11px}
+  .gate .g1{font-size:12.5px;font-weight:750;line-height:1.4;margin:7px 0 0}
+  .gate .g2{font-size:11px;color:var(--ink2);margin-top:4px;line-height:1.45}
+  .badge-prem{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,#f0b429,#e08c00);
+    color:#2a1c00;font-size:9.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:4px 9px;border-radius:20px}
+
+  /* ---------- header da rodada ---------- */
+  .rh{background:linear-gradient(135deg,#12508f,#0f6b3f);color:#fff;border-radius:12px;padding:15px 16px;margin-bottom:11px}
+  .rh .eb{font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:#a8e3bf}
+  .rh h1{margin:6px 0 6px;font-size:22px;letter-spacing:-.6px;line-height:1.15}
+  .rh .dt{font-size:12px;color:#dbe7f5}
+  .rh .st{display:flex;gap:6px;flex-wrap:wrap;margin-top:11px}
+  .rh .st span{font-size:10.5px;font-weight:700;background:#ffffff1f;border-radius:20px;padding:4px 10px}
+
+  /* ---------- delta da tabela ---------- */
+  .dl{font-size:12px;color:var(--ink2);line-height:1.6}
+  .dl div{display:flex;gap:8px;padding:6px 0;border-bottom:1px solid var(--line)}
+  .dl div:last-child{border:none}
+  .dl div s{text-decoration:none;flex:none;font-weight:800;color:var(--mm-blue);font-size:11px}
+  .dl b{color:var(--ink)}
+  .dk .dl{color:#cbd5e1} .dk .dl div{border-color:var(--dark3)} .dk .dl b{color:#fff} .dk .dl div s{color:#7dd3a0}
+  .lnk{font-size:11px;color:var(--mm-blue);font-weight:700;margin-top:9px;display:block}
+  .dk .lnk{color:#7dd3a0}
+
+  /* ---------- lista de jogos ---------- */
+  .mt{border:1px solid var(--line);border-radius:10px;padding:9px 10px;margin-bottom:7px;background:#fff}
+  .mt:last-child{margin-bottom:0}
+  .mt.hot{border-color:#c3d8f7;background:#f8fbff}
+  .dk .mt{border-color:var(--dark3);background:var(--dark2)}
+  .dk .mt.hot{border-color:#2d4a7a;background:#12203a}
+  .mt .r1{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:700;line-height:1.2}
+  .mt .r1 .nmL{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .mt .r1 .nmR{flex:1;min-width:0;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .mt .r1 .x{font-size:9.5px;color:var(--muted);font-weight:800;flex:none}
+  .dk .mt .r1{color:#fff}
+  .crest{width:16px;height:16px;border-radius:4px;flex:none;display:inline-block}
+  .pb{display:flex;height:9px;border-radius:3px;overflow:hidden;background:#f0efec;margin:8px 0 5px;gap:1px}
+  .dk .pb{background:#0b1220}
+  .pb s{display:block;height:100%;text-decoration:none}
+  .pb s.a{background:var(--s1)} .pb s.d{background:#b9b6ae} .pb s.b{background:var(--s2)}
+  .dk .pb s.d{background:#3d4657}
+  .mt .r2{display:flex;justify-content:space-between;font-size:10.5px;color:var(--ink2);font-variant-numeric:tabular-nums}
+  .mt .r2 b{color:var(--ink);font-weight:800}
+  .dk .mt .r2{color:var(--dink2)} .dk .mt .r2 b{color:#fff}
+  .mt .r3{font-size:10px;color:var(--muted);margin-top:6px;display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
+  .dk .mt .r3{color:var(--dink2)}
+  .pp{font-size:9.5px;font-weight:800;font-variant-numeric:tabular-nums;padding:1px 5px;border-radius:4px;flex:none}
+  .pp.up{background:#e8f5ec;color:#146c35} .pp.dn{background:#fdeee6;color:#9a3412} .pp.fl{background:#efeeea;color:#6b6a66}
+  .dk .pp.up{background:#0f2e1c;color:#7dd3a0} .dk .pp.dn{background:#33180f;color:#f4a583} .dk .pp.fl{background:#22293a;color:#94a3b8}
+
+  /* ---------- indicadores: duas colunas, uma por time ---------- */
+  .h2hh{display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:center;margin-bottom:11px}
+  .h2hh .tm{font-size:12px;font-weight:800;display:flex;align-items:center;gap:6px}
+  .h2hh .tm.r{justify-content:flex-end}
+  .h2hh .vs{font-size:9.5px;color:var(--muted);font-weight:800}
+  .dk .h2hh .tm{color:#fff}
+  .h2r{display:grid;grid-template-columns:40px 1fr 78px 1fr 40px;gap:5px;align-items:center;margin-bottom:7px}
+  .h2r .v{font-size:11px;font-weight:800;font-variant-numeric:tabular-nums}
+  .h2r .v.r{text-align:right}
+  .h2r .lb{font-size:10px;color:var(--ink2);text-align:center;line-height:1.2}
+  .dk .h2r .lb{color:var(--dink2)} .dk .h2r .v{color:#fff}
+  .h2b{height:9px;background:#f0efec;border-radius:3px;overflow:hidden;display:flex}
+  .dk .h2b{background:#0b1220}
+  .h2b.l{justify-content:flex-end}
+  .h2b s{display:block;height:100%;text-decoration:none;background:#8f8b84;border-radius:3px}
+  .h2r.wl .h2b.l s{background:#22a45d} .h2r.wl .v:not(.r){color:#146c35}
+  .h2r.wr .h2b.r s{background:#22a45d} .h2r.wr .v.r{color:#146c35}
+  .dk .h2r.wl .v:not(.r),.dk .h2r.wr .v.r{color:#7dd3a0}
+  .qual{width:100%;border-collapse:collapse;font-size:11.5px}
+  .qual td{padding:6px 0;border-bottom:1px solid var(--line)}
+  .qual tr:last-child td{border:none}
+  .qual td:nth-child(1){font-weight:800;width:33%}
+  .qual td:nth-child(2){text-align:center;color:var(--muted);font-size:10.5px}
+  .qual td:nth-child(3){text-align:right;font-weight:800;width:33%}
+  .pctl{font-size:9.5px;font-weight:700;color:var(--mm-blue);background:#eef3fd;border-radius:4px;padding:1px 5px}
+  .dk .pctl{background:#12203a;color:#7dd3a0}
+  .spk{display:inline-flex;align-items:flex-end;gap:1.5px;height:14px;vertical-align:-2px}
+  .spk s{width:3px;background:#cfdcf5;text-decoration:none;border-radius:1px}
+  .spk s.hi{background:var(--mm-blue)}
+  .dk .spk s{background:#2d4a7a} .dk .spk s.hi{background:#7dd3a0}
+
+  /* ---------- comparativo mercado × modelo ---------- */
+  .cmp .row{display:flex;align-items:center;gap:9px;margin-bottom:7px;font-size:11.5px}
+  .cmp .nm{width:88px;color:var(--ink2);flex:none}
+  .cmp .track{flex:1;height:9px;background:#f0efec;border-radius:3px;overflow:hidden;display:flex;gap:2px}
+  .cmp .fill{height:100%;border-radius:3px}
+  .cmp .num{width:44px;text-align:right;font-weight:800;font-variant-numeric:tabular-nums}
+  .dk .cmp .nm{color:var(--dink2)} .dk .cmp .track{background:#0b1220} .dk .cmp .num{color:#fff}
+  .legend{display:flex;gap:14px;font-size:10.5px;color:var(--ink2);margin-top:9px;flex-wrap:wrap}
+  .legend span{display:inline-flex;align-items:center;gap:5px}
+  .swatch{width:9px;height:9px;border-radius:2px;display:inline-block}
+  .dk .legend{color:var(--dink2)}
+  .why{font-size:11.5px;color:var(--ink2);line-height:1.55;margin:10px 0 0}
+  .why b{color:var(--ink)}
+  .dk .why{color:#cbd5e1} .dk .why b{color:#fff}
+  .win{font-size:9.5px;color:var(--muted);font-weight:700}
+
+  /* ---------- cenários ---------- */
+  .scn{border-left:3px solid var(--line);padding:0 0 0 10px;margin-bottom:11px}
+  .scn:last-child{margin-bottom:0}
+  .scn.a{border-color:#5b8def} .scn.b{border-color:#e0a92a} .scn.c{border-color:#8f8b84}
+  .scn .lt{font-size:9px;letter-spacing:.09em;text-transform:uppercase;font-weight:800;color:var(--muted)}
+  .scn .gt{font-size:11.5px;font-weight:750;margin:3px 0 5px;line-height:1.4}
+  .scn .gt i{font-style:normal;font-size:8.5px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;
+    background:#eef3fd;color:#12508f;border-radius:4px;padding:2px 5px;margin-right:6px}
+  .scn .ob{font-size:11px;color:var(--ink2);line-height:1.5}
+  .scn .fq{font-size:10.5px;font-weight:800;color:#146c35;margin-top:5px}
+  .dk .scn .gt{color:#fff} .dk .scn .ob{color:#cbd5e1}
+  .dk .scn .gt i{background:#12203a;color:#7dd3a0} .dk .scn .fq{color:#7dd3a0}
+
+  /* ---------- curva de gols ---------- */
+  .gc{display:flex;align-items:flex-end;gap:6px;height:96px;padding-top:4px}
+  .gc .col{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;height:100%;justify-content:flex-end}
+  .gc .bars{display:flex;gap:2px;align-items:flex-end;height:100%;width:100%;justify-content:center}
+  .gc .bars s{width:9px;border-radius:2px 2px 0 0;text-decoration:none;display:block}
+  .gc .bars s.a{background:#5b8def} .gc .bars s.b{background:#e0a92a}
+  .gc .col .x{font-size:9px;color:var(--muted);font-weight:700;white-space:nowrap}
+  .gc .col.hot .bars s.b{background:#d05a3a} .gc .col.hot .x{color:#a33b1e;font-weight:800}
+  .dk .gc .col .x{color:var(--dink2)}
+  .gcl{display:flex;gap:12px;font-size:10px;color:var(--ink2);margin-bottom:4px;flex-wrap:wrap}
+  .gcl s{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:4px;text-decoration:none}
+  .dk .gcl{color:var(--dink2)}
+  .band{display:flex;gap:6px}
+  .band div{flex:1;border:1px solid var(--line);border-radius:8px;padding:8px;text-align:center}
+  .band div .bl{font-size:9.5px;color:var(--muted);font-weight:700}
+  .band div .bv{font-size:12px;font-weight:800;margin-top:3px}
+  .band div.hot{border-color:#eccdbf;background:#fdf3ef} .band div.hot .bv{color:#a33b1e}
+
+  /* ---------- peso do desfalque ---------- */
+  .abs{display:flex;gap:12px;align-items:center}
+  .abs .dnt{width:70px;height:70px;border-radius:50%;flex:none;display:grid;place-items:center;background:conic-gradient(#d05a3a 0 35%,#eeece8 35% 100%)}
+  .abs .dnt b{width:54px;height:54px;border-radius:50%;background:#fff;display:grid;place-items:center;font-size:14px;font-weight:800;letter-spacing:-.5px}
+  .dk .abs .dnt b{background:var(--dark2);color:#fff}
+  .abs .kv{flex:1;font-size:11px}
+  .abs .kv div{display:flex;justify-content:space-between;gap:9px;padding:4px 0;border-bottom:1px solid var(--line)}
+  .abs .kv div:last-child{border:none}
+  .abs .kv span:last-child{font-weight:800;font-variant-numeric:tabular-nums}
+  .dk .abs .kv{color:var(--dink2)} .dk .abs .kv div{border-color:var(--dark3)} .dk .abs .kv span:last-child{color:#fff}
+  .who{font-size:11.5px;font-weight:800;margin-bottom:2px}
+  .who s{text-decoration:none;color:#a33b1e;font-weight:700}
+  .whos{font-size:10px;color:var(--muted);margin-bottom:10px}
+  .dk .who{color:#fff} .dk .whos{color:var(--dink2)}
+
+  /* ---------- notícias ---------- */
+  .nw div{padding:8px 0;border-bottom:1px solid var(--line)}
+  .nw div:last-child{border:none;padding-bottom:0}
+  .nw .hl{font-size:11.5px;font-weight:700;line-height:1.4}
+  .nw .mtx{font-size:10px;color:var(--muted);margin-top:3px;display:flex;gap:7px;flex-wrap:wrap;align-items:center}
+  .nw .jg{background:#eef3fd;color:#12508f;font-weight:700;border-radius:4px;padding:1px 6px}
+  .dk .nw div{border-color:var(--dark3)} .dk .nw .hl{color:#fff} .dk .nw .mtx{color:var(--dink2)}
+  .dk .nw .jg{background:#12203a;color:#7dd3a0}
+
+  /* ---------- chat ---------- */
+  .ch .msg{font-size:11.5px;background:#f4f4f1;border-radius:9px;padding:7px 10px;margin-bottom:6px;line-height:1.45}
+  .ch .msg b{font-size:10.5px;color:var(--mm-blue)}
+  .dk .ch .msg{background:#0f1726;color:#cbd5e1} .dk .ch .msg b{color:#7dd3a0}
+  .inp{border:1px solid var(--line);border-radius:8px;padding:9px 11px;font-size:11.5px;color:var(--muted);background:#fff;
+    display:flex;align-items:center;justify-content:space-between;gap:8px}
+  .inp.off{background:#f6f5f2;border-style:dashed;color:#a09e98}
+  .dk .inp{background:var(--dark);border-color:var(--dark3);color:var(--dink2)}
+  .send{font-size:10px;font-weight:800;color:#fff;background:var(--mm-green);border-radius:6px;padding:4px 9px;flex:none}
+  .tabsj{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:9px}
+  .tabsj span{font-size:10px;font-weight:700;border:1px solid var(--line);border-radius:14px;padding:3px 8px;color:var(--ink2)}
+  .tabsj span.now{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .dk .tabsj span{border-color:var(--dark3);color:var(--dink2)} .dk .tabsj span.now{background:#fff;color:var(--dark);border-color:#fff}
+
+  /* ---------- índice macro markets ---------- */
+  .idxw{display:flex;gap:13px;align-items:center}
+  .idxw .g{width:82px;height:82px;border-radius:50%;flex:none;display:grid;place-items:center;background:conic-gradient(#22a45d 0 79%,#eeece8 79% 100%)}
+  .idxw .g b{width:64px;height:64px;border-radius:50%;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    font-size:22px;font-weight:800;letter-spacing:-1px;line-height:1}
+  .idxw .g b s{text-decoration:none;font-size:8.5px;font-weight:700;color:var(--muted);letter-spacing:.04em;margin-top:2px}
+  .dk .idxw .g b{background:var(--dark2);color:#fff}
+  .idxf{flex:1;font-size:11px}
+  .idxf div{display:flex;align-items:center;gap:7px;padding:3px 0;color:var(--ink2);line-height:1.35}
+  .idxf div::before{content:'';width:6px;height:6px;border-radius:50%;background:#22a45d;flex:none}
+  .idxf div.m::before{background:#e0a92a}
+  .dk .idxf div{color:#cbd5e1}
+  .warnl{font-size:10.5px;background:#fffbf0;border:1px solid #e4c98a;border-radius:7px;padding:8px 10px;margin-top:11px;color:#6b5416;line-height:1.45}
+  .warnl b{color:#3f3208}
+  .dk .warnl{background:#1a1608;border-color:#4a3c12;color:#e7c893} .dk .warnl b{color:#f0b429}
+  .qbadge{display:inline-block;font-size:11px;font-weight:800;background:#e8f5ec;color:#146c35;border-radius:6px;padding:5px 10px}
+
+  /* ---------- agente ---------- */
+  .ag .q{font-size:11.5px;font-weight:700;background:#eef3fd;color:#12508f;border-radius:9px;padding:8px 10px;margin-bottom:7px}
+  .ag .a{font-size:11.5px;color:var(--ink2);line-height:1.55;padding:0 2px 9px}
+  .dk .ag .q{background:#12203a;color:#7dd3a0} .dk .ag .a{color:#cbd5e1}
+  .sug{display:flex;gap:5px;flex-wrap:wrap;margin-top:8px}
+  .sug span{font-size:10px;border:1px solid var(--line);border-radius:14px;padding:3px 8px;color:var(--ink2)}
+  .dk .sug span{border-color:var(--dark3);color:var(--dink2)}
+
+  /* ---------- dossiê ---------- */
+  .dos div{font-size:11.5px;padding:6px 0;border-bottom:1px solid var(--line);display:flex;gap:8px}
+  .dos div:last-child{border:none}
+  .dos div s{text-decoration:none;color:var(--mm-blue);font-weight:800;flex:none}
+  .dk .dos div{border-color:var(--dark3);color:#cbd5e1} .dk .dos div s{color:#7dd3a0}
+
+  /* ---------- CTA ---------- */
+  .ctaz{background:#f2faf5;border:1px solid #bfe0c9;border-radius:12px;padding:15px;margin-top:4px}
+  .ctaz.dkz{background:#0f2a1e;border-color:#1f5b3f}
+  .ctaz .cl{font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:#146c35;margin-bottom:8px}
+  .ctaz.dkz .cl{color:#7dd3a0}
+  .ctaz .cp{font-size:12px;color:var(--ink2);line-height:1.55;margin-bottom:12px}
+  .ctaz .cp b{color:var(--ink)}
+  .ctaz.dkz .cp{color:#cbd5e1} .ctaz.dkz .cp b{color:#fff}
+  .btn{display:block;text-align:center;background:var(--mm-green);color:#fff;padding:14px 18px;border-radius:10px;
+    font-weight:800;font-size:14.5px;text-decoration:none;letter-spacing:-.2px}
+  .btn.blue{background:var(--mm-blue)}
+  .btn.gold{background:linear-gradient(135deg,#f0b429,#e08c00);color:#2a1c00}
+  .sub{font-size:10.5px;color:var(--muted);text-align:center;margin-top:8px;line-height:1.45}
+  .ctaz.dkz .sub{color:var(--dink2)}
+  .foot{font-size:10px;color:var(--muted);text-align:center;margin-top:14px;line-height:1.5}
+  .dk .foot{color:var(--dink2)}
+
+  .prembar{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-bottom:11px}
+  .prembar .vd{font-size:10.5px;color:var(--dink2)}
+
+  /* ---------- estados sobre canvas escuro ---------- */
+  .dk .sec{background:var(--dark2);border-color:var(--dark3)}
+  .dk .sec>.sh{background:#111a2b;border-bottom-color:var(--dark3)}
+  .dk .sec>.sh .t{color:#fff}
+  .dk .sec.on{border-left-color:#2fd07d!important}
+  .dk .sec.pt{background:#101a2c!important;border-left-color:#5b9bf5!important}
+  .dk .sec.pt>.sh{background:#13223c!important}
+  .dk .sec.lk{background:#1c1810!important;border-left-color:#f0b429!important}
+  .dk .sec.lk>.sh{background:#26200f!important;border-bottom-color:#4a3c12!important}
+  .dk .sec.of{background:#141821!important;border-left-color:#6d7889!important}
+  .dk .sec.of>.sh{background:#171c27!important}
+  .dk .sec.of .offtxt{color:var(--dink2)}
+  .dk .tag.on{background:#0f2e1c;color:#7dd3a0}
+  .dk .tag.pt{background:#12203a;color:#8fbdf7}
+  .dk .tag.lk{background:#3a2c07;color:#f0b429;box-shadow:0 0 0 1px #4a3c12}
+  .dk .tag.of{background:#22293a;color:#94a3b8}
+  .dk .res{background:#12203a;color:#8fbdf7}
+  .dk .up1{color:var(--dink2);border-top-color:var(--dark3)} .dk .up1 b{color:#fff}
+  .dk .msk{color:#fff}
+  .dk .mskb{background:linear-gradient(90deg,#334155,#1e293b)}
+  .dk .gate{border-top-color:#4a3c12}
+  .dk .gate .g1{color:#fff} .dk .gate .g2{color:var(--dink2)}
+  .dk .qbadge{background:#0f2e1c;color:#7dd3a0}
+
+  /* ---------- ajustes do pane escuro ---------- */
+  .dk .sec .nt{color:var(--dink2);border-top-color:var(--dark3)}
+  .dk .sec>.sb{color:#cbd5e1}
+  .dk .band div{border-color:var(--dark3)}
+  .dk .band div .bl{color:var(--dink2)}
+  .dk .band div .bv{color:#fff}
+  .dk .band div.hot{background:#33180f;border-color:#5c2a18} .dk .band div.hot .bv{color:#f4a583}
+  .dk .qual td{border-color:var(--dark3);color:#fff}
+  .dk .win{color:var(--dink2)}
+  .dk .who s{color:#f4a583}
+  .dk .mt .r1 .x{color:var(--dink2)}
+  .dk .qual td:nth-child(2){color:var(--dink2)}
+  .dk .h2hh .vs{color:var(--dink2)}
+  .dk .idxw .g b s{color:var(--dink2)}
+  .dk .scn .lt{color:var(--dink2)}
+  .dk .btn,.dk .send{background:#107a37}
+
+  @media(max-width:520px){
+    .wrap{padding:16px 10px 50px}
+    .h2r{grid-template-columns:36px 1fr 66px 1fr 36px}
+    .cmp .nm{width:74px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="doc-head">
+  <h1>Página da Rodada — 24ª rodada do Brasileirão Série A 2026</h1>
+  <p>macromarkets.com/br/brasileirao/rodada-24 · mock mobile-first completo, de cima a baixo, nos três cenários de acesso. Cada seção carrega um dos quatro estados da legenda.</p>
+</div>
+
+<div class="note"><b>Dados ilustrativos.</b> Probabilidades, indicadores e variações são exemplos de layout, não análises reais. Probabilidade é do mercado Macro Markets — informação e leitura, nunca recomendação de aposta.</div>
+
+<!-- ============ LEGENDA FIXA DOS 4 ESTADOS ============ -->
+<div class="lgd">
+  <div class="lt">Vocabulário de estado — vale para todas as seções</div>
+  <div class="row">
+    <span class="it on"><i></i><span><b>Ativo</b> — verde sólido<br>Dado completo, número exato visível.</span></span>
+    <span class="it pt"><i></i><span><b>Parcial</b> — azul tracejado<br>Faixa ou rótulo no lugar do número exato. Não é bloqueio.</span></span>
+    <span class="it lk"><i></i><span><b>Bloqueado</b> — âmbar pontilhado, fundo creme<br>Rótulo e nome do time legíveis, só o número velado. Premium.</span></span>
+    <span class="it of"><i></i><span><b>Ausente</b> — cinza pontilhado<br>A seção não existe neste cenário.</span></span>
+  </div>
+  <div class="hint"><b>Âmbar é sempre o que é pago.</b> Azul nunca significa “pague para ver” — significa menos detalhe: “Ataque: Alto” em vez de “Ataque: <span class="msk">8,9</span>”.</div>
+</div>
+
+<input class="tt" type="radio" name="sc" id="sc-a" checked>
+<input class="tt" type="radio" name="sc" id="sc-b">
+<input class="tt" type="radio" name="sc" id="sc-c">
+<div class="tabs">
+  <label for="sc-a">1 · Deslogado</label>
+  <label for="sc-b">2 · Logado sem depósito</label>
+  <label for="sc-c">3 · Logado Premium</label>
+</div>
+
+<!-- =========================================================
+     CENÁRIO 1 — DESLOGADO
+     ========================================================= -->
+<div class="pane" id="p-a">
+<div class="ord">
+  <span class="lb">Ordem</span>
+  <i><b>1</b>Header</i><i><b>2</b>Delta da tabela</i><i><b>3</b>10 jogos</i><i><b>4</b>Indicadores</i>
+  <i><b>5</b>Veredito</i><i><b>6</b>Cenários</i><i><b>7</b>Curva de gols</i><i><b>8</b>Desfalque</i>
+  <i><b>9</b>Notícias</i><i><b>10</b>Chat</i><i><b>11</b>Índice</i><i><b>12</b>Dossiê</i><i><b>13</b>Agente</i><i><b>14</b>CTA</i>
+</div>
+
+<div class="frame">
+  <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">macromarkets.com/br/brasileirao/rodada-24</span></div>
+  <div class="canvas">
+  <div class="scr">
+
+    <div class="nav"><span class="logo"><span class="m"></span> macro.markets</span><span class="ac">Entrar</span></div>
+    <div class="bcrumb">Brasileirão › Rodada 24</div>
+
+    <!-- 1 · HEADER -->
+    <div class="rh">
+      <div class="eb">Brasileirão Série A 2026</div>
+      <h1>24ª rodada: o que se decide neste fim de semana</h1>
+      <div class="dt">22 a 24 de agosto · 10 jogos · sáb, dom e seg</div>
+      <div class="st"><span>● Mercados abertos</span><span>Atualizado hoje, 14h20</span><span>Fecha sáb 16h</span></div>
+    </div>
+
+    <!-- 2 · DELTA DA TABELA -->
+    <div class="sec on">
+      <div class="sh"><span class="t">O que a rodada 24 muda na tabela</span><span class="tag on">● Ativo</span></div>
+      <div class="sb">
+        <div class="dl">
+          <div><s>→</s><span><b>Palmeiras</b> (48, 23j) vai a 51 e abre 6 de folga se vencer o Vasco.</span></div>
+          <div><s>→</s><span><b>Flamengo</b> (45, 22j) assume a liderança vencendo no Mineirão — e ainda tem um jogo a menos.</span></div>
+          <div><s>→</s><span><b>Cruzeiro</b> (36) fica a 2 do Fluminense (38) e encosta no G4 se vencer.</span></div>
+          <div><s>→</s><span><b>Athletico-PR</b> (41) cai para 4º se perder no Nilton Santos e o Fluminense vencer.</span></div>
+          <div><s>→</s><span>Z4: <b>Vasco</b> (22) sai da zona se vencer; <b>Chapecoense</b> (11) fica a 11 da saída.</span></div>
+        </div>
+        <span class="lnk">Tabela completa dos 20 times no hub do Brasileirão →</span>
+      </div>
+      <div class="nt">Só o delta da rodada. A tabela integral vive no hub, não aqui.</div>
+    </div>
+
+    <!-- 3 · OS 10 JOGOS -->
+    <div class="sec pt">
+      <div class="sh"><span class="t">Os 10 jogos · probabilidade do mercado</span><span class="tag pt">◐ Parcial</span></div>
+      <div class="sb">
+        <span class="res">Sem o movimento da semana</span>
+
+        <div class="mt">
+          <div class="r1"><span class="crest" style="background:#4d1a2e"></span><span class="nmL">Fluminense</span><span class="x">×</span><span class="nmR">Remo</span><span class="crest" style="background:#123f8c"></span></div>
+          <div class="pb"><s class="a" style="width:63%"></s><s class="d" style="width:22%"></s><s class="b" style="width:15%"></s></div>
+          <div class="r2"><span><b>63%</b> casa</span><span>empate 22%</span><span><b>15%</b> fora</span></div>
+          <div class="r3"><span>Sáb · 16h00 · Maracanã</span></div>
+        </div>
+
+        <div class="mt">
+          <div class="r1"><span class="crest" style="background:#b91c1c"></span><span class="nmL">Internacional</span><span class="x">×</span><span class="nmR">Atlético-MG</span><span class="crest" style="background:#111827"></span></div>
+          <div class="pb"><s class="a" style="width:44%"></s><s class="d" style="width:27%"></s><s class="b" style="width:29%"></s></div>
+          <div class="r2"><span><b>44%</b> casa</span><span>empate 27%</span><span><b>29%</b> fora</span></div>
+          <div class="r3"><span>Sáb · 18h30 · Beira-Rio</span></div>
+        </div>
+
+        <div class="mt hot">
+          <div class="r1"><span class="crest" style="background:#1e3a8a"></span><span class="nmL">Cruzeiro</span><span class="x">×</span><span class="nmR">Flamengo</span><span class="crest" style="background:#b91c1c"></span></div>
+          <div class="pb"><s class="a" style="width:38%"></s><s class="d" style="width:27%"></s><s class="b" style="width:35%"></s></div>
+          <div class="r2"><span><b>38%</b> casa</span><span>empate 27%</span><span><b>35%</b> fora</span></div>
+          <div class="r3"><span>Sáb · 20h30 · Mineirão</span><span>Jogo mais equilibrado da rodada</span></div>
+        </div>
+
+        <div class="mt">
+          <div class="r1"><span class="crest" style="background:#166534"></span><span class="nmL">Palmeiras</span><span class="x">×</span><span class="nmR">Vasco</span><span class="crest" style="background:#111827"></span></div>
+          <div class="pb"><s class="a" style="width:68%"></s><s class="d" style="width:20%"></s><s class="b" style="width:12%"></s></div>
+          <div class="r2"><span><b>68%</b> casa</span><span>empate 20%</span><span><b>12%</b> fora</span></div>
+          <div class="r3"><span>Dom · 16h00 · Allianz Parque</span></div>
+        </div>
+
+        <div class="mt">
+          <div class="r1"><span class="crest" style="background:#b91c1c"></span><span class="nmL">Bragantino</span><span class="x">×</span><span class="nmR">Grêmio</span><span class="crest" style="background:#1e3a8a"></span></div>
+          <div class="pb"><s class="a" style="width:41%"></s><s class="d" style="width:28%"></s><s class="b" style="width:31%"></s></div>
+          <div class="r2"><span><b>41%</b> casa</span><span>empate 28%</span><span><b>31%</b> fora</span></div>
+          <div class="r3"><span>Dom · 16h00 · Nabi Abi Chedid</span></div>
+        </div>
+
+        <div class="mt">
+          <div class="r1"><span class="crest" style="background:#b91c1c"></span><span class="nmL">Vitória</span><span class="x">×</span><span class="nmR">Bahia</span><span class="crest" style="background:#1d4ed8"></span></div>
+          <div class="pb"><s class="a" style="width:33%"></s><s class="d" style="width:29%"></s><s class="b" style="width:38%"></s></div>
+          <div class="r2"><span><b>33%</b> casa</span><span>empate 29%</span><span><b>38%</b> fora</span></div>
+          <div class="r3"><span>Dom · 16h00 · Barradão</span><span>Clássico</span></div>
+        </div>
+
+        <div class="mt">
+          <div class="r1"><span class="crest" style="background:#111827"></span><span class="nmL">Santos</span><span class="x">×</span><span class="nmR">Mirassol</span><span class="crest" style="background:#15803d"></span></div>
+          <div class="pb"><s class="a" style="width:52%"></s><s class="d" style="width:26%"></s><s class="b" style="width:22%"></s></div>
+          <div class="r2"><span><b>52%</b> casa</span><span>empate 26%</span><span><b>22%</b> fora</span></div>
+          <div class="r3"><span>Dom · 18h30 · Vila Belmiro</span></div>
+        </div>
+
+        <div class="mt">
+          <div class="r1"><span class="crest" style="background:#166534"></span><span class="nmL">Chapecoense</span><span class="x">×</span><span class="nmR">São Paulo</span><span class="crest" style="background:#b91c1c"></span></div>
+          <div class="pb"><s class="a" style="width:21%"></s><s class="d" style="width:25%"></s><s class="b" style="width:54%"></s></div>
+          <div class="r2"><span><b>21%</b> casa</span><span>empate 25%</span><span><b>54%</b> fora</span></div>
+          <div class="r3"><span>Dom · 18h30 · Arena Condá</span></div>
+        </div>
+
+        <div class="mt">
+          <div class="r1"><span class="crest" style="background:#14532d"></span><span class="nmL">Coritiba</span><span class="x">×</span><span class="nmR">Corinthians</span><span class="crest" style="background:#0f172a"></span></div>
+          <div class="pb"><s class="a" style="width:31%"></s><s class="d" style="width:28%"></s><s class="b" style="width:41%"></s></div>
+          <div class="r2"><span><b>31%</b> casa</span><span>empate 28%</span><span><b>41%</b> fora</span></div>
+          <div class="r3"><span>Dom · 19h30 · Couto Pereira</span></div>
+        </div>
+
+        <div class="mt">
+          <div class="r1"><span class="crest" style="background:#111827"></span><span class="nmL">Botafogo</span><span class="x">×</span><span class="nmR">Athletico-PR</span><span class="crest" style="background:#b91c1c"></span></div>
+          <div class="pb"><s class="a" style="width:46%"></s><s class="d" style="width:27%"></s><s class="b" style="width:27%"></s></div>
+          <div class="r2"><span><b>46%</b> casa</span><span>empate 27%</span><span><b>27%</b> fora</span></div>
+          <div class="r3"><span>Seg · 20h00 · Nilton Santos</span></div>
+        </div>
+
+        <div class="up1"><b>Com conta grátis:</b> a variação em pontos percentuais de cada jogo desde terça.</div>
+      </div>
+      <div class="nt">Probabilidade implícita do mercado — informação pública, sempre aberta.</div>
+    </div>
+
+    <!-- 4 · INDICADORES -->
+    <div class="sec pt">
+      <div class="sh"><span class="t">Indicadores do confronto · Cruzeiro × Flamengo</span><span class="tag pt">◐ Parcial</span></div>
+      <div class="sb">
+        <span class="res">Faixa em três níveis, sem o número</span>
+        <div class="h2hh">
+          <span class="tm"><span class="crest" style="background:#1e3a8a"></span>Cruzeiro</span>
+          <span class="vs">×</span>
+          <span class="tm r">Flamengo<span class="crest" style="background:#b91c1c"></span></span>
+        </div>
+        <table class="qual">
+          <tr><td>Médio</td><td>Momento</td><td>Alto</td></tr>
+          <tr><td>Médio</td><td>Ataque</td><td>Alto</td></tr>
+          <tr><td>Alto</td><td>Defesa</td><td>Médio</td></tr>
+          <tr><td>Médio</td><td>Posse</td><td>Alta</td></tr>
+          <tr><td>Alta</td><td>Regularidade</td><td>Média</td></tr>
+        </table>
+        <div class="up1"><b>Com conta grátis:</b> o número exato e a direção da semana. <b>Com Premium:</b> série de 10 jogos e percentil na liga.</div>
+      </div>
+      <div class="nt">Uma coluna por time, janela de 5 jogos. Dá para saber quem chega melhor, não o quanto.</div>
+    </div>
+
+    <!-- 5 · VEREDITO — BLOQUEADO -->
+    <div class="sec lk">
+      <div class="sh"><span class="t">Veredito do Dale contra o mercado</span><span class="tag lk">🔒 Bloqueado</span></div>
+      <div class="sb">
+        <div class="cmp">
+          <div class="row"><span class="nm">Cruzeiro</span><span class="track"><span class="mskb"></span></span><span class="num msk">+8</span></div>
+          <div class="row"><span class="nm">Chapecoense</span><span class="track"><span class="mskb"></span></span><span class="num msk">−6</span></div>
+          <div class="row"><span class="nm">Vitória</span><span class="track"><span class="mskb"></span></span><span class="num msk">+5</span></div>
+        </div>
+        <div class="legend"><span><span class="swatch" style="background:var(--s1)"></span> Mercado</span><span><span class="swatch" style="background:var(--s3)"></span> Delta do modelo, em pp</span></div>
+        <div class="gate">
+          <span class="badge-prem">Premium do Brasileirão</span>
+          <p class="g1">O mercado diz 38% no Mineirão. O Dale discorda em 3 dos 10 jogos desta rodada.</p>
+          <p class="g2">Crie sua conta grátis e veja um dos três aberto, com o raciocínio inteiro.</p>
+        </div>
+      </div>
+      <div class="nt">Divergência é tese sobre o dado, não recomendação.</div>
+    </div>
+
+    <!-- 6 · CENÁRIOS -->
+    <div class="sec pt">
+      <div class="sh"><span class="t">Cenários da rodada</span><span class="tag pt">◐ Parcial</span></div>
+      <div class="sb">
+        <span class="res">Descritivo, sem gatilho e sem frequência</span>
+        <div class="scn a">
+          <div class="lt">Cruzeiro × Flamengo</div>
+          <div class="gt">Jogo de decisão tardia: os dois concentram gols no último terço.</div>
+        </div>
+        <div class="scn b">
+          <div class="lt">Chapecoense × São Paulo</div>
+          <div class="gt">Time da casa tende a recuar; volume do visitante cresce no 2º tempo.</div>
+        </div>
+        <div class="scn c">
+          <div class="lt">Vitória × Bahia</div>
+          <div class="gt">Clássico com histórico de placar curto no Barradão.</div>
+        </div>
+        <div class="up1"><b>Com conta grátis:</b> o gatilho de cada cenário (“se X até os 60min, então…”).</div>
+      </div>
+      <div class="nt">Cenário é leitura condicional. Nunca resultado previsto.</div>
+    </div>
+
+    <!-- 7 · CURVA DE GOLS -->
+    <div class="sec pt">
+      <div class="sh"><span class="t">Curva de gols por faixa de tempo</span><span class="tag pt">◐ Parcial</span></div>
+      <div class="sb">
+        <span class="res">Três faixas agregadas, sem a curva de 6</span>
+        <div class="band">
+          <div><div class="bl">1º tempo</div><div class="bv">Baixo</div></div>
+          <div><div class="bl">46–60</div><div class="bv">Médio</div></div>
+          <div class="hot"><div class="bl">61–90</div><div class="bv">Alto</div></div>
+        </div>
+        <div class="up1"><b>Com Premium:</b> as 6 faixas, gols marcados × sofridos e o total da temporada.</div>
+      </div>
+      <div class="nt">Cruzeiro × Flamengo · temporada até a rodada 23.</div>
+    </div>
+
+    <!-- 8 · PESO DO DESFALQUE -->
+    <div class="sec pt">
+      <div class="sh"><span class="t">Peso do desfalque</span><span class="tag pt">◐ Parcial</span></div>
+      <div class="sb">
+        <span class="res">Impacto qualificado, sem os números</span>
+        <div class="who">Flamengo · atacante titular <s>· fora</s></div>
+        <div class="whos">Suspensão · confirmado há 3h</div>
+        <span class="qbadge">Impacto alto na produção ofensiva</span>
+        <div class="up1"><b>Com conta grátis:</b> participação em gols e minutos. <b>Com Premium:</b> pontos por jogo com e sem ele.</div>
+      </div>
+      <div class="nt">Leia como direção, não como número fechado.</div>
+    </div>
+
+    <!-- 9 · NOTÍCIAS -->
+    <div class="sec on">
+      <div class="sh"><span class="t">Notícias da rodada, amarradas aos jogos</span><span class="tag on">● Ativo</span></div>
+      <div class="sb">
+        <div class="nw">
+          <div><div class="hl">Flamengo deve poupar titulares: jogo no Mineirão vem três dias depois da Libertadores</div>
+            <div class="mtx"><span class="jg">Cruzeiro × Flamengo</span><span>há 2h</span></div></div>
+          <div><div class="hl">Bahia relaciona zagueiro recuperado para o clássico no Barradão</div>
+            <div class="mtx"><span class="jg">Vitória × Bahia</span><span>há 5h</span></div></div>
+          <div><div class="hl">Chapecoense muda o comando técnico antes de receber o São Paulo</div>
+            <div class="mtx"><span class="jg">Chapecoense × São Paulo</span><span>ontem</span></div></div>
+        </div>
+      </div>
+      <div class="nt">Toda notícia entra vinculada a um dos 10 jogos.</div>
+    </div>
+
+    <!-- 10 · CHAT -->
+    <div class="sec pt">
+      <div class="sh"><span class="t">Chat de Cruzeiro × Flamengo</span><span class="tag pt">◐ Parcial</span></div>
+      <div class="sb">
+        <span class="res">Leitura liberada, escrita fechada</span>
+        <div class="tabsj"><span class="now">Cruzeiro × Flamengo</span><span>Vitória × Bahia</span><span>+8 jogos</span></div>
+        <div class="ch">
+          <div class="msg"><b>marcos_bh</b><br>Se o Flamengo poupar, a defesa do Cruzeiro em casa muda tudo.</div>
+          <div class="msg"><b>ana.f</b><br>Mercado saiu de 32% pra 38% no Cruzeiro desde a lista de relacionados.</div>
+          <div class="inp off"><span>Entre para comentar Cruzeiro × Flamengo</span></div>
+        </div>
+      </div>
+      <div class="nt">Chat por jogo, um por partida da rodada.</div>
+    </div>
+
+    <!-- 11 · ÍNDICE -->
+    <div class="sec pt">
+      <div class="sh"><span class="t">Índice Macro Markets · confiança no dado</span><span class="tag pt">◐ Parcial</span></div>
+      <div class="sb">
+        <span class="res">Faixa, sem a nota nem a decomposição</span>
+        <div class="idxw">
+          <div class="g" style="background:conic-gradient(#22a45d 0 79%,#eeece8 79% 100%)"><b><span style="font-size:13px;letter-spacing:0">Alta</span><s>confiança</s></b></div>
+          <div class="idxf">
+            <div>Cobertura completa dos dois times nos últimos 10 jogos</div>
+            <div class="m">Escalação provável ainda não confirmada</div>
+          </div>
+        </div>
+        <div class="warnl"><b>O que este número não é.</b> Mede quanta informação confiável sustenta a análise. Não é probabilidade de acerto nem chance de um resultado acontecer.</div>
+        <div class="up1"><b>Com conta grátis:</b> a nota de 0 a 100 por jogo.</div>
+      </div>
+    </div>
+
+    <!-- 12 · DOSSIÊ — AUSENTE -->
+    <div class="sec of">
+      <div class="sh"><span class="t">Dossiê profundo da rodada</span><span class="tag of">○ Ausente</span></div>
+      <div class="sb"><div class="offtxt">Não existe neste cenário. A seção só é renderizada para Premium.</div></div>
+    </div>
+
+    <!-- 13 · AGENTE — AUSENTE -->
+    <div class="sec of">
+      <div class="sh"><span class="t">Agente de IA da rodada 24</span><span class="tag of">○ Ausente</span></div>
+      <div class="sb"><div class="offtxt">Não existe neste cenário — nem input, nem teaser. Aparece a partir do login.</div></div>
+    </div>
+
+    <!-- 14 · CTA -->
+    <div class="ctaz">
+      <div class="cl">CTA primário único</div>
+      <div class="cp">Conta grátis libera o número dos indicadores, o gatilho dos cenários, o chat de cada jogo e <b>um dos três jogos em que o Dale discorda do mercado</b> — aberto, com o raciocínio.</div>
+      <a class="btn">Criar conta grátis</a>
+      <div class="sub">Sem cartão. Leva 30 segundos.</div>
+    </div>
+
+    <div class="foot">Probabilidade do mercado Macro Markets · janela indicada em cada número · conteúdo informativo</div>
+
+  </div>
+  </div>
+</div>
+</div>
+
+<!-- =========================================================
+     CENÁRIO 2 — LOGADO SEM DEPÓSITO
+     ========================================================= -->
+<div class="pane" id="p-b">
+<div class="ord">
+  <span class="lb">Ordem</span>
+  <i><b>1</b>Header</i><i class="mv2"><b>2</b>Amostra do veredito ↑</i><i><b>3</b>Delta da tabela</i><i><b>4</b>10 jogos + pp</i>
+  <i><b>5</b>Indicadores</i><i><b>6</b>Veredito dos 9</i><i><b>7</b>Cenários</i><i><b>8</b>Curva de gols</i>
+  <i><b>9</b>Desfalque</i><i><b>10</b>Notícias</i><i><b>11</b>Chat</i><i><b>12</b>Índice</i><i><b>13</b>Dossiê</i><i><b>14</b>Agente</i><i><b>15</b>CTA</i>
+</div>
+
+<div class="frame">
+  <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">macromarkets.com/br/brasileirao/rodada-24</span></div>
+  <div class="canvas">
+  <div class="scr">
+
+    <div class="nav"><span class="logo"><span class="m"></span> macro.markets</span><span class="ac">Olá, Rafael</span></div>
+    <div class="bcrumb">Brasileirão › Rodada 24</div>
+
+    <!-- 1 · HEADER -->
+    <div class="rh">
+      <div class="eb">Brasileirão Série A 2026</div>
+      <h1>24ª rodada: o que se decide neste fim de semana</h1>
+      <div class="dt">22 a 24 de agosto · 10 jogos · sáb, dom e seg</div>
+      <div class="st"><span>● Mercados abertos</span><span>Atualizado hoje, 14h20</span><span>Conta grátis</span></div>
+    </div>
+
+    <!-- 2 · AMOSTRA DO VEREDITO — SUBIU PARA O TOPO -->
+    <div class="sec on">
+      <div class="sh"><span class="t">Veredito do Dale · amostra grátis, 1 dos 10 jogos</span><span class="tag on">● Ativo</span></div>
+      <div class="sb">
+        <div class="h2hh">
+          <span class="tm"><span class="crest" style="background:#1e3a8a"></span>Cruzeiro</span>
+          <span class="vs">Sáb · 20h30</span>
+          <span class="tm r">Flamengo<span class="crest" style="background:#b91c1c"></span></span>
+        </div>
+        <div class="cmp">
+          <div class="row"><span class="nm">Mercado</span><span class="track"><span class="fill" style="width:38%;background:var(--s1)"></span></span><span class="num">38%</span></div>
+          <div class="row"><span class="nm">Modelo Dale</span><span class="track"><span class="fill" style="width:46%;background:var(--s3)"></span></span><span class="num">46%</span></div>
+          <div class="row"><span class="nm">Divergência</span><span class="track"><span class="fill" style="width:8%;background:var(--s3)"></span></span><span class="num">+8 pp</span></div>
+        </div>
+        <p class="why"><b>O raciocínio.</b> O modelo desconta o desgaste do Flamengo — terceiro jogo em 8 dias, três dias depois da Libertadores — e pesa o retrospecto do Cruzeiro no Mineirão: 4 dos <span class="win">últimos 5 jogos em casa</span> sem sofrer gol. A confirmação da lista de relacionados moveu o mercado <b>+6 pp</b> em 12h; o modelo já estava acima disso desde terça.</p>
+        <p class="why">O que mudaria a leitura: Flamengo escalando a força máxima derruba a divergência para +2 pp.</p>
+      </div>
+      <div class="nt">Este é o jogo de maior divergência da rodada. Tese sobre o dado, não recomendação.</div>
+    </div>
+
+    <!-- 3 · DELTA DA TABELA -->
+    <div class="sec on">
+      <div class="sh"><span class="t">O que a rodada 24 muda na tabela</span><span class="tag on">● Ativo</span></div>
+      <div class="sb">
+        <div class="dl">
+          <div><s>→</s><span><b>Palmeiras</b> (48, 23j) vai a 51 e abre 6 de folga se vencer o Vasco.</span></div>
+          <div><s>→</s><span><b>Flamengo</b> (45, 22j) assume a liderança vencendo no Mineirão — e ainda tem um jogo a menos.</span></div>
+          <div><s>→</s><span><b>Cruzeiro</b> (36) fica a 2 do Fluminense (38) e encosta no G4 se vencer.</span></div>
+          <div><s>→</s><span><b>Athletico-PR</b> (41) cai para 4º se perder no Nilton Santos e o Fluminense vencer.</span></div>
+          <div><s>→</s><span>Z4: <b>Vasco</b> (22) sai da zona se vencer; <b>Chapecoense</b> (11) fica a 11 da saída.</span></div>
+        </div>
+        <span class="lnk">Tabela completa dos 20 times no hub do Brasileirão →</span>
+      </div>
+    </div>
+
+    <!-- 4 · OS 10 JOGOS COM MOVIMENTO -->
+    <div class="sec on">
+      <div class="sh"><span class="t">Os 10 jogos · probabilidade e movimento da semana</span><span class="tag on">● Ativo</span></div>
+      <div class="sb">
+
+        <div class="mt">
+          <div class="r1"><span class="crest" style="background:#4d1a2e"></span><span class="nmL">Fluminense</span><span class="pp up">+3 pp</span><span class="x">×</span><span class="pp dn">−2 pp</span><span class="nmR">Remo</span><span class="crest" style="background:#123f8c"></span></div>
+          <div class="pb"><s class="a" style="width:63%"></s><s class="d" style="width:22%"></s><s class="b" style="width:15%"></s></div>
+          <div class="r2"><span><b>63%</b> casa</span><span>empate 22%</span><span><b>15%</b> fora</span></div>
+          <div class="r3"><span>Sáb · 16h00 · Maracanã</span><span>desde terça</span></div>
+        </div>
+
+        <div class="mt">
+          <div class="r1"><span class="crest" style="background:#b91c1c"></span><span class="nmL">Internacional</span><span class="pp dn">−2 pp</span><span class="x">×</span><span class="pp up">+3 pp</span><span class="nmR">Atlético-MG</span><span class="crest" style="background:#111827"></span></div>
+          <div class="pb"><s class="a" style="width:44%"></s><s class="d" style="width:27%"></s><s class="b" style="width:29%"></s></div>
+          <div class="r2"><span><b>44%</b> casa</span><span>empate 27%</span><span><b>29%</b> fora</span></div>
+          <div class="r3"><span>Sáb · 18h30 · Beira-Rio</span><span>desde terça</span></div>
+        </div>
+
+        <div class="mt hot">
+          <div class="r1"><span class="crest" style="background:#1e3a8a"></span><span class="nmL">Cruzeiro</span><span class="pp up">+6 pp</span><span class="x">×</span><span class="pp dn">−5 pp</span><span class="nmR">Flamengo</span><span class="crest" style="background:#b91c1c"></span></div>
+          <div class="pb"><s class="a" style="width:38%"></s><s class="d" style="width:27%"></s><s class="b" style="width:35%"></s></div>
+          <div class="r2"><span><b>38%</b> casa</span><span>empate 27%</span><span><b>35%</b> fora</span></div>
+          <div class="r3"><span>Sáb · 20h30 · Mineirão</span><span>maior movimento da rodada</span></div>
+          <div class="r3"><span>terça 32% → hoje 38%</span><span class="spk"><s style="height:44%"></s><s style="height:46%"></s><s style="height:52%"></s><s style="height:58%"></s><s style="height:72%"></s><s style="height:86%"></s><s class="hi" style="height:100%"></s></span></div>
+        </div>
+
+        <div class="mt">
+          <div class="r1"><span class="crest" style="background:#166534"></span><span class="nmL">Palmeiras</span><span class="pp up">+1 pp</span><span class="x">×</span><span class="pp fl">0 pp</span><span class="nmR">Vasco</span><span class="crest" style="background:#111827"></span></div>
+          <div class="pb"><s class="a" style="width:68%"></s><s class="d" style="width:20%"></s><s class="b" style="width:12%"></s></div>
+          <div class="r2"><span><b>68%</b> casa</span><span>empate 20%</span><span><b>12%</b> fora</span></div>
+          <div class="r3"><span>Dom · 16h00 · Allianz Parque</span><span>desde terça</span></div>
+        </div>
+
+        <div class="mt">
+          <div class="r1"><span class="crest" style="background:#b91c1c"></span><span class="nmL">Bragantino</span><span class="pp up">+4 pp</span><span class="x">×</span><span class="pp dn">−3 pp</span><span class="nmR">Grêmio</span><span class="crest" style="background:#1e3a8a"></span></div>
+          <div class="pb"><s class="a" style="width:41%"></s><s class="d" style="width:28%"></s><s class="b" style="width:31%"></s></div>
+          <div class="r2"><span><b>41%</b> casa</span><span>empate 28%</span><span><b>31%</b> fora</span></div>
+          <div class="r3"><span>Dom · 16h00 · Nabi Abi Chedid</span><span>desde terça</span></div>
+        </div>
+
+        <div class="mt">
+          <div class="r1"><span class="crest" style="background:#b91c1c"></span><span class="nmL">Vitória</span><span class="pp dn">−3 pp</span><span class="x">×</span><span class="pp up">+4 pp</span><span class="nmR">Bahia</span><span class="crest" style="background:#1d4ed8"></span></div>
+          <div class="pb"><s class="a" style="width:33%"></s><s class="d" style="width:29%"></s><s class="b" style="width:38%"></s></div>
+          <div class="r2"><span><b>33%</b> casa</span><span>empate 29%</span><span><b>38%</b> fora</span></div>
+          <div class="r3"><span>Dom · 16h00 · Barradão</span><span>desde terça</span></div>
+        </div>
+
+        <div class="mt">
+          <div class="r1"><span class="crest" style="background:#111827"></span><span class="nmL">Santos</span><span class="pp up">+2 pp</span><span class="x">×</span><span class="pp dn">−1 pp</span><span class="nmR">Mirassol</span><span class="crest" style="background:#15803d"></span></div>
+          <div class="pb"><s class="a" style="width:52%"></s><s class="d" style="width:26%"></s><s class="b" style="width:22%"></s></div>
+          <div class="r2"><span><b>52%</b> casa</span><span>empate 26%</span><span><b>22%</b> fora</span></div>
+          <div class="r3"><span>Dom · 18h30 · Vila Belmiro</span><span>desde terça</span></div>
+        </div>
+
+        <div class="mt">
+          <div class="r1"><span class="crest" style="background:#166534"></span><span class="nmL">Chapecoense</span><span class="pp dn">−4 pp</span><span class="x">×</span><span class="pp up">+5 pp</span><span class="nmR">São Paulo</span><span class="crest" style="background:#b91c1c"></span></div>
+          <div class="pb"><s class="a" style="width:21%"></s><s class="d" style="width:25%"></s><s class="b" style="width:54%"></s></div>
+          <div class="r2"><span><b>21%</b> casa</span><span>empate 25%</span><span><b>54%</b> fora</span></div>
+          <div class="r3"><span>Dom · 18h30 · Arena Condá</span><span>desde terça</span></div>
+        </div>
+
+        <div class="mt">
+          <div class="r1"><span class="crest" style="background:#14532d"></span><span class="nmL">Coritiba</span><span class="pp up">+2 pp</span><span class="x">×</span><span class="pp dn">−2 pp</span><span class="nmR">Corinthians</span><span class="crest" style="background:#0f172a"></span></div>
+          <div class="pb"><s class="a" style="width:31%"></s><s class="d" style="width:28%"></s><s class="b" style="width:41%"></s></div>
+          <div class="r2"><span><b>31%</b> casa</span><span>empate 28%</span><span><b>41%</b> fora</span></div>
+          <div class="r3"><span>Dom · 19h30 · Couto Pereira</span><span>desde terça</span></div>
+        </div>
+
+        <div class="mt">
+          <div class="r1"><span class="crest" style="background:#111827"></span><span class="nmL">Botafogo</span><span class="pp dn">−1 pp</span><span class="x">×</span><span class="pp up">+2 pp</span><span class="nmR">Athletico-PR</span><span class="crest" style="background:#b91c1c"></span></div>
+          <div class="pb"><s class="a" style="width:46%"></s><s class="d" style="width:27%"></s><s class="b" style="width:27%"></s></div>
+          <div class="r2"><span><b>46%</b> casa</span><span>empate 27%</span><span><b>27%</b> fora</span></div>
+          <div class="r3"><span>Seg · 20h00 · Nilton Santos</span><span>desde terça</span></div>
+        </div>
+
+      </div>
+      <div class="nt">Variação em pontos percentuais desde terça-feira, quando os mercados da rodada abriram.</div>
+    </div>
+
+    <!-- 5 · INDICADORES -->
+    <div class="sec on">
+      <div class="sh"><span class="t">Indicadores do confronto · Cruzeiro × Flamengo</span><span class="tag on">● Ativo</span></div>
+      <div class="sb">
+        <div class="h2hh">
+          <span class="tm"><span class="crest" style="background:#1e3a8a"></span>Cruzeiro</span>
+          <span class="vs">×</span>
+          <span class="tm r">Flamengo<span class="crest" style="background:#b91c1c"></span></span>
+        </div>
+        <div class="h2r wr"><div class="v">7,8</div><div class="h2b l"><s style="width:78%"></s></div><div class="lb">Momento</div><div class="h2b r"><s style="width:86%"></s></div><div class="v r">8,6</div></div>
+        <div class="h2r wr"><div class="v">7,1</div><div class="h2b l"><s style="width:71%"></s></div><div class="lb">Ataque</div><div class="h2b r"><s style="width:89%"></s></div><div class="v r">8,9</div></div>
+        <div class="h2r wl"><div class="v">8,4</div><div class="h2b l"><s style="width:84%"></s></div><div class="lb">Defesa</div><div class="h2b r"><s style="width:72%"></s></div><div class="v r">7,2</div></div>
+        <div class="h2r wr"><div class="v">46%</div><div class="h2b l"><s style="width:46%"></s></div><div class="lb">Posse</div><div class="h2b r"><s style="width:57%"></s></div><div class="v r">57%</div></div>
+        <div class="h2r wr"><div class="v">14,6%</div><div class="h2b l"><s style="width:58%"></s></div><div class="lb">Eficiência<br>ofensiva</div><div class="h2b r"><s style="width:72%"></s></div><div class="v r">18,1%</div></div>
+        <div class="h2r wl"><div class="v">7,6</div><div class="h2b l"><s style="width:76%"></s></div><div class="lb">Regularidade</div><div class="h2b r"><s style="width:64%"></s></div><div class="v r">6,4</div></div>
+        <div class="legend"><span><span class="swatch" style="background:#22a45d"></span> Vantagem no indicador</span><span class="win">Janela: últimos 5 jogos</span></div>
+        <div class="up1"><b>Com Premium:</b> série de 10 jogos por indicador e percentil contra a liga.</div>
+      </div>
+      <div class="nt">Duas colunas, uma por time — cada número tem dono.</div>
+    </div>
+
+    <!-- 6 · VEREDITO DOS OUTROS 9 — BLOQUEADO -->
+    <div class="sec lk">
+      <div class="sh"><span class="t">Veredito dos outros 9 jogos</span><span class="tag lk">🔒 Bloqueado</span></div>
+      <div class="sb">
+        <div class="cmp">
+          <div class="row"><span class="nm">Chapecoense</span><span class="track"><span class="mskb"></span></span><span class="num msk">−6</span></div>
+          <div class="row"><span class="nm">Vitória</span><span class="track"><span class="mskb"></span></span><span class="num msk">+5</span></div>
+          <div class="row"><span class="nm">Bragantino</span><span class="track"><span class="mskb"></span></span><span class="num msk">+4</span></div>
+          <div class="row"><span class="nm">Coritiba</span><span class="track"><span class="mskb"></span></span><span class="num msk">+3</span></div>
+          <div class="row"><span class="nm">Botafogo</span><span class="track"><span class="mskb"></span></span><span class="num msk">−2</span></div>
+        </div>
+        <div class="legend"><span><span class="swatch" style="background:var(--s3)"></span> Delta do modelo, em pp</span><span>+ 4 jogos</span></div>
+        <div class="gate">
+          <span class="badge-prem">Premium do Brasileirão</span>
+          <p class="g1">Você acabou de ver um. Faltam nove — com delta, raciocínio e cenários probabilísticos.</p>
+          <p class="g2">Os nomes dos times e a estrutura ficam à vista: o que está coberto é o número.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7 · CENÁRIOS COM GATILHO -->
+    <div class="sec on">
+      <div class="sh"><span class="t">Cenários com gatilho · Cruzeiro × Flamengo</span><span class="tag on">● Ativo</span></div>
+      <div class="sb">
+        <div class="scn a"><div class="lt">Cenário A</div>
+          <div class="gt"><i>Gatilho</i>Cruzeiro abre o placar até os 30min</div>
+          <div class="ob">O Flamengo saiu atrás em 4 jogos fora nesta temporada e reverteu 1. <span class="win">Janela: temporada 2026, jogos fora de casa.</span></div></div>
+        <div class="scn b"><div class="lt">Cenário B</div>
+          <div class="gt"><i>Gatilho</i>0×0 no intervalo</div>
+          <div class="ob">A faixa 61–75min concentra 9 dos 34 gols do Flamengo e 7 dos 26 sofridos pelo Cruzeiro. <span class="win">Janela: até a rodada 23.</span></div></div>
+        <div class="scn c"><div class="lt">Cenário C · menor frequência</div>
+          <div class="gt"><i>Gatilho</i>Flamengo marca primeiro</div>
+          <div class="ob">O Cruzeiro reverteu 2 de 7 jogos em que saiu atrás no Mineirão nesta temporada.</div></div>
+        <div class="up1"><b>Com Premium:</b> a frequência observada de cada cenário e os 10 jogos da rodada.</div>
+      </div>
+      <div class="nt">Só vale se o gatilho acontecer. Frequência observada, não previsão.</div>
+    </div>
+
+    <!-- 8 · CURVA DE GOLS -->
+    <div class="sec pt">
+      <div class="sh"><span class="t">Curva de gols por faixa de tempo</span><span class="tag pt">◐ Parcial</span></div>
+      <div class="sb">
+        <span class="res">Uma curva só — gols marcados pelo Cruzeiro</span>
+        <div class="gcl"><span><s style="background:#5b8def"></s>Cruzeiro marca</span></div>
+        <div class="gc">
+          <div class="col"><div class="bars"><s class="a" style="height:22px"></s></div><div class="x">0–15</div></div>
+          <div class="col"><div class="bars"><s class="a" style="height:32px"></s></div><div class="x">16–30</div></div>
+          <div class="col"><div class="bars"><s class="a" style="height:40px"></s></div><div class="x">31–45</div></div>
+          <div class="col"><div class="bars"><s class="a" style="height:52px"></s></div><div class="x">46–60</div></div>
+          <div class="col hot"><div class="bars"><s class="a" style="height:74px"></s></div><div class="x">61–75</div></div>
+          <div class="col hot"><div class="bars"><s class="a" style="height:62px"></s></div><div class="x">76–90</div></div>
+        </div>
+        <div class="up1"><b>Com Premium:</b> a curva de gols sofridos do adversário sobreposta e o percentual da temporada.</div>
+      </div>
+      <div class="nt">Temporada até a rodada 23.</div>
+    </div>
+
+    <!-- 9 · PESO DO DESFALQUE -->
+    <div class="sec pt">
+      <div class="sh"><span class="t">Peso do desfalque · Flamengo</span><span class="tag pt">◐ Parcial</span></div>
+      <div class="sb">
+        <span class="res">Sem o comparativo com e sem ele</span>
+        <div class="who">Atacante titular <s>· fora</s></div>
+        <div class="whos">Suspensão · confirmado há 3h</div>
+        <div class="abs">
+          <div class="dnt"><b>35%</b></div>
+          <div class="kv">
+            <div><span>Participação nos gols</span><span>12 de 34</span></div>
+            <div><span>Minutos na temporada</span><span>74%</span></div>
+            <div><span>Pontos/jogo com ele</span><span>Alto</span></div>
+            <div><span>Pontos/jogo sem ele</span><span>Médio</span></div>
+          </div>
+        </div>
+        <div class="up1"><b>Com Premium:</b> pontos por jogo com e sem ele, e o tamanho da amostra.</div>
+      </div>
+      <div class="nt">Direção, não número fechado.</div>
+    </div>
+
+    <!-- 10 · NOTÍCIAS -->
+    <div class="sec on">
+      <div class="sh"><span class="t">Notícias da rodada, amarradas aos jogos</span><span class="tag on">● Ativo</span></div>
+      <div class="sb">
+        <div class="nw">
+          <div><div class="hl">Flamengo deve poupar titulares: jogo no Mineirão vem três dias depois da Libertadores</div>
+            <div class="mtx"><span class="jg">Cruzeiro × Flamengo</span><span>há 2h</span><span>moveu o mercado +6 pp</span></div></div>
+          <div><div class="hl">Bahia relaciona zagueiro recuperado para o clássico no Barradão</div>
+            <div class="mtx"><span class="jg">Vitória × Bahia</span><span>há 5h</span><span>+4 pp no Bahia</span></div></div>
+          <div><div class="hl">Chapecoense muda o comando técnico antes de receber o São Paulo</div>
+            <div class="mtx"><span class="jg">Chapecoense × São Paulo</span><span>ontem</span></div></div>
+        </div>
+      </div>
+      <div class="nt">Com conta, cada notícia mostra o movimento que ela provocou.</div>
+    </div>
+
+    <!-- 11 · CHAT ATIVO -->
+    <div class="sec on">
+      <div class="sh"><span class="t">Chat de cada jogo · liberado</span><span class="tag on">● Ativo</span></div>
+      <div class="sb">
+        <div class="tabsj"><span class="now">Cruzeiro × Flamengo</span><span>Vitória × Bahia</span><span>+8 jogos</span></div>
+        <div class="ch">
+          <div class="msg"><b>marcos_bh</b><br>Se o Flamengo poupar, a defesa do Cruzeiro em casa muda tudo.</div>
+          <div class="msg"><b>ana.f</b><br>Mercado saiu de 32% pra 38% no Cruzeiro desde a lista de relacionados.</div>
+          <div class="inp"><span>Escreva sua mensagem…</span><span class="send">Enviar</span></div>
+        </div>
+      </div>
+      <div class="nt">Um chat por partida da rodada, todos abertos para escrita.</div>
+    </div>
+
+    <!-- 12 · ÍNDICE -->
+    <div class="sec pt">
+      <div class="sh"><span class="t">Índice Macro Markets · confiança no dado</span><span class="tag pt">◐ Parcial</span></div>
+      <div class="sb">
+        <span class="res">Nota sem a decomposição completa</span>
+        <div class="idxw">
+          <div class="g"><b>79<s>de 100</s></b></div>
+          <div class="idxf">
+            <div>Cobertura completa dos dois times nos últimos 10 jogos</div>
+            <div class="m">Escalação provável do Flamengo confirmada há 3h</div>
+          </div>
+        </div>
+        <div class="warnl"><b>O que este número não é.</b> Mede quanta informação confiável sustenta a análise. Não é probabilidade de acerto nem chance de um resultado acontecer.</div>
+        <div class="up1"><b>Com Premium:</b> os 6 fatores do índice e o índice dos 10 jogos.</div>
+      </div>
+    </div>
+
+    <!-- 13 · DOSSIÊ — BLOQUEADO -->
+    <div class="sec lk">
+      <div class="sh"><span class="t">Dossiê profundo da rodada 24</span><span class="tag lk">🔒 Bloqueado</span></div>
+      <div class="sb">
+        <div class="dos">
+          <div><s>→</s><span>Os 3 jogos em que o mercado está errado — <span class="msk">método, premissas e ponto de virada</span></span></div>
+          <div><s>→</s><span>Carga de calendário: <span class="msk">o custo real de jogar 3 dias depois da Libertadores</span></span></div>
+          <div><s>→</s><span>Como ler o G4 da rodada 24 até a 38</span></div>
+        </div>
+        <div class="gate">
+          <span class="badge-prem">Premium do Brasileirão</span>
+          <p class="g1">Os títulos ficam visíveis. O conteúdo entra com o Premium.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 14 · AGENTE — BLOQUEADO, INPUT VISÍVEL E TRAVADO -->
+    <div class="sec lk">
+      <div class="sh"><span class="t">Agente de IA da rodada 24</span><span class="tag lk">🔒 Bloqueado</span></div>
+      <div class="sb">
+        <div class="ag">
+          <div class="q">“Por que o modelo gosta tanto do Cruzeiro neste sábado?”</div>
+          <div class="a msk">O modelo pondera três coisas: a carga de calendário do Flamengo, o retrospecto defensivo do Cruzeiro no Mineirão e a distribuição de gols por faixa de tempo dos dois times nesta temporada.</div>
+        </div>
+        <div class="inp off"><span>Pergunte sobre qualquer jogo da rodada…</span><span>🔒</span></div>
+        <div class="sug"><span>Quem tem mais desgaste?</span><span>Onde o mercado mudou mais?</span><span>Qual jogo é o mais equilibrado?</span></div>
+        <div class="gate">
+          <span class="badge-prem">Premium do Brasileirão</span>
+          <p class="g1">O campo existe e a pergunta de exemplo está à vista. A resposta entra com o Premium.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 15 · CTA -->
+    <div class="ctaz">
+      <div class="cl">CTA primário único</div>
+      <div class="cp">Seus <b>R$ 50 viram R$ 50 de bônus</b> — dinheiro seu, para usar nos mercados. O <b>Premium do Brasileirão</b> vem junto e vale <b>até 07/12/2026</b>, o fim do campeonato. São duas coisas separadas: o dinheiro é seu, o acesso tem data.</div>
+      <a class="btn gold">Ativar Premium — depósito de R$ 50</a>
+      <div class="sub">Depósito de R$ 50 · bônus de R$ 50 · Premium do Brasileirão até 07/12/2026</div>
+    </div>
+
+    <div class="foot">Probabilidade do mercado Macro Markets · janela indicada em cada número · conteúdo informativo</div>
+
+  </div>
+  </div>
+</div>
+</div>
+
+<!-- =========================================================
+     CENÁRIO 3 — LOGADO PREMIUM
+     ========================================================= -->
+<div class="pane" id="p-c">
+<div class="ord">
+  <span class="lb">Ordem</span>
+  <i><b>1</b>Header + validade</i><i class="mv2"><b>2</b>Veredito 10 de 10 ↑</i><i class="mv2"><b>3</b>Dossiê ↑</i><i><b>4</b>Delta da tabela</i>
+  <i><b>5</b>10 jogos + pp</i><i><b>6</b>Indicadores</i><i><b>7</b>Cenários</i><i><b>8</b>Curva de gols</i>
+  <i><b>9</b>Desfalque</i><i class="mv2"><b>10</b>Agente ↑</i><i><b>11</b>Notícias</i><i><b>12</b>Chat</i><i><b>13</b>Índice</i><i><b>14</b>CTA de mercado</i>
+</div>
+
+<div class="frame">
+  <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">macromarkets.com/br/brasileirao/rodada-24</span></div>
+  <div class="canvas dk">
+  <div class="scr">
+
+    <div class="nav"><span class="logo"><span class="m"></span> macro.markets</span><span class="ac">Olá, Rafael</span></div>
+    <div class="bcrumb">Brasileirão › Rodada 24</div>
+
+    <!-- 1 · HEADER + VALIDADE -->
+    <div class="rh">
+      <div class="eb">Brasileirão Série A 2026</div>
+      <h1>24ª rodada: o que se decide neste fim de semana</h1>
+      <div class="dt">22 a 24 de agosto · 10 jogos · sáb, dom e seg</div>
+      <div class="st"><span>● Mercados abertos</span><span>Atualizado hoje, 14h20</span></div>
+    </div>
+    <div class="prembar"><span class="badge-prem">Premium do Brasileirão</span><span class="vd">ativo até 07/12/2026</span></div>
+
+    <!-- 2 · VEREDITO 10 DE 10 -->
+    <div class="sec on" style="background:var(--dark2);border-color:var(--dark3)">
+      <div class="sh" style="background:#111a2b;border-color:var(--dark3)"><span class="t" style="color:#fff">Veredito do Dale · 10 de 10 jogos</span><span class="tag on">● Ativo</span></div>
+      <div class="sb">
+        <div class="cmp">
+          <div class="row"><span class="nm">Cruzeiro</span><span class="track"><span class="fill" style="width:38%;background:var(--s1)"></span><span class="fill" style="width:8%;background:var(--s3)"></span></span><span class="num">+8</span></div>
+          <div class="row"><span class="nm">Chapecoense</span><span class="track"><span class="fill" style="width:21%;background:var(--s1)"></span><span class="fill" style="width:6%;background:var(--s2)"></span></span><span class="num">−6</span></div>
+          <div class="row"><span class="nm">Vitória</span><span class="track"><span class="fill" style="width:33%;background:var(--s1)"></span><span class="fill" style="width:5%;background:var(--s3)"></span></span><span class="num">+5</span></div>
+          <div class="row"><span class="nm">Bragantino</span><span class="track"><span class="fill" style="width:41%;background:var(--s1)"></span><span class="fill" style="width:4%;background:var(--s3)"></span></span><span class="num">+4</span></div>
+          <div class="row"><span class="nm">Coritiba</span><span class="track"><span class="fill" style="width:31%;background:var(--s1)"></span><span class="fill" style="width:3%;background:var(--s3)"></span></span><span class="num">+3</span></div>
+          <div class="row"><span class="nm">Botafogo</span><span class="track"><span class="fill" style="width:46%;background:var(--s1)"></span><span class="fill" style="width:2%;background:var(--s2)"></span></span><span class="num">−2</span></div>
+          <div class="row"><span class="nm">Santos</span><span class="track"><span class="fill" style="width:52%;background:var(--s1)"></span><span class="fill" style="width:2%;background:var(--s3)"></span></span><span class="num">+2</span></div>
+          <div class="row"><span class="nm">Fluminense</span><span class="track"><span class="fill" style="width:63%;background:var(--s1)"></span><span class="fill" style="width:1%;background:#475569"></span></span><span class="num">+1</span></div>
+          <div class="row"><span class="nm">Internacional</span><span class="track"><span class="fill" style="width:44%;background:var(--s1)"></span><span class="fill" style="width:1%;background:#475569"></span></span><span class="num">−1</span></div>
+          <div class="row"><span class="nm">Palmeiras</span><span class="track"><span class="fill" style="width:68%;background:var(--s1)"></span><span class="fill" style="width:1%;background:#475569"></span></span><span class="num">0</span></div>
+        </div>
+        <div class="legend"><span><span class="swatch" style="background:var(--s1)"></span> Mercado</span><span><span class="swatch" style="background:var(--s3)"></span> Delta a favor</span><span><span class="swatch" style="background:var(--s2)"></span> Delta contra</span></div>
+        <p class="why"><b>Cruzeiro × Flamengo · +8 pp.</b> Mercado 38%, modelo 46%. O modelo desconta o terceiro jogo em 8 dias do Flamengo e pesa 4 dos <span class="win">últimos 5 jogos em casa</span> do Cruzeiro sem sofrer gol. Cada linha abre o raciocínio e os cenários probabilísticos.</p>
+      </div>
+      <div class="nt">Divergência é tese sobre o dado, nunca recomendação.</div>
+    </div>
+
+    <!-- 3 · DOSSIÊ -->
+    <div class="sec on" style="background:var(--dark2);border-color:var(--dark3)">
+      <div class="sh" style="background:#111a2b;border-color:var(--dark3)"><span class="t" style="color:#fff">Dossiê profundo da rodada 24</span><span class="tag on">● Ativo</span></div>
+      <div class="sb">
+        <div class="dos">
+          <div><s>→</s><span>Os 3 jogos em que o mercado está errado — método, premissas e o que faria o modelo mudar de ideia</span></div>
+          <div><s>→</s><span>Carga de calendário: o custo observado de jogar 3 dias depois da Libertadores em 2026</span></div>
+          <div><s>→</s><span>Como ler o G4 da rodada 24 até a 38 — com o jogo a menos do Flamengo</span></div>
+          <div><s>→</s><span>Z4: as contas de Vasco, Mirassol, Remo e Chapecoense nas 14 rodadas restantes</span></div>
+        </div>
+      </div>
+      <div class="nt">Publicado terça, 14h20 · 4 peças da rodada 24.</div>
+    </div>
+
+    <!-- 4 · DELTA DA TABELA -->
+    <div class="sec on" style="background:var(--dark2);border-color:var(--dark3)">
+      <div class="sh" style="background:#111a2b;border-color:var(--dark3)"><span class="t" style="color:#fff">O que a rodada 24 muda na tabela</span><span class="tag on">● Ativo</span></div>
+      <div class="sb">
+        <div class="dl">
+          <div><s>→</s><span><b>Palmeiras</b> (48, 23j) vai a 51 e abre 6 de folga se vencer o Vasco.</span></div>
+          <div><s>→</s><span><b>Flamengo</b> (45, 22j) assume a liderança vencendo no Mineirão — e ainda tem um jogo a menos.</span></div>
+          <div><s>→</s><span><b>Cruzeiro</b> (36) fica a 2 do Fluminense (38) e encosta no G4 se vencer.</span></div>
+          <div><s>→</s><span><b>Athletico-PR</b> (41) cai para 4º se perder no Nilton Santos e o Fluminense vencer.</span></div>
+          <div><s>→</s><span>Z4: <b>Vasco</b> (22) sai da zona se vencer; <b>Chapecoense</b> (11) fica a 11 da saída.</span></div>
+        </div>
+        <span class="lnk">Tabela completa dos 20 times no hub do Brasileirão →</span>
+      </div>
+    </div>
+
+    <!-- 5 · OS 10 JOGOS -->
+    <div class="sec on" style="background:var(--dark2);border-color:var(--dark3)">
+      <div class="sh" style="background:#111a2b;border-color:var(--dark3)"><span class="t" style="color:#fff">Os 10 jogos · probabilidade e movimento</span><span class="tag on">● Ativo</span></div>
+      <div class="sb">
+
+        <div class="mt hot">
+          <div class="r1"><span class="crest" style="background:#1e3a8a"></span><span class="nmL">Cruzeiro</span><span class="pp up">+6 pp</span><span class="x">×</span><span class="pp dn">−5 pp</span><span class="nmR">Flamengo</span><span class="crest" style="background:#b91c1c"></span></div>
+          <div class="pb"><s class="a" style="width:38%"></s><s class="d" style="width:27%"></s><s class="b" style="width:35%"></s></div>
+          <div class="r2"><span><b>38%</b> casa</span><span>empate 27%</span><span><b>35%</b> fora</span></div>
+          <div class="r3"><span>Sáb · 20h30 · Mineirão</span><span>modelo 46% · +8 pp</span></div>
+          <div class="r3"><span>terça 32% → hoje 38%</span><span class="spk"><s style="height:44%"></s><s style="height:46%"></s><s style="height:52%"></s><s style="height:58%"></s><s style="height:72%"></s><s style="height:86%"></s><s class="hi" style="height:100%"></s></span></div>
+        </div>
+
+        <div class="mt">
+          <div class="r1"><span class="crest" style="background:#4d1a2e"></span><span class="nmL">Fluminense</span><span class="pp up">+3 pp</span><span class="x">×</span><span class="pp dn">−2 pp</span><span class="nmR">Remo</span><span class="crest" style="background:#123f8c"></span></div>
+          <div class="pb"><s class="a" style="width:63%"></s><s class="d" style="width:22%"></s><s class="b" style="width:15%"></s></div>
+          <div class="r2"><span><b>63%</b> casa</span><span>empate 22%</span><span><b>15%</b> fora</span></div>
+          <div class="r3"><span>Sáb · 16h00 · Maracanã</span><span>modelo 64% · +1 pp</span></div>
+        </div>
+
+        <div class="mt">
+          <div class="r1"><span class="crest" style="background:#b91c1c"></span><span class="nmL">Internacional</span><span class="pp dn">−2 pp</span><span class="x">×</span><span class="pp up">+3 pp</span><span class="nmR">Atlético-MG</span><span class="crest" style="background:#111827"></span></div>
+          <div class="pb"><s class="a" style="width:44%"></s><s class="d" style="width:27%"></s><s class="b" style="width:29%"></s></div>
+          <div class="r2"><span><b>44%</b> casa</span><span>empate 27%</span><span><b>29%</b> fora</span></div>
+          <div class="r3"><span>Sáb · 18h30 · Beira-Rio</span><span>modelo 43% · −1 pp</span></div>
+        </div>
+
+        <div class="mt">
+          <div class="r1"><span class="crest" style="background:#166534"></span><span class="nmL">Palmeiras</span><span class="pp up">+1 pp</span><span class="x">×</span><span class="pp fl">0 pp</span><span class="nmR">Vasco</span><span class="crest" style="background:#111827"></span></div>
+          <div class="pb"><s class="a" style="width:68%"></s><s class="d" style="width:20%"></s><s class="b" style="width:12%"></s></div>
+          <div class="r2"><span><b>68%</b> casa</span><span>empate 20%</span><span><b>12%</b> fora</span></div>
+          <div class="r3"><span>Dom · 16h00 · Allianz Parque</span><span>modelo 68% · 0 pp</span></div>
+        </div>
+
+        <div class="mt">
+          <div class="r1"><span class="crest" style="background:#b91c1c"></span><span class="nmL">Bragantino</span><span class="pp up">+4 pp</span><span class="x">×</span><span class="pp dn">−3 pp</span><span class="nmR">Grêmio</span><span class="crest" style="background:#1e3a8a"></span></div>
+          <div class="pb"><s class="a" style="width:41%"></s><s class="d" style="width:28%"></s><s class="b" style="width:31%"></s></div>
+          <div class="r2"><span><b>41%</b> casa</span><span>empate 28%</span><span><b>31%</b> fora</span></div>
+          <div class="r3"><span>Dom · 16h00 · Nabi Abi Chedid</span><span>modelo 45% · +4 pp</span></div>
+        </div>
+
+        <div class="mt">
+          <div class="r1"><span class="crest" style="background:#b91c1c"></span><span class="nmL">Vitória</span><span class="pp dn">−3 pp</span><span class="x">×</span><span class="pp up">+4 pp</span><span class="nmR">Bahia</span><span class="crest" style="background:#1d4ed8"></span></div>
+          <div class="pb"><s class="a" style="width:33%"></s><s class="d" style="width:29%"></s><s class="b" style="width:38%"></s></div>
+          <div class="r2"><span><b>33%</b> casa</span><span>empate 29%</span><span><b>38%</b> fora</span></div>
+          <div class="r3"><span>Dom · 16h00 · Barradão</span><span>modelo 38% · +5 pp</span></div>
+        </div>
+
+        <div class="mt">
+          <div class="r1"><span class="crest" style="background:#111827"></span><span class="nmL">Santos</span><span class="pp up">+2 pp</span><span class="x">×</span><span class="pp dn">−1 pp</span><span class="nmR">Mirassol</span><span class="crest" style="background:#15803d"></span></div>
+          <div class="pb"><s class="a" style="width:52%"></s><s class="d" style="width:26%"></s><s class="b" style="width:22%"></s></div>
+          <div class="r2"><span><b>52%</b> casa</span><span>empate 26%</span><span><b>22%</b> fora</span></div>
+          <div class="r3"><span>Dom · 18h30 · Vila Belmiro</span><span>modelo 54% · +2 pp</span></div>
+        </div>
+
+        <div class="mt">
+          <div class="r1"><span class="crest" style="background:#166534"></span><span class="nmL">Chapecoense</span><span class="pp dn">−4 pp</span><span class="x">×</span><span class="pp up">+5 pp</span><span class="nmR">São Paulo</span><span class="crest" style="background:#b91c1c"></span></div>
+          <div class="pb"><s class="a" style="width:21%"></s><s class="d" style="width:25%"></s><s class="b" style="width:54%"></s></div>
+          <div class="r2"><span><b>21%</b> casa</span><span>empate 25%</span><span><b>54%</b> fora</span></div>
+          <div class="r3"><span>Dom · 18h30 · Arena Condá</span><span>modelo 15% · −6 pp</span></div>
+        </div>
+
+        <div class="mt">
+          <div class="r1"><span class="crest" style="background:#14532d"></span><span class="nmL">Coritiba</span><span class="pp up">+2 pp</span><span class="x">×</span><span class="pp dn">−2 pp</span><span class="nmR">Corinthians</span><span class="crest" style="background:#0f172a"></span></div>
+          <div class="pb"><s class="a" style="width:31%"></s><s class="d" style="width:28%"></s><s class="b" style="width:41%"></s></div>
+          <div class="r2"><span><b>31%</b> casa</span><span>empate 28%</span><span><b>41%</b> fora</span></div>
+          <div class="r3"><span>Dom · 19h30 · Couto Pereira</span><span>modelo 34% · +3 pp</span></div>
+        </div>
+
+        <div class="mt">
+          <div class="r1"><span class="crest" style="background:#111827"></span><span class="nmL">Botafogo</span><span class="pp dn">−1 pp</span><span class="x">×</span><span class="pp up">+2 pp</span><span class="nmR">Athletico-PR</span><span class="crest" style="background:#b91c1c"></span></div>
+          <div class="pb"><s class="a" style="width:46%"></s><s class="d" style="width:27%"></s><s class="b" style="width:27%"></s></div>
+          <div class="r2"><span><b>46%</b> casa</span><span>empate 27%</span><span><b>27%</b> fora</span></div>
+          <div class="r3"><span>Seg · 20h00 · Nilton Santos</span><span>modelo 44% · −2 pp</span></div>
+        </div>
+
+      </div>
+      <div class="nt">Ordenado por divergência contra o modelo, não por horário.</div>
+    </div>
+
+    <!-- 6 · INDICADORES COM SÉRIE E PERCENTIL -->
+    <div class="sec on" style="background:var(--dark2);border-color:var(--dark3)">
+      <div class="sh" style="background:#111a2b;border-color:var(--dark3)"><span class="t" style="color:#fff">Indicadores · Cruzeiro × Flamengo</span><span class="tag on">● Ativo</span></div>
+      <div class="sb">
+        <div class="h2hh">
+          <span class="tm"><span class="crest" style="background:#1e3a8a"></span>Cruzeiro</span>
+          <span class="vs">×</span>
+          <span class="tm r">Flamengo<span class="crest" style="background:#b91c1c"></span></span>
+        </div>
+        <div class="h2r wr"><div class="v">7,8</div><div class="h2b l"><s style="width:78%"></s></div><div class="lb">Momento</div><div class="h2b r"><s style="width:86%"></s></div><div class="v r">8,6</div></div>
+        <div class="h2r wr"><div class="v">7,1</div><div class="h2b l"><s style="width:71%"></s></div><div class="lb">Ataque</div><div class="h2b r"><s style="width:89%"></s></div><div class="v r">8,9</div></div>
+        <div class="h2r wl"><div class="v">8,4</div><div class="h2b l"><s style="width:84%"></s></div><div class="lb">Defesa</div><div class="h2b r"><s style="width:72%"></s></div><div class="v r">7,2</div></div>
+        <div class="h2r wr"><div class="v">46%</div><div class="h2b l"><s style="width:46%"></s></div><div class="lb">Posse</div><div class="h2b r"><s style="width:57%"></s></div><div class="v r">57%</div></div>
+        <div class="h2r wr"><div class="v">14,6%</div><div class="h2b l"><s style="width:58%"></s></div><div class="lb">Eficiência<br>ofensiva</div><div class="h2b r"><s style="width:72%"></s></div><div class="v r">18,1%</div></div>
+        <div class="h2r wl"><div class="v">7,6</div><div class="h2b l"><s style="width:76%"></s></div><div class="lb">Regularidade</div><div class="h2b r"><s style="width:64%"></s></div><div class="v r">6,4</div></div>
+
+        <div style="border-top:1px solid var(--dark3);margin-top:11px;padding-top:11px">
+          <div style="font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;font-weight:800;color:var(--dink2);margin-bottom:8px">Série de 10 jogos e percentil na liga</div>
+          <div class="h2r"><div class="v"><span class="spk"><s style="height:40%"></s><s style="height:52%"></s><s style="height:44%"></s><s style="height:60%"></s><s style="height:56%"></s><s style="height:70%"></s><s style="height:64%"></s><s style="height:76%"></s><s style="height:72%"></s><s class="hi" style="height:80%"></s></span></div><div class="h2b l" style="background:none"></div><div class="lb">Ataque</div><div class="h2b r" style="background:none"></div><div class="v r"><span class="spk"><s style="height:70%"></s><s style="height:76%"></s><s style="height:82%"></s><s style="height:74%"></s><s style="height:88%"></s><s style="height:80%"></s><s style="height:92%"></s><s style="height:86%"></s><s style="height:94%"></s><s class="hi" style="height:90%"></s></span></div></div>
+          <div class="h2r"><div class="v"><span class="pctl">9º</span></div><div class="h2b l" style="background:none"></div><div class="lb">na liga</div><div class="h2b r" style="background:none"></div><div class="v r"><span class="pctl">2º</span></div></div>
+          <div class="h2r"><div class="v"><span class="pctl">3º</span></div><div class="h2b l" style="background:none"></div><div class="lb">Defesa<br>na liga</div><div class="h2b r" style="background:none"></div><div class="v r"><span class="pctl">8º</span></div></div>
+        </div>
+        <div class="legend"><span><span class="swatch" style="background:#22a45d"></span> Vantagem no indicador</span><span class="win">Janelas: nota em 5 jogos · série e percentil em 10</span></div>
+      </div>
+      <div class="nt">Duas colunas, uma por time — cada número tem dono e janela.</div>
+    </div>
+
+    <!-- 7 · CENÁRIOS PROBABILÍSTICOS -->
+    <div class="sec on" style="background:var(--dark2);border-color:var(--dark3)">
+      <div class="sh" style="background:#111a2b;border-color:var(--dark3)"><span class="t" style="color:#fff">Cenários com gatilho e frequência observada</span><span class="tag on">● Ativo</span></div>
+      <div class="sb">
+        <div class="scn a"><div class="lt">Cenário A · Cruzeiro × Flamengo</div>
+          <div class="gt"><i>Gatilho</i>Cruzeiro abre o placar até os 30min</div>
+          <div class="ob">O Flamengo saiu atrás em 4 jogos fora nesta temporada e reverteu 1.</div>
+          <div class="fq">Frequência observada: 1 de 4 · amostra pequena</div></div>
+        <div class="scn b"><div class="lt">Cenário B · Cruzeiro × Flamengo</div>
+          <div class="gt"><i>Gatilho</i>0×0 no intervalo</div>
+          <div class="ob">Em 22 jogos com 0×0 no intervalo na temporada, 15 tiveram gol depois dos 60min. A faixa 61–75 concentra 9 dos 34 gols do Flamengo.</div>
+          <div class="fq">Frequência observada: 15 de 22 · 68%</div></div>
+        <div class="scn c"><div class="lt">Cenário C · Chapecoense × São Paulo</div>
+          <div class="gt"><i>Gatilho</i>São Paulo marca até o intervalo</div>
+          <div class="ob">A Chapecoense não pontuou em nenhum dos 7 jogos em que sofreu o primeiro gol em casa.</div>
+          <div class="fq">Frequência observada: 0 de 7</div></div>
+        <span class="lnk">Ver os cenários dos 10 jogos →</span>
+      </div>
+      <div class="nt">Frequência observada na janela informada. Não é previsão nem garantia.</div>
+    </div>
+
+    <!-- 8 · CURVA DE GOLS COMPLETA -->
+    <div class="sec on" style="background:var(--dark2);border-color:var(--dark3)">
+      <div class="sh" style="background:#111a2b;border-color:var(--dark3)"><span class="t" style="color:#fff">Curva de gols por faixa de tempo</span><span class="tag on">● Ativo</span></div>
+      <div class="sb">
+        <div class="gcl"><span><s style="background:#5b8def"></s>Cruzeiro marca</span><span><s style="background:#e0a92a"></s>Flamengo sofre</span></div>
+        <div class="gc">
+          <div class="col"><div class="bars"><s class="a" style="height:22px"></s><s class="b" style="height:16px"></s></div><div class="x">0–15</div></div>
+          <div class="col"><div class="bars"><s class="a" style="height:32px"></s><s class="b" style="height:24px"></s></div><div class="x">16–30</div></div>
+          <div class="col"><div class="bars"><s class="a" style="height:40px"></s><s class="b" style="height:34px"></s></div><div class="x">31–45</div></div>
+          <div class="col"><div class="bars"><s class="a" style="height:52px"></s><s class="b" style="height:46px"></s></div><div class="x">46–60</div></div>
+          <div class="col hot"><div class="bars"><s class="a" style="height:74px"></s><s class="b" style="height:82px"></s></div><div class="x">61–75</div></div>
+          <div class="col hot"><div class="bars"><s class="a" style="height:62px"></s><s class="b" style="height:70px"></s></div><div class="x">76–90</div></div>
+        </div>
+        <div class="band" style="margin-top:11px">
+          <div><div class="bl">Até 45min</div><div class="bv">32%</div></div>
+          <div><div class="bl">46–60</div><div class="bv">17%</div></div>
+          <div class="hot"><div class="bl">Após 60min</div><div class="bv">51%</div></div>
+        </div>
+      </div>
+      <div class="nt">Temporada até a rodada 23: Cruzeiro marcou 51% dos 26 gols após os 60min; Flamengo sofreu 54% dos 22 na mesma faixa.</div>
+    </div>
+
+    <!-- 9 · PESO DO DESFALQUE COMPLETO -->
+    <div class="sec on" style="background:var(--dark2);border-color:var(--dark3)">
+      <div class="sh" style="background:#111a2b;border-color:var(--dark3)"><span class="t" style="color:#fff">Peso do desfalque · Flamengo</span><span class="tag on">● Ativo</span></div>
+      <div class="sb">
+        <div class="who">Atacante titular <s>· fora</s></div>
+        <div class="whos">Suspensão · confirmado há 3h · moveu o mercado 6 pp em 12h</div>
+        <div class="abs">
+          <div class="dnt"><b>35%</b></div>
+          <div class="kv">
+            <div><span>Participação nos gols</span><span>12 de 34</span></div>
+            <div><span>Minutos na temporada</span><span>74%</span></div>
+            <div><span>Pontos/jogo com ele</span><span>2,1</span></div>
+            <div><span>Pontos/jogo sem ele</span><span>1,5</span></div>
+          </div>
+        </div>
+        <p class="why">Somado à carga de calendário — terceiro jogo em 8 dias —, é o principal insumo da divergência de +8 pp no Mineirão.</p>
+      </div>
+      <div class="nt">Amostra sem ele: 6 jogos. Leia como direção, não número fechado.</div>
+    </div>
+
+    <!-- 10 · AGENTE ATIVO -->
+    <div class="sec on" style="background:var(--dark2);border-color:var(--dark3)">
+      <div class="sh" style="background:#111a2b;border-color:var(--dark3)"><span class="t" style="color:#fff">Agente de IA da rodada 24</span><span class="tag on">● Ativo</span></div>
+      <div class="sb">
+        <div class="ag">
+          <div class="q">“Por que o modelo gosta tanto do Cruzeiro neste sábado?”</div>
+          <div class="a">Três insumos, na ordem de peso: a carga de calendário do Flamengo (terceiro jogo em 8 dias, com viagem), o retrospecto defensivo do Cruzeiro no Mineirão (4 dos últimos 5 sem sofrer gol) e a sobreposição das curvas de gol após os 60min. Sem o desfalque confirmado, a divergência cairia para +4 pp.</div>
+        </div>
+        <div class="inp"><span>Pergunte sobre qualquer jogo da rodada…</span><span class="send">Enviar</span></div>
+        <div class="sug"><span>Quem tem mais desgaste?</span><span>Onde o mercado mudou mais?</span><span>Compare Vitória e Bahia</span></div>
+      </div>
+      <div class="nt">O agente responde dentro do contexto da rodada 24 e cita a janela de cada número.</div>
+    </div>
+
+    <!-- 11 · NOTÍCIAS -->
+    <div class="sec on" style="background:var(--dark2);border-color:var(--dark3)">
+      <div class="sh" style="background:#111a2b;border-color:var(--dark3)"><span class="t" style="color:#fff">Notícias amarradas aos jogos</span><span class="tag on">● Ativo</span></div>
+      <div class="sb">
+        <div class="nw">
+          <div><div class="hl">Flamengo deve poupar titulares: jogo no Mineirão vem três dias depois da Libertadores</div>
+            <div class="mtx"><span class="jg">Cruzeiro × Flamengo</span><span>há 2h</span><span>+6 pp no Cruzeiro</span></div></div>
+          <div><div class="hl">Bahia relaciona zagueiro recuperado para o clássico no Barradão</div>
+            <div class="mtx"><span class="jg">Vitória × Bahia</span><span>há 5h</span><span>+4 pp no Bahia</span></div></div>
+          <div><div class="hl">Chapecoense muda o comando técnico antes de receber o São Paulo</div>
+            <div class="mtx"><span class="jg">Chapecoense × São Paulo</span><span>ontem</span><span>−4 pp na Chapecoense</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 12 · CHAT -->
+    <div class="sec on" style="background:var(--dark2);border-color:var(--dark3)">
+      <div class="sh" style="background:#111a2b;border-color:var(--dark3)"><span class="t" style="color:#fff">Chat de cada jogo</span><span class="tag on">● Ativo</span></div>
+      <div class="sb">
+        <div class="tabsj"><span class="now">Cruzeiro × Flamengo</span><span>Vitória × Bahia</span><span>+8 jogos</span></div>
+        <div class="ch">
+          <div class="msg"><b>marcos_bh</b><br>Se o Flamengo poupar, a defesa do Cruzeiro em casa muda tudo.</div>
+          <div class="msg"><b>ana.f</b><br>Mercado saiu de 32% pra 38% no Cruzeiro desde a lista de relacionados.</div>
+          <div class="inp"><span>Escreva sua mensagem…</span><span class="send">Enviar</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 13 · ÍNDICE COMPLETO -->
+    <div class="sec on" style="background:var(--dark2);border-color:var(--dark3)">
+      <div class="sh" style="background:#111a2b;border-color:var(--dark3)"><span class="t" style="color:#fff">Índice Macro Markets · confiança no dado</span><span class="tag on">● Ativo</span></div>
+      <div class="sb">
+        <div class="idxw">
+          <div class="g"><b>79<s>de 100</s></b></div>
+          <div class="idxf">
+            <div>Cobertura completa dos dois times nos últimos 10 jogos</div>
+            <div>Escalação provável do Flamengo confirmada há 3h</div>
+            <div>Curva de gols com 49 eventos na temporada</div>
+            <div class="m">Recorte “sem o atacante titular” tem só 6 jogos</div>
+            <div class="m">Mercado ainda em movimento: 6 pp nas últimas 12h</div>
+          </div>
+        </div>
+        <div class="warnl"><b>O que este número não é.</b> Mede quanta informação confiável sustenta a análise. Não é probabilidade de acerto nem chance de um resultado acontecer.</div>
+        <span class="lnk">Ver o índice dos 10 jogos da rodada →</span>
+      </div>
+    </div>
+
+    <!-- 14 · CTA -->
+    <div class="ctaz dkz">
+      <div class="cl">CTA primário único</div>
+      <div class="cp">Nada de pitch: o veredito, o dossiê e os cenários já estão abertos. O único passo que falta é <b>operar no mercado do jogo de maior divergência da rodada</b> — 38% no mercado, 46% no modelo.</div>
+      <a class="btn">Abrir o mercado de Cruzeiro × Flamengo</a>
+      <div class="sub">Sáb · 20h30 · Mineirão · mercado fecha no apito inicial</div>
+    </div>
+
+    <div class="foot">Probabilidade do mercado Macro Markets · janela indicada em cada número · conteúdo informativo</div>
+
+  </div>
+  </div>
+</div>
+</div>
+
+</div>
+</body>
+</html>
