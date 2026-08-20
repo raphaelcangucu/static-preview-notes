@@ -117,7 +117,8 @@ main {
 .journey-matrix-scroll:focus-visible,
 .email-cta:focus-visible,
 .email-opt-out:focus-visible,
-.email-variant-notes a:focus-visible {
+.email-variant-notes a:focus-visible,
+.variant-destination a:focus-visible {
   outline: 3px solid var(--campaign-primary);
   outline-offset: 3px;
 }
@@ -181,25 +182,71 @@ main {
 }
 
 .variant-grid,
+.journey-flow,
 .cap-grid,
 .instrumentation-grid,
 .attribution-grid,
-.email-variant-notes {
+.email-variant-notes,
+.email-variant-grid,
+.recovery-pool-grid,
+.intent-recovery-grid,
+.post-e3-flows {
   display: grid;
   gap: 0.75rem;
   margin-top: 1rem;
 }
 
 .variant-grid article,
+.journey-flow article,
 .cap-grid article,
 .instrumentation-grid article,
 .attribution-grid article,
-.email-variant-notes article {
+.email-variant-notes article,
+.email-variant-card,
+.recovery-pool-grid article,
+.intent-recovery-grid article,
+.post-e3-flows article {
   min-width: 0;
   padding: 1rem;
   border: 1px solid var(--campaign-border);
   border-radius: var(--radius-control);
   background: var(--campaign-raised);
+}
+
+.journey-flow article {
+  position: relative;
+  overflow: hidden;
+}
+
+.journey-flow article > span,
+.recovery-pool-grid article > span,
+.intent-recovery-grid article > span {
+  color: var(--campaign-primary);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.journey-flow h3,
+.recovery-pool-grid h3,
+.intent-recovery-grid h3,
+.post-e3-flows h3 {
+  margin: 0.45rem 0;
+  font-size: 1rem;
+}
+
+.journey-flow p,
+.recovery-pool-grid p,
+.intent-recovery-grid p,
+.post-e3-flows p {
+  margin: 0;
+  color: var(--campaign-muted);
+}
+
+.journey-flow .external-flow-step {
+  border-color: color-mix(in srgb, var(--campaign-secondary) 65%, var(--campaign-border));
+  background: color-mix(in srgb, var(--campaign-secondary) 12%, var(--campaign-raised));
 }
 
 .variant-grid article > span {
@@ -266,6 +313,27 @@ main {
 
 .email-preview {
   padding: clamp(0.85rem, 3vw, 1.25rem);
+}
+
+.external-campaign-connector {
+  min-width: 0;
+  margin: 1.25rem 0;
+  padding: clamp(1rem, 3vw, 1.5rem);
+  border: 1px dashed var(--campaign-secondary);
+  border-radius: var(--radius-card);
+  background: color-mix(in srgb, var(--campaign-secondary) 10%, var(--campaign-surface));
+}
+
+.external-campaign-connector h2 {
+  margin: 0;
+  color: var(--campaign-title);
+  font-size: clamp(1.15rem, 4vw, 1.55rem);
+}
+
+.external-campaign-connector > p:last-child {
+  max-width: 78ch;
+  margin: 0.7rem 0 0;
+  color: var(--campaign-muted);
 }
 
 .planning-header {
@@ -381,6 +449,18 @@ main {
   line-height: 1.65;
 }
 
+.email-copy {
+  display: grid;
+  gap: 0.9rem;
+  margin-top: 1.1rem;
+}
+
+.email-copy p {
+  margin: 0;
+  color: var(--campaign-body);
+  line-height: 1.65;
+}
+
 .email-cta {
   display: inline-flex;
   min-height: 44px;
@@ -413,6 +493,86 @@ main {
   border-top: 1px dashed var(--campaign-border);
   color: var(--campaign-muted);
   font-size: 0.68rem;
+}
+
+.email-signoff {
+  margin-top: 1.1rem;
+  color: var(--campaign-body);
+}
+
+.email-signoff p {
+  margin: 0;
+}
+
+.email-signoff p + p {
+  margin-top: 0.55rem;
+}
+
+.email-variant-card {
+  padding: clamp(0.75rem, 2vw, 1rem);
+  overflow: hidden;
+}
+
+.variant-heading {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.variant-heading h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.variant-trigger {
+  margin: 0;
+  padding: 0.65rem 0.75rem;
+  border-radius: 0.5rem;
+  background: var(--campaign-surface);
+  color: var(--campaign-muted);
+  font-size: 0.74rem;
+  overflow-wrap: anywhere;
+}
+
+.variant-destination {
+  display: grid;
+  gap: 0.35rem;
+  margin: 0.75rem 0 0;
+  color: var(--campaign-muted);
+  font-size: 0.76rem;
+}
+
+.variant-destination a {
+  display: flex;
+  min-height: 44px;
+  align-items: center;
+  color: var(--campaign-primary);
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+
+.recovery-pool {
+  border-color: color-mix(in srgb, var(--campaign-secondary) 55%, var(--campaign-border));
+}
+
+.recovery-pool-grid code,
+.post-e3-flows code {
+  color: #a8d4f1;
+  overflow-wrap: anywhere;
+}
+
+.intent-recovery-grid strong {
+  display: block;
+  margin-top: 0.45rem;
+  color: var(--campaign-title);
+}
+
+.post-e3-flows {
+  margin-top: 1.25rem;
+}
+
+.post-e3-flows article:last-child {
+  border-style: dashed;
+  border-color: var(--campaign-secondary);
 }
 
 .email-variant-notes {
@@ -526,9 +686,14 @@ main {
   }
 
   .variant-grid,
+  .journey-flow,
   .instrumentation-grid,
   .attribution-grid,
-  .email-variant-notes {
+  .email-variant-notes,
+  .email-variant-grid,
+  .recovery-pool-grid,
+  .intent-recovery-grid,
+  .post-e3-flows {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -547,8 +712,17 @@ main {
   }
 
   .variant-grid,
+  .journey-flow,
   .attribution-grid,
   .recovery-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .journey-flow {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .post-e3-flows {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
