@@ -1,13 +1,13 @@
 
   :root{
-    --mm-blue:#1D6FE0; --mm-green:#12873d;
-    --ink:#0b0b0b; --ink2:#52514e; --muted:#6b6965;
-    --line:#e1e0d9; --surf:#ffffff; --page:#f4f4f1;
-    --sans:system-ui,-apple-system,"Segoe UI",sans-serif;
+    --mm-blue:var(--color-secondary); --mm-green:var(--color-primary);
+    --ink:var(--text-title); --ink2:var(--text-body); --muted:var(--text-muted);
+    --line:var(--border-subtle); --surf:var(--surface); --page:var(--canvas);
+    --sans:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
   }
   *{box-sizing:border-box}
   body{margin:0;background:var(--page);font-family:var(--sans);color:var(--ink);line-height:1.5}
-  .wrap{max-width:1180px;margin:0 auto;padding:26px 18px 70px}
+  .wrap{max-width:var(--container-wide);margin:0 auto;padding:0 0 70px}
 
   .doc-head{background:linear-gradient(135deg,var(--mm-blue),var(--mm-green));color:#fff;border-radius:16px;padding:28px 26px;margin-bottom:12px}
   .doc-head h1{margin:0 0 7px;font-size:25px;letter-spacing:-.5px;line-height:1.2}
@@ -132,8 +132,23 @@
     .client,.mobj,.tnote{max-width:600px}
   }
   @media(max-width:520px){
-    .wrap{padding:16px 10px 50px}
+    .wrap{padding:0 0 50px}
     .doc-head h1{font-size:20px}
     .mmeta .evt{margin-left:0}
+  }
+
+  /* Canonical simulator visual language */
+  .note{background:var(--state-locked-surface);border-color:color-mix(in srgb,var(--state-locked) 45%,transparent);color:#ffe4a3}
+  .navdoc a,.audit,.audit .card,.th,.map a,.ruler,.client,.mobj,.tnote,.metrics,.opt{background:var(--surface);border-color:var(--border-subtle);color:var(--text-body)}
+  .navdoc a.here{background:var(--color-primary);border-color:var(--color-primary);color:var(--color-primary-contrast)}
+  .navdoc a:hover,.map a:hover{border-color:var(--color-primary);color:var(--color-primary-hover)}
+  .audit,.th,.ruler,.client,.metrics{box-shadow:none;border-radius:var(--radius-card)}
+  .day,.cbar,.cpre b{background:var(--surface-raised);border-color:var(--surface-accent)}
+  .cta,.cta.blue{background:var(--color-primary);color:var(--color-primary-contrast);border-radius:var(--radius-control)}
+  .cta.ghost{background:transparent;color:#a8d4f1;border-color:var(--color-secondary)}
+
+  @media(max-width:760px){
+    .navdoc{position:static;overflow-x:auto;flex-wrap:nowrap}
+    .navdoc a{flex:none}
   }
 

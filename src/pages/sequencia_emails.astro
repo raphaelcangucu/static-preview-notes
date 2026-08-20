@@ -12,7 +12,7 @@ const document = documentBySlug("sequencia_emails");
 
 <BaseLayout document={document}>
   <PageHeader eyebrow={""} title={"Sequência de e-mails — rodada 24 · teasers curtos"} description={"Mold da rodada: Ter prévia · Qua matchday (4 jogos) · Qui fechamento B · Sáb matchday (6 jogos) · Dom fechamento. Âncora: Cruzeiro × Flamengo, sáb 21h, Mineirão. E-mail = teaser; conversão na página da rodada. Sem personalização por time favorito."} />
-  <section class="mx-auto mb-8 w-[min(100%-2rem,1320px)]" aria-label="Linha do tempo da campanha">
+  <section class="shell-container mb-4" aria-label="Linha do tempo da campanha">
     <Timeline items={[{"label":"Terça","title":"Prévia","description":"Mapa das duas ondas e contexto da rodada."},{"label":"Quarta","title":"Matchday","description":"Quatro jogos e os movimentos que importam."},{"label":"Sábado","title":"Segunda onda","description":"Seis jogos com o Mineirão como âncora."},{"label":"Domingo","title":"Fechamento","description":"Acertos, erros e ponte para a rodada seguinte."}]} />
   </section>
   <article class="astro-document">

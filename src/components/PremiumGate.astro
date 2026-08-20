@@ -10,17 +10,22 @@ interface Props {
 const { title, description } = Astro.props;
 ---
 
+<div data-premium-gate>
 <Panel tone="premium">
   <div class="flex flex-wrap items-start justify-between gap-3">
     <div>
-      <h3 class="m-0 text-lg font-black text-white">{title}</h3>
-      <p class="mb-0 mt-2 max-w-2xl text-sm leading-6 text-slate-300">
+      <p class="m-0 text-[0.66rem] font-extrabold uppercase tracking-[0.14em] text-[var(--state-locked)]">
+        Conteúdo pago
+      </p>
+      <h3 class="mb-0 mt-1 text-lg font-extrabold text-[var(--text-title)]">{title}</h3>
+      <p class="mb-0 mt-2 max-w-2xl text-sm leading-6 text-[var(--text-muted)]">
         {description}
       </p>
     </div>
     <AccessState state="locked" label="Premium" />
   </div>
-  <div class="mt-4 rounded-xl border border-dotted border-amber-500 bg-slate-950/55 p-4">
+  <div class="mt-4 rounded-[var(--radius-control)] border border-dotted border-[var(--state-locked)] bg-[var(--state-locked-surface)] p-4">
     <slot />
   </div>
 </Panel>
+</div>

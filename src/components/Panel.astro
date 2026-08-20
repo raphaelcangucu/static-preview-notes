@@ -8,10 +8,10 @@ const { tone = 'default' } = Astro.props;
 
 <section
   class:list={[
-    'rounded-2xl border p-4 shadow-sm',
+    'rounded-[var(--radius-card)] border p-4',
     tone === 'premium'
-      ? 'border-slate-700 bg-[var(--canvas-premium)] text-slate-100'
-      : 'border-slate-300 bg-white text-slate-900',
+      ? 'border-[var(--border-subtle)] bg-[var(--canvas-premium)] text-[var(--text-body)]'
+      : 'border-[var(--surface-accent)] bg-[var(--surface)] text-[var(--text-body)]',
   ]}
   data-panel-tone={tone}
 >

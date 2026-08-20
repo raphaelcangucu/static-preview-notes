@@ -14,17 +14,17 @@ const { label, tabs, activeHref } = Astro.props as Props;
 ---
 
 <nav
-  class="inline-flex max-w-full gap-1 overflow-x-auto rounded-xl border border-slate-300 bg-slate-100 p-1"
+  class="inline-flex max-w-full gap-1 overflow-x-auto rounded-[var(--radius-control)] border border-[var(--border-subtle)] bg-[var(--surface)] p-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
   aria-label={label}
 >
   {
     tabs.map((tab) => (
       <a
         class:list={[
-          'flex min-h-11 shrink-0 items-center rounded-lg px-3 text-sm font-bold no-underline',
+          'flex min-h-10 shrink-0 items-center rounded-[var(--radius-sm)] border px-3 text-xs font-bold no-underline',
           tab.href === activeHref
-            ? 'bg-white text-slate-950 shadow-sm'
-            : 'text-slate-600 hover:text-slate-950',
+            ? 'border-[var(--color-primary)] bg-[var(--color-primary)] text-[var(--color-primary-contrast)]'
+            : 'border-transparent text-[var(--text-muted)] hover:bg-[var(--surface-accent)] hover:text-[var(--text-title)]',
         ]}
         href={tab.href}
         aria-current={tab.href === activeHref ? 'page' : undefined}

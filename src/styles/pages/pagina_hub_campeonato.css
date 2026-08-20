@@ -1,18 +1,18 @@
 
   /* ============ herdado de mockups_3.html ============ */
   :root{
-    --mm-blue:#1D6FE0; --mm-blue-d:#155ec2; --mm-green:#12873d; --mm-green-l:#22c55e;
-    --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
-    --ink:#0b0b0b; --ink2:#52514e; --muted:#6b6965;
-    --line:#e1e0d9; --surf:#ffffff; --page:#f4f4f1;
-    --dark:#0E1420; --dark2:#161E2E; --dark3:#1E293B; --dinv:#ffffff; --dink2:#94A3B8;
-    --ok:#0ca30c; --warn:#fab219;
-    --st-on:#22a45d; --st-pa:#1D6FE0; --st-lk:#b58922; --st-off:#908d87;
-    --sans:system-ui,-apple-system,"Segoe UI",sans-serif;
+    --mm-blue:var(--color-secondary); --mm-blue-d:#8fc7ed; --mm-green:var(--color-primary); --mm-green-l:var(--color-primary-hover);
+    --s1:var(--color-secondary); --s2:#eb6834; --s3:#00b58c;
+    --ink:var(--text-title); --ink2:var(--text-body); --muted:var(--text-muted);
+    --line:var(--border-subtle); --surf:var(--surface); --page:var(--canvas);
+    --dark:var(--canvas-premium); --dark2:var(--surface); --dark3:var(--surface-raised); --dinv:var(--text-title); --dink2:var(--text-muted);
+    --ok:var(--color-primary); --warn:var(--state-locked);
+    --st-on:var(--state-active); --st-pa:var(--state-partial); --st-lk:var(--state-locked); --st-off:var(--state-absent);
+    --sans:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
   }
   *{box-sizing:border-box}
   body{margin:0;background:var(--page);font-family:var(--sans);color:var(--ink);line-height:1.5}
-  .wrap{max-width:1180px;margin:0 auto;padding:26px 18px 80px}
+  .wrap{max-width:var(--container-wide);margin:0 auto;padding:0 0 80px}
 
   .doc-head{background:linear-gradient(135deg,var(--mm-blue),var(--mm-green));color:#fff;border-radius:16px;padding:26px 26px;margin-bottom:8px}
   .doc-head h1{margin:0 0 6px;font-size:25px;letter-spacing:-.5px}
@@ -344,4 +344,45 @@
   .page.dk .pb3 i.h{background:#1f63b8} .page.dk .pb3 i.d{background:#65615a} .page.dk .pb3 i.a{background:#3f4756}
   .page.dk .cin .snd{background:#107a37}
   .page.dk .btn{background:#107a37}
+
+  /* Canonical simulator visual language */
+  .note{background:var(--state-locked-surface);border-color:color-mix(in srgb,var(--state-locked) 45%,transparent);color:#ffe4a3}
+  .navdoc a,.legendbar,.tabs3 label,.page,.mt,.c,.aut,.chat,.idx .g b{background:var(--surface);border-color:var(--border-subtle);color:var(--text-body)}
+  .navdoc a.here,
+  #sc-a:checked~.tabs3 label[for=sc-a],
+  #sc-b:checked~.tabs3 label[for=sc-b],
+  #sc-c:checked~.tabs3 label[for=sc-c]{background:var(--color-primary);border-color:var(--color-primary);color:var(--color-primary-contrast)}
+  .navdoc a:hover,.tabs3 label:hover{border-color:var(--color-primary);color:var(--color-primary-hover)}
+  .legendbar,.page{box-shadow:none}
+  .legendbar .lgi{background:var(--surface-raised);border-color:var(--border-subtle);color:var(--text-body)}
+  .legendbar .lgi u{color:var(--text-title)}
+  .legendbar .lgi.on{background:var(--state-active-surface);border-color:var(--state-active)}
+  .legendbar .lgi.pa{background:var(--state-partial-surface);border-color:var(--state-partial)}
+  .legendbar .lgi.lk{background:var(--state-locked-surface);border-color:var(--state-locked)}
+  .legendbar .lgi.off{background:var(--state-absent-surface);border-color:var(--state-absent)}
+  .stage{background:var(--canvas-modal);border-radius:var(--radius-panel);padding:14px}
+  .page{max-width:560px;border-radius:var(--radius-panel)}
+  .appbar,.sect,.chat .ch,.cin{border-color:var(--border-subtle)}
+  .sect.on{background:var(--state-active-surface)}
+  .sect.pa{background:var(--state-partial-surface)}
+  .sect.lk{background:var(--state-locked-surface)}
+  .sect.off{background:var(--state-absent-surface)}
+  .sect.on::before{background:var(--state-active)}
+  .sect.pa::before{background:repeating-linear-gradient(180deg,var(--state-partial) 0 12px,transparent 12px 20px)}
+  .sect.lk::before{background:repeating-linear-gradient(180deg,var(--state-locked) 0 5px,transparent 5px 9px)}
+  .sect.off::before{background:repeating-linear-gradient(180deg,var(--state-absent) 0 5px,transparent 5px 9px)}
+  .bar,.chat .ch,.tb th{background:var(--surface-raised)}
+  .gate{background:var(--state-locked-surface);border-color:var(--state-locked)}
+  .gate .gt{color:#ffe4a3}.gate .gt b{color:var(--text-title)}
+  .btn,.cin .snd,.agent .af .go{background:var(--color-primary);color:var(--color-primary-contrast);border-radius:var(--radius-control)}
+  .tb td,.kv,.msg{border-color:var(--surface-accent)}
+
+  @media(max-width:760px){
+    .wrap{padding-bottom:48px}
+    .stage{padding:8px}
+    .page{border-radius:var(--radius-card)}
+    .legendbar{position:static}
+    .tabs3{overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px}
+    .tabs3 label{flex:none}
+  }
 

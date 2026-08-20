@@ -1,18 +1,18 @@
 
   :root{
-    --mm-blue:#1D6FE0; --mm-blue-d:#155ec2; --mm-green:#12873d; --mm-green-l:#22c55e;
-    --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
-    --ink:#0b0b0b; --ink2:#52514e; --muted:#6b6965;
-    --line:#e1e0d9; --surf:#ffffff; --page:#f4f4f1;
-    --dark:#0E1420; --dark2:#161E2E; --dark3:#1E293B; --dinv:#ffffff; --dink2:#94A3B8;
-    --ok:#0ca30c; --warn:#fab219;
-    --sans:system-ui,-apple-system,"Segoe UI",sans-serif;
-    --gold:#e08c00;
-    --st-on:#22a45d; --st-pa:#1D6FE0; --st-lk:#b58922; --st-off:#908d87;
+    --mm-blue:var(--color-secondary); --mm-blue-d:#8fc7ed; --mm-green:var(--color-primary); --mm-green-l:var(--color-primary-hover);
+    --s1:var(--color-secondary); --s2:#eb6834; --s3:#00b58c;
+    --ink:var(--text-title); --ink2:var(--text-body); --muted:var(--text-muted);
+    --line:var(--border-subtle); --surf:var(--surface); --page:var(--canvas);
+    --dark:var(--canvas-premium); --dark2:var(--surface); --dark3:var(--surface-raised); --dinv:var(--text-title); --dink2:var(--text-muted);
+    --ok:var(--color-primary); --warn:var(--state-locked);
+    --sans:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+    --gold:var(--state-locked);
+    --st-on:var(--state-active); --st-pa:var(--state-partial); --st-lk:var(--state-locked); --st-off:var(--state-absent);
   }
   *{box-sizing:border-box}
   body{margin:0;background:var(--page);font-family:var(--sans);color:var(--ink);line-height:1.5}
-  .wrap{max-width:1180px;margin:0 auto;padding:26px 18px 70px}
+  .wrap{max-width:var(--container-wide);margin:0 auto;padding:0 0 70px}
 
   .doc-head{background:linear-gradient(135deg,var(--mm-blue),var(--mm-green));color:#fff;border-radius:16px;padding:28px 26px;margin-bottom:12px}
   .doc-head h1{margin:0 0 7px;font-size:25px;letter-spacing:-.5px}
@@ -375,5 +375,41 @@
     .wrap{padding:16px 10px 50px}
     .h2r{grid-template-columns:36px 1fr 66px 1fr 36px}
     .cmp .nm{width:74px}
+  }
+
+  /* Canonical simulator visual language */
+  .note{background:var(--state-locked-surface);border-color:color-mix(in srgb,var(--state-locked) 45%,transparent);color:#ffe4a3}
+  .navdoc a,.lgd,.tabs label,.frame,.page,.sec,.mt,.agent,.h2h,.idxw .g b{background:var(--surface);border-color:var(--border-subtle);color:var(--text-body)}
+  .navdoc a.here,
+  #sc-a:checked~.tabs label[for=sc-a],
+  #sc-b:checked~.tabs label[for=sc-b],
+  #sc-c:checked~.tabs label[for=sc-c]{background:var(--color-primary);border-color:var(--color-primary);color:var(--color-primary-contrast)}
+  .navdoc a:hover,.tabs label:hover{border-color:var(--color-primary);color:var(--color-primary-hover)}
+  .lgd,.frame,.page{box-shadow:none}
+  .lgd .it{background:var(--surface-raised);border-color:var(--border-subtle);color:var(--text-body)}
+  .lgd .it b{color:var(--text-title)}
+  .lgd .it.on{background:var(--state-active-surface);border-color:var(--state-active)}
+  .lgd .it.pa{background:var(--state-partial-surface);border-color:var(--state-partial)}
+  .lgd .it.lk{background:var(--state-locked-surface);border-color:var(--state-locked)}
+  .lgd .it.of{background:var(--state-absent-surface);border-color:var(--state-absent)}
+  .stage{background:var(--canvas-modal);border-radius:var(--radius-panel);padding:14px}
+  .page{max-width:600px;border-radius:var(--radius-panel)}
+  .sec.on{background:var(--state-active-surface)}
+  .sec.pa{background:var(--state-partial-surface)}
+  .sec.lk{background:var(--state-locked-surface)}
+  .sec.off{background:var(--state-absent-surface)}
+  .gate{background:var(--state-locked-surface);border-color:var(--state-locked)}
+  .gate .g1{color:var(--text-title)}.gate .g2{color:#ffe4a3}
+  .btn,.send{background:var(--color-primary);color:var(--color-primary-contrast);border-radius:var(--radius-control)}
+  .bar,.qual th{background:var(--surface-raised)}
+  .qual td,.mt,.band div{border-color:var(--surface-accent)}
+
+  @media(max-width:760px){
+    .wrap{padding:0 0 48px}
+    .stage{padding:8px}
+    .page{border-radius:var(--radius-card)}
+    .lgd{position:static}
+    .tabs{overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px}
+    .tabs label{flex:none}
   }
 

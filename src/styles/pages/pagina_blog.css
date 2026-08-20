@@ -1,14 +1,14 @@
 
 :root{
-  --ink:#14171a; --ink2:#3d444b; --muted:#6a7078; --line:#e2e0da;
-  --paper:#faf9f6; --card:#ffffff;
-  --grn:#22a45d; --grn-d:#146c35; --grn-bg:#f1f9f4; --grn-ln:#bfe0c9;
-  --blu:#2563eb; --blu-d:#1c47a8; --blu-bg:#eef3fd; --blu-ln:#c2d4f6;
-  --amb:#b38722; --amb-d:#8a6209; --amb-bg:#fdf7e8; --amb-ln:#ecd9a4;
-  --gry:#8e8c86; --gry-bg:#f4f3f0;
-  --dark:#111418;
-  --s1:#22a45d; --s2:#2563eb;
-  --mm-blue:#1D6FE0;
+  --ink:var(--text-title); --ink2:var(--text-body); --muted:var(--text-muted); --line:var(--border-subtle);
+  --paper:var(--canvas); --card:var(--surface);
+  --grn:var(--state-active); --grn-d:#6ee7a0; --grn-bg:var(--state-active-surface); --grn-ln:color-mix(in srgb,var(--state-active) 45%,transparent);
+  --blu:var(--state-partial); --blu-d:#a8c9ff; --blu-bg:var(--state-partial-surface); --blu-ln:color-mix(in srgb,var(--state-partial) 45%,transparent);
+  --amb:var(--state-locked); --amb-d:#ffe08a; --amb-bg:var(--state-locked-surface); --amb-ln:color-mix(in srgb,var(--state-locked) 45%,transparent);
+  --gry:var(--state-absent); --gry-bg:var(--state-absent-surface);
+  --dark:var(--canvas-premium);
+  --s1:var(--color-primary); --s2:var(--color-secondary);
+  --mm-blue:var(--color-secondary);
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -17,7 +17,7 @@ body{
   font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
 }
 a{color:inherit}
-.wrap{max-width:1180px;margin:0 auto;padding:22px 14px 70px}
+.wrap{max-width:var(--container-wide);margin:0 auto;padding:0 0 70px}
 
 /* ---------- cabeçalho do documento ---------- */
 .doc-head{border-bottom:2px solid var(--ink);padding-bottom:14px;margin-bottom:16px}
@@ -414,5 +414,30 @@ a{color:inherit}
   .canvas{padding:20px}
   .scr{max-width:520px}
   .ph1{font-size:23px}
+}
+
+/* Canonical simulator visual language */
+.note{background:var(--state-locked-surface);border-color:var(--amb-ln);color:#ffe4a3}
+.navdoc a,.lgd i,.tabs label,.frame,.filbox,.sec,.feat,.ent,.toc,.ctaz.use,.inline-cta,.foot{background:var(--surface);border-color:var(--border-subtle);color:var(--text-body)}
+.navdoc a.here,
+#t1:checked~.tabs label[for=t1],
+#t2:checked~.tabs label[for=t2],
+#t3:checked~.tabs label[for=t3]{background:var(--color-primary);border-color:var(--color-primary);color:var(--color-primary-contrast)}
+.navdoc a:hover,.tabs label:hover{border-color:var(--color-primary);color:var(--color-primary-hover)}
+.bar,.chip,.more.solid{background:var(--surface-raised);border-color:var(--border-subtle)}
+.canvas{background:var(--canvas-modal);border-radius:var(--radius-card)}
+.sec.on,.feat.on{background:var(--state-active-surface)}
+.sec.pt,.feat.pt{background:var(--state-partial-surface)}
+.sec.lk{background:var(--state-locked-surface)}
+.sec.of{background:var(--state-absent-surface)}
+.gate{background:var(--state-locked-surface);border-color:var(--state-locked)}
+.btn,.btn.g{background:var(--color-primary);color:var(--color-primary-contrast);border-radius:var(--radius-control)}
+.ctaz.dep,.feat.dk{background:var(--canvas-premium)}
+
+@media(max-width:760px){
+  .wrap{padding-bottom:48px}
+  .tabs{overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px}
+  .tabs label{flex:none;min-width:150px}
+  .canvas{padding:8px}
 }
 

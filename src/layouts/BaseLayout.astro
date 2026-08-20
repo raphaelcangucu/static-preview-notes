@@ -12,29 +12,40 @@ const { document } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex, nofollow, noarchive" />
     <meta name="description" content={document.description} />
-    <meta name="theme-color" content="#0f172a" />
+    <meta name="theme-color" content="#111318" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <title>{document.title}</title>
   </head>
   <body>
-    <div class="site-shell">
+    <a class="skip-link" href="#main-content">Pular para o conteúdo</a>
+    <div class="site-shell" data-site-shell>
       <SiteNavigation currentDocument={document} />
-      <div class="border-b border-slate-200 bg-slate-50 py-3">
+      <div class="shell-container py-3">
         <StateLegend />
       </div>
-      <main id="main-content">
+      <main id="main-content" tabindex="-1">
         <slot />
       </main>
-      <footer class="border-t border-slate-700 bg-[var(--canvas-premium)] px-4 py-8 text-center text-sm text-slate-300">
-        <p class="m-0 font-bold text-white">Macro Markets · Preview Notes</p>
-        <p class="mx-auto mb-0 mt-2 max-w-3xl">
-          Documento interno com dados ilustrativos. Conteúdo bloqueado mantém o rótulo legível e vela apenas o valor.
-        </p>
+      <footer class="mt-10 border-t border-[var(--border-subtle)] bg-[var(--canvas-modal)]">
+        <div class="shell-container flex flex-col gap-2 py-8 text-sm md:flex-row md:items-center md:justify-between">
+          <p class="m-0 font-extrabold tracking-tight text-[var(--text-title)]">
+            Macro Markets · Preview Notes
+          </p>
+          <p class="m-0 max-w-3xl text-[var(--text-muted)]">
+            Documento interno com dados ilustrativos. Conteúdo bloqueado mantém o rótulo legível e vela apenas o valor.
+          </p>
+        </div>
       </footer>
     </div>
   </body>

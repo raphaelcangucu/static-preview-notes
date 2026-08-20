@@ -13,18 +13,28 @@ interface Props {
 const { currentDocument } = Astro.props;
 ---
 
-<header class="sticky top-0 z-[100] border-b border-slate-300/80 bg-white/95 shadow-sm backdrop-blur">
-  <div class="mx-auto flex max-w-[1480px] flex-col gap-3 px-4 py-3 lg:flex-row lg:items-center">
+<header class="sticky top-0 z-[100] border-b border-[var(--border-subtle)] bg-[var(--canvas)]/95 backdrop-blur">
+  <div class="shell-container flex flex-col gap-3 py-3 lg:flex-row lg:items-center">
     <a
-      class="flex min-h-11 shrink-0 items-center gap-2 rounded-lg text-base font-black tracking-tight text-slate-950 no-underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
+      class="flex min-h-11 shrink-0 items-center gap-3 rounded-[var(--radius-control)] text-[var(--text-title)] no-underline"
       href={`${BASE_PATH}/`}
     >
-      <span class="grid size-8 place-items-center rounded-lg bg-slate-950 text-sm text-white" aria-hidden="true">MM</span>
-      <span>Preview Notes</span>
+      <span
+        class="grid size-9 place-items-center rounded-[var(--radius-control)] bg-[var(--color-primary)] text-xs font-black text-[var(--color-primary-contrast)]"
+        aria-hidden="true"
+      >
+        MM
+      </span>
+      <span class="grid min-w-0">
+        <span class="text-[0.62rem] font-extrabold uppercase tracking-[0.14em] text-[var(--color-primary)]">
+          Macro Markets · Product system
+        </span>
+        <span class="truncate text-base font-extrabold tracking-[-0.02em]">Preview Notes</span>
+      </span>
     </a>
 
     <nav
-      class="flex min-w-0 flex-1 gap-1 overflow-x-auto pb-1 lg:justify-end lg:pb-0"
+      class="flex min-w-0 flex-1 gap-1 overflow-x-auto rounded-[var(--radius-control)] pb-1 [scrollbar-width:none] lg:justify-end lg:pb-0 [&::-webkit-scrollbar]:hidden"
       aria-label="Documentos do projeto"
       data-site-navigation
     >
@@ -35,10 +45,10 @@ const { currentDocument } = Astro.props;
           return (
             <a
               class:list={[
-                'flex min-h-11 shrink-0 items-center rounded-lg px-3 text-sm font-bold no-underline transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700',
+                'flex min-h-10 shrink-0 items-center rounded-[var(--radius-control)] border px-3 text-xs font-bold no-underline',
                 isActive
-                  ? 'bg-slate-950 text-white'
-                  : 'text-slate-700 hover:bg-slate-100 hover:text-slate-950',
+                  ? 'border-[var(--color-primary)] bg-[var(--color-primary)] text-[var(--color-primary-contrast)]'
+                  : 'border-transparent text-[var(--text-muted)] hover:border-[var(--border-subtle)] hover:bg-[var(--surface-accent)] hover:text-[var(--text-title)]',
               ]}
               href={publicPathFor(document)}
               aria-current={isActive ? 'page' : undefined}

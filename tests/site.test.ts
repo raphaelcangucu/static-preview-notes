@@ -154,6 +154,28 @@ describe('generated route matrix', () => {
 });
 
 describe('shared design system', () => {
+  it('renders the accessible shared shell and component boundaries', () => {
+    for (const route of routes) {
+      const $ = loadRoute(route.path);
+
+      expect($('[data-site-shell]')).toHaveLength(1);
+      expect($('a[href="#main-content"].skip-link')).toHaveLength(1);
+      expect($('[data-page-header]')).toHaveLength(1);
+      expect($('[data-state-legend]')).toHaveLength(1);
+    }
+
+    for (const routePath of [
+      'pagina_hub_campeonato.html',
+      'pagina_rodada.html',
+      'pagina_blog.html',
+    ]) {
+      const $ = loadRoute(routePath);
+
+      expect($('[data-scenario-tabs]')).toHaveLength(1);
+      expect($('[data-premium-gate]')).toHaveLength(1);
+    }
+  });
+
   it('publishes the four semantic states and premium canvas tokens', () => {
     const $ = loadRoute('index.html');
     const html = $.html();
@@ -168,10 +190,36 @@ describe('shared design system', () => {
     expect(generatedCss).toContain('--state-locked');
     expect(generatedCss).toContain('--state-absent');
     expect(generatedCss).toContain('--canvas-premium');
+    expect(generatedCss).toContain('--surface-raised:#212632');
+    expect(generatedCss).toContain('--color-primary:#22c55e');
+    expect(generatedCss).toContain('--color-secondary:#368bc9');
+    expect(generatedCss).toContain('--radius-panel:20px');
+    expect(generatedCss).toContain('prefers-reduced-motion:reduce');
     expect(html).toContain('data-state="active"');
     expect(html).toContain('data-state="partial"');
     expect(html).toContain('data-state="locked"');
     expect(html).toContain('data-state="absent"');
+  });
+
+  it('keeps access state borders semantically distinct', () => {
+    const assetDirectory = resolve(distDirectory, '_astro');
+    const generatedCss = readdirSync(assetDirectory)
+      .filter((filename) => filename.endsWith('.css'))
+      .map((filename) => readFileSync(resolve(assetDirectory, filename), 'utf8'))
+      .join('\n');
+
+    expect(generatedCss).toMatch(
+      /\.access-state\[data-state=active\][^{]*\{[^}]*border-style:solid/,
+    );
+    expect(generatedCss).toMatch(
+      /\.access-state\[data-state=partial\][^{]*\{[^}]*border-style:dashed/,
+    );
+    expect(generatedCss).toMatch(
+      /\.access-state\[data-state=locked\][^{]*\{[^}]*border-style:dotted/,
+    );
+    expect(generatedCss).toMatch(
+      /\.access-state\[data-state=absent\][^{]*\{[^}]*opacity:/,
+    );
   });
 
   it('preserves the complete planning document at the root', () => {

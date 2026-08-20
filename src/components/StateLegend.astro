@@ -3,12 +3,18 @@ import AccessState from './AccessState.astro';
 ---
 
 <aside
-  class="mx-auto flex w-[min(100%-2rem,1440px)] flex-wrap items-center gap-2 rounded-xl border border-slate-300 bg-white p-3 shadow-sm"
+  class="flex flex-wrap items-center gap-2 rounded-[var(--radius-card)] border border-[var(--surface-accent)] bg-[var(--surface)] p-2.5"
   aria-label="Legenda dos estados de acesso"
+  data-state-legend
 >
-  <strong class="mr-1 text-sm text-slate-800">Estados:</strong>
+  <strong class="mr-1 text-[0.66rem] font-extrabold uppercase tracking-[0.12em] text-[var(--text-muted)]">
+    Estados
+  </strong>
   <AccessState state="active" label="Ativo" />
   <AccessState state="partial" label="Parcial" />
   <AccessState state="locked" label="Bloqueado" />
   <AccessState state="absent" label="Ausente" />
+  <span class="ml-auto hidden text-xs text-[var(--text-hint)] xl:inline">
+    O rótulo permanece legível; apenas valores pagos são velados.
+  </span>
 </aside>
