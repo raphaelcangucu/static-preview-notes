@@ -231,7 +231,7 @@ for (const routePath of ['/', '/sequencia_emails.html'] as const) {
     test.skip(testInfo.project.name !== 'mobile');
 
     await page.goto(routeUrl(routePath), {
-      waitUntil: 'domcontentloaded',
+      waitUntil: 'networkidle',
     });
 
     const scrollableTables = await page
@@ -316,18 +316,8 @@ for (const scenarioControl of [
     const label = page.locator(`label[for="${radioId}"]`);
     await expect(label).toBeVisible();
     await radio.focus();
-
-    const focusStyle = await label.evaluate((element) => {
-      const style = window.getComputedStyle(element);
-      return {
-        boxShadow: style.boxShadow,
-        outlineStyle: style.outlineStyle,
-      };
-    });
-
-    expect(
-      focusStyle.outlineStyle !== 'none' || focusStyle.boxShadow !== 'none',
-    ).toBe(true);
+    await expect(radio).toBeFocused();
+    await expect(label).toHaveCSS('outline-style', 'solid');
 
     await label.click();
     await expect(radio).toBeChecked();

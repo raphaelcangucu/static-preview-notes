@@ -47,17 +47,19 @@ def create_comparison(before_path: Path, after_path: Path) -> None:
             fill=LABEL_COLOR,
         )
 
-        comparison_name = before_path.name.replace(
-            "-top.png",
-            "-top-comparison.png",
-        )
+        comparison_name = f"{before_path.stem}-comparison.png"
         output.save(COMPARISON_DIRECTORY / comparison_name, optimize=True)
 
 
 def main() -> None:
     COMPARISON_DIRECTORY.mkdir(parents=True, exist_ok=True)
 
-    before_images = sorted(BEFORE_DIRECTORY.glob("*-top.png"))
+    before_images = sorted(
+        [
+            *BEFORE_DIRECTORY.glob("*-top.png"),
+            *BEFORE_DIRECTORY.glob("*-focus.png"),
+        ],
+    )
     if not before_images:
         raise RuntimeError(f"No top screenshots found in {BEFORE_DIRECTORY}")
 

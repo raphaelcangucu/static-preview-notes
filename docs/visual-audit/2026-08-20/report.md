@@ -130,17 +130,48 @@ Convenção principal: `{rota}-{desktop|mobile}-{top|full}.png`. A evidência de
   - Antes: [`pagina_lps_waitlist-mobile-top.png`](./before/pagina_lps_waitlist-mobile-top.png)
   - Depois: [`pagina_lps_waitlist-mobile-top.png`](./after/pagina_lps_waitlist-mobile-top.png)
 
-## Validação local após correções
+### Encerramento por problema
 
-- Vitest: `51/51` testes passando.
+1. **Recorte e overflow**
+   - Correção: remoção do recorte global, contenção com `min-width: 0` e rolagem local para tabelas largas.
+   - Teste: as 7 rotas passaram sem overflow ou conteúdo cortado nos dois viewports; Índice e E-mails da rodada também passaram o contrato específico de tabela rolável em `390px`.
+2. **Foco dos controles de cenário**
+   - Correção: radios semanticamente reais e indicador de foco verde no label, com alvo mínimo de `44px`.
+   - Teste: cinco conjuntos de cenários passaram foco, seleção e troca de painel em desktop e mobile.
+3. **Orientação mobile**
+   - Correção: o item ativo é priorizado visualmente no início do trilho, sem mudar a ordem do DOM.
+   - Teste: `aria-current="page"` permaneceu visível e dentro do viewport em todas as rotas.
+4. **Concorrência de elementos sticky**
+   - Correção: legendas internas passaram a fluxo normal; somente o shell compartilhado permanece sticky.
+   - Teste: ausência de sobreposição validada após rolagem.
+5. **Escala e legibilidade**
+   - Correção: piso tipográfico e largura de leitura foram centralizados, mantendo tokens, conteúdo e estados.
+   - Evidência: todas as 30 capturas finais e as 16 montagens foram inspecionadas visualmente; não restaram cortes, sobreposições ou lacunas de layout.
+
+## Validação final
+
+- Validação executada em worktree limpo no commit `17472ef`.
+- Vitest: `28/28` testes passando.
 - Astro check: `0` erros, `0` avisos, `0` hints.
 - Build: `7/7` páginas geradas.
-- Playwright local: `51` testes passando, `15` capturas condicionais ignoradas sem `VISUAL_AUDIT_DIR`.
-- Captura Playwright: `14/14` matrizes rota/viewport e `2/2` evidências de foco.
+- Playwright local: `53` testes passando, `19` testes condicionais ignorados.
+- Playwright publicado: `53` testes passando, `19` testes condicionais ignorados.
+- Captura Playwright publicada: `14/14` matrizes rota/viewport e `2/2` evidências de foco.
+- Links internos, assets e console: nenhuma resposta `404` e nenhum erro nas 7 rotas.
+- SEO preventivo: meta `noindex, nofollow, noarchive` e `robots.txt` bloqueando `/`.
+- Deploy de implementação: [GitHub Actions #32328341583](https://github.com/raphaelcangucu/static-preview-notes/actions/runs/32328341583), concluído com sucesso.
+- URL validada: <https://raphaelcangucu.github.io/static-preview-notes/>.
+
+## Limitações restantes
+
+- As montagens priorizam topo e foco, onde ocorreram as mudanças comparáveis; as visões full-page permanecem disponíveis individualmente em `before/` e `after/`.
+- O índice é um documento deliberadamente muito longo; a captura full-page fica comprimida em visualizadores de miniatura, embora a medição de layout não tenha encontrado lacunas entre suas seções.
+- A regressão visual usa evidência determinística e contratos de layout, mas não aplica limiar automático de diferença perceptual entre pixels.
+- As variantes históricas de nomes de estado permanecem no CSS de páginas; os estados renderizados estão consistentes, mas a normalização interna completa ficou fora do escopo para evitar refatoração sem ganho visual.
 
 ## Status das fases
 
 - Fase 1 — inventário inicial: concluída.
 - Fase 2 — Playwright e testes de regressão: concluída.
-- Fase 3 — correções: concluída e validada localmente.
-- Fase 4 — evidência final local: concluída; publicação e nova validação pública pendentes.
+- Fase 3 — correções: concluída e validada em worktree limpo.
+- Fase 4 — capturas, comparações, inspeção visual, publicação e validação pública: concluída.
