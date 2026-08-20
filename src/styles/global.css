@@ -160,7 +160,7 @@ table {
   max-width: 100%;
 }
 
-.astro-document :where(p, li, td, th) {
+.astro-document :where(p, li) {
   overflow-wrap: anywhere;
 }
 

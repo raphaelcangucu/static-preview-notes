@@ -224,6 +224,44 @@ test('mobile navigation keeps the active page inside the visible strip', async (
   );
 });
 
+for (const routePath of ['/', '/sequencia_emails.html'] as const) {
+  test(`${routePath} keeps wide tables in local scroll containers`, async ({
+    page,
+  }, testInfo) => {
+    test.skip(testInfo.project.name !== 'mobile');
+
+    await page.goto(routeUrl(routePath), {
+      waitUntil: 'domcontentloaded',
+    });
+
+    const scrollableTables = await page
+      .locator('.astro-document table')
+      .evaluateAll(
+        (tables) =>
+          tables.filter((table) => {
+            let element: Element | null = table;
+
+            while (element?.closest('.astro-document')) {
+              const style = getComputedStyle(element);
+
+              if (
+                ['auto', 'scroll'].includes(style.overflowX) &&
+                element.scrollWidth > element.clientWidth
+              ) {
+                return true;
+              }
+
+              element = element.parentElement;
+            }
+
+            return false;
+          }).length,
+      );
+
+    expect(scrollableTables).toBeGreaterThan(0);
+  });
+}
+
 test('skip link becomes visible when it receives keyboard focus', async ({ page }) => {
   await page.goto(routeUrl('/pagina_rodada.html'), {
     waitUntil: 'domcontentloaded',
