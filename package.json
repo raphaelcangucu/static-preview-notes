@@ -7,7 +7,10 @@
     "dev": "astro dev",
     "build": "astro build",
     "test": "vitest run",
-    "check": "astro check && astro build && vitest run"
+    "test:e2e": "npm run build && playwright test",
+    "test:e2e:published": "AUDIT_BASE_URL=https://raphaelcangucu.github.io/static-preview-notes playwright test",
+    "check": "astro check && astro build && vitest run",
+    "visual:audit:compare": "python3 scripts/create-visual-comparisons.py"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.3",
@@ -16,6 +19,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
+    "@playwright/test": "^1.62.1",
     "cheerio": "^1.2.0",
     "typescript": "^6.0.3",
     "vitest": "^4.1.11"
