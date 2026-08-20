@@ -1,0 +1,29 @@
+---
+import PageHeader from '../components/PageHeader.astro';
+import PremiumGate from '../components/PremiumGate.astro';
+import ScenarioTabs from '../components/ScenarioTabs.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { documentBySlug } from '../lib/documents';
+import Section01 from '../components/pages/pagina_rodada/Section01.astro';
+import Section02 from '../components/pages/pagina_rodada/Section02.astro';
+import '../styles/pages/pagina_rodada.css';
+
+const document = documentBySlug("pagina_rodada");
+---
+
+<BaseLayout document={document}>
+  <PageHeader eyebrow={""} title={"Página da Rodada — 24ª rodada do Brasileirão Série A 2026"} description={"macromarkets.com/br/brasileirao/rodada-24 · mock mobile-first completo, de cima a baixo, nos três cenários de acesso. Cada seção carrega um dos quatro estados da legenda."} />
+  <div id="cenario-1"></div><div id="cenario-2"></div><div id="cenario-3"></div>
+  <ScenarioTabs />
+  <div class="mx-auto mb-8 w-[min(100%-2rem,1320px)]">
+    <PremiumGate title="Camada Premium" description="Âmbar identifica exclusivamente conteúdo pago; rótulos permanecem legíveis e somente valores são velados.">
+      <p class="m-0 text-sm text-slate-300">Modelo, delta e cenários condicionais aparecem no canvas escuro quando o acesso está ativo.</p>
+    </PremiumGate>
+  </div>
+  <article class="astro-document">
+    <div class="wrap">
+    <Section01 />
+    <Section02 />
+    </div>
+  </article>
+</BaseLayout>

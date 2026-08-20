@@ -1,0 +1,27 @@
+---
+import PageHeader from '../components/PageHeader.astro';
+import PremiumGate from '../components/PremiumGate.astro';
+import ScenarioTabs from '../components/ScenarioTabs.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { documentBySlug } from '../lib/documents';
+import Section01 from '../components/pages/pagina_hub_campeonato/Section01.astro';
+import '../styles/pages/pagina_hub_campeonato.css';
+
+const document = documentBySlug("pagina_hub_campeonato");
+---
+
+<BaseLayout document={document}>
+  <PageHeader eyebrow={""} title={"Hub do Campeonato — Brasileirão Série A 2026"} description={"macromarkets.com/br/brasileirao · página permanente. Responde “como está o Brasileirão?”. Mobile-first, de cima a baixo, nos três níveis de acesso."} />
+  <div id="cenario-1"></div><div id="cenario-2"></div><div id="cenario-3"></div>
+  <ScenarioTabs />
+  <div class="mx-auto mb-8 w-[min(100%-2rem,1320px)]">
+    <PremiumGate title="Camada Premium" description="Âmbar identifica exclusivamente conteúdo pago; rótulos permanecem legíveis e somente valores são velados.">
+      <p class="m-0 text-sm text-slate-300">Modelo, delta e cenários condicionais aparecem no canvas escuro quando o acesso está ativo.</p>
+    </PremiumGate>
+  </div>
+  <article class="astro-document">
+    <div class="wrap">
+    <Section01 />
+    </div>
+  </article>
+</BaseLayout>

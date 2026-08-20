@@ -1,0 +1,23 @@
+---
+import SegmentedTabs from './SegmentedTabs.astro';
+
+interface Props {
+  activeHref?: string;
+}
+
+const { activeHref = '#cenario-1' } = Astro.props;
+
+const scenarios = [
+  { href: '#cenario-1', label: '1 · Deslogado' },
+  { href: '#cenario-2', label: '2 · Cadastrado' },
+  { href: '#cenario-3', label: '3 · Premium' },
+];
+---
+
+<div class="mx-auto mb-6 flex w-[min(100%-2rem,1320px)] justify-center">
+  <SegmentedTabs
+    label="Cenários de acesso"
+    tabs={scenarios}
+    activeHref={activeHref}
+  />
+</div>

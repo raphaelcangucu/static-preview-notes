@@ -6,10 +6,9 @@ import '../styles/global.css';
 
 interface Props {
   document: DocumentDefinition;
-  legacyStyles: string;
 }
 
-const { document, legacyStyles } = Astro.props;
+const { document } = Astro.props;
 ---
 
 <!doctype html>
@@ -21,7 +20,6 @@ const { document, legacyStyles } = Astro.props;
     <meta name="description" content={document.description} />
     <meta name="theme-color" content="#0f172a" />
     <title>{document.title}</title>
-    <style is:global set:html={legacyStyles}></style>
   </head>
   <body>
     <div class="site-shell">

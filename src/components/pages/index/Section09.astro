@@ -1,0 +1,28 @@
+<h2 class="sec" id="b10">Bloco 10 — Arquitetura de campanhas por objetivo <span style="text-transform:none;letter-spacing:0;font-weight:400">(nova estrutura, para reunião)</span></h2>
+<p class="why" style="margin-bottom:16px">Cada campanha tem <b>um objetivo só</b> — ela existe para mover o lead de um gate para o próximo, e termina quando ele converte ou entra em modo de nutrição passiva. Isso substitui a sequência única e calendarizada do Bloco 9 por campanhas menores, orientadas a evento, que casam melhor com metas do Mautic (uma campanha = uma meta = uma taxa de conversão limpa de medir).</p>
+<div class="row-flex" style="gap:0;align-items:stretch;margin-bottom:10px">
+  <div class="card" style="flex:1;min-width:150px;border-color:var(--s1)">
+    <h4 style="color:var(--s1)">① Waitlist</h4>
+    <p><b>Meta:</b> completar cadastro na plataforma<br>(ou marcar "não quero receber")</p>
+  </div>
+  <div style="display:flex;align-items:center;padding:0 10px;color:var(--muted);font-size:18px">→</div>
+  <div class="card" style="flex:1;min-width:150px;border-color:var(--s2)">
+    <h4 style="color:var(--s2)">② Cadastro</h4>
+    <p><b>Meta:</b> primeiro depósito (QFD)<br>via desbloqueio de conteúdo Premium</p>
+  </div>
+  <div style="display:flex;align-items:center;padding:0 10px;color:var(--muted);font-size:18px">→</div>
+  <div class="card" style="flex:1;min-width:150px;border-color:var(--s3)">
+    <h4 style="color:var(--s3)">③ QFD</h4>
+    <p><b>Meta:</b> primeira compra de ações/operação<br>na plataforma</p>
+  </div>
+  <div style="display:flex;align-items:center;padding:0 10px;color:var(--muted);font-size:18px">→</div>
+  <div class="card" style="flex:1;min-width:150px;opacity:.55">
+    <h4>④ Pós-compra</h4>
+    <p><b>Meta:</b> indicar mercados, recorrência<br><span style="color:var(--muted)">discutir depois</span></p>
+  </div>
+</div>
+<div class="spec">
+  <b>Foco agora:</b> só as campanhas ① e ② — waitlist→cadastro (Bloco 11) e cadastro→QFD (Bloco 12). ③ e ④ ficam para depois de validarmos essas duas.
+  <br><br>
+  <b>Por que rodar assim em vez de uma sequência única:</b> o Bloco 9 original era por <i>dia corrido</i> (D0, D1, D3...), o que quebra toda vez que a Data FIFA ou qualquer imprevisto de calendário desalinha o ciclo de rodada. Campanhas por evento (entrou na waitlist / completou cadastro / fez depósito) não têm esse problema — elas rodam por gatilho, não por data, e o conteúdo específico da rodada (Bloco 8) é puxado dinamicamente, não fixado no dia X do e-mail.
+</div>

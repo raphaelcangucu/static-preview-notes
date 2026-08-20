@@ -1,0 +1,26 @@
+---
+import AccessState from './AccessState.astro';
+import Panel from './Panel.astro';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<Panel tone="premium">
+  <div class="flex flex-wrap items-start justify-between gap-3">
+    <div>
+      <h3 class="m-0 text-lg font-black text-white">{title}</h3>
+      <p class="mb-0 mt-2 max-w-2xl text-sm leading-6 text-slate-300">
+        {description}
+      </p>
+    </div>
+    <AccessState state="locked" label="Premium" />
+  </div>
+  <div class="mt-4 rounded-xl border border-dotted border-amber-500 bg-slate-950/55 p-4">
+    <slot />
+  </div>
+</Panel>

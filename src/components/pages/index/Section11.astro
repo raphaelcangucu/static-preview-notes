@@ -1,0 +1,123 @@
+<h2 class="sec" id="b12">Bloco 12 — Proposta: Campanha de Cadastro → QFD (depósito) <span style="text-transform:none;letter-spacing:0;font-weight:400">(rascunho para validar)</span></h2>
+<p class="why" style="margin-bottom:16px">Dispara quando o lead completa o cadastro na plataforma (sai da campanha de waitlist). Objetivo único: primeiro depósito, vendido como "destrave o conteúdo Premium", não como aposta.</p>
+<table class="t">
+  <tbody><tr>
+    <th style="width:100px">Peça</th><th style="width:150px">Gatilho</th><th>Conteúdo</th><th>CTA principal</th>
+  </tr>
+  <tr>
+    <td><b>E-mail 1</b><br>Parabéns + prévia</td>
+    <td>Imediato ao cadastro</td>
+    <td>Confirma o cadastro. Mostra uma peça Premium real da rodada atual <b>parcialmente ofuscada</b> — "isso aqui você ainda não pode ver por completo".</td>
+    <td>LP de oferta — deposite e destrave.</td>
+  </tr>
+  <tr>
+    <td><b>E-mail 2</b><br>Básico vs Premium, lado a lado</td>
+    <td>D+1</td>
+    <td>Comparação concreta: o que o cadastro grátis já mostrou na rodada vs. o que só quem depositou está vendo. Reforça o bônus de depósito (mínimo R$50, ver Parte III).</td>
+    <td>LP de oferta.</td>
+  </tr>
+  <tr>
+    <td><b>E-mail 3</b><br>Gancho da rodada atual</td>
+    <td>D+3, ligado ao próximo jogo do calendário (Bloco 8)</td>
+    <td>Usa o confronto mais próximo como gancho concreto: "o jogo de sábado tem [dado] — é exatamente esse tipo de leitura que o Premium destrava".</td>
+    <td>LP de oferta, com validade do bônus até o fim da rodada.</td>
+  </tr>
+  <tr>
+    <td><b>E-mail 4</b><br>Último aviso</td>
+    <td>D+6, só para quem ainda não depositou</td>
+    <td>Urgência real (prazo do bônus se encerrando com a rodada), sem prometer ganho — reforça o que já foi visto de valor até aqui.</td>
+    <td>LP de oferta.</td>
+  </tr>
+</tbody></table>
+<div class="spec">
+  <b>Depois do e-mail 4:</b> mesma lógica do Bloco 11 — sai da campanha calendarizada, entra em nutrição passiva via os CTAs "ofuscados" de Premium já presentes no hub e nas páginas de rodada (Bloco 8/3), sem mais disparos agendados extras.
+  <br><br>
+  <b>Cuidado de linguagem:</b> essa é a campanha mais sensível do funil juridicamente — reforçar sempre "acesso a conteúdo e análises", nunca "ganhe mais" ou qualquer promessa de resultado (mesma diretriz já aplicada no reengajamento, Parte IV §15).
+  <br><br>
+  <b>Ainda não decidido — leve pra reunião:</b> WhatsApp entra nessa campanha desde já (temos API configurada essa semana) ou só na ③ QFD→primeira compra? E o e-mail 4 (último aviso) é forte demais pra rodar toda semana, sempre, ou só nas primeiras rodadas do lead?
+</div>
+<style>
+  /* --- escopo Bloco 13 --- */
+  .lad&#123;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;align-items:stretch;margin:6px 0 0&#125;
+  @media(max-width:860px)&#123;.lad&#123;grid-template-columns:1fr&#125;&#125;
+  .step&#123;border:1px solid var(--line);border-radius:11px;padding:15px 16px;background:#fff;position:relative&#125;
+  .step.s2&#123;border-color:#bfd4f5;background:#fbfcff&#125;
+  .step.s3&#123;border-color:#e4c98a;background:#fffdf6&#125;
+  .step .n&#123;font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:750;color:var(--muted);margin-bottom:7px&#125;
+  .step.s2 .n&#123;color:#12508f&#125; .step.s3 .n&#123;color:#8a6209&#125;
+  .step h5&#123;margin:0 0 3px;font-size:15px;letter-spacing:-.2px&#125;
+  .step .who&#123;font-size:11.5px;color:var(--muted);margin-bottom:2px&#125;
+  .step .k&#123;font-size:10px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin:11px 0 4px;font-weight:700&#125;
+  .step ul&#123;margin:0;padding-left:15px;font-size:12px;color:var(--ink2)&#125;
+  .step li&#123;margin-bottom:3px&#125;
+  .rulebox&#123;background:var(--dark);color:#fff;border-radius:12px;padding:20px 22px;margin:16px 0 0&#125;
+  .rulebox .rt&#123;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#7dd3a0;font-weight:750;margin-bottom:10px&#125;
+  .rulebox .q&#123;font-size:16px;font-weight:650;line-height:1.4;letter-spacing:-.2px;margin-bottom:14px&#125;
+  .rulebox .q em&#123;font-style:normal;color:#7dd3a0&#125;
+  .exgrid&#123;display:grid;grid-template-columns:1fr 1fr;gap:10px&#125;
+  @media(max-width:860px)&#123;.exgrid&#123;grid-template-columns:1fr&#125;&#125;
+  .ex&#123;background:#ffffff0f;border:1px solid #ffffff1f;border-radius:9px;padding:11px 13px;font-size:12px;color:#cbd5e1&#125;
+  .ex b&#123;display:block;font-size:10px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px&#125;
+  .ex.f b&#123;color:#7dd3a0&#125; .ex.p b&#123;color:#f0b429&#125;
+  .ex i&#123;font-style:normal;display:block;margin-bottom:4px&#125;
+
+  input.t13&#123;position:absolute;opacity:0;width:0;height:0;pointer-events:none&#125;
+  .tabs13&#123;display:flex;flex-wrap:wrap;gap:7px;margin:0 0 14px&#125;
+  .tabs13 label&#123;font-size:11.5px;color:var(--ink2);background:#fff;border:1px solid var(--line);
+    padding:6px 14px;border-radius:20px;font-weight:600;cursor:pointer;user-select:none&#125;
+  .tabs13 label:hover&#123;border-color:var(--mm-blue);color:var(--mm-blue)&#125;
+  .pane13&#123;display:none&#125;
+  #hb-a:checked~.tabs13 label[for=hb-a],#hb-b:checked~.tabs13 label[for=hb-b],#hb-c:checked~.tabs13 label[for=hb-c],
+  #rd-a:checked~.tabs13 label[for=rd-a],#rd-b:checked~.tabs13 label[for=rd-b],#rd-c:checked~.tabs13 label[for=rd-c]
+    &#123;background:var(--mm-blue);color:#fff;border-color:var(--mm-blue)&#125;
+  #hb-a:checked~#p-hb-a,#hb-b:checked~#p-hb-b,#hb-c:checked~#p-hb-c,
+  #rd-a:checked~#p-rd-a,#rd-b:checked~#p-rd-b,#rd-c:checked~#p-rd-c&#123;display:block&#125;
+
+  .ord&#123;display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px;align-items:center&#125;
+  .ord .lb&#123;font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700;margin-right:2px&#125;
+  .ord i&#123;font-style:normal;font-size:11.5px;background:#f4f4f1;border:1px solid var(--line);border-radius:6px;padding:4px 9px;color:var(--ink2)&#125;
+  .ord i b&#123;color:var(--ink);font-weight:750;margin-right:5px&#125;
+  .ord i.hi&#123;background:#f2faf5;border-color:#bfe0c9;color:#146c35&#125;
+  .ord i.hi b&#123;color:#146c35&#125;
+  .ord i.lk&#123;background:#fffaed;border-color:#e8d5a3;color:#8a6209&#125;
+  .ord i.lk b&#123;color:#8a6209&#125;
+  .ctabox&#123;display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:#f2faf5;border:1px solid #bfe0c9;
+    border-radius:10px;padding:12px 15px;margin-top:12px;font-size:12px;color:#146c35&#125;
+  .ctabox .tg&#123;font-size:10px;text-transform:uppercase;letter-spacing:.08em;font-weight:750&#125;
+  .ctabox .txt&#123;font-size:14px;font-weight:700;color:var(--ink)&#125;
+  .micro&#123;border-left:3px solid var(--mm-blue);background:#f7f7f4;padding:10px 14px;border-radius:0 8px 8px 0;
+    font-size:12.5px;color:var(--ink2);margin-top:10px&#125;
+  .micro b&#123;color:var(--ink)&#125;
+  .micro q&#123;font-style:italic&#125;
+
+  .tl&#123;display:flex;flex-wrap:wrap;margin:8px 0 0&#125;
+  .tl .seg&#123;flex:1;min-width:150px;padding:13px 15px;border:1px solid var(--line);border-right:0;font-size:11.5px;color:var(--ink2)&#125;
+  .tl .seg:first-child&#123;border-radius:10px 0 0 10px&#125;
+  .tl .seg:last-child&#123;border-right:1px solid var(--line);border-radius:0 10px 10px 0&#125;
+  @media(max-width:860px)&#123;.tl .seg&#123;border-right:1px solid var(--line);border-radius:10px!important;margin-bottom:7px&#125;&#125;
+  .tl .seg b&#123;display:block;color:var(--ink);font-size:12.5px;margin-bottom:4px&#125;
+  .tl .seg.w&#123;background:#fffaed;border-color:#e8d5a3&#125; .tl .seg.x&#123;background:#f7f7f4&#125;
+  .kv&#123;font-size:12.5px;color:var(--ink2);margin:0;padding-left:16px&#125;
+  .kv li&#123;margin-bottom:5px&#125; .kv b&#123;color:var(--ink)&#125;
+  code.f&#123;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;background:#f4f4f1;
+    border:1px solid var(--line);padding:1px 6px;border-radius:5px;color:#3f3e3a&#125;
+
+  .fro&#123;display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:6px 0 0&#125;
+  @media(max-width:860px)&#123;.fro&#123;grid-template-columns:1fr&#125;&#125;
+  .fro-c&#123;border:1px solid var(--line);border-radius:11px;padding:15px 17px;background:#fff&#125;
+  .fro-c.h&#123;border-color:#bfd4f5;background:#fbfcff&#125;
+  .fro-c.r&#123;border-color:#bfe0c9;background:#f8fdfa&#125;
+  .fro-c .n&#123;font-size:10px;letter-spacing:.09em;text-transform:uppercase;font-weight:750;margin-bottom:6px&#125;
+  .fro-c.h .n&#123;color:#12508f&#125; .fro-c.r .n&#123;color:#146c35&#125;
+  .fro-c .q&#123;font-size:17px;font-weight:700;letter-spacing:-.3px;margin-bottom:11px&#125;
+  .fro-c ul&#123;margin:0;padding-left:16px;font-size:12.5px;color:var(--ink2)&#125;
+  .fro-c li&#123;margin-bottom:4px&#125;
+  .fro-c .kw&#123;font-size:11.5px;color:var(--ink2);border-top:1px solid var(--line);margin-top:11px;padding-top:9px&#125;
+  .fro-c .kw b&#123;color:var(--ink)&#125;
+  .rule2&#123;background:var(--dark);color:#fff;border-radius:11px;padding:14px 18px;margin:12px 0 0;font-size:13.5px&#125;
+  .rule2 b&#123;color:#7dd3a0&#125;
+  .mv&#123;font-size:10.5px;font-weight:750;font-variant-numeric:tabular-nums;padding:1px 5px;border-radius:4px;margin-left:5px&#125;
+  .mv.up&#123;background:#e8f5ec;color:#146c35&#125; .mv.dn&#123;background:#fdeee6;color:#9a3412&#125;
+  .fx&#123;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;background:#0E1420;color:#7dd3a0;
+    padding:11px 15px;border-radius:9px;margin:10px 0 0;display:block;overflow-x:auto&#125;
+</style>

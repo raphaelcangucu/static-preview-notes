@@ -1,4 +1,4 @@
-import { existsSync, readdirSync, readFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 import * as cheerio from 'cheerio';
@@ -6,40 +6,48 @@ import { describe, expect, it } from 'vitest';
 
 const basePath = '/static-preview-notes';
 const distDirectory = resolve('dist');
+const sourceDirectory = resolve('src');
 
 const routes = [
   {
     path: 'index.html',
+    sourcePath: 'src/pages/index.astro',
     publicPath: `${basePath}/`,
     title: 'Macro Markets Futebol — Especificação Visual de Conteúdos e Telas',
   },
   {
     path: 'pagina_hub_campeonato.html',
+    sourcePath: 'src/pages/pagina_hub_campeonato.astro',
     publicPath: `${basePath}/pagina_hub_campeonato.html`,
     title: 'Hub do Campeonato — Brasileirão Série A 2026 · /br/brasileirao',
   },
   {
     path: 'pagina_rodada.html',
+    sourcePath: 'src/pages/pagina_rodada.astro',
     publicPath: `${basePath}/pagina_rodada.html`,
     title: 'Macro Markets — Página da Rodada 24 · três cenários de acesso',
   },
   {
     path: 'pagina_blog.html',
+    sourcePath: 'src/pages/pagina_blog.astro',
     publicPath: `${basePath}/pagina_blog.html`,
     title: 'Macro Markets · Blog / seção de conteúdo — 3 cenários',
   },
   {
     path: 'sequencia_emails.html',
+    sourcePath: 'src/pages/sequencia_emails.astro',
     publicPath: `${basePath}/sequencia_emails.html`,
     title: 'Macro Markets — Sequência de e-mails da rodada 24 · três trilhas',
   },
   {
     path: 'sequencia_emails_waitlist.html',
+    sourcePath: 'src/pages/sequencia_emails_waitlist.astro',
     publicPath: `${basePath}/sequencia_emails_waitlist.html`,
     title: 'Macro Markets — Campanha Waitlist → Cadastro · Bloco 11',
   },
   {
     path: 'pagina_lps_waitlist.html',
+    sourcePath: 'src/pages/pagina_lps_waitlist.astro',
     publicPath: `${basePath}/pagina_lps_waitlist.html`,
     title: 'Macro Markets — LPs da campanha Waitlist → Cadastro',
   },
@@ -52,6 +60,35 @@ const loadRoute = (routePath: string) => {
 
   return cheerio.load(readFileSync(outputPath, 'utf8'));
 };
+
+const readSourceTree = (directory: string): string => {
+  return readdirSync(directory)
+    .map((entry) => resolve(directory, entry))
+    .map((entryPath) =>
+      statSync(entryPath).isDirectory()
+        ? readSourceTree(entryPath)
+        : readFileSync(entryPath, 'utf8'),
+    )
+    .join('\n');
+};
+
+describe('Astro source architecture', () => {
+  it.each(routes)('implements $publicPath as a dedicated Astro page', (route) => {
+    expect(existsSync(resolve(route.sourcePath)), `Missing ${route.sourcePath}`).toBe(
+      true,
+    );
+  });
+
+  it('does not render or import legacy HTML documents', () => {
+    const source = readSourceTree(sourceDirectory);
+
+    expect(source).not.toMatch(/LegacyDocument/);
+    expect(source).not.toMatch(/set:html/);
+    expect(source).not.toMatch(/<iframe\b/i);
+    expect(source).not.toMatch(/\?raw/);
+    expect(source).not.toMatch(/from\s+['"][^'"]+\.html/);
+  });
+});
 
 describe('generated route matrix', () => {
   it.each(routes)('generates $publicPath with preserved metadata', (route) => {

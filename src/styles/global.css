@@ -46,24 +46,16 @@ a {
   min-height: 100vh;
 }
 
-.legacy-document {
+.astro-document {
   width: 100%;
   min-width: 0;
   overflow-x: clip;
 }
 
-.legacy-document > style {
-  display: none;
-}
-
-.legacy-document img,
-.legacy-document svg,
-.legacy-document table {
+.astro-document img,
+.astro-document svg,
+.astro-document table {
   max-width: 100%;
-}
-
-.legacy-document .navdoc {
-  display: none !important;
 }
 
 .access-state {
@@ -109,14 +101,14 @@ a {
 }
 
 @media (max-width: 720px) {
-  .legacy-document .wrap {
+  .astro-document .wrap {
     width: 100% !important;
     max-width: 100% !important;
     padding-inline: 0.75rem !important;
   }
 
-  .legacy-document .grid,
-  .legacy-document [class*="grid"] {
+  .astro-document .grid,
+  .astro-document [class*="grid"] {
     min-width: 0;
   }
 }
