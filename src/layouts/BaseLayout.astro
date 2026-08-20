@@ -1,0 +1,43 @@
+---
+import SiteNavigation from '../components/SiteNavigation.astro';
+import StateLegend from '../components/StateLegend.astro';
+import type { DocumentDefinition } from '../lib/documents';
+import '../styles/global.css';
+
+interface Props {
+  document: DocumentDefinition;
+  legacyStyles: string;
+}
+
+const { document, legacyStyles } = Astro.props;
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <meta name="description" content={document.description} />
+    <meta name="theme-color" content="#0f172a" />
+    <title>{document.title}</title>
+    <style is:global set:html={legacyStyles}></style>
+  </head>
+  <body>
+    <div class="site-shell">
+      <SiteNavigation currentDocument={document} />
+      <div class="border-b border-slate-200 bg-slate-50 py-3">
+        <StateLegend />
+      </div>
+      <main id="main-content">
+        <slot />
+      </main>
+      <footer class="border-t border-slate-700 bg-[var(--canvas-premium)] px-4 py-8 text-center text-sm text-slate-300">
+        <p class="m-0 font-bold text-white">Macro Markets · Preview Notes</p>
+        <p class="mx-auto mb-0 mt-2 max-w-3xl">
+          Documento interno com dados ilustrativos. Conteúdo bloqueado mantém o rótulo legível e vela apenas o valor.
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>

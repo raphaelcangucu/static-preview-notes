@@ -1,0 +1,36 @@
+---
+interface Tab {
+  href: string;
+  label: string;
+}
+
+interface Props {
+  label: string;
+  tabs: Tab[];
+  activeHref: string;
+}
+
+const { label, tabs, activeHref } = Astro.props as Props;
+---
+
+<nav
+  class="inline-flex max-w-full gap-1 overflow-x-auto rounded-xl border border-slate-300 bg-slate-100 p-1"
+  aria-label={label}
+>
+  {
+    tabs.map((tab) => (
+      <a
+        class:list={[
+          'flex min-h-11 shrink-0 items-center rounded-lg px-3 text-sm font-bold no-underline',
+          tab.href === activeHref
+            ? 'bg-white text-slate-950 shadow-sm'
+            : 'text-slate-600 hover:text-slate-950',
+        ]}
+        href={tab.href}
+        aria-current={tab.href === activeHref ? 'page' : undefined}
+      >
+        {tab.label}
+      </a>
+    ))
+  }
+</nav>

@@ -1,0 +1,15 @@
+---
+interface Props {
+  state: 'active' | 'partial' | 'locked' | 'absent';
+  label: string;
+}
+
+const { state, label } = Astro.props;
+---
+
+<span class="access-state" data-state={state}>
+  <span aria-hidden="true">
+    {state === 'active' ? '●' : state === 'partial' ? '◒' : state === 'locked' ? '◆' : '○'}
+  </span>
+  {label}
+</span>

@@ -1,0 +1,53 @@
+---
+import {
+  BASE_PATH,
+  documents,
+  publicPathFor,
+  type DocumentDefinition,
+} from '../lib/documents';
+
+interface Props {
+  currentDocument: DocumentDefinition;
+}
+
+const { currentDocument } = Astro.props;
+---
+
+<header class="sticky top-0 z-[100] border-b border-slate-300/80 bg-white/95 shadow-sm backdrop-blur">
+  <div class="mx-auto flex max-w-[1480px] flex-col gap-3 px-4 py-3 lg:flex-row lg:items-center">
+    <a
+      class="flex min-h-11 shrink-0 items-center gap-2 rounded-lg text-base font-black tracking-tight text-slate-950 no-underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
+      href={`${BASE_PATH}/`}
+    >
+      <span class="grid size-8 place-items-center rounded-lg bg-slate-950 text-sm text-white" aria-hidden="true">MM</span>
+      <span>Preview Notes</span>
+    </a>
+
+    <nav
+      class="flex min-w-0 flex-1 gap-1 overflow-x-auto pb-1 lg:justify-end lg:pb-0"
+      aria-label="Documentos do projeto"
+      data-site-navigation
+    >
+      {
+        documents.map((document) => {
+          const isActive = document.filename === currentDocument.filename;
+
+          return (
+            <a
+              class:list={[
+                'flex min-h-11 shrink-0 items-center rounded-lg px-3 text-sm font-bold no-underline transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700',
+                isActive
+                  ? 'bg-slate-950 text-white'
+                  : 'text-slate-700 hover:bg-slate-100 hover:text-slate-950',
+              ]}
+              href={publicPathFor(document)}
+              aria-current={isActive ? 'page' : undefined}
+            >
+              {document.label}
+            </a>
+          );
+        })
+      }
+    </nav>
+  </div>
+</header>

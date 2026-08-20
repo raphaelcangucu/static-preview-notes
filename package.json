@@ -1,0 +1,23 @@
+{
+  "name": "static-preview-notes",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "test": "vitest run",
+    "check": "astro check && vitest run && astro build"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "^7.2.4",
+    "tailwindcss": "^4.3.3"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "cheerio": "^1.2.0",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.11"
+  }
+}

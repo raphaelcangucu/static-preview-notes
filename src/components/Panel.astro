@@ -1,0 +1,19 @@
+---
+interface Props {
+  tone?: 'default' | 'premium';
+}
+
+const { tone = 'default' } = Astro.props;
+---
+
+<section
+  class:list={[
+    'rounded-2xl border p-4 shadow-sm',
+    tone === 'premium'
+      ? 'border-slate-700 bg-[var(--canvas-premium)] text-slate-100'
+      : 'border-slate-300 bg-white text-slate-900',
+  ]}
+  data-panel-tone={tone}
+>
+  <slot />
+</section>

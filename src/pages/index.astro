@@ -1,0 +1,12 @@
+---
+import LegacyDocument from '../components/LegacyDocument.astro';
+import { documents, extractLegacyDocument } from '../lib/documents';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const document = documents[0];
+const legacyDocument = extractLegacyDocument(document.source);
+---
+
+<BaseLayout document={document} legacyStyles={legacyDocument.styles}>
+  <LegacyDocument html={legacyDocument.body} />
+</BaseLayout>
