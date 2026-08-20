@@ -1,0 +1,92 @@
+---
+import type { RoundEmailVariant } from '../../../lib/roundEmailCampaign';
+
+interface Props {
+  variant: RoundEmailVariant;
+}
+
+const { variant } = Astro.props;
+const isControl = variant.role === 'control';
+---
+
+<article
+  class="round-email-variant"
+  data-email-variant={variant.id}
+  data-control={String(isControl)}
+  aria-labelledby={`${variant.id}-title`}
+>
+  <header class="variant-heading">
+    <div>
+      <span class="variant-letter">Variante {variant.letter}</span>
+      <h3 id={`${variant.id}-title`}>{variant.name}</h3>
+    </div>
+    <span class:list={['experiment-role', { control: isControl }]}>
+      {isControl ? 'Controle' : 'Desafiante'}
+    </span>
+  </header>
+
+  <p class="variant-hypothesis" data-variant-field="hypothesis">
+    <strong>Hipótese</strong>
+    {variant.hypothesis}
+  </p>
+
+  <div class="email-client">
+    <div class="email-client-bar" aria-hidden="true">
+      <span></span><span></span><span></span>
+      <small>Preview do e-mail</small>
+    </div>
+    <div class="email-envelope">
+      <div class="email-sender">
+        <span class="email-avatar" aria-hidden="true"></span>
+        <p><strong>Dale · Macro Markets</strong><small>dale@macro.markets → você</small></p>
+      </div>
+      <p class="email-subject" data-variant-field="subject">{variant.subject}</p>
+      <p class="email-preview" data-variant-field="preview">{variant.preview}</p>
+    </div>
+    <div class="email-body" data-email-body data-variant-field="body">
+      {variant.body.map((block: RoundEmailVariant['body'][number]) => (
+        <p data-copy-role={block.role}>
+          {block.label && <strong>{block.label}</strong>}
+          <span>{block.text}</span>
+        </p>
+      ))}
+      <a
+        class="round-email-cta"
+        data-variant-field="cta"
+        href={variant.destinationHref}
+      >
+        {variant.cta}
+      </a>
+      <p class="email-disclaimer">
+        Conteúdo informativo — não é recomendação de aposta. Cancelar | Preferências.
+      </p>
+    </div>
+  </div>
+
+  <dl class="variant-spec">
+    <div>
+      <dt>Papel experimental</dt>
+      <dd data-variant-field="role">{isControl ? 'Controle' : 'Desafiante'}</dd>
+    </div>
+    <div>
+      <dt>Destino e intenção</dt>
+      <dd data-variant-field="destination">
+        <a href={variant.destinationHref}>{variant.destinationIntent}</a>
+      </dd>
+    </div>
+    <div>
+      <dt>Payload necessário</dt>
+      <dd data-variant-field="payload">{variant.requiredPayload.join(' · ')}</dd>
+    </div>
+    <div>
+      <dt>Elegibilidade</dt>
+      <dd data-variant-field="eligibility">{variant.eligibility}</dd>
+    </div>
+    {variant.postGameBlockers && (
+      <div class="post-game-blockers" data-post-game-blockers>
+        <dt>Bloqueadores pós-jogo</dt>
+        <dd>{variant.postGameBlockers.join(' · ')}</dd>
+      </div>
+    )}
+  </dl>
+</article>

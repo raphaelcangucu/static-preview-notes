@@ -1,0 +1,23 @@
+---
+description: Content-only validation rules for static mockups and preview documents
+alwaysApply: true
+---
+
+# Content-only mockups
+
+This repository publishes static mockups, preview layouts, documentation, and illustrative content.
+
+- Copy, preview layout, documentation, and illustrative-data changes do not require tests.
+- Do not create, update, or execute tests by default.
+- Do not alter existing tests unless the user explicitly requests test work.
+- Inspect `package.json` before validation and avoid aggregate scripts that run tests.
+
+Validate content-only work with:
+
+- static build, typecheck, and lint commands that do not invoke tests;
+- `git diff --check`;
+- internal links, routes, and relevant anchors;
+- browser console inspection;
+- desktop and mobile visual review.
+
+Before publication, verify dynamic placeholders, event timing, factual consistency, contradictory data, and editorial blockers. Illustrative data must remain clearly identified.

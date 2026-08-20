@@ -11,9 +11,18 @@ const document = documentBySlug("sequencia_emails");
 ---
 
 <BaseLayout document={document}>
-  <PageHeader eyebrow={""} title={"Sequência de e-mails — rodada 24 · teasers curtos"} description={"Mold da rodada: Ter prévia · Qua matchday (4 jogos) · Qui fechamento B · Sáb matchday (6 jogos) · Dom fechamento. Âncora: Cruzeiro × Flamengo, sáb 21h, Mineirão. E-mail = teaser; conversão na página da rodada. Sem personalização por time favorito."} />
+  <PageHeader
+    eyebrow={"Campanha por rodada · Waitlist → Cadastro"}
+    title={"Quatro eventos. Quinze copies. Valor antes do CTA."}
+    description={"A cadência acompanha o calendário real de cada rodada. Assuntos, previews e corpos usam o mesmo payload editorial; nenhuma variante depende de dia, horário ou confronto fixo."}
+  />
   <section class="shell-container mb-4" aria-label="Linha do tempo da campanha">
-    <Timeline items={[{"label":"Terça","title":"Prévia","description":"Mapa das duas ondas e contexto da rodada."},{"label":"Quarta","title":"Matchday","description":"Quatro jogos e os movimentos que importam."},{"label":"Sábado","title":"Segunda onda","description":"Seis jogos com o Mineirão como âncora."},{"label":"Domingo","title":"Fechamento","description":"Acertos, erros e ponte para a rodada seguinte."}]} />
+    <Timeline items={[
+      {"label":"E1","title":"Pré-rodada","description":"Antes do primeiro bloco real."},
+      {"label":"E2","title":"Primeiro bloco","description":"Quando o primeiro bloco principal começa."},
+      {"label":"E3","title":"Bloco final","description":"Quando o bloco principal final começa."},
+      {"label":"E4","title":"Pós-rodada","description":"Após o último jogo real, com evidências confirmadas."}
+    ]} />
   </section>
   <article class="astro-document">
     <div class="wrap">

@@ -37,9 +37,9 @@ export const documents = [
     slug: 'sequencia_emails',
     filename: 'sequencia_emails.html',
     label: 'E-mails da rodada',
-    title: 'Macro Markets — Sequência de e-mails da rodada 24 · três trilhas',
+    title: 'Macro Markets — Campanha por rodada · Waitlist → Cadastro',
     description:
-      'Sequências de e-mails da rodada para leads, cadastrados e assinantes Premium.',
+      'Quatro envios orientados aos eventos reais da rodada, com 15 copies de valor autônomo.',
   },
   {
     slug: 'sequencia_emails_waitlist',

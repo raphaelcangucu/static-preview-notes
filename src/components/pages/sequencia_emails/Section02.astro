@@ -1,449 +1,51 @@
-<div class="pane" id="p-b">
+---
+import { ROUND_EMAIL_CAMPAIGN } from '../../../lib/roundEmailCampaign';
+import EmailVariantCard from './EmailVariantCard.astro';
+---
 
-<div class="th">
-  <div class="eb">Trilha B</div>
-  <h2>Cadastrado sem depósito — destrave Premium</h2>
-  <p>Já tem conta. <b>Job da trilha: primeiro depósito como “ativar Premium”</b> — não como aposta. Preço só na página. Qui = fechamento sem pitch.</p>
-  <div class="thkv">
-    <span><b>4</b> ciclo + <b>2</b> retries</span>
-    <span>CTA <b>Ativar Premium / Retomar</b></span>
-    <span>Preço <b>só na página</b></span>
+<section class="round-email-sequence" aria-labelledby="sequence-title">
+  <div class="section-heading sequence-heading">
+    <span class="section-kicker">15 copies aprovadas</span>
+    <h2 id="sequence-title">Previews comparáveis por evento</h2>
+    <p>
+      Cada corpo entrega tese, evidência, interpretação e próximo sinal antes de
+      um único CTA de aprofundamento.
+    </p>
   </div>
-</div>
 
-<div class="prop">
-  <h3>Bloco B — Proposta: Cadastro → ativar Premium (validado)</h3>
-  <p class="why"><b>Gatilho:</b> conta criada, sem depósito. <b>Objetivo único:</b> destrave Premium (depósito), vendido como acesso a análise — preço na página 8A.</p>
-  <table>
-    <tbody><tr>
-      <th style="width:110px">Peça</th>
-      <th style="width:140px">Gatilho</th>
-      <th>Conteúdo</th>
-      <th style="width:160px">CTA principal</th>
-    </tr>
-    <tr>
-      <td><b>E1</b><br>Prévia 2Y</td>
-      <td>Terça</td>
-      <td>Mapa 4+6; valor aberto; Soft nudge Premium no fim.</td>
-      <td>Abrir mapa da rodada</td>
-    </tr>
-    <tr>
-      <td><b>E2</b><br>Matchday 2X</td>
-      <td>Quarta</td>
-      <td>Evento Z4/líder + nudge suave Premium.</td>
-      <td>Continuar ativação</td>
-    </tr>
-    <tr>
-      <td><b>E3</b><br>Fechamento</td>
-      <td>Quinta</td>
-      <td>O que a quarta mostrou. <b>Sem pitch de depósito.</b></td>
-      <td>Ver fechamento</td>
-    </tr>
-    <tr>
-      <td><b>E4</b><br>Matchday 2X</td>
-      <td>Sábado</td>
-      <td>Mineirão + pitch forte Premium (sem preço no corpo).</td>
-      <td>Ativar Premium</td>
-    </tr>
-    <tr>
-      <td><b>R2</b></td>
-      <td>Tocou o gate</td>
-      <td>Retomar de onde parou.</td>
-      <td>Continuar ativação</td>
-    </tr>
-    <tr>
-      <td><b>R3</b></td>
-      <td>Depósito abandonado</td>
-      <td>Suporte Dale — retomar depósito.</td>
-      <td>Retomar depósito</td>
-    </tr>
-  </tbody></table>
-</div>
-
-<div class="ruler">
-  <div class="rt">Régua B · rodada 24 <s>· Ter E1 · Qua E2 · Qui E3 (sem pitch) · Sáb E4 (pitch forte)</s></div>
-  <div class="days">
-    <div class="day"><div class="dw">Dom</div><div class="dn">16</div></div>
-    <div class="day"><div class="dw">Seg</div><div class="dn">17</div></div>
-    <div class="day"><div class="dw">Ter</div><div class="dn">18</div><div class="pins"><span class="pin">E1 · Prévia</span></div></div>
-    <div class="day mday"><div class="dw">Qua</div><div class="dn">19</div><div class="jg">4 jogos</div><div class="pins"><span class="pin">E2 · Matchday</span></div></div>
-    <div class="day"><div class="dw">Qui</div><div class="dn">20</div><div class="pins"><span class="pin">E3 · Fechamento</span></div></div>
-    <div class="day"><div class="dw">Sex</div><div class="dn">21</div></div>
-    <div class="day mday"><div class="dw">Sáb</div><div class="dn">22</div><div class="jg">6 jogos</div><div class="pins"><span class="pin">E4 · Pitch</span></div></div>
-    <div class="day"><div class="dw">Dom</div><div class="dn">23</div></div>
-  </div>
-  <div class="rlgd">
-    <span><i style="background:#dbe8fb;border:1px solid #c3d8f7"></i> Dia de jogo</span>
-    <span><i style="background:#e8f5ec;border:1px solid #c7e6d3"></i> E-mail do ciclo</span>
-    <span><i style="background:#f3eefa;border:1px solid #ddd1f0"></i> R2/R3 comportamental</span>
-  </div>
-</div>
-
-<div class="phase"><b>Ciclo da rodada</b><s></s></div>
-
-<!-- B E1 -->
-<div class="mail">
-  <div class="mmeta"><span class="dtag">Ter 18/08</span><span class="hr">07h30</span><span class="evt">email_b_e1_previa</span></div>
-  <div class="client">
-    <div class="cbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span> Caixa de entrada</div>
-    <div class="chead">
-      <span class="av"></span>
-      <div class="cfrom"><b>Dale · Macro Markets</b><span>dale@macro.markets → você</span></div>
-    </div>
-    <div class="csubj">Sua conta já vê o mapa — a 24 parte em duas ondas</div>
-    <div class="cpre"><b>Prévia</b>Qua 4 jogos · Sáb 6 · Mineirão 21h.</div>
-    <div class="cbody">
-      <h3>O calendário da semana, sem enrolação</h3>
-      <p>Amanhã a onda 1. Sábado a onda 2 com Cruzeiro × Flamengo no Mineirão. O mapa completo está na página da rodada.</p>
-      <p>Se quiser a camada Premium (movimento fino, leitura fechada), a ativação continua na mesma página — sem preço aqui no e-mail.</p>
-      <div class="blk on">
-        <div class="bt">Mapa · aberto na conta <span class="st">Ativo</span></div>
-        <div class="kv">
-          <div><span>Onda 1 qua</span><span>Palmeiras×Vasco · Z4</span></div>
-          <div><span>Onda 2 sáb</span><span>Mineirão 21h</span></div>
+  {ROUND_EMAIL_CAMPAIGN.emails.map((email) => (
+    <section
+      class="round-email-stage"
+      data-round-email={email.event}
+      data-email-id={email.id}
+      data-queue-gate={email.queueGate}
+      aria-labelledby={`${email.id}-title`}
+    >
+      <header class="stage-heading">
+        <div>
+          <span class="section-kicker">{email.id} · {email.event}</span>
+          <h2 id={`${email.id}-title`}>{email.title}</h2>
+          <p>{email.trigger}</p>
         </div>
-      </div>
-      <a class="cta" href="/static-preview-notes/pagina_rodada.html">Abrir mapa da rodada</a>
-      <p class="sign">Quinta eu fecho a quarta — sem pedir nada além de leitura.<br>— Dale</p>
-      <div class="cfoot">Conteúdo informativo — não é recomendação de aposta. Cancelar · Preferências</div>
-    </div>
-  </div>
-  <div class="mobj"><b>Job único:</b> abrir a página com mapa (valor). Soft Premium só como menção. <s>Gancho 2Y. Sem R$50 no corpo. Retry: “Mapa da 24: duas ondas”.</s></div>
-</div>
-
-<!-- B E2 -->
-<div class="mail">
-  <div class="mmeta"><span class="dtag">Qua 19/08</span><span class="hr">11h00</span><span class="evt">email_b_e2_matchday_qua</span></div>
-  <div class="client">
-    <div class="cbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span> Caixa de entrada</div>
-    <div class="chead">
-      <span class="av"></span>
-      <div class="cfrom"><b>Dale · Macro Markets</b><span>dale@macro.markets → você</span></div>
-    </div>
-    <div class="csubj">Hoje o Z4 aperta — e o líder joga com o relógio</div>
-    <div class="cpre"><b>Matchday qua</b>Chapecoense × São Paulo. Soft Premium no fim.</div>
-    <div class="cbody">
-      <h3>Quatro jogos. O da noite pode selar pressão no Z4</h3>
-      <p>Chapecoense × São Paulo às 21h30. Antes, Palmeiras × Vasco define se o líder respira. Isso já está no seu mapa.</p>
-      <p>Se quiser a leitura Premium da onda (o que a conta grátis ainda não mostra completo), o destrave está um clique adiante — na página.</p>
-      <a class="cta gold" href="/static-preview-notes/pagina_rodada.html">Continuar ativação</a>
-      <div class="subcta">Ativar Premium = acesso a análise. Sem preço neste e-mail.</div>
-      <p class="sign">Amanhã fecho a quarta sem pitch. Sábado é outra conversa.<br>— Dale</p>
-      <div class="cfoot">Conteúdo informativo — não é recomendação de aposta. Cancelar · Preferências</div>
-    </div>
-  </div>
-  <div class="mobj"><b>Job único:</b> matchday + soft nudge Premium. <s>Gancho 2X. Nudge depois do valor. Sem R$50.</s></div>
-</div>
-
-<!-- B E3 -->
-<div class="mail">
-  <div class="mmeta"><span class="dtag">Qui 20/08</span><span class="hr">12h00</span><span class="evt">email_b_e3_fechamento_qua</span></div>
-  <div class="client">
-    <div class="cbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span> Caixa de entrada</div>
-    <div class="chead">
-      <span class="av"></span>
-      <div class="cfrom"><b>Dale · Macro Markets</b><span>dale@macro.markets → você</span></div>
-    </div>
-    <div class="csubj">Onda 1 fechou — o que a quarta mostrou</div>
-    <div class="cpre"><b>Fechamento qua</b>Credibilidade + ponte para sábado. Sem depósito.</div>
-    <div class="cbody">
-      <h3>Só o veredito da quarta</h3>
-      <p>O Z4 apertou como o mapa apontava. O líder saiu da noite com a folga que precisava — ou não; o detalhe está no fechamento da página.</p>
-      <p>Sábado tem seis jogos e o Mineirão. Hoje eu não peço ativação. Só leitura.</p>
-      <a class="cta ghost" href="/static-preview-notes/pagina_rodada.html">Ver fechamento da quarta</a>
-      <p class="sign">Até sábado.<br>— Dale</p>
-      <div class="cfoot">Conteúdo informativo — não é recomendação de aposta. Cancelar · Preferências</div>
-    </div>
-  </div>
-  <div class="mobj"><b>Job único:</b> credibilidade + ponte. <s>Gancho proof parcial. PROIBIDO pitch de depósito neste e-mail.</s></div>
-</div>
-
-<!-- B E4 -->
-<div class="mail">
-  <div class="mmeta"><span class="dtag">Sáb 22/08</span><span class="hr">10h00</span><span class="evt">email_b_e4_matchday_sab</span></div>
-  <div class="client">
-    <div class="cbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span> Caixa de entrada</div>
-    <div class="chead">
-      <span class="av"></span>
-      <div class="cfrom"><b>Dale · Macro Markets</b><span>dale@macro.markets → você</span></div>
-    </div>
-    <div class="csubj">Mineirão às 21h — destrave o Premium antes da bola rolar</div>
-    <div class="cpre"><b>Matchday sáb</b>Pitch forte. Preço só na página.</div>
-    <div class="cbody">
-      <h3>Seis jogos. O âncora é Cruzeiro × Flamengo</h3>
-      <p>A onda 2 é o motivo pelo qual a gente partiu a rodada. O Mineirão concentra a noite — e a leitura fina do movimento fica no Premium.</p>
-      <p>Você já tem conta. Falta ativar. Sem valor em reais neste e-mail: o passo e o valor estão na página da rodada.</p>
-      <a class="cta gold" href="/static-preview-notes/pagina_rodada.html">Ativar Premium</a>
-      <div class="subcta">Destrave = acesso a conteúdo Premium. Não é aposta.</div>
-      <p class="sign">Se ativar hoje, a onda 2 entra completa.<br>— Dale</p>
-      <div class="cfoot">Conteúdo informativo — não é recomendação de aposta. Cancelar · Preferências</div>
-    </div>
-  </div>
-  <div class="mobj"><b>Job único:</b> pitch forte Premium no matchday. <s>Gancho 2X. Sem R$50/USD10 no corpo. Retry: “Ative o Premium antes do Mineirão”.</s></div>
-</div>
-
-<div class="phase"><b>Retries comportamentais</b><s></s></div>
-
-<!-- B R2 -->
-<div class="mail">
-  <div class="mmeta"><span class="dtag re">R2</span><span class="hr">tocou o gate</span><span class="evt">email_b_r2_gate</span></div>
-  <div class="client">
-    <div class="cbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span> Caixa de entrada</div>
-    <div class="chead">
-      <span class="av"></span>
-      <div class="cfrom"><b>Dale · Macro Markets</b><span>dale@macro.markets → você</span></div>
-    </div>
-    <div class="csubj">Você chegou no gate — falta um passo</div>
-    <div class="cpre"><b>Retry</b>Continuar ativação. Sem preço no corpo.</div>
-    <div class="cbody">
-      <h3>De onde você parou</h3>
-      <p>Vi que você abriu o destrave Premium e saiu antes de concluir. Sem julgamento — acontece.</p>
-      <p>Se ainda quiser a leitura completa da rodada, é só retomar na mesma página.</p>
-      <a class="cta gold" href="/static-preview-notes/pagina_rodada.html">Continuar ativação</a>
-      <p class="sign">Qualquer dúvida de acesso, responde este e-mail.<br>— Dale</p>
-      <div class="cfoot">Conteúdo informativo — não é recomendação de aposta. Cancelar · Preferências</div>
-    </div>
-  </div>
-  <div class="mobj"><b>Job único:</b> retomar ativação após toque no gate. <s>Tom suporte. Sem preço.</s></div>
-</div>
-
-<!-- B R3 -->
-<div class="mail">
-  <div class="mmeta"><span class="dtag re">R3</span><span class="hr">depósito abandonado</span><span class="evt">email_b_r3_deposito</span></div>
-  <div class="client">
-    <div class="cbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span> Caixa de entrada</div>
-    <div class="chead">
-      <span class="av"></span>
-      <div class="cfrom"><b>Dale · Macro Markets</b><span>dale@macro.markets → você</span></div>
-    </div>
-    <div class="csubj">Seu depósito ficou no meio do caminho</div>
-    <div class="cpre"><b>Suporte</b>Remetente Dale. Retomar depósito.</div>
-    <div class="cbody">
-      <h3>Posso te ajudar a concluir?</h3>
-      <p>Você começou o depósito para ativar o Premium e a sessão não fechou. Às vezes é banco, às vezes é timing.</p>
-      <p>Se quiser retomar, o link abaixo abre de onde parou. Se travou de novo, responde este e-mail que eu te oriento.</p>
-      <a class="cta" href="/static-preview-notes/pagina_rodada.html">Retomar depósito</a>
-      <p class="sign">Estou do outro lado.<br>— Dale</p>
-      <div class="cfoot">E-mail de suporte. Conteúdo informativo — não é recomendação de aposta. Cancelar · Preferências</div>
-    </div>
-  </div>
-  <div class="mobj"><b>Job único:</b> recuperar depósito abandonado. <s>Tom Dale/suporte. Sem hard sell de odds. Sem preço no corpo.</s></div>
-</div>
-
-</div>
-<div class="pane dkpane" id="p-c">
-
-<div class="th dk">
-  <div class="eb">Trilha C</div>
-  <h2>Premium — uso e retenção</h2>
-  <p>Já pagou o acesso. <b>Sem hard sell.</b> Matchday: live/mercado. Domingo e R-uso: só análise / reabrir a rodada.</p>
-  <div class="thkv">
-    <span><b>4</b> ciclo + <b>1</b> R-uso</span>
-    <span>Mercado <b>só Qua/Sáb</b></span>
-    <span>CTA <b>uso</b></span>
-  </div>
-</div>
-
-<div class="prop dk">
-  <h3>Bloco C — Proposta: Premium → uso (validado)</h3>
-  <p class="why"><b>Gatilho:</b> Premium ativo. <b>Objetivo único:</b> sessão na rodada / mercado no matchday — retenção, não venda.</p>
-  <table>
-    <tbody><tr>
-      <th style="width:110px">Peça</th>
-      <th style="width:140px">Gatilho</th>
-      <th>Conteúdo</th>
-      <th style="width:160px">CTA principal</th>
-    </tr>
-    <tr>
-      <td><b>E1</b><br>Prévia 2Y</td>
-      <td>Terça</td>
-      <td>Mapa 4+6 com posse Premium.</td>
-      <td>Abrir rodada</td>
-    </tr>
-    <tr>
-      <td><b>E2</b><br>Matchday 2X</td>
-      <td>Quarta</td>
-      <td>Evento + live/mercado.</td>
-      <td>Ver mercado / Ao vivo</td>
-    </tr>
-    <tr>
-      <td><b>E3</b><br>Matchday 2X</td>
-      <td>Sábado</td>
-      <td>Mineirão + live/mercado.</td>
-      <td>Ver mercado / Ao vivo</td>
-    </tr>
-    <tr>
-      <td><b>E4</b><br>Fechamento</td>
-      <td>Domingo</td>
-      <td>Análise hit/miss. Sem CTA de mercado.</td>
-      <td>Ver fechamento</td>
-    </tr>
-    <tr>
-      <td><b>R-uso</b></td>
-      <td>72h sem sessão</td>
-      <td>Check-in de uso.</td>
-      <td>Abrir rodada</td>
-    </tr>
-  </tbody></table>
-</div>
-
-<div class="ruler dk">
-  <div class="rt">Régua C · rodada 24 <s>· Ter E1 · Qua E2 · Sáb E3 · Dom E4 · R-uso se 72h idle</s></div>
-  <div class="days">
-    <div class="day"><div class="dw">Dom</div><div class="dn">16</div></div>
-    <div class="day"><div class="dw">Seg</div><div class="dn">17</div></div>
-    <div class="day"><div class="dw">Ter</div><div class="dn">18</div><div class="pins"><span class="pin">E1 · Prévia</span></div></div>
-    <div class="day mday"><div class="dw">Qua</div><div class="dn">19</div><div class="jg">4 jogos</div><div class="pins"><span class="pin">E2 · Live</span></div></div>
-    <div class="day"><div class="dw">Qui</div><div class="dn">20</div></div>
-    <div class="day"><div class="dw">Sex</div><div class="dn">21</div></div>
-    <div class="day mday"><div class="dw">Sáb</div><div class="dn">22</div><div class="jg">6 jogos</div><div class="pins"><span class="pin">E3 · Live</span></div></div>
-    <div class="day"><div class="dw">Dom</div><div class="dn">23</div><div class="pins"><span class="pin">E4 · Fechamento</span></div></div>
-  </div>
-  <div class="rlgd">
-    <span><i style="background:#12203a;border:1px solid #2d4a7a"></i> Dia de jogo</span>
-    <span><i style="background:#0f2e1c;border:1px solid #1f5b3f"></i> E-mail do ciclo</span>
-    <span><i style="background:#241a3a;border:1px solid #3d2d5c"></i> R-uso 72h</span>
-  </div>
-</div>
-
-<div class="phase"><b>Ciclo da rodada</b><s></s></div>
-
-<!-- C E1 -->
-<div class="mail">
-  <div class="mmeta"><span class="dtag">Ter 18/08</span><span class="hr">07h30</span><span class="evt">email_c_e1_previa</span></div>
-  <div class="client dk">
-    <div class="cbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span> Caixa de entrada</div>
-    <div class="chead">
-      <span class="av"></span>
-      <div class="cfrom"><b>Dale · Macro Markets</b><span>dale@macro.markets → você</span>
-        <span class="badge-prem" style="margin-top:6px;display:inline-flex">Premium</span>
-      </div>
-    </div>
-    <div class="csubj">Seu mapa Premium da 24: duas ondas, um Mineirão</div>
-    <div class="cpre"><b>Prévia</b>Qua 4 · Sáb 6 · âncora 21h.</div>
-    <div class="cbody">
-      <h3>A semana já está montada</h3>
-      <p>Onda 1 amanhã. Onda 2 no sábado com Cruzeiro × Flamengo. Seu acesso Premium já carrega o mapa fino — é só abrir.</p>
-      <div class="blk on">
-        <div class="bt">Calendário · posse Premium <span class="st">Ativo</span></div>
-        <div class="kv">
-          <div><span>Qua 19/08</span><span>4 jogos · Z4 em jogo</span></div>
-          <div><span>Sáb 22/08</span><span>Mineirão 21h</span></div>
+        <div class="stage-purpose">
+          <span>Função editorial</span>
+          <p>{email.purpose}</p>
         </div>
-      </div>
-      <a class="cta" href="/static-preview-notes/pagina_rodada.html">Abrir rodada</a>
-      <p class="sign">Amanhã a gente acompanha a onda 1 ao vivo.<br>— Dale</p>
-      <div class="cfoot">Conteúdo informativo — não é recomendação de aposta. Cancelar · Preferências</div>
-    </div>
-  </div>
-  <div class="mobj"><b>Job único:</b> reabrir a rodada (uso). <s>Gancho 2Y. Sem venda. Sem CTA de mercado.</s></div>
-</div>
+      </header>
 
-<!-- C E2 -->
-<div class="mail">
-  <div class="mmeta"><span class="dtag">Qua 19/08</span><span class="hr">11h00</span><span class="evt">email_c_e2_matchday_qua</span></div>
-  <div class="client dk">
-    <div class="cbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span> Caixa de entrada</div>
-    <div class="chead">
-      <span class="av"></span>
-      <div class="cfrom"><b>Dale · Macro Markets</b><span>dale@macro.markets → você</span>
-        <span class="badge-prem" style="margin-top:6px;display:inline-flex">Premium</span>
-      </div>
-    </div>
-    <div class="csubj">Ao vivo hoje: Z4 e a folga do líder</div>
-    <div class="cpre"><b>Matchday qua</b>Mercado + live liberados.</div>
-    <div class="cbody">
-      <h3>Quatro jogos — o da noite aperta o fundo</h3>
-      <p>Chapecoense × São Paulo e Palmeiras × Vasco são os ganchos da onda. O mercado da rodada já está aberto no seu Premium.</p>
-      <p>Se preferir só acompanhar o movimento, o ao vivo está no mesmo hub.</p>
-      <a class="cta" href="/static-preview-notes/pagina_rodada.html">Ver mercado</a>
-      <div class="subcta"><a class="sec2" href="/static-preview-notes/pagina_rodada.html" style="margin-top:0">Ou acompanhar ao vivo</a></div>
-      <p class="sign">Sábado tem o Mineirão.<br>— Dale</p>
-      <div class="cfoot">Conteúdo informativo — não é recomendação de aposta. Cancelar · Preferências</div>
-    </div>
-  </div>
-  <div class="mobj"><b>Job único:</b> uso no matchday (mercado/live). <s>Gancho 2X. CTA mercado permitido. Sem hard sell.</s></div>
-</div>
+      {email.queueGate === 'confirmed_results_and_evidence' && (
+        <div class="queue-warning" role="note">
+          <strong>Bloqueio obrigatório</strong>
+          Nenhuma variante pode ser enfileirada antes de placares, movimentos na
+          tabela e evidências receberem status <code>confirmed</code>.
+        </div>
+      )}
 
-<!-- C E3 -->
-<div class="mail">
-  <div class="mmeta"><span class="dtag">Sáb 22/08</span><span class="hr">10h00</span><span class="evt">email_c_e3_matchday_sab</span></div>
-  <div class="client dk">
-    <div class="cbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span> Caixa de entrada</div>
-    <div class="chead">
-      <span class="av"></span>
-      <div class="cfrom"><b>Dale · Macro Markets</b><span>dale@macro.markets → você</span>
-        <span class="badge-prem" style="margin-top:6px;display:inline-flex">Premium</span>
+      <div class="variant-grid">
+        {email.variants.map((variant) => (
+          <EmailVariantCard variant={variant} />
+        ))}
       </div>
-    </div>
-    <div class="csubj">Mineirão 21h — mercado da onda 2 aberto</div>
-    <div class="cpre"><b>Matchday sáb</b>Cruzeiro × Flamengo + cinco jogos.</div>
-    <div class="cbody">
-      <h3>Segunda onda. Um âncora</h3>
-      <p>Seis jogos. Cruzeiro × Flamengo concentra a noite no Mineirão. Seu Premium já tem o mercado e o ao vivo da rodada.</p>
-      <a class="cta" href="/static-preview-notes/pagina_rodada.html">Acompanhar ao vivo</a>
-      <div class="subcta"><a class="sec2" href="/static-preview-notes/pagina_rodada.html" style="margin-top:0;color:#7dd3a0">Abrir mercado da rodada</a></div>
-      <p class="sign">Amanhã fechamos a 24 com o veredito.<br>— Dale</p>
-      <div class="cfoot">Conteúdo informativo — não é recomendação de aposta. Cancelar · Preferências</div>
-    </div>
-  </div>
-  <div class="mobj"><b>Job único:</b> uso matchday sábado. <s>Gancho 2X. CTA live/mercado ok.</s></div>
-</div>
-
-<!-- C E4 -->
-<div class="mail">
-  <div class="mmeta"><span class="dtag">Dom 23/08</span><span class="hr">18h00</span><span class="evt">email_c_e4_fechamento</span></div>
-  <div class="client dk">
-    <div class="cbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span> Caixa de entrada</div>
-    <div class="chead">
-      <span class="av"></span>
-      <div class="cfrom"><b>Dale · Macro Markets</b><span>dale@macro.markets → você</span>
-        <span class="badge-prem" style="margin-top:6px;display:inline-flex">Premium</span>
-      </div>
-    </div>
-    <div class="csubj">Fechamento Premium da 24 — hit, miss e a 25</div>
-    <div class="cpre"><b>Fechamento</b>Só análise. Sem CTA de mercado.</div>
-    <div class="cbody">
-      <h3>O que a rodada ensinou</h3>
-      <p>A quarta confirmou pressão no Z4. O Mineirão desafiou o ritmo do preço — e isso entra no fechamento completo na página.</p>
-      <p>Sem mercado neste e-mail. Só o veredito e a ponte para a 25.</p>
-      <div class="blk on">
-        <div class="bt">Prova · ilustrativo <span class="st">Ativo</span></div>
-        <p class="lbl" style="margin:0">Hit Z4 · Miss Mineirão. Detalhe no hub Premium.</p>
-      </div>
-      <a class="cta ghost" href="/static-preview-notes/pagina_rodada.html">Ver fechamento</a>
-      <p class="sign">Na 25 o mapa volta limpo.<br>— Dale</p>
-      <div class="cfoot">Conteúdo informativo — não é recomendação de aposta. Cancelar · Preferências</div>
-    </div>
-  </div>
-  <div class="mobj"><b>Job único:</b> fechamento analítico. <s>Proof + bridge. Sem CTA de mercado.</s></div>
-</div>
-
-<div class="phase"><b>Reativação de uso</b><s></s></div>
-
-<!-- C R-uso -->
-<div class="mail">
-  <div class="mmeta"><span class="dtag re">R-uso</span><span class="hr">72h idle</span><span class="evt">email_c_ruso_72h</span></div>
-  <div class="client dk">
-    <div class="cbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span> Caixa de entrada</div>
-    <div class="chead">
-      <span class="av"></span>
-      <div class="cfrom"><b>Dale · Macro Markets</b><span>dale@macro.markets → você</span>
-        <span class="badge-prem" style="margin-top:6px;display:inline-flex">Premium</span>
-      </div>
-    </div>
-    <div class="csubj">Sua rodada Premium está quieta há 72h</div>
-    <div class="cpre"><b>Check-in</b>Sem venda. Só reabrir.</div>
-    <div class="cbody">
-      <h3>Tudo bem — só um toque</h3>
-      <p>Faz três dias sem sessão na rodada. Se a semana passou corrida, o mapa Premium continua no mesmo lugar.</p>
-      <p>Sem pitch. Sem novidade inventada. Só o atalho de volta.</p>
-      <a class="cta" href="/static-preview-notes/pagina_rodada.html">Abrir rodada</a>
-      <p class="sign">Quando fizer sentido.<br>— Dale</p>
-      <div class="cfoot">Conteúdo informativo — não é recomendação de aposta. Cancelar · Preferências</div>
-    </div>
-  </div>
-  <div class="mobj"><b>Job único:</b> reengajar uso. <s>Check-in, não acusação. Sem mercado hard.</s></div>
-</div>
-
-</div>
+    </section>
+  ))}
+</section>
