@@ -7,7 +7,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "test": "vitest run",
-    "check": "astro check && vitest run && astro build"
+    "check": "astro check && astro build && vitest run"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.3",

@@ -88,6 +88,15 @@ describe('Astro source architecture', () => {
     expect(source).not.toMatch(/\?raw/);
     expect(source).not.toMatch(/from\s+['"][^'"]+\.html/);
   });
+
+  it('builds dist before running output contract tests', () => {
+    const packageJson = JSON.parse(readFileSync(resolve('package.json'), 'utf8'));
+    const checkScript = packageJson.scripts.check as string;
+
+    expect(checkScript.indexOf('astro build')).toBeLessThan(
+      checkScript.indexOf('vitest run'),
+    );
+  });
 });
 
 describe('generated route matrix', () => {
