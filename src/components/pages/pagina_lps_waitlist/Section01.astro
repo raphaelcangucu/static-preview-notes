@@ -1,1 +1,37 @@
-<div class="note"><b>Regra.</b> O e-mail não carrega o argumento. A LP carrega. Se o lead não clicar, o Bloco 8 continua educando pela rodada — esta campanha não tenta compensar no corpo do e-mail.</div>
+---
+const heroRegistrationUrl = 'https://macromarkets.com/br/cadastro?return_url={{return_url|url_encode}}&utm_source=mautic&utm_medium=email&utm_campaign=waitlist_value_nurture&utm_content=lp_hero&click_id={{click_id}}';
+---
+
+<section class="lp-section lp-hero" id="lp-exclusive-hero" aria-labelledby="lp-hero-title">
+  <div class="lp-hero-copy">
+    <p class="lp-eyebrow">Conta grátis · análise atualizada</p>
+    <h2 id="lp-hero-title">A análise que muda com os dados não cabe num e-mail.</h2>
+    <p class="lp-lead">
+      A conta grátis abre números exatos, histórico, contexto e análises
+      exclusivas atualizadas na plataforma.
+    </p>
+    <a class="lp-cta" data-registration-cta href={heroRegistrationUrl}>
+      Criar conta grátis e ver as análises
+    </a>
+    <p class="lp-safe-note">Sem cartão. Você volta ao conteúdo que motivou o cadastro.</p>
+  </div>
+
+  <div class="lp-hero-proof" aria-label="Resumo do benefício">
+    <div class="exclusive-layer-stack" aria-hidden="true">
+      <span>Contexto aprofundado</span>
+      <span>Cenários</span>
+      <span>Síntese</span>
+    </div>
+    <!-- [PROVISÓRIO] Métrica de leitores deve ser substituída por número auditável antes de publicação externa. -->
+    <div class="hero-stat-badge">
+      <strong>+12 mil leitores</strong>
+      <span>acompanham os conteúdos da Macro Markets</span>
+    </div>
+  </div>
+</section>
+
+<section class="trust-row" data-trust-row aria-label="Condições da conta">
+  <span>Conta grátis</span>
+  <span>Sem cartão</span>
+  <span>Análises atualizadas</span>
+</section>

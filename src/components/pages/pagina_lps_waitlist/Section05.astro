@@ -1,42 +1,47 @@
-<div class="kick" id="lp4">LP 4 · E-mail 4 · evento · /br/lista/perfil</div>
-<p class="lpmeta"><b>Tema:</b> finalidade de uso. <b>Foco:</b> uma tag. <b>Não faz:</b> pedir conta, explicar o método de novo, citar a rodada.</p>
-<div class="frame">
-  <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">macromarkets.com/br/lista/perfil</span></div>
-  <div class="pad">
-    <div class="nav">
-      <span class="logo"><span class="m"></span> macro.markets</span>
-      <ul><li>Campeonatos</li><li>Análises</li><li>Sobre</li></ul>
-      <span class="ac">Entrar</span>
-    </div>
-    <span class="eyebrow">Pesquisa · 20 segundos</span>
-    <h1 class="hero">Para que você usa o que a gente manda?</h1>
-    <p class="lead">A resposta muda a ênfase do ciclo da rodada. Não muda o que é grátis. Um clique. Pronto.</p>
+---
+const finalRegistrationUrl = 'https://macromarkets.com/br/cadastro?return_url={{return_url|url_encode}}&utm_source=mautic&utm_medium=email&utm_campaign=waitlist_value_nurture&utm_content=lp_final&click_id={{click_id}}';
+---
 
-    <div class="choices">
-      <a href="#">
-        <em>Tag · Insights</em>
-        <b>Para palpites e apostas</b>
-        <span>Quero probabilidade, modelo e o que o consenso pode estar precificando mal.</span>
-      </a>
-      <a href="#">
-        <em>Tag · Contexto</em>
-        <b>Para acompanhar como hobby</b>
-        <span>Quero entender a rodada — desfalque, calendário, o que está em jogo — sem virar planilha.</span>
-      </a>
-      <a href="#">
-        <em>Tag · Contexto + parceria</em>
-        <b>Trabalho com conteúdo / jornalismo</b>
-        <span>Uso como fonte. Candidato a parceria, não a depositante direto.</span>
-      </a>
-      <a href="#">
-        <em>Tag · Educação</em>
-        <b>Quero aprender a ler as análises</b>
-        <span>Ainda não decidi o uso. Prefiro o “como ler” antes do recorte fino.</span>
-      </a>
-    </div>
-
-    <p class="fine" style="margin-top:14px">Quem responde recebe a tag <b>Pesquisa Respondida</b>. Quem não responde vê esta pergunta de novo em 30 dias — só ela.</p>
-    <div class="opt"><a href="#">Não quero mais receber esses e-mails</a></div>
+<section class="lp-section" aria-labelledby="faq-title">
+  <p class="lp-eyebrow">Perguntas frequentes</p>
+  <h2 id="faq-title">Antes de criar a conta</h2>
+  <div class="faq-list" data-faq>
+    <details>
+      <summary>A conta é grátis?</summary>
+      <p>Sim. O cadastro não exige cartão.</p>
+    </details>
+    <details>
+      <summary>Vou receber palpites?</summary>
+      <p>Não. A Macro Markets entrega leitura de dados, contexto, tendências e cenários.</p>
+    </details>
+    <details>
+      <summary>Por que a análise não vem inteira no e-mail?</summary>
+      <p>Porque números, histórico e contexto mudam. A plataforma mantém a versão atualizada.</p>
+    </details>
+    <details>
+      <summary>O que acontece depois do cadastro?</summary>
+      <p>Você volta ao conteúdo de origem e começa um onboarding curto.</p>
+    </details>
+    <details>
+      <summary>Isso é o Premium?</summary>
+      <p>Não. Esta página apresenta apenas o que a conta grátis libera.</p>
+    </details>
   </div>
-</div>
-<div class="mobj"><b>Sucesso:</b> qualquer tag. <b>Falha:</b> botão de cadastro nesta página. O job acabou quando a finalidade existe.</div>
+</section>
+
+<section class="lp-section final-cta" data-final-cta aria-labelledby="final-cta-title">
+  <div>
+    <p class="lp-eyebrow">Continue a análise</p>
+    <h2 id="final-cta-title">Volte ao conteúdo que trouxe você até aqui</h2>
+    <p>
+      A conta grátis abre as camadas atualizadas e preserva o ponto de origem para
+      que a leitura continue sem recomeçar.
+    </p>
+  </div>
+  <div class="final-cta-action">
+    <a class="lp-cta" data-registration-cta href={finalRegistrationUrl}>
+      Criar conta grátis e ver as análises
+    </a>
+    <p>Sem origem válida, você volta para o Hub do Campeonato.</p>
+  </div>
+</section>

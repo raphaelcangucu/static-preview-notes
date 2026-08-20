@@ -325,6 +325,40 @@ for (const scenarioControl of [
   });
 }
 
+test('round conversion action remains visible while scrolling on mobile', async ({
+  page,
+}, testInfo) => {
+  test.skip(testInfo.project.name !== 'mobile');
+
+  await page.goto(routeUrl('/pagina_rodada.html'), {
+    waitUntil: 'domcontentloaded',
+  });
+
+  for (const scenario of [
+    { action: 'registration', control: '#sc-a' },
+    { action: 'qfd', control: '#sc-b' },
+    { action: 'market', control: '#sc-c' },
+  ]) {
+    await page.locator(`label[for="${scenario.control.slice(1)}"]`).click();
+    await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight * 0.7));
+
+    const action = page.locator(
+      `[data-round-mobile-action="${scenario.action}"]`,
+    );
+    await expect(action).toBeVisible();
+
+    const actionBox = await action.boundingBox();
+    const viewport = page.viewportSize();
+
+    expect(actionBox).not.toBeNull();
+    expect(viewport).not.toBeNull();
+    expect(actionBox?.y).toBeGreaterThanOrEqual(0);
+    expect((actionBox?.y || 0) + (actionBox?.height || 0)).toBeLessThanOrEqual(
+      viewport?.height || 0,
+    );
+  }
+});
+
 test('legacy state legends do not overlap the shared sticky navigation', async ({
   page,
 }) => {

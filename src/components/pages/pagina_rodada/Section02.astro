@@ -1,3 +1,7 @@
+---
+const marketsUrl = 'https://macromarkets.com/br/markets?utm_source=round_page&utm_medium=content&utm_campaign=round_premium';
+---
+
 <div class="pane" id="p-c">
 <div class="ord">
   <span class="lb">Ordem</span>
@@ -22,6 +26,36 @@
       <div class="st"><span>● Mercados abertos</span><span>Atualizado hoje, 14h20</span></div>
     </div>
     <div class="prembar"><span class="badge-prem">Premium do Brasileirão</span><span class="vd">ativo até 07/12/2026</span></div>
+
+    <section class="round-summary round-summary--premium" data-round-summary="premium" aria-labelledby="round-summary-premium-title">
+      <div class="round-summary__heading">
+        <span>Leitura prioritária</span>
+        <h2 id="round-summary-premium-title">Comece pelos três sinais que podem mudar a rodada</h2>
+      </div>
+      <div class="round-summary__grid">
+        <article>
+          <span>Maior divergência</span>
+          <strong>Cruzeiro +8 pp</strong>
+          <p>Mercado em 38%, modelo em 46%, com peso para calendário e desempenho no Mineirão.</p>
+        </article>
+        <article>
+          <span>Maior risco de tabela</span>
+          <strong>Palmeiras defende a liderança</strong>
+          <p>Uma derrota combinada com vitória do Flamengo altera o topo antes da rodada acabar.</p>
+        </article>
+        <article>
+          <span>Jogo para acompanhar ao vivo</span>
+          <strong>Vitória × Bahia</strong>
+          <p>Clássico curto no histórico, mas com movimento recente a favor do visitante.</p>
+        </article>
+      </div>
+    </section>
+    <a
+      class="round-mobile-action"
+      data-round-mobile-action="market"
+      data-round-cta="market"
+      href={marketsUrl}
+    >Ver mercados do Brasileirão</a>
 
     <!-- 2 · VEREDITO 10 DE 10 -->
     <div class="sec on" style="background:var(--dark2);border-color:var(--dark3)">
@@ -153,6 +187,13 @@
       </div>
       <div class="nt">Ordenado por divergência contra o modelo, não por horário.</div>
     </div>
+
+    <details class="round-depth round-depth--premium" data-round-depth="premium">
+      <summary>
+        <span>Abrir a leitura técnica dos confrontos</span>
+        <small>Indicadores, cenários, curva de gols, desfalques, agente, notícias, chat e confiança do dado</small>
+      </summary>
+      <div class="round-depth__content">
 
     <!-- 6 · INDICADORES COM SÉRIE E PERCENTIL -->
     <div class="sec on" style="background:var(--dark2);border-color:var(--dark3)">
@@ -305,11 +346,14 @@
       </div>
     </div>
 
+      </div>
+    </details>
+
     <!-- 14 · CTA -->
-    <div class="ctaz dkz">
-      <div class="cl">CTA primário único</div>
+    <div id="round-market-action" class="ctaz dkz">
+      <div class="cl">Próxima ação</div>
       <div class="cp">Nada de pitch: o veredito, o dossiê e os cenários já estão abertos. O único passo que falta é <b>operar no mercado do jogo de maior divergência da rodada</b> — 38% no mercado, 46% no modelo.</div>
-      <a class="btn">Abrir o mercado de Cruzeiro × Flamengo</a>
+      <a class="btn" data-round-cta="market" href={marketsUrl}>Ver mercados do Brasileirão</a>
       <div class="sub">Sáb · 20h30 · Mineirão · mercado fecha no apito inicial</div>
     </div>
 

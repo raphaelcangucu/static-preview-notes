@@ -1,6 +1,5 @@
 ---
 import PageHeader from '../components/PageHeader.astro';
-import Timeline from '../components/Timeline.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { documentBySlug } from '../lib/documents';
 import Section01 from '../components/pages/pagina_lps_waitlist/Section01.astro';
@@ -14,17 +13,18 @@ const document = documentBySlug("pagina_lps_waitlist");
 ---
 
 <BaseLayout document={document}>
-  <PageHeader eyebrow={""} title={"Quatro landings — um tema, um foco"} description={"Destino dos e-mails da campanha Waitlist → Cadastro. Evergreen: nenhum jogo da semana. A prova, quando existe, é método ou caso encerrado. Cadastro só onde o job é converter."} />
-  <section class="shell-container mb-4" aria-label="Linha do tempo da campanha">
-    <Timeline items={[{"label":"LP 1","title":"Expectativa","description":"Confirma o que chega pela lista."},{"label":"LP 2","title":"Método","description":"Expõe a gramática completa de leitura."},{"label":"LP 3","title":"Empresa","description":"Apresenta princípios e limites."},{"label":"LP 4","title":"Perfil","description":"Captura a finalidade de uso."}]} />
-  </section>
-  <article class="astro-document">
+  <PageHeader
+    eyebrow={""}
+    title={"Análises exclusivas com conta grátis"}
+    description={"Uma única landing institucional para demonstrar o valor que permanece atualizado na plataforma e devolver cada leitor ao conteúdo que motivou o cadastro."}
+  />
+  <article class="astro-document" data-institutional-lp>
     <div class="wrap">
-    <Section01 />
-    <Section02 />
-    <Section03 />
-    <Section04 />
-    <Section05 />
+      <Section01 />
+      <Section02 />
+      <Section03 />
+      <Section04 />
+      <Section05 />
     </div>
   </article>
 </BaseLayout>

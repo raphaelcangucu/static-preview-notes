@@ -52,10 +52,10 @@ export const documents = [
   {
     slug: 'pagina_lps_waitlist',
     filename: 'pagina_lps_waitlist.html',
-    label: 'LPs Waitlist',
-    title: 'Macro Markets — LPs da campanha Waitlist → Cadastro',
+    label: 'LP institucional',
+    title: 'Macro Markets — Análises exclusivas com conta grátis',
     description:
-      'Landing pages da campanha evergreen de waitlist da Macro Markets.',
+      'Landing institucional da campanha waitlist para apresentar análises exclusivas e converter para uma conta grátis.',
   },
 ] as const;
 

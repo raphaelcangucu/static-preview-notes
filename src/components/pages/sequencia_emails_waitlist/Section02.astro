@@ -1,72 +1,451 @@
-<div class="mail">
-  <div class="mmeta"><span class="dtag">D+4</span><span class="evt">waitlist_company</span></div>
-  <div class="client">
-    <div class="cbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span> Caixa de entrada</div>
-    <div class="chead">
-      <span class="av"></span>
-      <div class="cfrom"><b>Dale · Macro Markets</b><span>dale@macro.markets → você</span></div>
+---
+import {
+  ATTRIBUTION_CAMPAIGNS,
+  DESTINATIONS,
+  REQUIRED_EVENT_PROPERTIES,
+  TRACKING_EVENTS,
+  trackedDestination,
+} from '../../../lib/waitlistCampaign';
+
+const hubDiscoveryUrl = trackedDestination(
+  DESTINATIONS.hub,
+  'e1_discovery',
+);
+const hubDeepeningUrl = trackedDestination(
+  DESTINATIONS.hub,
+  'e1_deepening',
+);
+const roundDeepeningUrl = trackedDestination(
+  DESTINATIONS.round,
+  'e1_deepening',
+);
+const lpDiscoveryUrl = trackedDestination(
+  DESTINATIONS.institutionalLp.replace(
+    'lp-exclusive-hero',
+    'lp-exclusive-comparison',
+  ),
+  'e2_discovery',
+);
+const lpDeepeningUrl = trackedDestination(
+  DESTINATIONS.institutionalLp.replace(
+    'lp-exclusive-hero',
+    'lp-exclusive-demo',
+  ),
+  'e2_deepening',
+  { returnUrl: '{{return_url|url_encode}}' },
+);
+const blogDiscoveryUrl = trackedDestination(
+  DESTINATIONS.blog,
+  'e3_discovery',
+);
+const registrationUrl = trackedDestination(
+  DESTINATIONS.registration,
+  'e3_deepening',
+  { returnUrl: '{{return_url|url_encode}}' },
+);
+const gateRecoveryUrl = trackedDestination(
+  DESTINATIONS.registration,
+  'gate_recovery_1',
+  { returnUrl: '{{return_url|url_encode}}' },
+);
+const registrationRecoveryUrl = trackedDestination(
+  DESTINATIONS.registration,
+  'registration_recovery_1',
+  {
+    returnUrl: '{{return_url|url_encode}}',
+    resumeToken: '{{resume_token|url_encode}}',
+  },
+);
+
+type EmailVariantContract = {
+  id: string;
+  label: string;
+  subject: string;
+  preview: string;
+  argument: string;
+  cta: string;
+  href: string;
+  destination: string;
+  suppression: string;
+  timing?: string;
+};
+
+const e1Variants: EmailVariantContract[] = [
+  {
+    id: 'e1_discovery',
+    label: 'Descoberta',
+    subject: 'Sua conta grátis abre o que o e-mail não consegue mostrar',
+    preview:
+      'Comece pelo panorama do campeonato e veja onde a análise continua.',
+    argument:
+      'A lista mantém o leitor orientado; o Hub organiza o panorama e mostra onde existem camadas atualizadas.',
+    cta: 'Explorar o Hub',
+    href: hubDiscoveryUrl,
+    destination: 'Hub · panorama do campeonato',
+    suppression:
+      'Suprimir para Rodada, 2+, intenção de gate e abandono de cadastro.',
+  },
+  {
+    id: 'e1_deepening_hub',
+    label: 'Aprofundamento · viu Hub',
+    subject: 'Você já viu o panorama. Agora veja o que muda na rodada.',
+    preview:
+      'O contexto aparece quando os dados saem da tabela e entram no confronto.',
+    argument:
+      'Reconhecer a visita ao Hub e avançar para a Página da Rodada.',
+    cta: 'Ver a análise da rodada',
+    href: roundDeepeningUrl,
+    destination: 'Rodada · visão geral',
+    suppression: 'Suprimir a apresentação do Hub.',
+  },
+  {
+    id: 'e1_deepening_blog',
+    label: 'Aprofundamento · viu Blog',
+    subject: 'Os números por trás da análise estão no Hub',
+    preview: 'Do artigo ao panorama atualizado do campeonato.',
+    argument:
+      'Conectar a leitura editorial ao acompanhamento estruturado.',
+    cta: 'Ver o panorama completo',
+    href: hubDeepeningUrl,
+    destination: 'Hub · panorama do campeonato',
+    suppression: 'Suprimir a apresentação genérica do Blog.',
+  },
+];
+
+const e2Variants: EmailVariantContract[] = [
+  {
+    id: 'e2_discovery',
+    label: 'Descoberta',
+    subject: 'Por que as análises mais importantes não chegam por e-mail',
+    preview:
+      'Números exatos, histórico e contexto mudam; a plataforma mantém tudo atualizado.',
+    argument:
+      'O inbox não comporta a análise viva nem seu histórico.',
+    cta: 'Ver o que a conta grátis libera',
+    href: lpDiscoveryUrl,
+    destination: 'LP institucional · comparação',
+    suppression:
+      'Substituir por recuperação quando houver intenção de gate ou abandono.',
+  },
+  {
+    id: 'e2_deepening',
+    label: 'Aprofundamento',
+    subject: 'O que estava por trás dos trechos que você abriu',
+    preview:
+      'Veja contexto, cenários e síntese sem perder o ponto em que você parou.',
+    argument:
+      'Reconhecer a leitura anterior e demonstrar as três camadas exclusivas.',
+    cta: 'Conhecer as análises exclusivas',
+    href: lpDeepeningUrl,
+    destination: 'LP institucional · demonstração, com retorno preservado',
+    suppression:
+      'Substituir por recuperação quando houver intenção de gate ou abandono.',
+  },
+];
+
+const e3Variants: EmailVariantContract[] = [
+  {
+    id: 'e3_discovery',
+    label: 'Descoberta',
+    subject: 'Veja uma análise completa antes de decidir',
+    preview:
+      'O artigo mostra o método; a conta abre os números e o histórico.',
+    argument:
+      'Usar um artigo metodológico como prova final sem promessa de resultado.',
+    cta: 'Ler a análise',
+    href: blogDiscoveryUrl,
+    destination: 'Blog · metodologia',
+    suppression:
+      'Suprimir quando houver intenção de gate ou abandono de cadastro.',
+  },
+  {
+    id: 'e3_deepening',
+    label: 'Aprofundamento',
+    subject: 'Retome exatamente de onde você parou',
+    preview: 'Sua conta grátis abre a camada que você tentou consultar.',
+    argument: 'Reduzir fricção e preservar o contexto da superfície recente.',
+    cta: 'Criar conta e continuar',
+    href: registrationUrl,
+    destination: 'Cadastro com retorno à superfície mais recente',
+    suppression:
+      'Suprimir quando houver recuperação de gate ou de cadastro.',
+  },
+  {
+    id: 'gate_recovery',
+    label: 'Recuperação de gate',
+    subject: 'A análise que você abriu continua disponível',
+    preview: 'Crie a conta grátis e volte ao mesmo ponto.',
+    argument:
+      'Retomar exatamente o teaser clicado sem reiniciar a descoberta.',
+    cta: 'Continuar a análise',
+    href: gateRecoveryUrl,
+    destination: 'Cadastro com return_url exata do teaser',
+    suppression: 'Suprimir toda a sequência regular.',
+    timing:
+      'Primeira recuperação 2 horas após o clique; segunda recuperação 72 horas após a primeira recuperação, se houver slot.',
+  },
+  {
+    id: 'registration_recovery',
+    label: 'Recuperação de cadastro',
+    subject: 'Seu cadastro ficou no meio do caminho',
+    preview: 'Retome sem perder a análise que trouxe você até aqui.',
+    argument:
+      'Retomar a sessão de cadastro sem perder o conteúdo de origem.',
+    cta: 'Retomar cadastro',
+    href: registrationRecoveryUrl,
+    destination: 'Sessão de cadastro retomável com return_url preservada',
+    suppression: 'Suprimir sequência regular e recuperação de gate.',
+    timing:
+      'Primeira recuperação 1 hora após abandono; lembrete opcional 24 horas depois, se houver slot.',
+  },
+];
+---
+
+<div class="phase-heading">
+  <p class="eyebrow">Previews editoriais</p>
+  <h2>Três mensagens, recalculadas antes do envio</h2>
+  <p>
+    Os painéis de planejamento ficam fora dos corpos. Cada contato recebe no
+    máximo três mensagens, incluindo qualquer recuperação.
+  </p>
+</div>
+
+<section class="email-preview" data-email-preview aria-labelledby="email-preview-e1">
+  <div class="planning-header">
+    <div>
+      <p class="eyebrow">E1 · Orientação</p>
+      <h2 id="email-preview-e1">Próxima superfície útil</h2>
     </div>
-    <div class="csubj">O que a Macro Markets recusa fazer</div>
-    <div class="cpre"><b>Empresa</b>Sem odd. Sem stake. Sem “aposte em”. O resto cabe em uma página.</div>
-    <div class="cbody">
-      <h3>Três dias de lista. Um parágrafo sobre quem manda isso.</h3>
-      <p>A Macro Markets lê futebol do mesmo jeito que lê qualquer mercado: preço, o que mudou, e por quê. A âncora aqui é a rodada — não o ativo financeiro.</p>
-      <p>Premium não é palpite pago. É a mesma leitura, com a conta aberta. A página institucional conta a empresa, o método e o que fica de fora. O cadastro, se fizer sentido, está no final dela — não neste e-mail.</p>
-      <p class="sign">O ciclo da rodada segue, independente desta conversa.<br>— Dale</p>
+    <dl class="planning-grid">
+      <div><dt>Estado</dt><dd>never_viewed · viewed_hub · viewed_blog</dd></div>
+      <div><dt>Variante</dt><dd>discovery / deepening</dd></div>
+      <div><dt>Timing</dt><dd>30 minutos após entrada</dd></div>
+      <div><dt>Job</dt><dd>Avançar sem repetir o que já foi visto.</dd></div>
+      <div><dt>CTA</dt><dd>Hub ou Rodada</dd></div>
+      <div><dt>Destino</dt><dd>Âncora da próxima superfície.</dd></div>
+      <div><dt>Supressão</dt><dd>Rodada, 2+, intenção e abandono.</dd></div>
+    </dl>
+  </div>
 
-      <a class="cta blue" href="/static-preview-notes/pagina_lps_waitlist.html#lp3">Conhecer a Macro Markets</a>
-      <div class="subcta">Job desta peça: confiança. Conversão, se houver, é da LP — não do botão acima pedindo conta.</div>
-
-      <div class="opt">
-        <a href="#">Não quero mais receber esses e-mails</a>
-        <s>Tão fácil de achar quanto o CTA azul.</s>
-      </div>
-      <div class="cfoot">A LP é sobre a empresa. Não sobre depósito.</div>
+  <div class="email-client">
+    <div class="email-client-bar">Caixa de entrada</div>
+    <div class="email-sender">
+      <span class="email-avatar" aria-hidden="true"></span>
+      <span><b>Dale · Macro Markets</b><small>dale@macro.markets → você</small></span>
+    </div>
+    <div class="email-body" data-email-body>
+      <p class="email-subject">Sua conta grátis abre o que o e-mail não consegue mostrar</p>
+      <p class="email-preview-line"><b>Prévia</b> Comece pelo panorama do campeonato e veja onde a análise continua.</p>
+      <h3>O panorama organiza o que muda</h3>
+      <p>
+        A lista mantém você orientado. No Hub, o campeonato fica organizado em
+        uma única superfície e mostra onde existem camadas atualizadas para
+        continuar a leitura.
+      </p>
+      <a class="email-cta" href={hubDiscoveryUrl}>Explorar o Hub</a>
+      <a class="email-opt-out" href="https://macromarkets.com/br/preferencias">Não quero mais receber estes e-mails</a>
+      <p class="email-footer">Conteúdo informativo. Você pode ajustar sua frequência a qualquer momento.</p>
     </div>
   </div>
-  <div class="mobj"><b>Job:</b> autoridade. <s>CTA = LP institucional. Não pede conta no e-mail para não competir com o E2. Quem não converteu no método ganha a história; a LP decide o próximo passo.</s></div>
-</div>
-<div class="mail">
-  <div class="mmeta"><span class="dtag re">Evento · 2 aberturas do Bloco 8</span><span class="evt">waitlist_profile_survey</span></div>
-  <div class="client">
-    <div class="cbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span> Caixa de entrada</div>
-    <div class="chead">
-      <span class="av"></span>
-      <div class="cfrom"><b>Dale · Macro Markets</b><span>dale@macro.markets → você</span></div>
+
+  <div class="email-variant-notes" aria-label="Contratos editoriais do E1">
+    {e1Variants.map((variant) => (
+      <article data-email-variant={variant.id}>
+        <b>{variant.label}</b>
+        <dl class="variant-contract">
+          <div><dt>Assunto</dt><dd data-variant-field="subject">{variant.subject}</dd></div>
+          <div><dt>Preview</dt><dd data-variant-field="preview">{variant.preview}</dd></div>
+          <div><dt>Argumento</dt><dd data-variant-field="argument">{variant.argument}</dd></div>
+          <div><dt>CTA</dt><dd data-variant-field="cta">{variant.cta}</dd></div>
+          <div>
+            <dt>Destino</dt>
+            <dd data-variant-field="destination">
+              <a href={variant.href}>{variant.destination}</a>
+            </dd>
+          </div>
+          <div><dt>Supressão</dt><dd data-variant-field="suppression">{variant.suppression}</dd></div>
+        </dl>
+      </article>
+    ))}
+  </div>
+</section>
+
+<section class="email-preview" data-email-preview aria-labelledby="email-preview-e2">
+  <div class="planning-header">
+    <div>
+      <p class="eyebrow">E2 · Prova institucional</p>
+      <h2 id="email-preview-e2">Valor da conta grátis</h2>
     </div>
-    <div class="csubj">&#123;&#123;first_name|Aí&#125;&#125;, uma pergunta — para a próxima leitura chegar no tom certo</div>
-    <div class="cpre"><b>Perfil</b>Você abriu dois relatórios da rodada. Falta a finalidade.</div>
-    <div class="cbody">
-      <h3>Para que você usa o que a gente manda?</h3>
-      <p>Não é cadastro. Não é oferta. É para o ciclo da rodada virar Insights (mais número) ou Contexto (mais circunstância).</p>
-      <p>Vinte segundos. Um clique. Quem não responde vê esta pergunta de novo em 30 dias — e só esta.</p>
-      <p class="sign">A tag não muda o que é grátis. Muda a ênfase.<br>— Dale</p>
+    <dl class="planning-grid">
+      <div><dt>Estado</dt><dd>estados regulares sem intenção explícita</dd></div>
+      <div><dt>Variante</dt><dd>discovery / deepening</dd></div>
+      <div><dt>Timing</dt><dd>72 horas após o último envio</dd></div>
+      <div><dt>Job</dt><dd>Mostrar por que a análise completa vive na plataforma.</dd></div>
+      <div><dt>CTA</dt><dd>Ver o que a conta grátis libera</dd></div>
+      <div><dt>Destino</dt><dd>LP institucional única.</dd></div>
+      <div><dt>Supressão</dt><dd>Intenção de cadastro ou abandono.</dd></div>
+    </dl>
+  </div>
 
-      <a class="cta blue" href="/static-preview-notes/pagina_lps_waitlist.html#lp4">Responder em 20 segundos</a>
-      <div class="subcta">Quatro opções. Uma tag. Sem página de venda no meio.</div>
-
-      <div class="opt">
-        <a href="#">Não quero mais receber esses e-mails</a>
-        <s>Inclusive esta pesquisa.</s>
-      </div>
-      <div class="cfoot">Gatilho: 2 e-mails do ciclo de rodada <b>abertos</b>. Não enviados.</div>
+  <div class="email-client">
+    <div class="email-client-bar">Caixa de entrada</div>
+    <div class="email-sender">
+      <span class="email-avatar" aria-hidden="true"></span>
+      <span><b>Dale · Macro Markets</b><small>dale@macro.markets → você</small></span>
+    </div>
+    <div class="email-body" data-email-body>
+      <p class="email-subject">Por que as análises mais importantes não chegam por e-mail</p>
+      <p class="email-preview-line"><b>Prévia</b> Números exatos, histórico e contexto mudam; a plataforma mantém tudo atualizado.</p>
+      <h3>A análise viva precisa de histórico</h3>
+      <p>
+        O inbox entrega o recorte que orienta. A conta grátis reúne números
+        exatos, histórico, contexto aprofundado, cenários e a síntese atualizada
+        no mesmo lugar.
+      </p>
+      <a class="email-cta" href={lpDiscoveryUrl}>Ver o que a conta grátis libera</a>
+      <a class="email-opt-out" href="https://macromarkets.com/br/preferencias">Não quero mais receber estes e-mails</a>
+      <p class="email-footer">Conta grátis, sem cartão. Conteúdo informativo.</p>
     </div>
   </div>
-  <div class="mobj"><b>Job:</b> TAG de perfil. <s>E-mail convoca; a LP coleta. Sem CTA de conta. Insights vs Contexto é o corte que o Bloco 8 usa daqui pra frente.</s></div>
-</div>
-<div class="tnote"><b>Fim de campanha.</b> Depois do E4, quem não cadastrou sai da fila. Continua no Bloco 8. Sem “última chance”. Quem cadastra cai na campanha ② (Bloco 12).</div>
-<div class="metrics">
-  <h2>Plano de métricas</h2>
-  <table>
-    <thead>
-      <tr><th>Peça</th><th>Destino</th><th>Métrica primária</th><th>Não medir aqui</th></tr>
-    </thead>
-    <tbody>
-      <tr><td><b>E1</b></td><td>LP Expectativa</td><td>Abertura + clique na LP (curiosidade)</td><td>Cadastro</td></tr>
-      <tr><td><b>E2</b></td><td>LP Método</td><td>Cadastro concluído a partir desta LP</td><td>Depósito / Premium</td></tr>
-      <tr><td><b>E3</b></td><td>LP Empresa</td><td>Clique na LP · cadastro como secundário da página</td><td>Cadastro no e-mail</td></tr>
-      <tr><td><b>E4</b></td><td>LP Perfil</td><td>Resposta (qualquer tag)</td><td>Qual tag “vende”</td></tr>
-      <tr><td><b>Campanha</b></td><td>—</td><td>Cadastro em 7 dias <i>ou</i> preferência salva</td><td>Unsubscribe cego</td></tr>
-    </tbody>
-  </table>
-</div>
+
+  <div class="email-variant-notes" aria-label="Contratos editoriais do E2">
+    {e2Variants.map((variant) => (
+      <article data-email-variant={variant.id}>
+        <b>{variant.label}</b>
+        <dl class="variant-contract">
+          <div><dt>Assunto</dt><dd data-variant-field="subject">{variant.subject}</dd></div>
+          <div><dt>Preview</dt><dd data-variant-field="preview">{variant.preview}</dd></div>
+          <div><dt>Argumento</dt><dd data-variant-field="argument">{variant.argument}</dd></div>
+          <div><dt>CTA</dt><dd data-variant-field="cta">{variant.cta}</dd></div>
+          <div>
+            <dt>Destino</dt>
+            <dd data-variant-field="destination">
+              <a href={variant.href}>{variant.destination}</a>
+            </dd>
+          </div>
+          <div><dt>Supressão</dt><dd data-variant-field="suppression">{variant.suppression}</dd></div>
+        </dl>
+      </article>
+    ))}
+  </div>
+</section>
+
+<section class="email-preview" data-email-preview aria-labelledby="email-preview-e3">
+  <div class="planning-header">
+    <div>
+      <p class="eyebrow">E3 · Decisão / recuperação</p>
+      <h2 id="email-preview-e3">Retorno ao conteúdo de maior intenção</h2>
+    </div>
+    <dl class="planning-grid">
+      <div><dt>Estado</dt><dd>regular, gate_intent ou registration_abandonment</dd></div>
+      <div><dt>Variante</dt><dd>discovery / deepening / recuperações</dd></div>
+      <div><dt>Timing</dt><dd>96h regular · 2h intenção · 1h abandono</dd></div>
+      <div><dt>Job</dt><dd>Oferecer decisão clara e preservar contexto.</dd></div>
+      <div><dt>CTA</dt><dd>Artigo, continuar análise ou retomar cadastro.</dd></div>
+      <div><dt>Destino</dt><dd>Blog ou cadastro com return_url.</dd></div>
+      <div><dt>Supressão</dt><dd>Recuperações substituem regulares.</dd></div>
+    </dl>
+  </div>
+
+  <div class="email-client">
+    <div class="email-client-bar">Caixa de entrada</div>
+    <div class="email-sender">
+      <span class="email-avatar" aria-hidden="true"></span>
+      <span><b>Dale · Macro Markets</b><small>dale@macro.markets → você</small></span>
+    </div>
+    <div class="email-body" data-email-body>
+      <p class="email-subject">Veja uma análise completa antes de decidir</p>
+      <p class="email-preview-line"><b>Prévia</b> O artigo mostra o método; a conta abre os números e o histórico.</p>
+      <h3>Leia o método no próprio conteúdo</h3>
+      <p>
+        O artigo mostra como dados, contexto e tendências viram uma leitura de
+        cenário. Você pode conhecer o método antes de escolher se quer abrir as
+        camadas completas.
+      </p>
+      <a class="email-cta" href={blogDiscoveryUrl}>Ler a análise</a>
+      <a class="email-opt-out" href="https://macromarkets.com/br/preferencias">Não quero mais receber estes e-mails</a>
+      <p class="email-footer">Conteúdo informativo. Sem promessa de resultado.</p>
+    </div>
+  </div>
+
+  <div class="email-variant-notes recovery-grid" aria-label="Contratos editoriais do E3 e recuperações">
+    {e3Variants.map((variant) => (
+      <article data-email-variant={variant.id}>
+        <b>{variant.label}</b>
+        {variant.timing && <p class="variant-timing">{variant.timing}</p>}
+        <dl class="variant-contract">
+          <div><dt>Assunto</dt><dd data-variant-field="subject">{variant.subject}</dd></div>
+          <div><dt>Preview</dt><dd data-variant-field="preview">{variant.preview}</dd></div>
+          <div><dt>Argumento</dt><dd data-variant-field="argument">{variant.argument}</dd></div>
+          <div><dt>CTA</dt><dd data-variant-field="cta">{variant.cta}</dd></div>
+          <div>
+            <dt>Destino</dt>
+            <dd data-variant-field="destination">
+              <a href={variant.href}>{variant.destination}</a>
+            </dd>
+          </div>
+          <div><dt>Supressão</dt><dd data-variant-field="suppression">{variant.suppression}</dd></div>
+        </dl>
+      </article>
+    ))}
+  </div>
+</section>
+
+<section class="campaign-panel" data-instrumentation-catalog aria-labelledby="instrumentation-title">
+  <p class="eyebrow">Catálogo de planejamento</p>
+  <h2 id="instrumentation-title">Eventos e propriedades obrigatórias</h2>
+  <div class="instrumentation-grid">
+    <article>
+      <h3>{TRACKING_EVENTS.length} eventos</h3>
+      <div class="code-list">
+        {TRACKING_EVENTS.map((eventName) => <code>{eventName}</code>)}
+      </div>
+    </article>
+    <article>
+      <h3>{REQUIRED_EVENT_PROPERTIES.length} propriedades</h3>
+      <div class="code-list">
+        {REQUIRED_EVENT_PROPERTIES.map((propertyName) => <code>{propertyName}</code>)}
+      </div>
+    </article>
+  </div>
+  <div class="deduplication-notes">
+    <p><b>Idempotência:</b> um registro por <code>event_id</code>.</p>
+    <p><b>Exposição:</b> deduplicar por <code>session_id + gate_id</code>.</p>
+    <p><b>Cliques:</b> unir a próxima página pelo <code>click_id</code>.</p>
+  </div>
+</section>
+
+<section class="campaign-panel" data-attribution-model aria-labelledby="attribution-title">
+  <p class="eyebrow">Atribuição preservada</p>
+  <h2 id="attribution-title">Três modelos e campanhas distintas</h2>
+  <div class="attribution-grid">
+    <article><h3>First touch</h3><p>Primeiro toque identificável, imutável.</p></article>
+    <article><h3>Last meaningful touch</h3><p>Última ação relevante antes do cadastro; abertura isolada não conta.</p></article>
+    <article data-attribution-touch="multi-touch">
+      <h3>Multi-touch</h3>
+      <p>Sequência ordenada com campanha, conteúdo, variante, <code>click_id</code> e timestamp.</p>
+    </article>
+  </div>
+  <div class="campaign-codes">
+    <code>{ATTRIBUTION_CAMPAIGNS.block8}</code>
+    <code>{ATTRIBUTION_CAMPAIGNS.waitlist}</code>
+  </div>
+  <pre class="utm-example"><code>utm_source=mautic
+utm_medium=email
+utm_campaign=waitlist_value_nurture
+utm_content=e2_deepening
+click_id={'{{click_id}}'}</code></pre>
+</section>
+
+<section class="campaign-panel exit-flow" id="registration-exit-flow" aria-labelledby="registration-exit-title">
+  <p class="eyebrow">Saída por cadastro concluído</p>
+  <h2 id="registration-exit-title">Da jornada ao onboarding sem perder a origem</h2>
+  <ol>
+    <li>Cancelar mensagens regulares e recuperações pendentes.</li>
+    <li>Registrar <code>journey_exited</code> com motivo <code>registration_completed</code>.</li>
+    <li>Preservar first touch, last meaningful touch e multi-touch.</li>
+    <li>Validar <code>return_url</code> contra caminhos permitidos do mesmo domínio.</li>
+    <li>Voltar ao conteúdo de origem; se inválido, usar o Hub.</li>
+    <li>Iniciar onboarding e impedir reentrada nesta jornada.</li>
+  </ol>
+</section>
